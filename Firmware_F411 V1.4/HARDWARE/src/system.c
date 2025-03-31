@@ -31,7 +31,6 @@ void systemInit(void)
 	commInit();			/*通信初始化  STM32 & NRF51822 */
 	atkpInit();			/*传输协议初始化*/
 	consoleInit();		/*打印初始化*/
-	printf("<--------------------->\n");
 	
 	configParamInit();	/*初始化配置参数*/
 	pmInit();			/*电源管理初始化*/

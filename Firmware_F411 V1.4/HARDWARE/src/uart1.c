@@ -24,8 +24,6 @@
 ********************************************************************************/
 
 
-#define WIFI_DATA_LEN	8
-
 static bool isInit = false;
 static xQueueHandle uart1queue;
 

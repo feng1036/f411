@@ -63,8 +63,7 @@ typedef enum
 
 typedef enum
 {
-	ATK_REMOTER = 0,
-	WIFI		= 1,
+	ATK_REMOTER = 0
 }ctrlSrc_e;
 	
 void commanderInit(void);

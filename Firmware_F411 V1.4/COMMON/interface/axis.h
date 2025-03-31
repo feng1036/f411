@@ -8,7 +8,6 @@ typedef enum {
 
 #define XYZ_AXIS_COUNT 3
 
-// See http://en.wikipedia.org/wiki/Flight_dynamics
 typedef enum {
     FD_ROLL = 0,
     FD_PITCH,

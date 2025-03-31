@@ -19,8 +19,6 @@ enum expModuleID
 {
 	NO_MODULE,
 	LED_RING,
-	WIFI_CAMERA,
-	OPTICAL_FLOW,
 	MODULE1,
 };
 

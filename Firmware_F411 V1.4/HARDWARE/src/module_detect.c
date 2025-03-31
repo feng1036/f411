@@ -20,8 +20,6 @@
 #define  ADC_SAMPLE_NUM		10	 //采样次数
 
 #define  ADC_LED_RING		2048 //RGB灯坏模块的R1:R2 = 10K :10K
-#define  ADC_WIFI_CAMERA	4095 //摄像头模块的R1 = 10K 
-#define  ADC_OPTICAL_FLOW	2815 //光流模块2的R1:R2 = 10K :22K
 #define  ADC_MODULE1		1280 //MODULE1模块1的R1:R2 = 22K :10K
 
 #define  ADC_MODULE_RANGE	50	 //允许模块电压变化范围值
@@ -122,10 +120,6 @@ enum expModuleID getModuleDriverID(void)
 		
 		if(my_abs(sum-ADC_LED_RING) <= ADC_MODULE_RANGE)	
 			moduleID = LED_RING;
-		else if(my_abs(sum-ADC_WIFI_CAMERA) <= ADC_MODULE_RANGE)		
-			moduleID = WIFI_CAMERA;			
-		else if(my_abs(sum-ADC_OPTICAL_FLOW) <= ADC_MODULE_RANGE)	
-			moduleID = OPTICAL_FLOW;
 		else if(my_abs(sum-ADC_MODULE1) <= ADC_MODULE_RANGE)		
 			moduleID = MODULE1;
 		else

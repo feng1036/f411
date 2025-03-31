@@ -73,14 +73,14 @@ static void inavFilterCorrectPos(int axis, float dt, float e, float w)
     estimator.vel[axis] += w * ewdt;
 }
 /*速度校正*/
-static void inavFilterCorrectVel(int axis, float dt, float e, float w)
-{
-   estimator.vel[axis] += e * w * dt;
-}
+//static void inavFilterCorrectVel(int axis, float dt, float e, float w)
+//{
+//   estimator.vel[axis] += e * w * dt;
+//}
 
 void positionEstimate(sensorData_t* sensorData, state_t* state, float dt) 
 {	
-	static float rangeLpf = 0.f;
+//	static float rangeLpf = 0.f;
 	static float accLpf[3] = {0.f};		/*加速度低通*/	
 	float weight = wBaro;
 

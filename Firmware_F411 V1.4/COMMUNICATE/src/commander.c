@@ -35,7 +35,6 @@
 
 static bool isRCLocked;				/* 遥控锁定状态 */
 static ctrlValCache_t remoteCache;	/* 遥控缓存数据 */
-static ctrlValCache_t wifiCache;	/* wifi缓存数据 */
 static ctrlValCache_t* nowCache = &remoteCache;/*默认为遥控*/
 static ctrlVal_t ctrlValLpf = {0.f};/* 控制数据低通 */
 
@@ -71,29 +70,17 @@ static void ctrlDataUpdate(void)
 {
 	static float lpfVal = 0.2f;
 	u32 tickNow = getSysTickCnt();	
-
-	timestamp = tickNow - wifiCache.timestamp;
 	
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_STABILIZE) 
 	{
 		isRCLocked = false;			/*解锁*/
 		nowCache = &remoteCache;	/* 遥控缓存数据 */
 	}else 
-	if ((tickNow - wifiCache.timestamp) < COMMANDER_WDT_TIMEOUT_STABILIZE) 
-	{
-		isRCLocked = false;			/*解锁*/
-		nowCache = &wifiCache;		/* wifi缓存数据 */
-	}else 
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_SHUTDOWN) 
 	{
 		nowCache = &remoteCache;	/* 遥控缓存数据 */
 		commanderLevelRPY();
 	}else 
-	if ((tickNow - wifiCache.timestamp) < COMMANDER_WDT_TIMEOUT_SHUTDOWN) 
-	{
-		nowCache = &wifiCache;		/* wifi缓存数据 */
-		commanderLevelRPY();
-	} else 
 	{
 		isRCLocked = true;			/*锁定*/
 		nowCache = &remoteCache;
@@ -163,12 +150,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 			remoteCache.timestamp = getSysTickCnt();
 			break;
 		
-		case WIFI:
-			wifiCache.tarVal[!wifiCache.activeSide] = pk;
-			wifiCache.activeSide = !wifiCache.activeSide;
-			wifiCache.timestamp = getSysTickCnt();
-			break;
-		default :
+ 		  default:
 			break;
 	}
 }
@@ -390,5 +372,3 @@ void setCommanderEmerStop(bool set)
 {
 	commander.emerStop = set;
 }
-
-
