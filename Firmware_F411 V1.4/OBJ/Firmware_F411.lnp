@@ -59,6 +59,7 @@
 "..\obj\pm.o"
 "..\obj\radiolink.o"
 "..\obj\remoter_ctrl.o"
+"..\obj\com_queue.o"
 "..\obj\anomal_detec.o"
 "..\obj\attitude_pid.o"
 "..\obj\flip.o"
@@ -66,16 +67,16 @@
 "..\obj\position_pid.o"
 "..\obj\power_control.o"
 "..\obj\sensfusion6.o"
-"..\obj\sensors.o"
 "..\obj\stabilizer.o"
 "..\obj\state_control.o"
 "..\obj\state_estimator.o"
+"..\obj\sensors.o"
 "..\obj\debug_assert.o"
 "..\obj\freertosdebug.o"
 "..\obj\filter.o"
 "..\obj\filter2.o"
 "..\obj\maths.o"
---library_type=microlib --strict --scatter "..\OBJ\Firmware_F411.sct"
+--strict --scatter "..\OBJ\Firmware_F411.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "..\OBJ\Firmware_F411.map" -o ..\OBJ\Firmware_F411.axf

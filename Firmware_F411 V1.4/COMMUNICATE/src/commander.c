@@ -13,18 +13,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 获取遥控数据驱动代码
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
+
 
 #define CLIMB_RATE			100.f
 #define MAX_CLIMB_UP		100.f
@@ -204,7 +193,7 @@ void flyerAutoLand(setpoint_t *setpoint,const state_t *state)
 static bool initHigh = false;
 static bool isAdjustingPosZ = false;/*调整Z位置*/
 static bool isAdjustingPosXY = true;/*调整XY位置*/
-static u8 adjustPosXYTime = 0;		/*XY位置调整时间*/
+//static u8 adjustPosXYTime = 0;		/*XY位置调整时间*/
 static float errorPosX = 0.f;		/*X位移误差*/
 static float errorPosY = 0.f;		/*Y位移误差*/
 static float errorPosZ = 0.f;		/*Z位移误差*/

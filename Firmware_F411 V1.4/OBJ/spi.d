@@ -41,8 +41,7 @@
 ..\obj\spi.o: ..\HARDWARE\interface\nvic.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\spi.o: ..\FLIGHT\interface\stabilizer_types.h
-..\obj\spi.o: ..\FLIGHT\interface\sensors_types.h
-..\obj\spi.o: ..\COMMON\interface\axis.h
+..\obj\spi.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\spi.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\spi.o: ..\CONFIG\interface\FreeRTOSConfig.h
@@ -53,7 +52,7 @@
 ..\obj\spi.o: ..\FreeRTOS\include\deprecated_definitions.h
 ..\obj\spi.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
 ..\obj\spi.o: ..\FreeRTOS\include\mpu_wrappers.h
-..\obj\spi.o: ..\FreeRTOS\include\semphr.h
 ..\obj\spi.o: ..\FreeRTOS\include\queue.h
 ..\obj\spi.o: ..\FreeRTOS\include\task.h
 ..\obj\spi.o: ..\FreeRTOS\include\list.h
+..\obj\spi.o: ..\FreeRTOS\include\semphr.h

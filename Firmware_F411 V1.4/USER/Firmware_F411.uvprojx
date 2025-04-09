@@ -190,7 +190,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>1</useUlib>
+            <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -749,6 +749,11 @@
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\remoter_ctrl.c</FilePath>
             </File>
+            <File>
+              <FileName>com_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\COMMUNICATE\src\com_queue.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -790,11 +795,6 @@
               <FilePath>..\FLIGHT\src\sensfusion6.c</FilePath>
             </File>
             <File>
-              <FileName>sensors.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FLIGHT\src\sensors.c</FilePath>
-            </File>
-            <File>
               <FileName>stabilizer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\stabilizer.c</FilePath>
@@ -808,6 +808,11 @@
               <FileName>state_estimator.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\state_estimator.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FLIGHT\src\sensors.c</FilePath>
             </File>
           </Files>
         </Group>

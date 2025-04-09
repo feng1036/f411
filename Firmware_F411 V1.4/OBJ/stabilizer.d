@@ -60,9 +60,15 @@
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\comm.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\commander.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\stabilizer_types.h
-..\obj\stabilizer.o: ..\FLIGHT\interface\sensors_types.h
-..\obj\stabilizer.o: ..\COMMON\interface\axis.h
+..\obj\stabilizer.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\sensors.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\mpu6500.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\i2cdev.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\ak8963.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\bmp280.h
+..\obj\stabilizer.o: ..\COMMON\interface\filter.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\spl06.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\watchdog.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\pm.h

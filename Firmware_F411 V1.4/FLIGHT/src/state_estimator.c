@@ -4,7 +4,8 @@
 #include "maths.h"
 #include "stabilizer.h"
 #include "sensfusion6.h"
-
+#include "com_queue.h"
+#include "axis.h"
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
  * ALIENTEK MiniFly

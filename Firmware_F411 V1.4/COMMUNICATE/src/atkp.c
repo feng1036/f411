@@ -11,7 +11,7 @@
 #include "pm.h"
 #include "pid.h"
 #include "attitude_pid.h"
-#include "sensors.h"
+//#include "sensors.h"
 #include "position_pid.h"
 #include "config_param.h"
 #include "power_control.h"

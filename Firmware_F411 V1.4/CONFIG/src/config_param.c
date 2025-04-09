@@ -195,7 +195,7 @@ void configParamTask(void* param)
 			configParam.cksum = cksum;	/*数据校验*/
 			watchdogInit(500);			/*擦除时间比较长，看门狗时间设置大一些*/					
 			STMFLASH_Write(CONFIG_PARAM_ADDR,(u32 *)&configParam, lenth);	/*写入stm32 flash*/
-			watchdogInit(WATCHDOG_RESET_MS);		/*重新设置看门狗*/
+			//watchdogInit(WATCHDOG_RESET_MS);		/*重新设置看门狗*/
 		}						
 	}
 }

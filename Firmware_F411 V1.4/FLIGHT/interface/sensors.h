@@ -1,19 +1,13 @@
 #ifndef __SENSORS_H
 #define __SENSORS_H
-#include "stabilizer_types.h"
+#include "delay.h"
+#include "mpu6500.h"
+#include "ak8963.h"
+#include "bmp280.h"
+#include "filter.h"
+#include "spl06.h"
+#include "com_queue.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 传感器控制代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
 
 //#define SENSORS_ENABLE_MAG_AK8963
 #define SENSORS_ENABLE_PRESSURE_BMP280	/*气压计使用bmp280*/
@@ -22,20 +16,55 @@
 #define SENSOR9_UPDATE_RATE   	RATE_500_HZ
 #define SENSOR9_UPDATE_DT     	(1.0f/SENSOR9_UPDATE_RATE)
 
-	
+#define SENSORS_GYRO_FS_CFG       MPU6500_GYRO_FS_2000
+#define SENSORS_DEG_PER_LSB_CFG   MPU6500_DEG_PER_LSB_2000
+
+#define SENSORS_ACCEL_FS_CFG      MPU6500_ACCEL_FS_16	
+#define SENSORS_G_PER_LSB_CFG     MPU6500_G_PER_LSB_16
+
+#define SENSORS_NBR_OF_BIAS_SAMPLES		1024	/* 计算方差的采样样本个数 */
+#define GYRO_VARIANCE_BASE				4000	/* 陀螺仪零偏方差阈值 */
+#define SENSORS_ACC_SCALE_SAMPLES  		200		/* 加速计采样个数 */
+
+// MPU9250主机模式读取数据 缓冲区长度
+#define SENSORS_MPU6500_BUFF_LEN    14
+#define SENSORS_MAG_BUFF_LEN       	8
+#define SENSORS_BARO_STATUS_LEN		1
+#define SENSORS_BARO_DATA_LEN		6
+#define SENSORS_BARO_BUFF_LEN       (SENSORS_BARO_STATUS_LEN + SENSORS_BARO_DATA_LEN)
+
+/*低通滤波参数*/
+#define GYRO_LPF_CUTOFF_FREQ  80
+#define ACCEL_LPF_CUTOFF_FREQ 30
+
+typedef struct
+{
+	Axis3f     bias;
+	bool       isBiasValueFound;
+	bool       isBufferFilled;
+	Axis3i16*  bufHead;
+	Axis3i16   buffer[SENSORS_NBR_OF_BIAS_SAMPLES];
+}BiasObj; 
+
+static BiasObj	gyroBiasRunning;
+static Axis3f  gyroBias;
+static sensorData_t sensors;
+static lpf2pData accLpf[3];
+static lpf2pData gyroLpf[3];
+
+static Axis3i16	gyroRaw;
+static Axis3i16	accRaw;
+static Axis3i16 magRaw;
+static xSemaphoreHandle sensorsDataReady;
+static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_MAG_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
 void sensorsTask(void *param);
 void sensorsInit(void);			/*传感器初始化*/
-bool sensorsTest(void);			/*传感器测试*/
-bool sensorsAreCalibrated(void);	/*传感器数据校准*/
-void sensorsAcquire(sensorData_t *sensors, const u32 tick);/*获取传感器数据*/
 void getSensorRawData(Axis3i16* acc, Axis3i16* gyro, Axis3i16* mag);
-bool getIsMPU9250Present(void);
-bool getIsBaroPresent(void);
-
-/* 单独测量传感器数据 */
-bool sensorsReadGyro(Axis3f *gyro);
-bool sensorsReadAcc(Axis3f *acc);
-bool sensorsReadMag(Axis3f *mag);
-bool sensorsReadBaro(baro_t *baro);
-
+// bool getIsMPU9250Present(void);
+// bool getIsBaroPresent(void);
+static void applyAxis3fLpf(lpf2pData *data, Axis3f* in);
+static void sensorsBiasObjInit(BiasObj* bias);
+static void sensorsCalculateVarianceAndMean(BiasObj* bias, Axis3f* varOut, Axis3f* meanOut);
+static bool sensorsFindBiasValue(BiasObj* bias);
+static void sensorsAddBiasValue(BiasObj* bias, int16_t x, int16_t y, int16_t z);
 #endif //__SENSORS_H

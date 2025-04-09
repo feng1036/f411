@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "config_param.h": "c",
+        "axis.h": "c",
+        "sensors.h": "c",
+        "sys.h": "c",
+        "com_queue.h": "c",
+        "stdio.h": "c"
+    }
+}

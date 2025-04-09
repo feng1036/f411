@@ -1,6 +1,5 @@
 #include "system.h"
 #include "stabilizer.h"
-#include "sensors.h"
 #include "sensfusion6.h"
 #include "commander.h"
 #include "anomal_detec.h"
@@ -10,10 +9,7 @@
 #include "position_pid.h"
 #include "flip.h"
 #include "maths.h"
-
-/*FreeRTOS相关头文件*/
-#include "FreeRTOS.h"
-#include "task.h"
+#include "com_queue.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -114,12 +110,10 @@ void stabilizerTask(void* param)
 	u32 lastWakeTime = getSysTickCnt();
 	
 	ledseqRun(SYS_LED, seq_alive);
-	
-	while(!sensorsAreCalibrated())
-	{
-		vTaskDelayUntil(&lastWakeTime, MAIN_LOOP_DT);
-	}
-	
+	// while(!sensorsAreCalibrated())
+	// {
+	// 	vTaskDelayUntil(&lastWakeTime, MAIN_LOOP_DT);
+	// }
 	while(1) 
 	{
 		vTaskDelayUntil(&lastWakeTime, MAIN_LOOP_DT);		/*1ms周期延时*/
@@ -127,7 +121,8 @@ void stabilizerTask(void* param)
 		//获取6轴和气压数据（500Hz）
 		if (RATE_DO_EXECUTE(RATE_500_HZ, tick))
 		{
-			sensorsAcquire(&sensorData, tick);				/*获取6轴和气压数据*/
+			sensor_data_Read(&sensorData);
+						/*获取6轴和气压数据*/
 		}
 
 		//四元数和欧拉角计算（250Hz）

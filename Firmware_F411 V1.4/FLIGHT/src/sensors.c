@@ -1,121 +1,35 @@
 #include <math.h>
-#include "stdio.h"
-#include "delay.h"
-#include "config.h"
-#include "config_param.h"
-#include "ledseq.h"
-#include "mpu6500.h"
+#include <stdio.h>
 #include "sensors.h"
-#include "ak8963.h"
-#include "bmp280.h"
-#include "filter.h"
-#include "axis.h"
-#include "spl06.h"
 
-
-/*FreeRTOS相关头文件*/
-#include "FreeRTOS.h"
-#include "task.h"
-
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 传感器控制代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
-#define SENSORS_GYRO_FS_CFG       MPU6500_GYRO_FS_2000
-#define SENSORS_DEG_PER_LSB_CFG   MPU6500_DEG_PER_LSB_2000
-
-#define SENSORS_ACCEL_FS_CFG      MPU6500_ACCEL_FS_16	
-#define SENSORS_G_PER_LSB_CFG     MPU6500_G_PER_LSB_16
-
-#define SENSORS_NBR_OF_BIAS_SAMPLES		1024	/* 计算方差的采样样本个数 */
-#define GYRO_VARIANCE_BASE				4000	/* 陀螺仪零偏方差阈值 */
-#define SENSORS_ACC_SCALE_SAMPLES  		200		/* 加速计采样个数 */
-
-// MPU9250主机模式读取数据 缓冲区长度
-#define SENSORS_MPU6500_BUFF_LEN    14
-#define SENSORS_MAG_BUFF_LEN       	8
-#define SENSORS_BARO_STATUS_LEN		1
-#define SENSORS_BARO_DATA_LEN		6
-#define SENSORS_BARO_BUFF_LEN       (SENSORS_BARO_STATUS_LEN + SENSORS_BARO_DATA_LEN)
-
-typedef struct
-{
-	Axis3f     bias;
-	bool       isBiasValueFound;
-	bool       isBufferFilled;
-	Axis3i16*  bufHead;
-	Axis3i16   buffer[SENSORS_NBR_OF_BIAS_SAMPLES];
-}BiasObj;
-
-BiasObj	gyroBiasRunning;
-static Axis3f  gyroBias;
-
-static bool gyroBiasFound = false;
-static float accScaleSum = 0;
-static float accScale = 1;
-
-static bool isInit = false;
-static sensorData_t sensors;
-static Axis3i16	gyroRaw;
-static Axis3i16	accRaw;
-static Axis3i16 magRaw;
-
-/*低通滤波参数*/
-#define GYRO_LPF_CUTOFF_FREQ  80
-#define ACCEL_LPF_CUTOFF_FREQ 30
-static lpf2pData accLpf[3];
-static lpf2pData gyroLpf[3];
-
+static bool gyroBiasFound=false;
 static bool isMPUPresent=false;
 static bool isMagPresent=false;
 static bool isBaroPresent=false;
-
-enum {IDLE, BMP280, SPL06}baroType = IDLE;
-
-static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_MAG_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
-
-static xQueueHandle accelerometerDataQueue;
-static xQueueHandle gyroDataQueue;
-static xQueueHandle magnetometerDataQueue;
-static xQueueHandle barometerDataQueue;
-static xSemaphoreHandle sensorsDataReady;
-
-static void applyAxis3fLpf(lpf2pData *data, Axis3f* in);
-static void sensorsBiasObjInit(BiasObj* bias);
-static void sensorsCalculateVarianceAndMean(BiasObj* bias, Axis3f* varOut, Axis3f* meanOut);
-static bool sensorsFindBiasValue(BiasObj* bias);
-static void sensorsAddBiasValue(BiasObj* bias, int16_t x, int16_t y, int16_t z);
-
-
-/*从队列读取陀螺数据*/
-bool sensorsReadGyro(Axis3f *gyro)
-{
-	return (pdTRUE == xQueueReceive(gyroDataQueue, gyro, 0));
-}
-/*从队列读取加速计数据*/
-bool sensorsReadAcc(Axis3f *acc)
-{
-	return (pdTRUE == xQueueReceive(accelerometerDataQueue, acc, 0));
-}
-/*从队列读取磁力计数据*/
-bool sensorsReadMag(Axis3f *mag)
-{
-	return (pdTRUE == xQueueReceive(magnetometerDataQueue, mag, 0));
-}
-/*从队列读取气压数据*/
-bool sensorsReadBaro(baro_t *baro)
-{
-	return (pdTRUE == xQueueReceive(barometerDataQueue, baro, 0));
-}
+static float accScaleSum=0;
+static float accScale=1;
+static enum {IDLE, BMP280, SPL06}baroType = IDLE;
+static bool isInit=false;
+// /*从队列读取陀螺数据*/
+// bool sensorsReadGyro(Axis3f *gyro)
+// {
+// 	return (pdTRUE == xQueueReceive(gyroDataQueue, gyro, 0));
+// }
+// /*从队列读取加速计数据*/
+// bool sensorsReadAcc(Axis3f *acc)
+// {
+// 	return (pdTRUE == xQueueReceive(accelerometerDataQueue, acc, 0));
+// }
+// /*从队列读取磁力计数据*/
+// bool sensorsReadMag(Axis3f *mag)
+// {
+// 	return (pdTRUE == xQueueReceive(magnetometerDataQueue, mag, 0));
+// }
+// /*从队列读取气压数据*/
+// bool sensorsReadBaro(baro_t *baro)
+// {
+// 	return (pdTRUE == xQueueReceive(barometerDataQueue, baro, 0));
+// }
 /*传感器中断初始化*/
 static void sensorsInterruptInit(void)
 {
@@ -214,31 +128,16 @@ void sensorsDeviceInit(void)
 	}
 
 	/*创建传感器数据队列*/
-	accelerometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	gyroDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	magnetometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	barometerDataQueue = xQueueCreate(1, sizeof(baro_t));
+	//accelerometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
+	//gyroDataQueue = xQueueCreate(1, sizeof(Axis3f));
+	//magnetometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
+	//barometerDataQueue = xQueueCreate(1, sizeof(baro_t));
 }
 /*传感器偏置初始化*/
 static void sensorsBiasObjInit(BiasObj* bias)
 {
 	bias->isBufferFilled = false;
 	bias->bufHead = bias->buffer;
-}
-/*传感器测试*/
-bool sensorsTest(void)
-{
-	bool testStatus = true;
-
-	if (!isInit)
-	{
-		printf("Uninitialized\n");
-		testStatus = false;
-	}
-
-	testStatus&=isBaroPresent;
-	
-	return testStatus;
 }
 
 /*计算方差和平均值*/
@@ -295,12 +194,11 @@ static bool sensorsFindBiasValue(BiasObj* bias)
 void sensorsInit(void)
 {
 	if(isInit) return;
-
+	queue_init(1);
 	sensorsDataReady = xSemaphoreCreateBinary();/*创建传感器数据就绪二值信号量*/
 	sensorsBiasObjInit(&gyroBiasRunning);
 	sensorsDeviceInit();	/*传感器器件初始化*/
 	sensorsInterruptInit();	/*传感器中断初始化*/
-	
 	isInit = true;
 }
 /*设置传感器从模式读取*/
@@ -548,27 +446,20 @@ void sensorsTask(void *param)
 			}
 			
 			vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
-			xQueueOverwrite(accelerometerDataQueue, &sensors.acc);
-			xQueueOverwrite(gyroDataQueue, &sensors.gyro);
-			if (isMagPresent)
-			{
-				xQueueOverwrite(magnetometerDataQueue, &sensors.mag);
-			}
-			if (isBaroPresent)
-			{
-				xQueueOverwrite(barometerDataQueue, &sensors.baro);
-			}
+			// xQueueOverwrite(accelerometerDataQueue, &sensors.acc);
+			// xQueueOverwrite(gyroDataQueue, &sensors.gyro);
+			// if (isMagPresent)
+			// {
+			// 	xQueueOverwrite(magnetometerDataQueue, &sensors.mag);
+			// }
+			// if (isBaroPresent)
+			// {
+			// 	xQueueOverwrite(barometerDataQueue, &sensors.baro);
+			// }
+			sensor_data_Write(&sensors);
 			xTaskResumeAll();
 		}
 	}	
-}
-/*获取传感器数据*/
-void sensorsAcquire(sensorData_t *sensors, const u32 tick)	
-{	
-	sensorsReadGyro(&sensors->gyro);
-	sensorsReadAcc(&sensors->acc);
-	sensorsReadMag(&sensors->mag);
-	sensorsReadBaro(&sensors->baro);
 }
 
 void __attribute__((used)) EXTI4_Callback(void)
@@ -589,11 +480,7 @@ static void applyAxis3fLpf(lpf2pData *data, Axis3f* in)
 		in->axis[i] = lpf2pApply(&data[i], in->axis[i]);
 	}
 }
-/*传感器数据校准*/
-bool sensorsAreCalibrated()	
-{
-	return gyroBiasFound;
-}
+
 /*上位机获取读取原始数据*/
 void getSensorRawData(Axis3i16* acc, Axis3i16* gyro, Axis3i16* mag)
 {
@@ -602,20 +489,16 @@ void getSensorRawData(Axis3i16* acc, Axis3i16* gyro, Axis3i16* mag)
 	*mag = magRaw;
 }
 
-bool getIsMPU9250Present(void)
-{
-	bool value = isMPUPresent;
-#ifdef SENSORS_ENABLE_MAG_AK8963
-	value &= isMagPresent;
-#endif
-	return value;
-}
+// bool getIsMPU9250Present(void)
+// {
+// 	bool value = isMPUPresent;
+// #ifdef SENSORS_ENABLE_MAG_AK8963
+// 	value &= isMagPresent;
+// #endif
+// 	return value;
+// }
 
-
-bool getIsBaroPresent(void)
-{
-	return isBaroPresent;
-}
-
-
-
+// bool getIsBaroPresent(void)
+// {
+// 	return isBaroPresent;
+// }

@@ -2,20 +2,7 @@
 #define __STABILIZER_TYPES_H
 #include "sys.h"
 #include <stdbool.h>
-#include "sensors_types.h"
-
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 结构体类型定义	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
+#include "com_queue.h"
 
 #if defined(__CC_ARM) 
 	#pragma anon_unions
@@ -145,22 +132,6 @@ typedef struct tofMeasurement_s
 	float stdDev;
 } tofMeasurement_t;
 
-typedef struct
-{
-	float pressure;
-	float temperature;
-	float asl;
-} baro_t;
-
-typedef struct
-{
-	Axis3f acc;
-	Axis3f gyro;
-	Axis3f mag;
-	baro_t baro;
-	point_t position;
-	zRange_t zrange;
-} sensorData_t;
 
 typedef struct
 {
