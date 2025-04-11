@@ -3,6 +3,7 @@
 #include "stabilizer.h"
 #include "attitude_pid.h"
 #include "position_pid.h"
+#include "config_param.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -113,7 +114,7 @@ void stateControl(control_t *control, sensorData_t *sensors, state_t *state, set
 		if(cnt++ > 1500)
 		{
 			cnt = 0;
-			//configParamGiveSemaphore();
+			configParamGiveSemaphore();
 		}
 	}else
 	{

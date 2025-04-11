@@ -23,6 +23,7 @@
 #include "led.h"
 #include "ledseq.h"
 #include "radiolink.h"
+#include "config_param.h"
 #include "comm.h"
 #include "communicate.h"
 #include "commander.h"

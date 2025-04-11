@@ -56,6 +56,7 @@
 ..\obj\main.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\main.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\main.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\main.o: ..\CONFIG\interface\config_param.h
 ..\obj\main.o: ..\COMMUNICATE\interface\comm.h
 ..\obj\main.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\main.o: ..\COMMUNICATE\interface\remoter_ctrl.h

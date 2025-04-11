@@ -32,7 +32,7 @@ void spiEndTransaction(void);
 void spiTxDmaIsr(void);
 
 /* 收发缓冲数据 */
-//bool spiExchange(size_t length, const uint8_t *data_tx, uint8_t *data_rx);
+bool spiExchange(size_t length, const uint8_t *data_tx, uint8_t *data_rx);
 
 
 #endif /* __SPI_H */

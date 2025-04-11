@@ -10,10 +10,6 @@
         "queue.h": "c",
         "remoter_ctrl.h": "c",
         "position_pid.h": "c",
-        "stabilizer_types.h": "c",
-        "system.h": "c",
-        "uart1.h": "c",
-        "led.h": "c",
-        "comm.h": "c"
+        "stabilizer_types.h": "c"
     }
 }

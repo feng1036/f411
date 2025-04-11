@@ -2,6 +2,7 @@
 #include "maths.h"
 #include "commander.h"
 #include "atkp.h"
+#include "config_param.h"
 #include "radiolink.h"
 #include "remoter_ctrl.h"
 #include "stabilizer.h"
@@ -92,8 +93,8 @@ static void ctrlDataUpdate(void)
 		ctrlValLpf.roll += (ctrlVal.roll - ctrlValLpf.roll) * lpfVal;
 		ctrlValLpf.yaw += (ctrlVal.yaw - ctrlValLpf.yaw) * lpfVal;
 		
-		// configParam.trimP = ctrlVal.trimPitch;	/*更新微调值*/
-		// configParam.trimR = ctrlVal.trimRoll;
+		configParam.trimP = ctrlVal.trimPitch;	/*更新微调值*/
+		configParam.trimR = ctrlVal.trimRoll;
 		
 		if (ctrlValLpf.thrust < MIN_THRUST)
 			ctrlValLpf.thrust = 0;	
@@ -146,7 +147,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 	}
 }
 
-// extern bool isExitFlip;			/*是否退出空翻*/
+//extern bool isExitFlip;			/*是否退出空翻*/
 /********************************************************
 * flyerAutoLand()
 * 四轴自动降落
@@ -243,8 +244,9 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 				setpoint->mode.z = modeVelocity;
 				setpoint->velocity.z = climb;
 
-				if(climb < -(CLIMB_RATE/5.f))	/*油门下拉过大*/
+				if(climb >= -(CLIMB_RATE/5.f))	/*油门下拉过大*/
 				{
+					maxAccZ = 0.f;
 					// if(isExitFlip == true)		/*退出空翻，再检测加速度*/
 					// {
 					// 	if(maxAccZ < state->acc.z)
@@ -255,9 +257,6 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 					// 		estRstAll();	/*复位估测*/
 					// 	}
 					// }
-				}else
-				{
-					maxAccZ = 0.f;
 				}
 			}
 			else if (isAdjustingPosZ == true)

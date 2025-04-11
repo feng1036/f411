@@ -2,6 +2,7 @@
 #include <math.h>
 #include "spi.h"
 #include "uart1.h"
+#include "config_param.h"
 #include "commander.h"
 
 /*FreeRTOS相关头文件*/

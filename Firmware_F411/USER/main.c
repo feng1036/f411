@@ -29,7 +29,11 @@ void startTask(void *arg)
     xTaskCreate(sensorsTask, "SENSORS", 450, NULL, 4, NULL);			/*创建传感器处理任务*/
 
     xTaskCreate(stabilizerTask, "STABILIZER", 450, NULL, 5, NULL);		/*创建姿态任务*/
+
+    //printf("Free heap: %d bytes\n", xPortGetFreeHeapSize());			/*打印剩余堆栈大小*/
+
     vTaskDelete(startTaskHandle);										/*删除开始任务*/
+
     taskEXIT_CRITICAL();	/*退出临界区*/
 }
 

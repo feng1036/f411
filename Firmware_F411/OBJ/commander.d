@@ -52,6 +52,7 @@
 ..\obj\commander.o: ..\FreeRTOS\include\queue.h
 ..\obj\commander.o: ..\FreeRTOS\include\task.h
 ..\obj\commander.o: ..\FreeRTOS\include\list.h
+..\obj\commander.o: ..\CONFIG\interface\config_param.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\remoter_ctrl.h
 ..\obj\commander.o: ..\HARDWARE\interface\module_detect.h
@@ -59,4 +60,3 @@
 ..\obj\commander.o: ..\FLIGHT\interface\state_estimator.h
 ..\obj\commander.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\commander.o: ..\FLIGHT\interface\pid.h
-..\obj\commander.o: ..\CONFIG\interface\config_param.h

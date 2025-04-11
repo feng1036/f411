@@ -56,6 +56,7 @@
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\stabilizer.o: ..\CONFIG\interface\config_param.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\comm.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\remoter_ctrl.h
@@ -82,6 +83,5 @@
 ..\obj\stabilizer.o: ..\FLIGHT\interface\power_control.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\pid.h
-..\obj\stabilizer.o: ..\CONFIG\interface\config_param.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\attitude_pid.h
 ..\obj\stabilizer.o: ..\COMMON\interface\maths.h

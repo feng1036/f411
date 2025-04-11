@@ -34,6 +34,7 @@
 ..\obj\spi.o: ..\SYSTEM\sys\sys.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\spi.o: ..\HARDWARE\interface\uart1.h
+..\obj\spi.o: ..\CONFIG\interface\config_param.h
 ..\obj\spi.o: ..\COMMUNICATE\interface\commander.h
 ..\obj\spi.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\spi.o: ..\CONFIG\interface\config.h

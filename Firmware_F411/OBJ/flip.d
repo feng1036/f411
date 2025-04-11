@@ -50,6 +50,7 @@
 ..\obj\flip.o: ..\FreeRTOS\include\queue.h
 ..\obj\flip.o: ..\FreeRTOS\include\task.h
 ..\obj\flip.o: ..\FreeRTOS\include\list.h
+..\obj\flip.o: ..\CONFIG\interface\config_param.h
 ..\obj\flip.o: ..\COMMUNICATE\interface\commander.h
 ..\obj\flip.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\flip.o: ..\FLIGHT\interface\stabilizer.h

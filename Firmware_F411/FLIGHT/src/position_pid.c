@@ -1,6 +1,7 @@
 #include <math.h>
 #include "pid.h"
 #include "commander.h"
+#include "config_param.h"
 #include "position_pid.h"
 #include "remoter_ctrl.h"
 #include "maths.h"

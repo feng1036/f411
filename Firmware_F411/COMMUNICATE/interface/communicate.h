@@ -9,6 +9,7 @@
 #include "comm.h"
 #include "atkp.h"
 #include "remoter_ctrl.h"
+
 #include "assert.h"
 
 void communicateInit(void);
@@ -17,4 +18,4 @@ bool atkp_write(atkp_t *p);
 
 bool atkp_read(atkp_t *p);
 
-#endif 
+#endif // COMMUNICATE_WITH_STABILIZER_H

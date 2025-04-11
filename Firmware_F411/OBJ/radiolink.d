@@ -36,6 +36,7 @@
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\radiolink.o: ..\CONFIG\interface\config_param.h
 ..\obj\radiolink.o: ..\HARDWARE\interface\led.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\radiolink.o: ..\HARDWARE\interface\uart_syslink.h

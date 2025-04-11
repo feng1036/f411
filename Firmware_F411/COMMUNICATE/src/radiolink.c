@@ -1,6 +1,7 @@
 #include <string.h>
 #include "config.h"
 #include "radiolink.h"
+#include "config_param.h"
 #include "led.h"
 #include "ledseq.h"
 #include "uart_syslink.h"
@@ -37,11 +38,11 @@ static enum
 	waitForChksum1,
 }rxState;
 static bool isInit;
-//static atkp_t txPacket;
+static atkp_t txPacket;
 static atkp_t rxPacket;
 static xQueueHandle  txQueue;
 
-//static void atkpPacketDispatch(atkp_t *rxPacket);
+static void atkpPacketDispatch(atkp_t *rxPacket);
 
 //radiolink接收ATKPPacket任务
 void radiolinkTask(void *param)
@@ -130,38 +131,52 @@ void radiolinkInit(void)
 	isInit = true;
 }
 
-// /*打包ATKPPacket数据通过串口DMA发送*/
-// static void uartSendPacket(atkp_t *p)
-// {
-// 	int dataSize;
-// 	u8 cksum = 0;
-// 	u8 sendBuffer[36];
+/*打包ATKPPacket数据通过串口DMA发送*/
+static void uartSendPacket(atkp_t *p)
+{
+	int dataSize;
+	u8 cksum = 0;
+	u8 sendBuffer[36];
 	
-// 	ASSERT(p->dataLen <= ATKP_MAX_DATA_SIZE);
+	ASSERT(p->dataLen <= ATKP_MAX_DATA_SIZE);
 
-// 	sendBuffer[0] = UP_BYTE1;
-// 	sendBuffer[1] = UP_BYTE2;
-// 	sendBuffer[2] = p->msgID;
-// 	sendBuffer[3] = p->dataLen;
+	sendBuffer[0] = UP_BYTE1;
+	sendBuffer[1] = UP_BYTE2;
+	sendBuffer[2] = p->msgID;
+	sendBuffer[3] = p->dataLen;
 	
-// 	memcpy(&sendBuffer[4], p->data, p->dataLen);
-// 	dataSize = p->dataLen + 5;//加上cksum
-// 	/*计算校验和*/
-// 	for (int i=0; i<dataSize-1; i++)
-// 	{
-// 		cksum += sendBuffer[i];
-// 	}
-// 	sendBuffer[dataSize-1] = cksum;
+	memcpy(&sendBuffer[4], p->data, p->dataLen);
+	dataSize = p->dataLen + 5;//加上cksum
+	/*计算校验和*/
+	for (int i=0; i<dataSize-1; i++)
+	{
+		cksum += sendBuffer[i];
+	}
+	sendBuffer[dataSize-1] = cksum;
 	
-// 	/*串口DMA发送*/
-// 	uartslkSendDataDmaBlocking(dataSize, sendBuffer);
-// }
+	/*串口DMA发送*/
+	uartslkSendDataDmaBlocking(dataSize, sendBuffer);
+}
 
 /*radiolink接收到ATKPPacket预处理*/
-//static void atkpPacketDispatch(atkp_t *rxPacket)
-//{
-//	atkpReceivePacketBlocking(rxPacket);
-//}
+static void atkpPacketDispatch(atkp_t *rxPacket)
+{
+	atkpReceivePacketBlocking(rxPacket);
+	
+	// if( rxPacket->msgID == DOWN_POWER)
+	// {;}/*do noting*/
+	// else
+	// {
+	// 	// ledseqRun(DATA_RX_LED, seq_linkup);
+	// 	/*接收到一个遥控无线数据包则发送一个包*/
+	// 	if(xQueueReceive(txQueue, &txPacket, 0) == pdTRUE)
+	// 	{
+	// 		ASSERT(txPacket.dataLen <= ATKP_MAX_DATA_SIZE);
+	// 		// ledseqRun(DATA_TX_LED, seq_linkup);
+	// 		uartSendPacket(&txPacket);
+	// 	}
+	// }
+}
 
 bool radiolinkSendPacket(const atkp_t *p)
 {

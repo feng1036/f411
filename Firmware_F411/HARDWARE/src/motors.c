@@ -103,12 +103,27 @@ bool motorsTest(void)
 	return isInit;
 }
 
+//extern bool isExitFlip;
+
 /*设置电机PWM占空比*/
 void motorsSetRatio(u32 id, u16 ithrust)
 {
 	if (isInit) 
 	{
 		u16 ratio=ithrust;
+
+	// #ifdef ENABLE_THRUST_BAT_COMPENSATED		
+	// 	if(isExitFlip == true)		/*500Hz*/
+	// 	{
+	// 		float thrust = ((float)ithrust / 65536.0f) * 60;
+	// 		float volts = -0.0006239f * thrust * thrust + 0.088f * thrust;
+	// 		float supply_voltage = pmGetBatteryVoltage();
+	// 		float percentage = volts / supply_voltage;
+	// 		percentage = percentage > 1.0f ? 1.0f : percentage;
+	// 		ratio = percentage * UINT16_MAX;
+	// 		motor_ratios[id] = ratio;
+	// 	}		
+	// #endif
 		
 		switch(id)
 		{
