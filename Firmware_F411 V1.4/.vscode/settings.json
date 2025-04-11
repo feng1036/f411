@@ -5,6 +5,11 @@
         "sensors.h": "c",
         "sys.h": "c",
         "com_queue.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "communicate.h": "c",
+        "queue.h": "c",
+        "remoter_ctrl.h": "c",
+        "position_pid.h": "c",
+        "stabilizer_types.h": "c"
     }
 }

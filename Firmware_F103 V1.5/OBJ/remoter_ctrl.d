@@ -1,12 +1,12 @@
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\src\remoter_ctrl.c
-..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\remoter_ctrl.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\remoter_ctrl.h
-..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\remoter_ctrl.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\remoter_ctrl.o: ..\SYSTEM\sys\sys.h
 ..\obj\remoter_ctrl.o: ..\USER\stm32f10x.h
 ..\obj\remoter_ctrl.o: ..\CORE\core_cm3.h
-..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\remoter_ctrl.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\remoter_ctrl.o: ..\USER\system_stm32f10x.h
 ..\obj\remoter_ctrl.o: ..\USER\stm32f10x_conf.h
 ..\obj\remoter_ctrl.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -36,7 +36,7 @@
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\joystick.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\remoter_ctrl.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\remoter_ctrl.o: ..\COMMON\interface\debug_assert.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\projdefs.h

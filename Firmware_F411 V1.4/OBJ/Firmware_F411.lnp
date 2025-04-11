@@ -60,6 +60,7 @@
 "..\obj\radiolink.o"
 "..\obj\remoter_ctrl.o"
 "..\obj\com_queue.o"
+"..\obj\communicate.o"
 "..\obj\anomal_detec.o"
 "..\obj\attitude_pid.o"
 "..\obj\flip.o"

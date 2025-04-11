@@ -1,8 +1,8 @@
 ..\obj\display.o: ..\GUI_APP\src\display.c
 ..\obj\display.o: ..\GUI_APP\interface\display.h
 ..\obj\display.o: ..\GUI_APP\interface\main_ui.h
-..\obj\display.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
-..\obj\display.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\display.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\display.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\display.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\display.o: ..\SYSTEM\sys\sys.h
 ..\obj\display.o: ..\USER\stm32f10x.h
@@ -53,7 +53,7 @@
 ..\obj\display.o: ..\GUI_APP\interface\menuL3_item.h
 ..\obj\display.o: ..\GUI_APP\interface\reset_ui.h
 ..\obj\display.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\display.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\display.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\display.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\display.o: ..\COMMON\interface\debug_assert.h
 ..\obj\display.o: ..\FreeRTOS\include\projdefs.h

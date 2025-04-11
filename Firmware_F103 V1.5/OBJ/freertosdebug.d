@@ -2,7 +2,7 @@
 ..\obj\freertosdebug.o: ..\SYSTEM\sys\sys.h
 ..\obj\freertosdebug.o: ..\USER\stm32f10x.h
 ..\obj\freertosdebug.o: ..\CORE\core_cm3.h
-..\obj\freertosdebug.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\freertosdebug.o: ..\USER\system_stm32f10x.h
 ..\obj\freertosdebug.o: ..\USER\stm32f10x_conf.h
 ..\obj\freertosdebug.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -29,11 +29,11 @@
 ..\obj\freertosdebug.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\freertosdebug.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\freertosdebug.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\freertosdebug.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\freertosdebug.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\freertosdebug.o: ..\COMMON\interface\debug_assert.h
 ..\obj\freertosdebug.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\freertosdebug.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\freertosdebug.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\freertosdebug.o: ..\FreeRTOS\include\portable.h
 ..\obj\freertosdebug.o: ..\FreeRTOS\include\deprecated_definitions.h

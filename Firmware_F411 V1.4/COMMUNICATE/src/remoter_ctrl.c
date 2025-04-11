@@ -86,11 +86,11 @@ void remoterCtrlProcess(atkp_t* pk)
 				break;
 			
 			case CMD_FLIP:
-				setFlipDir(pk->data[2]);
+				// setFlipDir(pk->data[2]);
 				break;
 			
 			case CMD_GET_MSG:
-				sendMsgACK();
+				// sendMsgACK();
 				break;
 		}
 	}

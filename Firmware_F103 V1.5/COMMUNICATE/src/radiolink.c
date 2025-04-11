@@ -122,43 +122,58 @@ void radiolinkTask(void* param)
 		nrf_txPacket((u8*)&tx_p, tx_p.dataLen+2);
 		xSemaphoreTake(nrfIT, 1000);
 		nrfEvent_e status = nrf_checkEventandRxPacket((u8*)&rx_p, &rx_len);
-		if(status == RX_DR)//发送成功
-		{	
-			LED_BLUE = 0;
-			LED_RED  = 1;
-			statusCount = 0;
-			connectStatus = true;
-			if(rx_p.dataLen <= ATKP_MAX_DATA_SIZE)
-			{
-				xQueueSend(rxQueue, &rx_p, portMAX_DELAY);
-			}
-			if(xQueueReceive(txQueue, &tx_p, 0) == pdFALSE)
-			{
-				tx_p.msgID = DOWN_RADIO;
-				tx_p.dataLen = 1;
-				tx_p.data[0] = D_RADIO_HEARTBEAT;
-			}
-		}
-		else if(status == MAX_RT)//发送失败
+
+		LED_BLUE = 0;
+		LED_RED  = 1;
+		statusCount = 0;
+		connectStatus = true;
+		if(rx_p.dataLen <= ATKP_MAX_DATA_SIZE)
 		{
-			LED_BLUE = 1;
-			LED_RED  = 0;
-			failRxCount++;
-			if(++statusCount > 10)//连续10次无应答则通讯失败
-			{
-				statusCount = 0;
-				connectStatus = false;
-			}
+			xQueueSend(rxQueue, &rx_p, portMAX_DELAY);
 		}
-		
-		/*1000ms统计一次收发失败次数*/
-		if(connectStatus==true && xTaskGetTickCount()>=failRxcountTime+1000)
+		if(xQueueReceive(txQueue, &tx_p, 0) == pdFALSE)
 		{
-			failRxcountTime = xTaskGetTickCount();
-			failReceiveNum = failRxCount;
-			failRxCount = 0;
+			tx_p.msgID = DOWN_RADIO;
+			tx_p.dataLen = 1;
+			tx_p.data[0] = D_RADIO_HEARTBEAT;
 		}
+
+		// if(status == RX_DR)//发送成功
+		// {	
+		// 	LED_BLUE = 0;
+		// 	LED_RED  = 1;
+		// 	statusCount = 0;
+		// 	connectStatus = true;
+		// 	if(rx_p.dataLen <= ATKP_MAX_DATA_SIZE)
+		// 	{
+		// 		xQueueSend(rxQueue, &rx_p, portMAX_DELAY);
+		// 	}
+		// 	if(xQueueReceive(txQueue, &tx_p, 0) == pdFALSE)
+		// 	{
+		// 		tx_p.msgID = DOWN_RADIO;
+		// 		tx_p.dataLen = 1;
+		// 		tx_p.data[0] = D_RADIO_HEARTBEAT;
+		// 	}
+		// }
+		// else if(status == MAX_RT)//发送失败
+		// {
+		// 	LED_BLUE = 1;
+		// 	LED_RED  = 0;
+		// 	failRxCount++;
+		// 	if(++statusCount > 10)//连续10次无应答则通讯失败
+		// 	{
+		// 		statusCount = 0;
+		// 		connectStatus = false;
+		// 	}
+		// }
 		
+		// /*1000ms统计一次收发失败次数*/
+		// if(connectStatus==true && xTaskGetTickCount()>=failRxcountTime+1000)
+		// {
+		// 	failRxcountTime = xTaskGetTickCount();
+		// 	failReceiveNum = failRxCount;
+		// 	failRxCount = 0;
+		// }
 	}
 }
 

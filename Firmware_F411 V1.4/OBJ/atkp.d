@@ -3,7 +3,7 @@
 ..\obj\atkp.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\atkp.o: ..\USER\stm32f4xx.h
 ..\obj\atkp.o: ..\CORE\core_cm4.h
-..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\atkp.o: ..\CORE\core_cmInstr.h
 ..\obj\atkp.o: ..\CORE\core_cmFunc.h
 ..\obj\atkp.o: ..\CORE\core_cm4_simd.h
@@ -28,9 +28,9 @@
 ..\obj\atkp.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\atkp.o: ..\FWLIB\inc\misc.h
 ..\obj\atkp.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
-..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
-..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\atkp.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\atkp.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\atkp.o: ..\FLIGHT\interface\stabilizer.h
@@ -38,7 +38,7 @@
 ..\obj\atkp.o: ..\SYSTEM\sys\sys.h
 ..\obj\atkp.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\atkp.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\atkp.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\atkp.o: ..\CONFIG\interface\config.h
 ..\obj\atkp.o: ..\HARDWARE\interface\nvic.h
@@ -64,4 +64,7 @@
 ..\obj\atkp.o: ..\COMMUNICATE\interface\remoter_ctrl.h
 ..\obj\atkp.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\atkp.o: ..\FLIGHT\interface\state_estimator.h
+..\obj\atkp.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\atkp.o: ..\FreeRTOS\include\semphr.h
+..\obj\atkp.o: ..\COMMUNICATE\interface\comm.h
+..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

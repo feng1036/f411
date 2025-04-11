@@ -3,7 +3,7 @@
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\power_control.o: ..\USER\stm32f4xx.h
 ..\obj\power_control.o: ..\CORE\core_cm4.h
-..\obj\power_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\power_control.o: ..\CORE\core_cmInstr.h
 ..\obj\power_control.o: ..\CORE\core_cmFunc.h
 ..\obj\power_control.o: ..\CORE\core_cm4_simd.h
@@ -31,14 +31,14 @@
 ..\obj\power_control.o: ..\FLIGHT\interface\power_control.h
 ..\obj\power_control.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\power_control.o: ..\SYSTEM\sys\sys.h
-..\obj\power_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\power_control.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\power_control.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\power_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\power_control.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\power_control.o: ..\CONFIG\interface\config.h
 ..\obj\power_control.o: ..\HARDWARE\interface\nvic.h
-..\obj\power_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\power_control.o: ..\COMMON\interface\debug_assert.h
 ..\obj\power_control.o: ..\COMMUNICATE\interface\console.h
 ..\obj\power_control.o: ..\FreeRTOS\include\projdefs.h
@@ -49,4 +49,5 @@
 ..\obj\power_control.o: ..\FreeRTOS\include\queue.h
 ..\obj\power_control.o: ..\FreeRTOS\include\task.h
 ..\obj\power_control.o: ..\FreeRTOS\include\list.h
+..\obj\power_control.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\power_control.o: ..\HARDWARE\interface\motors.h

@@ -1,13 +1,13 @@
 ..\obj\debug_ui.o: ..\GUI_APP\src\debug_ui.c
-..\obj\debug_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\debug_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\debug_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\debug_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\debug_ui.o: ..\GUI_APP\interface\debug_ui.h
-..\obj\debug_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\debug_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\debug_ui.o: ..\HARDWARE\interface\oled.h
 ..\obj\debug_ui.o: ..\SYSTEM\sys\sys.h
 ..\obj\debug_ui.o: ..\USER\stm32f10x.h
 ..\obj\debug_ui.o: ..\CORE\core_cm3.h
-..\obj\debug_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\debug_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\debug_ui.o: ..\USER\system_stm32f10x.h
 ..\obj\debug_ui.o: ..\USER\stm32f10x_conf.h
 ..\obj\debug_ui.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -42,7 +42,7 @@
 ..\obj\debug_ui.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\debug_ui.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\debug_ui.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\debug_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\debug_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\debug_ui.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\debug_ui.o: ..\COMMON\interface\debug_assert.h
 ..\obj\debug_ui.o: ..\FreeRTOS\include\projdefs.h

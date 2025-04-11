@@ -11,6 +11,7 @@
 #include "task.h"
 #include "semphr.h"
 #include "queue.h"
+#include "communicate.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -95,7 +96,8 @@ void radiolinkTask(void *param)
 				case waitForChksum1:
 					if (cksum == c)	/*所有校验正确*/
 					{
-						atkpPacketDispatch(&rxPacket);
+						// atkpPacketDispatch(&rxPacket);
+						atkp_write(&rxPacket);
 					} 
 					else	/*校验错误*/
 					{
@@ -161,19 +163,19 @@ static void atkpPacketDispatch(atkp_t *rxPacket)
 {
 	atkpReceivePacketBlocking(rxPacket);
 	
-	if( rxPacket->msgID == DOWN_POWER)
-	{;}/*do noting*/
-	else
-	{
-		ledseqRun(DATA_RX_LED, seq_linkup);
-		/*接收到一个遥控无线数据包则发送一个包*/
-		if(xQueueReceive(txQueue, &txPacket, 0) == pdTRUE)
-		{
-			ASSERT(txPacket.dataLen <= ATKP_MAX_DATA_SIZE);
-			ledseqRun(DATA_TX_LED, seq_linkup);
-			uartSendPacket(&txPacket);
-		}
-	}
+	// if( rxPacket->msgID == DOWN_POWER)
+	// {;}/*do noting*/
+	// else
+	// {
+	// 	// ledseqRun(DATA_RX_LED, seq_linkup);
+	// 	/*接收到一个遥控无线数据包则发送一个包*/
+	// 	if(xQueueReceive(txQueue, &txPacket, 0) == pdTRUE)
+	// 	{
+	// 		ASSERT(txPacket.dataLen <= ATKP_MAX_DATA_SIZE);
+	// 		// ledseqRun(DATA_TX_LED, seq_linkup);
+	// 		uartSendPacket(&txPacket);
+	// 	}
+	// }
 }
 
 bool radiolinkSendPacket(const atkp_t *p)

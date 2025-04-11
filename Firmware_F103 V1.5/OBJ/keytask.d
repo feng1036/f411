@@ -1,10 +1,10 @@
 ..\obj\keytask.o: ..\COMMUNICATE\src\keyTask.c
-..\obj\keytask.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\keytask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\keytask.o: ..\COMMUNICATE\interface\keyTask.h
 ..\obj\keytask.o: ..\SYSTEM\sys\sys.h
 ..\obj\keytask.o: ..\USER\stm32f10x.h
 ..\obj\keytask.o: ..\CORE\core_cm3.h
-..\obj\keytask.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\keytask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\keytask.o: ..\USER\system_stm32f10x.h
 ..\obj\keytask.o: ..\USER\stm32f10x_conf.h
 ..\obj\keytask.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -33,7 +33,7 @@
 ..\obj\keytask.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\keytask.o: ..\HARDWARE\interface\key.h
 ..\obj\keytask.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\keytask.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\keytask.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\keytask.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\keytask.o: ..\COMMON\interface\debug_assert.h
 ..\obj\keytask.o: ..\FreeRTOS\include\projdefs.h

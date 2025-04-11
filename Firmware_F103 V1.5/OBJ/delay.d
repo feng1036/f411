@@ -3,7 +3,7 @@
 ..\obj\delay.o: ..\SYSTEM\sys\sys.h
 ..\obj\delay.o: ..\USER\stm32f10x.h
 ..\obj\delay.o: ..\CORE\core_cm3.h
-..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\delay.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\delay.o: ..\USER\system_stm32f10x.h
 ..\obj\delay.o: ..\USER\stm32f10x_conf.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -31,7 +31,7 @@
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\delay.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\delay.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\delay.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\delay.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\delay.o: ..\COMMON\interface\debug_assert.h
 ..\obj\delay.o: ..\FreeRTOS\include\projdefs.h

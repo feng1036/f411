@@ -61,6 +61,39 @@ void positionControlInit(float velocityPidDt, float posPidDt)
 	pidSetOutputLimit(&pidZ, PIDZ_OUTPUT_LIMIT);		/* 输出限幅 */
 }
 
+void positionDataprocess(atkp_t* anlPacket){
+	if(anlPacket->msgID == DOWN_PID3)
+	{
+		pidVZ.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+		pidVZ.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+		pidVZ.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+		
+		pidZ.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+		pidZ.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+		pidZ.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+		
+		pidVX.kp = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+		pidVX.ki = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+		pidVX.kd = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
+		
+		pidVY = pidVX;	//位置速率PID，X\Y方向是一样的
+		
+//		u8 cksum = atkpCheckSum(anlPacket);
+//		sendCheck(anlPacket->msgID,cksum);
+	}
+	else if(anlPacket->msgID == DOWN_PID4)
+	{
+		pidX.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+		pidX.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+		pidX.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+		
+		pidY = pidX;	//位置保持PID，X\Y方向是一样的
+		
+//		u8 cksum = atkpCheckSum(anlPacket);
+//		sendCheck(anlPacket->msgID,cksum);
+	}
+}
+
 static void velocityController(float* thrust, attitude_t *attitude, setpoint_t *setpoint, const state_t *state)                                                         
 {	
 	static u16 altholdCount = 0;

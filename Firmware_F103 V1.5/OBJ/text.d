@@ -1,7 +1,7 @@
 ..\obj\text.o: ..\GUI_DRV\src\text.c
-..\obj\text.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\text.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\text.o: ..\GUI_DRV\interface\text.h
-..\obj\text.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\text.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\text.o: ..\HARDWARE\interface\oled.h
 ..\obj\text.o: ..\SYSTEM\sys\sys.h
 ..\obj\text.o: ..\USER\stm32f10x.h

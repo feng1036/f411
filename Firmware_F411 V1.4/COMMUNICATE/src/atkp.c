@@ -17,6 +17,7 @@
 #include "power_control.h"
 #include "remoter_ctrl.h"
 #include "state_estimator.h"
+#include "communicate.h"
 
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"
@@ -71,7 +72,8 @@ typedef struct
 
 bool isConnect = false;
 bool isInit = false;
-bool flyable = false;
+// bool flyable = false;
+bool flyable = true;
 static joystickFlyui16_t rcdata;
 static xQueueHandle rxQueue;
 
@@ -81,7 +83,6 @@ extern PidObject pidAngleYaw;
 extern PidObject pidRateRoll;
 extern PidObject pidRatePitch;
 extern PidObject pidRateYaw;
-
 
 static void atkpSendPacket(atkp_t *p)
 {
@@ -423,180 +424,192 @@ static u8 atkpCheckSum(atkp_t *packet)
 
 static void atkpReceiveAnl(atkp_t *anlPacket)
 {
-	if(anlPacket->msgID	== DOWN_COMMAND)
+	// if(anlPacket->msgID	== DOWN_COMMAND)
+	// {
+	// 	switch(anlPacket->data[0])
+	// 	{
+	// 		case D_COMMAND_ACC_CALIB:
+	// 			break;
+			
+	// 		case D_COMMAND_GYRO_CALIB:
+	// 			break;
+			
+	// 		case D_COMMAND_MAG_CALIB:				
+	// 			break;
+			
+	// 		case D_COMMAND_BARO_CALIB:
+	// 			break;
+			
+	// 		case D_COMMAND_ACC_CALIB_STEP1:
+	// 			break;
+	// 		case D_COMMAND_ACC_CALIB_STEP2:
+	// 			break;
+	// 		case D_COMMAND_ACC_CALIB_STEP3:
+	// 			break;
+	// 		case D_COMMAND_ACC_CALIB_STEP4:
+	// 			break;
+	// 		case D_COMMAND_ACC_CALIB_STEP5:
+	// 			break;
+	// 		case D_COMMAND_ACC_CALIB_STEP6:
+	// 			break;
+			
+	// 		case D_COMMAND_FLIGHT_LOCK:
+	// 			flyable = false;
+	// 			break;
+			
+	// 		case D_COMMAND_FLIGHT_ULOCK:
+	// 			flyable = true;
+	// 	}
+	// }			
+	// else if(anlPacket->msgID == DOWN_ACK)
+	// {
+//		if(anlPacket->data[0] == D_ACK_READ_PID)/*读取PID参数*/
+//		{
+//			sendPid(1, pidRateRoll.kp, pidRateRoll.ki, pidRateRoll.kd,
+//					   pidRatePitch.kp, pidRatePitch.ki, pidRatePitch.kd,
+//					   pidRateYaw.kp, pidRateYaw.ki, pidRateYaw.kd 
+//				   );
+//			sendPid(2, pidAngleRoll.kp, pidAngleRoll.ki, pidAngleRoll.kd,
+//					   pidAnglePitch.kp, pidAnglePitch.ki, pidAnglePitch.kd,
+//					   pidAngleYaw.kp, pidAngleYaw.ki, pidAngleYaw.kd 
+//				   );
+//			sendPid(3, pidVZ.kp, pidVZ.ki, pidVZ.kd,
+//					   pidZ.kp, pidZ.ki, pidZ.kd,
+//					   pidVX.kp, pidVX.ki, pidVX.kd
+//				   );
+//			sendPid(4, pidX.kp, pidX.ki, pidX.kd,
+//					   0, 0, 0,
+//					   0, 0, 0
+//				   );
+//		}
+//		if(anlPacket->data[0] == D_ACK_RESET_PARAM)/*恢复默认参数*/
+//		{
+//			resetConfigParamPID();
+//			
+//			attitudeControlInit(RATE_PID_DT, ANGEL_PID_DT); /*初始化姿态PID*/	
+//			positionControlInit(VELOCITY_PID_DT, POSITION_PID_DT); /*初始化位置PID*/
+//			
+//			sendPid(1, pidRateRoll.kp, pidRateRoll.ki, pidRateRoll.kd,
+//					   pidRatePitch.kp, pidRatePitch.ki, pidRatePitch.kd,
+//					   pidRateYaw.kp, pidRateYaw.ki, pidRateYaw.kd 
+//				   );
+//			sendPid(2, pidAngleRoll.kp, pidAngleRoll.ki, pidAngleRoll.kd,
+//					   pidAnglePitch.kp, pidAnglePitch.ki, pidAnglePitch.kd,
+//					   pidAngleYaw.kp, pidAngleYaw.ki, pidAngleYaw.kd 
+//				   );
+//			sendPid(3, pidVZ.kp, pidVZ.ki, pidVZ.kd,
+//					   pidZ.kp, pidZ.ki, pidZ.kd,
+//					   pidVX.kp, pidVX.ki, pidVX.kd
+//				   );
+//			sendPid(4, pidX.kp, pidX.ki, pidX.kd,
+//					   0, 0, 0,
+//					   0, 0, 0
+//				   );
+//		}
+	// }
+	// else if(anlPacket->msgID == DOWN_RCDATA)
+	// {
+	// 	rcdata = *((joystickFlyui16_t*)anlPacket->data);
+	// }
+//	else if(anlPacket->msgID == DOWN_POWER)/*nrf51822*/
+//	{
+//		pmSyslinkUpdate(anlPacket);
+//	}
+	if(anlPacket->msgID == DOWN_REMOTER)/*遥控器*/	
 	{
-		switch(anlPacket->data[0])
-		{
-			case D_COMMAND_ACC_CALIB:
-				break;
-			
-			case D_COMMAND_GYRO_CALIB:
-				break;
-			
-			case D_COMMAND_MAG_CALIB:				
-				break;
-			
-			case D_COMMAND_BARO_CALIB:
-				break;
-			
-			case D_COMMAND_ACC_CALIB_STEP1:
-				break;
-			case D_COMMAND_ACC_CALIB_STEP2:
-				break;
-			case D_COMMAND_ACC_CALIB_STEP3:
-				break;
-			case D_COMMAND_ACC_CALIB_STEP4:
-				break;
-			case D_COMMAND_ACC_CALIB_STEP5:
-				break;
-			case D_COMMAND_ACC_CALIB_STEP6:
-				break;
-			
-			case D_COMMAND_FLIGHT_LOCK:
-				flyable = false;
-				break;
-			
-			case D_COMMAND_FLIGHT_ULOCK:
-				flyable = true;
-		}
-	}			
-	else if(anlPacket->msgID == DOWN_ACK)
-	{
-		if(anlPacket->data[0] == D_ACK_READ_PID)/*读取PID参数*/
-		{
-			sendPid(1, pidRateRoll.kp, pidRateRoll.ki, pidRateRoll.kd,
-					   pidRatePitch.kp, pidRatePitch.ki, pidRatePitch.kd,
-					   pidRateYaw.kp, pidRateYaw.ki, pidRateYaw.kd 
-				   );
-			sendPid(2, pidAngleRoll.kp, pidAngleRoll.ki, pidAngleRoll.kd,
-					   pidAnglePitch.kp, pidAnglePitch.ki, pidAnglePitch.kd,
-					   pidAngleYaw.kp, pidAngleYaw.ki, pidAngleYaw.kd 
-				   );
-			sendPid(3, pidVZ.kp, pidVZ.ki, pidVZ.kd,
-					   pidZ.kp, pidZ.ki, pidZ.kd,
-					   pidVX.kp, pidVX.ki, pidVX.kd
-				   );
-			sendPid(4, pidX.kp, pidX.ki, pidX.kd,
-					   0, 0, 0,
-					   0, 0, 0
-				   );
-		}
-		if(anlPacket->data[0] == D_ACK_RESET_PARAM)/*恢复默认参数*/
-		{
-			resetConfigParamPID();
-			
-			attitudeControlInit(RATE_PID_DT, ANGEL_PID_DT); /*初始化姿态PID*/	
-			positionControlInit(VELOCITY_PID_DT, POSITION_PID_DT); /*初始化位置PID*/
-			
-			sendPid(1, pidRateRoll.kp, pidRateRoll.ki, pidRateRoll.kd,
-					   pidRatePitch.kp, pidRatePitch.ki, pidRatePitch.kd,
-					   pidRateYaw.kp, pidRateYaw.ki, pidRateYaw.kd 
-				   );
-			sendPid(2, pidAngleRoll.kp, pidAngleRoll.ki, pidAngleRoll.kd,
-					   pidAnglePitch.kp, pidAnglePitch.ki, pidAnglePitch.kd,
-					   pidAngleYaw.kp, pidAngleYaw.ki, pidAngleYaw.kd 
-				   );
-			sendPid(3, pidVZ.kp, pidVZ.ki, pidVZ.kd,
-					   pidZ.kp, pidZ.ki, pidZ.kd,
-					   pidVX.kp, pidVX.ki, pidVX.kd
-				   );
-			sendPid(4, pidX.kp, pidX.ki, pidX.kd,
-					   0, 0, 0,
-					   0, 0, 0
-				   );
-		}
+		atkp_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
+
+		// remoterCtrlProcess(anlPacket);
 	}
-	else if(anlPacket->msgID == DOWN_RCDATA)
-	{
-		rcdata = *((joystickFlyui16_t*)anlPacket->data);
-	}
-	else if(anlPacket->msgID == DOWN_POWER)/*nrf51822*/
-	{
-		pmSyslinkUpdate(anlPacket);
-	}
-	else if(anlPacket->msgID == DOWN_REMOTER)/*遥控器*/	
-	{
-		remoterCtrlProcess(anlPacket);
-	}
-	else if(anlPacket->msgID == DOWN_PID1)
-	{
-		pidRateRoll.kp  = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
-		pidRateRoll.ki  = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
-		pidRateRoll.kd  = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
-		pidRatePitch.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
-		pidRatePitch.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
-		pidRatePitch.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
-		pidRateYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
-		pidRateYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
-		pidRateYaw.kd   = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}
-	else if(anlPacket->msgID == DOWN_PID2)
-	{
-		pidAngleRoll.kp  = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
-		pidAngleRoll.ki  = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
-		pidAngleRoll.kd  = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
-		pidAnglePitch.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
-		pidAnglePitch.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
-		pidAnglePitch.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
-		pidAngleYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
-		pidAngleYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
-		pidAngleYaw.kd   = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}		
-	else if(anlPacket->msgID == DOWN_PID3)
-	{
-		pidVZ.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
-		pidVZ.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
-		pidVZ.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+// 	else if(anlPacket->msgID == DOWN_PID1)
+// 	{
+// 		atkp_pid_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
 		
-		pidZ.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
-		pidZ.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
-		pidZ.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+// 		// pidRateRoll.kp  = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+// 		// pidRateRoll.ki  = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+// 		// pidRateRoll.kd  = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+// 		// pidRatePitch.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+// 		// pidRatePitch.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+// 		// pidRatePitch.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+// 		// pidRateYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+// 		// pidRateYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+// 		// pidRateYaw.kd   = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// 	}
+// 	else if(anlPacket->msgID == DOWN_PID2)
+// 	{
+// 		atkp_pid_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
+
+// 		// pidAngleRoll.kp  = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+// 		// pidAngleRoll.ki  = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+// 		// pidAngleRoll.kd  = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+// 		// pidAnglePitch.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+// 		// pidAnglePitch.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+// 		// pidAnglePitch.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+// 		// pidAngleYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+// 		// pidAngleYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+// 		// pidAngleYaw.kd   = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// 	}		
+// 	else if(anlPacket->msgID == DOWN_PID3)
+// 	{
+// 		atkp_pid_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
+
+// 		// pidVZ.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+// 		// pidVZ.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+// 		// pidVZ.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
 		
-		pidVX.kp = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
-		pidVX.ki = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
-		pidVX.kd = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
+// 		// pidZ.kp = 0.1*((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+// 		// pidZ.ki = 0.1*((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+// 		// pidZ.kd = 0.1*((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
 		
-		pidVY = pidVX;	//位置速率PID，X\Y方向是一样的
+// 		// pidVX.kp = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+// 		// pidVX.ki = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+// 		// pidVX.kd = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
 		
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}
-	else if(anlPacket->msgID == DOWN_PID4)
-	{
-		pidX.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
-		pidX.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
-		pidX.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+// 		// pidVY = pidVX;	//位置速率PID，X\Y方向是一样的
 		
-		pidY = pidX;	//位置保持PID，X\Y方向是一样的
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// 	}
+// 	else if(anlPacket->msgID == DOWN_PID4)
+// 	{
+// 		atkp_pid_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
+
+// 		// pidX.kp = 0.1*((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+// 		// pidX.ki = 0.1*((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+// 		// pidX.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
 		
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}
-	else if(anlPacket->msgID == DOWN_PID5)
-	{
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}
-	else if(anlPacket->msgID == DOWN_PID6)
-	{
-//		s16 temp1  = ((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
-//		s16 temp2  = ((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
-//		s16 temp3  = ((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
-		s16 enable = ((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
-		s16 m1_set = ((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
-		s16 m2_set = ((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
-		s16 m3_set = ((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
-		s16 m4_set = ((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
-		setMotorPWM(enable,m1_set,m2_set,m3_set,m4_set);
-		attitudePIDwriteToConfigParam();
-		positionPIDwriteToConfigParam();
-		u8 cksum = atkpCheckSum(anlPacket);
-		sendCheck(anlPacket->msgID,cksum);
-	}
+// 		// pidY = pidX;	//位置保持PID，X\Y方向是一样的
+		
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// 	}
+// //	else if(anlPacket->msgID == DOWN_PID5)
+// //	{
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// //	}
+// 	else if(anlPacket->msgID == DOWN_PID6)
+// 	{
+// 		atkp_pid_write(anlPacket);	/*发送数据到stablilizer通信的队列*/
+
+// //		s16 temp1  = ((s16)(*(anlPacket->data+0)<<8)|*(anlPacket->data+1));
+// //		s16 temp2  = ((s16)(*(anlPacket->data+2)<<8)|*(anlPacket->data+3));
+// //		s16 temp3  = ((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
+// 		// s16 enable = ((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+// 		// s16 m1_set = ((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+// 		// s16 m2_set = ((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+// 		// s16 m3_set = ((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+// 		// s16 m4_set = ((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+// 		// setMotorPWM(enable,m1_set,m2_set,m3_set,m4_set);
+// 		// attitudePIDwriteToConfigParam();
+// 		// positionPIDwriteToConfigParam();
+// //		u8 cksum = atkpCheckSum(anlPacket);
+// //		sendCheck(anlPacket->msgID,cksum);
+// 	}
 } 
 
 void atkpTxTask(void *param)

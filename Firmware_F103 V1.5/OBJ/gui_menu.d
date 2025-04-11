@@ -1,8 +1,8 @@
 ..\obj\gui_menu.o: ..\GUI_DRV\src\gui_menu.c
 ..\obj\gui_menu.o: ..\GUI_DRV\interface\gui_menu.h
-..\obj\gui_menu.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\gui_menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\gui_menu.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\gui_menu.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\gui_menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gui_menu.o: ..\GUI_DRV\interface\gui_basic.h
 ..\obj\gui_menu.o: ..\GUI_DRV\interface\lcmdrv.h
 ..\obj\gui_menu.o: ..\GUI_DRV\interface\text.h

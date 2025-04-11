@@ -1,5 +1,6 @@
 #include "power_control.h"
 #include "motors.h"
+#include "atkp.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -22,6 +23,16 @@ static motorPWM_t motorPWMSet={0, 0, 0, 0};
 void powerControlInit(void)
 {
 	motorsInit();
+}
+
+void powerDataprocess(atkp_t* anlPacket)
+{
+	s16 enable = ((s16)(*(anlPacket->data+6)<<8)|*(anlPacket->data+7));
+	s16 m1_set = ((s16)(*(anlPacket->data+8)<<8)|*(anlPacket->data+9));
+	s16 m2_set = ((s16)(*(anlPacket->data+10)<<8)|*(anlPacket->data+11));
+	s16 m3_set = ((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
+	s16 m4_set = ((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
+	setMotorPWM(enable,m1_set,m2_set,m3_set,m4_set);
 }
 
 bool powerControlTest(void)

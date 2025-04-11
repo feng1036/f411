@@ -2,6 +2,7 @@
 #define __ATTITUDE_PID_H
 #include <stdbool.h>
 #include "commander.h"
+#include "atkp.h"
 #include "pid.h"
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -25,6 +26,7 @@ extern PidObject pidRatePitch;
 extern PidObject pidRateYaw;
 
 void attitudeControlInit(float rateDt, float angleDt);
+void attitudeDataprocess(atkp_t* anlPacket);
 bool attitudeControlTest(void);
 
 void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *output);

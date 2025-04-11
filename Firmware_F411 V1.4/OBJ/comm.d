@@ -3,7 +3,7 @@
 ..\obj\comm.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\comm.o: ..\USER\stm32f4xx.h
 ..\obj\comm.o: ..\CORE\core_cm4.h
-..\obj\comm.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\comm.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\comm.o: ..\CORE\core_cmInstr.h
 ..\obj\comm.o: ..\CORE\core_cmFunc.h
 ..\obj\comm.o: ..\CORE\core_cm4_simd.h
@@ -29,11 +29,11 @@
 ..\obj\comm.o: ..\FWLIB\inc\misc.h
 ..\obj\comm.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\comm.o: ..\COMMUNICATE\interface\comm.h
-..\obj\comm.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\comm.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\comm.o: ..\CONFIG\interface\config.h
 ..\obj\comm.o: ..\HARDWARE\interface\nvic.h
 ..\obj\comm.o: ..\SYSTEM\sys\sys.h
-..\obj\comm.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\comm.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\comm.o: ..\COMMUNICATE\interface\console.h
 ..\obj\comm.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\comm.o: ..\COMMUNICATE\interface\atkp.h

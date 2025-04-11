@@ -1,6 +1,7 @@
 #ifndef __POWER_CONTROL_H
 #define __POWER_CONTROL_H
 #include "stabilizer_types.h"
+#include "atkp.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -25,6 +26,7 @@ typedef struct
 }motorPWM_t;
 
 void powerControlInit(void);
+void powerDataprocess(atkp_t* anlPacket);
 bool powerControlTest(void);
 void powerControl(control_t *control);
 

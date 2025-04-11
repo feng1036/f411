@@ -42,7 +42,8 @@ static bool RCLowPower = false;
 static bool RCLowPowerOld = false;
 static bool MFLowPower = false;
 static bool MFLowPowerOld = false;
-static bool isMFCanFly = false;
+// static bool isMFCanFly = false;
+static bool isMFCanFly = true;
 static bool isMFCanFlyOld = false;
 
 static s8 batPercent;
@@ -270,7 +271,8 @@ void miniFlyMsgACKProcess(atkp_t* p)
 	{
 		isMFSelfTestPass = true;
 	}
-	isMFCanFly = msg.isCanFly;
+	// isMFCanFly = msg.isCanFly;
+	isMFCanFly = true;
 	MFLowPower = msg.isLowpower;
 	moduleID = msg.moduleID;
 	moduleID = moduleID;

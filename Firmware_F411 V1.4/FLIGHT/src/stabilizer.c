@@ -7,9 +7,13 @@
 #include "state_estimator.h"
 #include "power_control.h"
 #include "position_pid.h"
+#include "attitude_pid.h"
 #include "flip.h"
 #include "maths.h"
 #include "com_queue.h"
+#include "remoter_ctrl.h"
+#include "communicate.h"
+#include "commander.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -28,6 +32,7 @@ static bool isInit;
 
 static setpoint_t 	setpoint;	/*设置目标状态*/
 static sensorData_t sensorData;	/*传感器数据*/
+static atkp_t pk;      /*从通信模块传过来的数据*/
 static state_t 		state;		/*四轴姿态*/
 static control_t 	control;	/*四轴控制参数*/
 
@@ -36,6 +41,13 @@ static u16 absModeTimes = 0;		/*绝对值模式次数*/
 static float setHeight = 0.f;		/*设定目标高度 单位cm*/
 static float baroLast = 0.f;
 static float baroVelLpf = 0.f;
+
+extern PidObject pidAngleRoll;
+extern PidObject pidAnglePitch;
+extern PidObject pidAngleYaw;
+extern PidObject pidRateRoll;
+extern PidObject pidRatePitch;
+extern PidObject pidRateYaw;
 
 
 void stabilizerTask(void* param);
@@ -104,6 +116,27 @@ static void fastAdjustPosZ(void)
 	}	
 }
 
+void stabilizerDataprocess(atkp_t* anlPacket){
+	if(anlPacket->msgID == DOWN_REMOTER)
+	{
+		remoterCtrlProcess(anlPacket);	/*遥控器数据处理*/
+	}
+	else if(anlPacket->msgID == DOWN_PID1 || anlPacket->msgID == DOWN_PID2)
+	{
+		attitudeDataprocess(anlPacket);	/*PID参数设置*/
+	}	
+	else if(anlPacket->msgID == DOWN_PID3 || anlPacket->msgID == DOWN_PID4)
+	{
+		positionDataprocess(anlPacket);	/*PID参数设置*/
+	}
+	else if(anlPacket->msgID == DOWN_PID6)
+	{
+		powerDataprocess(anlPacket);	/*电机参数设置*/
+		attitudePIDwriteToConfigParam();
+		positionPIDwriteToConfigParam();
+	}
+}
+
 void stabilizerTask(void* param)
 {
 	u32 tick = 0;
@@ -125,6 +158,15 @@ void stabilizerTask(void* param)
 						/*获取6轴和气压数据*/
 		}
 
+		// 获取通信模块发送的遥控数据,pid数据,电源数据,目标姿态和飞行模式设定（250Hz）	
+		if (RATE_DO_EXECUTE(RATE_250_HZ, tick))
+		{
+			if(atkp_read(&pk))	/*接收数据*/
+			{
+				stabilizerDataprocess(&pk);	/*遥控数据,pid数据,电源数据处理*/
+			}	
+		}
+
 		//四元数和欧拉角计算（250Hz）
 		if (RATE_DO_EXECUTE(ATTITUDE_ESTIMAT_RATE, tick))
 		{
@@ -137,7 +179,6 @@ void stabilizerTask(void* param)
 			positionEstimate(&sensorData, &state, POSITION_ESTIMAT_DT);
 		}
 			
-		//目标姿态和飞行模式设定（100Hz）	
 		if (RATE_DO_EXECUTE(RATE_100_HZ, tick) && getIsCalibrated()==true)
 		{
 			commanderGetSetpoint(&setpoint, &state);	/*目标数据和飞行模式设定*/	
@@ -147,7 +188,6 @@ void stabilizerTask(void* param)
 		{
 			fastAdjustPosZ();	/*快速调整高度*/
 		}		
-		
 		
 		/*翻滚检测(500Hz) 非定点模式*/
 		if (RATE_DO_EXECUTE(RATE_500_HZ, tick) && (getCommanderCtrlMode() != 0x03))

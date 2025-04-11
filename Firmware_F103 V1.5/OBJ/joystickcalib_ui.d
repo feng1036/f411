@@ -1,13 +1,13 @@
 ..\obj\joystickcalib_ui.o: ..\GUI_APP\src\joystickCalib_ui.c
-..\obj\joystickcalib_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\joystickcalib_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\joystickcalib_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\joystickcalib_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\joystickcalib_ui.o: ..\GUI_APP\interface\joystickCalib_ui.h
-..\obj\joystickcalib_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\joystickcalib_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\joystickcalib_ui.o: ..\COMMUNICATE\interface\keyTask.h
 ..\obj\joystickcalib_ui.o: ..\SYSTEM\sys\sys.h
 ..\obj\joystickcalib_ui.o: ..\USER\stm32f10x.h
 ..\obj\joystickcalib_ui.o: ..\CORE\core_cm3.h
-..\obj\joystickcalib_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\joystickcalib_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\joystickcalib_ui.o: ..\USER\system_stm32f10x.h
 ..\obj\joystickcalib_ui.o: ..\USER\stm32f10x_conf.h
 ..\obj\joystickcalib_ui.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

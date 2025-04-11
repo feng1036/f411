@@ -1,9 +1,9 @@
 ..\obj\match_ui.o: ..\GUI_APP\src\match_ui.c
-..\obj\match_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
-..\obj\match_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\match_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\match_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\match_ui.o: ..\GUI_APP\interface\match_ui.h
-..\obj\match_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
-..\obj\match_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\match_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\match_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\match_ui.o: ..\CONFIG\interface\config_param.h
 ..\obj\match_ui.o: ..\SYSTEM\sys\sys.h
 ..\obj\match_ui.o: ..\USER\stm32f10x.h
@@ -44,7 +44,7 @@
 ..\obj\match_ui.o: ..\HARDWARE\interface\oled.h
 ..\obj\match_ui.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\match_ui.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\match_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\match_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\match_ui.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\match_ui.o: ..\COMMON\interface\debug_assert.h
 ..\obj\match_ui.o: ..\FreeRTOS\include\projdefs.h

@@ -3,7 +3,7 @@
 ..\obj\ak8963.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\ak8963.o: ..\USER\stm32f4xx.h
 ..\obj\ak8963.o: ..\CORE\core_cm4.h
-..\obj\ak8963.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\ak8963.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\ak8963.o: ..\CORE\core_cmInstr.h
 ..\obj\ak8963.o: ..\CORE\core_cmFunc.h
 ..\obj\ak8963.o: ..\CORE\core_cm4_simd.h
@@ -31,14 +31,14 @@
 ..\obj\ak8963.o: ..\CONFIG\interface\config.h
 ..\obj\ak8963.o: ..\HARDWARE\interface\nvic.h
 ..\obj\ak8963.o: ..\SYSTEM\sys\sys.h
-..\obj\ak8963.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
-..\obj\ak8963.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\ak8963.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\ak8963.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\ak8963.o: ..\SYSTEM\delay\delay.h
 ..\obj\ak8963.o: ..\HARDWARE\interface\ak8963.h
 ..\obj\ak8963.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\ak8963.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\ak8963.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\ak8963.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\ak8963.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\ak8963.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\ak8963.o: ..\COMMON\interface\debug_assert.h
 ..\obj\ak8963.o: ..\COMMUNICATE\interface\console.h

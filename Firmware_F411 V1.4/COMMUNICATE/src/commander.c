@@ -59,6 +59,9 @@ static void ctrlDataUpdate(void)
 {
 	static float lpfVal = 0.2f;
 	u32 tickNow = getSysTickCnt();	
+
+	// isRCLocked = false;			/*½âËø*/
+	// nowCache = &remoteCache;	/* Ò£¿Ø»º´æÊý¾Ý */
 	
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_STABILIZE) 
 	{
