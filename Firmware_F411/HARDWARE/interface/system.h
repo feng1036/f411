@@ -25,7 +25,6 @@
 #include "radiolink.h"
 #include "config_param.h"
 #include "comm.h"
-#include "communicate.h"
 #include "commander.h"
 #include "sensors.h"
 #include "stabilizer.h"

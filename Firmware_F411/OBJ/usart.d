@@ -3,7 +3,7 @@
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\usart.o: ..\USER\stm32f4xx.h
 ..\obj\usart.o: ..\CORE\core_cm4.h
-..\obj\usart.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart.o: ..\CORE\core_cmInstr.h
 ..\obj\usart.o: ..\CORE\core_cmFunc.h
 ..\obj\usart.o: ..\CORE\core_cm4_simd.h
@@ -30,15 +30,15 @@
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\usart.o: ..\SYSTEM\sys\sys.h
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
-..\obj\usart.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\usart.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\usart.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\usart.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\usart.o: ..\CONFIG\interface\config.h
 ..\obj\usart.o: ..\HARDWARE\interface\nvic.h
 ..\obj\usart.o: ..\COMMON\interface\debug_assert.h
 ..\obj\usart.o: ..\COMMUNICATE\interface\console.h
-..\obj\usart.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\usart.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\usart.o: ..\FreeRTOS\include\portable.h
 ..\obj\usart.o: ..\FreeRTOS\include\deprecated_definitions.h

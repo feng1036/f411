@@ -147,7 +147,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 	}
 }
 
-//extern bool isExitFlip;			/*是否退出空翻*/
+extern bool isExitFlip;			/*是否退出空翻*/
 /********************************************************
 * flyerAutoLand()
 * 四轴自动降落
@@ -176,14 +176,14 @@ void flyerAutoLand(setpoint_t *setpoint,const state_t *state)
 		lowThrustCnt = 0;
 	}
 	
-	// if(isExitFlip == true)	/*退出空翻，再检测加速度*/
-	// {
-	// 	float accZ = state->acc.z;
-	// 	if(minAccZ > accZ)
-	// 		minAccZ = accZ;
-	// 	if(maxAccZ < accZ)
-	// 		maxAccZ = accZ;
-	// }
+	if(isExitFlip == true)	/*退出空翻，再检测加速度*/
+	{
+		float accZ = state->acc.z;
+		if(minAccZ > accZ)
+			minAccZ = accZ;
+		if(maxAccZ < accZ)
+			maxAccZ = accZ;
+	}
 	
 	if (minAccZ < -80.f && maxAccZ > 320.f)
 	{
@@ -244,19 +244,21 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 				setpoint->mode.z = modeVelocity;
 				setpoint->velocity.z = climb;
 
-				if(climb >= -(CLIMB_RATE/5.f))	/*油门下拉过大*/
+				if(climb < -(CLIMB_RATE/5.f))	/*油门下拉过大*/
+				{
+					if(isExitFlip == true)		/*退出空翻，再检测加速度*/
+					{
+						if(maxAccZ < state->acc.z)
+							maxAccZ = state->acc.z;
+						if(maxAccZ > 250.f)		/*油门下拉过大，飞机触地停机*/
+						{
+							commander.keyFlight = false;
+							estRstAll();	/*复位估测*/
+						}
+					}
+				}else
 				{
 					maxAccZ = 0.f;
-					// if(isExitFlip == true)		/*退出空翻，再检测加速度*/
-					// {
-					// 	if(maxAccZ < state->acc.z)
-					// 		maxAccZ = state->acc.z;
-					// 	if(maxAccZ > 250.f)		/*油门下拉过大，飞机触地停机*/
-					// 	{
-					// 		commander.keyFlight = false;
-					// 		estRstAll();	/*复位估测*/
-					// 	}
-					// }
 				}
 			}
 			else if (isAdjustingPosZ == true)

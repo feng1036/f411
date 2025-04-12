@@ -8,6 +8,7 @@
 #include "power_control.h"
 #include "position_pid.h"
 #include "attitude_pid.h"
+#include "flip.h"
 #include "maths.h"
 #include "com_queue.h"
 #include "remoter_ctrl.h"
@@ -187,6 +188,12 @@ void stabilizerTask(void* param)
 		{
 			fastAdjustPosZ();	/*快速调整高度*/
 		}		
+		
+		/*翻滚检测(500Hz) 非定点模式*/
+		if (RATE_DO_EXECUTE(RATE_500_HZ, tick) && (getCommanderCtrlMode() != 0x03))
+		{
+			flyerFlipCheck(&setpoint, &control, &state);	
+		}
 		
 		/*异常检测*/
 		anomalDetec(&sensorData, &state, &control);			

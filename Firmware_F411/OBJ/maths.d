@@ -3,7 +3,7 @@
 ..\obj\maths.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\maths.o: ..\USER\stm32f4xx.h
 ..\obj\maths.o: ..\CORE\core_cm4.h
-..\obj\maths.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\maths.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\maths.o: ..\CORE\core_cmInstr.h
 ..\obj\maths.o: ..\CORE\core_cmFunc.h
 ..\obj\maths.o: ..\CORE\core_cm4_simd.h
@@ -28,7 +28,7 @@
 ..\obj\maths.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\maths.o: ..\FWLIB\inc\misc.h
 ..\obj\maths.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
-..\obj\maths.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\maths.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
+..\obj\maths.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\maths.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\maths.o: ..\COMMON\interface\axis.h
 ..\obj\maths.o: ..\COMMON\interface\maths.h

@@ -3,7 +3,7 @@
 ..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\state_estimator.o: ..\USER\stm32f4xx.h
 ..\obj\state_estimator.o: ..\CORE\core_cm4.h
-..\obj\state_estimator.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\state_estimator.o: ..\CORE\core_cmInstr.h
 ..\obj\state_estimator.o: ..\CORE\core_cmFunc.h
 ..\obj\state_estimator.o: ..\CORE\core_cm4_simd.h
@@ -31,14 +31,14 @@
 ..\obj\state_estimator.o: ..\FLIGHT\interface\state_estimator.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\state_estimator.o: ..\SYSTEM\sys\sys.h
-..\obj\state_estimator.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\state_estimator.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\state_estimator.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\state_estimator.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\config.h
 ..\obj\state_estimator.o: ..\HARDWARE\interface\nvic.h
-..\obj\state_estimator.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\state_estimator.o: ..\COMMON\interface\debug_assert.h
 ..\obj\state_estimator.o: ..\COMMUNICATE\interface\console.h
 ..\obj\state_estimator.o: ..\FreeRTOS\include\projdefs.h

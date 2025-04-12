@@ -89,12 +89,12 @@ void stateControl(control_t *control, sensorData_t *sensors, state_t *state, set
 			rateDesired.pitch = setpoint->attitudeRate.pitch;
 			attitudeControllerResetPitchAttitudePID();
 		}
-		// extern u8 fstate;
-		// if (control->flipDir != CENTER && fstate == 4)	/*空翻过程只使用内环PID*/
-		// {
-		// 	rateDesired.pitch = setpoint->attitude.pitch;
-		// 	rateDesired.roll = setpoint->attitude.roll;
-		// }
+		extern u8 fstate;
+		if (control->flipDir != CENTER && fstate == 4)	/*空翻过程只使用内环PID*/
+		{
+			rateDesired.pitch = setpoint->attitude.pitch;
+			rateDesired.roll = setpoint->attitude.roll;
+		}
 		
 		attitudeRatePID(&sensors->gyro, &rateDesired, control);
 	}

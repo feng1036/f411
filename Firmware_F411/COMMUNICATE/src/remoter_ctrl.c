@@ -4,6 +4,7 @@
 #include "remoter_ctrl.h"
 #include "config_param.h"
 #include "commander.h"
+#include "flip.h"
 #include "radiolink.h"
 #include "sensors.h"
 #include "pm.h"

@@ -3,7 +3,7 @@
 ..\obj\system_stm32f4xx.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\system_stm32f4xx.o: ..\USER\stm32f4xx.h
 ..\obj\system_stm32f4xx.o: ..\CORE\core_cm4.h
-..\obj\system_stm32f4xx.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\system_stm32f4xx.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\system_stm32f4xx.o: ..\CORE\core_cmInstr.h
 ..\obj\system_stm32f4xx.o: ..\CORE\core_cmFunc.h
 ..\obj\system_stm32f4xx.o: ..\CORE\core_cm4_simd.h
