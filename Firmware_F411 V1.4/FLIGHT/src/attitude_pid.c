@@ -88,8 +88,6 @@ void attitudeDataprocess(atkp_t* anlPacket){
 		pidAngleYaw.kp   = 0.1*((s16)(*(anlPacket->data+12)<<8)|*(anlPacket->data+13));
 		pidAngleYaw.ki   = 0.1*((s16)(*(anlPacket->data+14)<<8)|*(anlPacket->data+15));
 		pidAngleYaw.kd   = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
-//		u8 cksum = atkpCheckSum(anlPacket);
-//		sendCheck(anlPacket->msgID,cksum);
 	}
 }
 

@@ -50,7 +50,7 @@
 ..\obj\state_estimator.o: ..\FreeRTOS\include\task.h
 ..\obj\state_estimator.o: ..\FreeRTOS\include\list.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\attitude_pid.h
-..\obj\state_estimator.o: ..\COMMUNICATE\interface\commander.h
+..\obj\state_estimator.o: ..\FLIGHT\interface\commander.h
 ..\obj\state_estimator.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\pid.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\config_param.h

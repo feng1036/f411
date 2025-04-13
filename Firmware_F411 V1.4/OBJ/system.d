@@ -58,9 +58,10 @@
 ..\obj\system.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\system.o: ..\CONFIG\interface\config_param.h
 ..\obj\system.o: ..\COMMUNICATE\interface\comm.h
-..\obj\system.o: ..\COMMUNICATE\interface\commander.h
+..\obj\system.o: ..\FLIGHT\interface\commander.h
 ..\obj\system.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\system.o: ..\COMMUNICATE\interface\com_queue.h
+..\obj\system.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\system.o: ..\FLIGHT\interface\sensors.h
 ..\obj\system.o: ..\HARDWARE\interface\mpu6500.h
 ..\obj\system.o: ..\HARDWARE\interface\i2cdev.h
@@ -71,4 +72,4 @@
 ..\obj\system.o: ..\HARDWARE\interface\spl06.h
 ..\obj\system.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\system.o: ..\HARDWARE\interface\watchdog.h
-..\obj\system.o: ..\COMMUNICATE\interface\pm.h
+..\obj\system.o: ..\FLIGHT\interface\pm.h

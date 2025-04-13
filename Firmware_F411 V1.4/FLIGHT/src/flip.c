@@ -59,7 +59,7 @@ void flyerFlipCheck(setpoint_t* setpoint, control_t* control, state_t* state)
 	static u16 flipThrust = 0;
 	static u16 tempThrust = 0;
 	static u16 reverTime = 0;
-	static u16 flipTimeout = 0;	
+	static u16 flipTimeout = 0;
 	static float pitchTemp = 0.0;
 	static float rollTemp = 0.0;
 	static float yawTemp = 0.0;
@@ -235,11 +235,6 @@ void flyerFlipCheck(setpoint_t* setpoint, control_t* control, state_t* state)
 			{				
 				flipTimeout = 0;
 				flipState = FLIP_IDLE;					
-//				if(getCommanderKeyFlight())	/*定高模式*/
-//				{
-//					setpoint->thrust = 0;
-//					setpoint->mode.z = modeAbs;	
-//				}
 			}
 			break;
 		}

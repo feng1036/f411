@@ -6,17 +6,7 @@
  *作者：	赵薪宇
  *描述：	和stablilizer进行通信的代码,定义了如何与stablilizer通信,包括收发信息的队列,收发函数等
 ********************************************************************************/
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
-#include "queue.h"
-#include "config.h"
-#include "comm.h"
-#include "uart_syslink.h"
 #include "communicate.h"
-
-#include "atkp.h"
-#include "assert.h"
 
 static xQueueHandle atkp_stabilizer_queue;	/*和stablilizer通信的队列*/
 
@@ -38,6 +28,11 @@ bool atkp_write(atkp_t *p)
 bool atkp_read(atkp_t *p)
 {
     return (pdTRUE==xQueueReceive(atkp_stabilizer_queue, p, 0));	/*接收数据从stablilizer通信的队列*/
+}
+
+bool communicateTest(void)
+{
+    return isInit;
 }
 
 

@@ -58,9 +58,10 @@
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\stabilizer.o: ..\CONFIG\interface\config_param.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\comm.h
-..\obj\stabilizer.o: ..\COMMUNICATE\interface\commander.h
+..\obj\stabilizer.o: ..\FLIGHT\interface\commander.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\com_queue.h
+..\obj\stabilizer.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\sensors.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\mpu6500.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\i2cdev.h
@@ -71,7 +72,7 @@
 ..\obj\stabilizer.o: ..\HARDWARE\interface\spl06.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\watchdog.h
-..\obj\stabilizer.o: ..\COMMUNICATE\interface\pm.h
+..\obj\stabilizer.o: ..\FLIGHT\interface\pm.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\sensfusion6.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\anomal_detec.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\state_control.h
@@ -82,7 +83,5 @@
 ..\obj\stabilizer.o: ..\FLIGHT\interface\attitude_pid.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\flip.h
 ..\obj\stabilizer.o: ..\COMMON\interface\maths.h
-..\obj\stabilizer.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\stabilizer.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\module_detect.h
-..\obj\stabilizer.o: ..\COMMUNICATE\interface\communicate.h
-..\obj\stabilizer.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

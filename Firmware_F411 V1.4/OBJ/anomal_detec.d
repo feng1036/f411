@@ -30,7 +30,7 @@
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\anomal_detec.o: ..\COMMON\interface\maths.h
-..\obj\anomal_detec.o: ..\COMMUNICATE\interface\commander.h
+..\obj\anomal_detec.o: ..\FLIGHT\interface\commander.h
 ..\obj\anomal_detec.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\anomal_detec.o: ..\CONFIG\interface\config.h
@@ -53,6 +53,6 @@
 ..\obj\anomal_detec.o: ..\FreeRTOS\include\task.h
 ..\obj\anomal_detec.o: ..\FreeRTOS\include\list.h
 ..\obj\anomal_detec.o: ..\FLIGHT\interface\anomal_detec.h
-..\obj\anomal_detec.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\anomal_detec.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\anomal_detec.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\anomal_detec.o: ..\FLIGHT\interface\stabilizer.h

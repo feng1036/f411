@@ -55,7 +55,3 @@
 ..\obj\radiolink.o: ..\FreeRTOS\include\semphr.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\queue.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\communicate.h
-..\obj\radiolink.o: ..\COMMUNICATE\interface\comm.h
-..\obj\radiolink.o: ..\COMMUNICATE\interface\remoter_ctrl.h
-..\obj\radiolink.o: ..\HARDWARE\interface\module_detect.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

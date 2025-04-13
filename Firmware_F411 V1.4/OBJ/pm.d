@@ -1,4 +1,4 @@
-..\obj\pm.o: ..\COMMUNICATE\src\pm.c
+..\obj\pm.o: ..\FLIGHT\src\pm.c
 ..\obj\pm.o: stm32f4xx_conf.h
 ..\obj\pm.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\pm.o: ..\USER\stm32f4xx.h
@@ -59,9 +59,10 @@
 ..\obj\pm.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\pm.o: ..\CONFIG\interface\config_param.h
 ..\obj\pm.o: ..\COMMUNICATE\interface\comm.h
-..\obj\pm.o: ..\COMMUNICATE\interface\commander.h
+..\obj\pm.o: ..\FLIGHT\interface\commander.h
 ..\obj\pm.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\pm.o: ..\COMMUNICATE\interface\com_queue.h
+..\obj\pm.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\pm.o: ..\FLIGHT\interface\sensors.h
 ..\obj\pm.o: ..\HARDWARE\interface\mpu6500.h
 ..\obj\pm.o: ..\HARDWARE\interface\i2cdev.h
@@ -72,7 +73,7 @@
 ..\obj\pm.o: ..\HARDWARE\interface\spl06.h
 ..\obj\pm.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\pm.o: ..\HARDWARE\interface\watchdog.h
-..\obj\pm.o: ..\COMMUNICATE\interface\pm.h
-..\obj\pm.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\pm.o: ..\FLIGHT\interface\pm.h
+..\obj\pm.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\pm.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\pm.o: ..\FLIGHT\interface\sensfusion6.h

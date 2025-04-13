@@ -31,34 +31,8 @@
 ********************************************************************************/
 
 static ctrlVal_t remoterCtrl;/*发送到commander姿态控制数据*/
-static MiniFlyMsg_t msg;
 static u8 reSendTimes = 3;	/*微调重发次数*/
 
-/*返回四轴信息*/
-void sendMsgACK(void)
-{
-	msg.version = configParam.version;
-	//msg.mpu_selfTest = getIsMPU9250Present();
-	//msg.baro_slfTest = getIsBaroPresent();
-	msg.isCanFly = getIsCalibrated();
-	if(msg.isCanFly == true)	/*校准通过之后发送微调值*/
-	{
-		if(reSendTimes > 0) /*微调重发次数*/
-		{
-			reSendTimes--;
-			msg.trimPitch = configParam.trimP;
-			msg.trimRoll = configParam.trimR;
-		}
-	}
-	msg.isLowpower = getIsLowpower();
-	
-	atkp_t p;
-	p.msgID = UP_REMOTER;
-	p.dataLen = sizeof(msg)+1;
-	p.data[0] = ACK_MSG;
-	memcpy(p.data+1, &msg, sizeof(msg));
-	radiolinkSendPacketBlocking(&p);	
-}
 
 /*遥控数据接收处理*/
 void remoterCtrlProcess(atkp_t* pk)
@@ -86,11 +60,9 @@ void remoterCtrlProcess(atkp_t* pk)
 				break;
 			
 			case CMD_FLIP:
-				// setFlipDir(pk->data[2]);
 				break;
 			
 			case CMD_GET_MSG:
-				// sendMsgACK();
 				break;
 		}
 	}

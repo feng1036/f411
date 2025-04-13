@@ -78,12 +78,9 @@ typedef struct
 extern configParam_t configParam;
 
 void configParamInit(void);	/*参数配置初始化*/
-void configParamTask(void* param);	/*参数配置任务*/
 bool configParamTest(void);
 
 void configParamGiveSemaphore(void);
-void resetConfigParamPID(void);
-void saveConfigAndNotify(void);
 
 #endif /*__CONFIG_PARAM_H */
 

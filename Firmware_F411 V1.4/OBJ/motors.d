@@ -35,5 +35,4 @@
 ..\obj\motors.o: ..\CONFIG\interface\config.h
 ..\obj\motors.o: ..\HARDWARE\interface\nvic.h
 ..\obj\motors.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\motors.o: ..\COMMUNICATE\interface\pm.h
-..\obj\motors.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\motors.o: ..\FLIGHT\interface\pm.h

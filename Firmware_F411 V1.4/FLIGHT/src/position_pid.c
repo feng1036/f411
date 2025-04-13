@@ -77,9 +77,6 @@ void positionDataprocess(atkp_t* anlPacket){
 		pidVX.kd = 0.1*((s16)(*(anlPacket->data+16)<<8)|*(anlPacket->data+17));
 		
 		pidVY = pidVX;	//位置速率PID，X\Y方向是一样的
-		
-//		u8 cksum = atkpCheckSum(anlPacket);
-//		sendCheck(anlPacket->msgID,cksum);
 	}
 	else if(anlPacket->msgID == DOWN_PID4)
 	{
@@ -88,9 +85,6 @@ void positionDataprocess(atkp_t* anlPacket){
 		pidX.kd = 0.1*((s16)(*(anlPacket->data+4)<<8)|*(anlPacket->data+5));
 		
 		pidY = pidX;	//位置保持PID，X\Y方向是一样的
-		
-//		u8 cksum = atkpCheckSum(anlPacket);
-//		sendCheck(anlPacket->msgID,cksum);
 	}
 }
 

@@ -1,4 +1,4 @@
-..\obj\remoter_ctrl.o: ..\COMMUNICATE\src\remoter_ctrl.c
+..\obj\remoter_ctrl.o: ..\FLIGHT\src\remoter_ctrl.c
 ..\obj\remoter_ctrl.o: stm32f4xx_conf.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\remoter_ctrl.o: ..\USER\stm32f4xx.h
@@ -51,11 +51,11 @@
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\queue.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\task.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\list.h
-..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\remoter_ctrl.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\remoter_ctrl.o: ..\CONFIG\interface\config_param.h
-..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\commander.h
+..\obj\remoter_ctrl.o: ..\FLIGHT\interface\commander.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\flip.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\sensors.h
@@ -68,5 +68,5 @@
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\remoter_ctrl.o: ..\COMMON\interface\filter.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\spl06.h
-..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\pm.h
+..\obj\remoter_ctrl.o: ..\FLIGHT\interface\pm.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\stabilizer.h

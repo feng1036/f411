@@ -114,11 +114,5 @@ typedef enum
 	DOWN_REMOTER	= 0x50,
 }downmsgID_e;
 
-
-void atkpTxTask(void *param);
-void atkpRxAnlTask(void *param);
-void atkpInit(void);
-bool atkpReceivePacketBlocking(atkp_t *p);
-
 #endif /*ATKP_H*/
 

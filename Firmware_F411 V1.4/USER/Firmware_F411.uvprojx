@@ -710,44 +710,14 @@
           <GroupName>COMMUNICATE</GroupName>
           <Files>
             <File>
-              <FileName>atkp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\atkp.c</FilePath>
-            </File>
-            <File>
-              <FileName>comm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\comm.c</FilePath>
-            </File>
-            <File>
-              <FileName>commander.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\commander.c</FilePath>
-            </File>
-            <File>
               <FileName>ledseq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\ledseq.c</FilePath>
             </File>
             <File>
-              <FileName>console.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\console.c</FilePath>
-            </File>
-            <File>
-              <FileName>pm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\pm.c</FilePath>
-            </File>
-            <File>
               <FileName>radiolink.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\radiolink.c</FilePath>
-            </File>
-            <File>
-              <FileName>remoter_ctrl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\remoter_ctrl.c</FilePath>
             </File>
             <File>
               <FileName>com_queue.c</FileName>
@@ -818,6 +788,21 @@
               <FileName>sensors.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\sensors.c</FilePath>
+            </File>
+            <File>
+              <FileName>commander.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FLIGHT\src\commander.c</FilePath>
+            </File>
+            <File>
+              <FileName>pm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FLIGHT\src\pm.c</FilePath>
+            </File>
+            <File>
+              <FileName>remoter_ctrl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FLIGHT\src\remoter_ctrl.c</FilePath>
             </File>
           </Files>
         </Group>

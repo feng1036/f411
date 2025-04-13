@@ -26,6 +26,7 @@
 #include "config_param.h"
 #include "comm.h"
 #include "commander.h"
+#include "communicate.h"
 #include "sensors.h"
 #include "stabilizer.h"
 #include "watchdog.h"

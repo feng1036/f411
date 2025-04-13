@@ -35,7 +35,7 @@
 ..\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\spi.o: ..\HARDWARE\interface\uart1.h
 ..\obj\spi.o: ..\CONFIG\interface\config_param.h
-..\obj\spi.o: ..\COMMUNICATE\interface\commander.h
+..\obj\spi.o: ..\FLIGHT\interface\commander.h
 ..\obj\spi.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\spi.o: ..\CONFIG\interface\config.h
 ..\obj\spi.o: ..\HARDWARE\interface\nvic.h

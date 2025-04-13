@@ -16,12 +16,9 @@
  * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
  * All rights reserved
 ********************************************************************************/
-
-void radiolinkInit(void);
 void radiolinkTask(void *param);
-bool radiolinkSendPacket(const atkp_t *p);
-bool radiolinkSendPacketBlocking(const atkp_t *p);
-int radiolinkGetFreeTxQueuePackets(void);
+
+bool radiolinkTest(void);
 
 #endif /*__RADIO_H */
 

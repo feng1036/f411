@@ -1,4 +1,4 @@
-..\obj\commander.o: ..\COMMUNICATE\src\commander.c
+..\obj\commander.o: ..\FLIGHT\src\commander.c
 ..\obj\commander.o: stm32f4xx_conf.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\commander.o: ..\USER\stm32f4xx.h
@@ -30,7 +30,7 @@
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\commander.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\commander.o: ..\COMMON\interface\maths.h
-..\obj\commander.o: ..\COMMUNICATE\interface\commander.h
+..\obj\commander.o: ..\FLIGHT\interface\commander.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\commander.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\commander.o: ..\CONFIG\interface\config.h
@@ -54,7 +54,7 @@
 ..\obj\commander.o: ..\FreeRTOS\include\list.h
 ..\obj\commander.o: ..\CONFIG\interface\config_param.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\radiolink.h
-..\obj\commander.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\commander.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\commander.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\commander.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\commander.o: ..\FLIGHT\interface\state_estimator.h

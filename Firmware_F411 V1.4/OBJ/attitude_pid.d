@@ -61,5 +61,5 @@
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\list.h
 ..\obj\attitude_pid.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\attitude_pid.o: ..\FLIGHT\interface\attitude_pid.h
-..\obj\attitude_pid.o: ..\COMMUNICATE\interface\commander.h
+..\obj\attitude_pid.o: ..\FLIGHT\interface\commander.h
 ..\obj\attitude_pid.o: ..\FLIGHT\interface\stabilizer_types.h

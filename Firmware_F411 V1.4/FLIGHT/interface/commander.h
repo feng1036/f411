@@ -44,8 +44,7 @@ typedef __packed struct
 /*数据缓存结构体*/
 typedef struct
 {
-	ctrlVal_t  tarVal[2];
-	bool activeSide;
+	ctrlVal_t  tarVal;
 	u32 timestamp; 		/* FreeRTOS 时钟节拍*/
 } ctrlValCache_t;
 

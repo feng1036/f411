@@ -446,16 +446,7 @@ void sensorsTask(void *param)
 			}
 			
 			vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
-			// xQueueOverwrite(accelerometerDataQueue, &sensors.acc);
-			// xQueueOverwrite(gyroDataQueue, &sensors.gyro);
-			// if (isMagPresent)
-			// {
-			// 	xQueueOverwrite(magnetometerDataQueue, &sensors.mag);
-			// }
-			// if (isBaroPresent)
-			// {
-			// 	xQueueOverwrite(barometerDataQueue, &sensors.baro);
-			// }
+			
 			sensor_data_Write(&sensors);
 			xTaskResumeAll();
 		}

@@ -24,7 +24,6 @@
 
 static bool isRCLocked;				/* 遥控锁定状态 */
 static ctrlValCache_t remoteCache;	/* 遥控缓存数据 */
-static ctrlValCache_t* nowCache = &remoteCache;/*默认为遥控*/
 static ctrlVal_t ctrlValLpf = {0.f};/* 控制数据低通 */
 
 static float minAccZ = 0.f; 
@@ -66,27 +65,19 @@ static void ctrlDataUpdate(void)
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_STABILIZE) 
 	{
 		isRCLocked = false;			/*解锁*/
-		nowCache = &remoteCache;	/* 遥控缓存数据 */
 	}else 
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_SHUTDOWN) 
 	{
-		nowCache = &remoteCache;	/* 遥控缓存数据 */
 		commanderLevelRPY();
 	}else 
 	{
 		isRCLocked = true;			/*锁定*/
-		nowCache = &remoteCache;
 		commanderDropToGround();
 	}
 	
 	if(isRCLocked == false)	/*解锁状态*/
 	{
-		ctrlVal_t ctrlVal =  nowCache->tarVal[nowCache->activeSide];	/*读取缓存*/
-		
-//		ctrlValLpf.thrust = ctrlVal.thrust;
-//		ctrlValLpf.pitch = ctrlVal.pitch;
-//		ctrlValLpf.roll = ctrlVal.roll;
-//		ctrlValLpf.yaw = ctrlVal.yaw;
+		ctrlVal_t ctrlVal =  remoteCache.tarVal;	/*读取缓存*/
 		
 		ctrlValLpf.thrust += (ctrlVal.thrust - ctrlValLpf.thrust) * lpfVal;
 		ctrlValLpf.pitch += (ctrlVal.pitch - ctrlValLpf.pitch) * lpfVal;
@@ -134,17 +125,8 @@ static void rotateYawCarefree(setpoint_t *setpoint, const state_t *state)
 /*飞控数据缓存*/
 void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 {
-	switch(ctrlSrc)
-	{
-		case ATK_REMOTER:
-			remoteCache.tarVal[!remoteCache.activeSide] = pk;
-			remoteCache.activeSide = !remoteCache.activeSide;
-			remoteCache.timestamp = getSysTickCnt();
-			break;
-		
- 		  default:
-			break;
-	}
+	remoteCache.tarVal = pk;
+	remoteCache.timestamp = getSysTickCnt();
 }
 
 extern bool isExitFlip;			/*是否退出空翻*/
@@ -314,8 +296,8 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 /* 读取并更新微调值 */
 void getAndUpdateTrim(float* pitch, float* roll)
 {
-	*pitch = nowCache->tarVal[nowCache->activeSide].trimPitch;
-	*roll = nowCache->tarVal[nowCache->activeSide].trimRoll;
+	*pitch = remoteCache.tarVal.trimPitch;
+	*roll = remoteCache.tarVal.trimRoll;
 }
 
 void setCommanderCtrlMode(u8 set)

@@ -181,25 +181,6 @@ void configParamInit(void)	/*参数配置初始化*/
 	isInit=true;
 }
 
-void configParamTask(void* param)
-{
-	u8 cksum = 0;
-	
-	while(1) 
-	{	
-		xSemaphoreTake(xSemaphore, portMAX_DELAY);
-		cksum = configParamCksum(&configParam);		/*数据校验*/
-		
-		if(configParam.cksum != cksum)	
-		{
-			configParam.cksum = cksum;	/*数据校验*/
-			watchdogInit(500);			/*擦除时间比较长，看门狗时间设置大一些*/					
-			STMFLASH_Write(CONFIG_PARAM_ADDR,(u32 *)&configParam, lenth);	/*写入stm32 flash*/
-			//watchdogInit(WATCHDOG_RESET_MS);		/*重新设置看门狗*/
-		}						
-	}
-}
-
 bool configParamTest(void)
 {
 	return isInit;
@@ -208,21 +189,4 @@ bool configParamTest(void)
 void configParamGiveSemaphore(void)
 {
 	xSemaphoreGive(xSemaphore);		
-}
-
-void resetConfigParamPID(void)
-{
-	configParam.pidAngle = configParamDefault.pidAngle;
-	configParam.pidRate = configParamDefault.pidRate;
-	configParam.pidPos = configParamDefault.pidPos;
-}
-
-void saveConfigAndNotify(void)
-{
-	u8 cksum = configParamCksum(&configParam);		/*数据校验*/
-	if(configParam.cksum != cksum)	
-	{
-		configParam.cksum = cksum;	/*数据校验*/				
-		STMFLASH_Write(CONFIG_PARAM_ADDR,(u32 *)&configParam, lenth);	/*写入stm32 flash*/
-	}
 }

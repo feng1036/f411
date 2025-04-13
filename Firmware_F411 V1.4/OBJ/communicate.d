@@ -28,6 +28,7 @@
 ..\obj\communicate.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\communicate.o: ..\FWLIB\inc\misc.h
 ..\obj\communicate.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
+..\obj\communicate.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\communicate.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\communicate.o: ..\CONFIG\interface\FreeRTOSConfig.h
@@ -43,15 +44,5 @@
 ..\obj\communicate.o: ..\FreeRTOS\include\deprecated_definitions.h
 ..\obj\communicate.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
 ..\obj\communicate.o: ..\FreeRTOS\include\mpu_wrappers.h
-..\obj\communicate.o: ..\FreeRTOS\include\task.h
-..\obj\communicate.o: ..\FreeRTOS\include\list.h
-..\obj\communicate.o: ..\FreeRTOS\include\semphr.h
 ..\obj\communicate.o: ..\FreeRTOS\include\queue.h
-..\obj\communicate.o: ..\COMMUNICATE\interface\comm.h
-..\obj\communicate.o: ..\HARDWARE\interface\uart_syslink.h
-..\obj\communicate.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\communicate.o: ..\COMMUNICATE\interface\atkp.h
-..\obj\communicate.o: ..\COMMUNICATE\interface\remoter_ctrl.h
-..\obj\communicate.o: ..\HARDWARE\interface\module_detect.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

@@ -52,7 +52,7 @@
 ..\obj\state_control.o: ..\FreeRTOS\include\list.h
 ..\obj\state_control.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\state_control.o: ..\FLIGHT\interface\attitude_pid.h
-..\obj\state_control.o: ..\COMMUNICATE\interface\commander.h
+..\obj\state_control.o: ..\FLIGHT\interface\commander.h
 ..\obj\state_control.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\state_control.o: ..\FLIGHT\interface\pid.h
 ..\obj\state_control.o: ..\CONFIG\interface\config_param.h

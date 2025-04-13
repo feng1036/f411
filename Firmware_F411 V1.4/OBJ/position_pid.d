@@ -33,7 +33,7 @@
 ..\obj\position_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\position_pid.o: ..\CONFIG\interface\config_param.h
 ..\obj\position_pid.o: ..\SYSTEM\sys\sys.h
-..\obj\position_pid.o: ..\COMMUNICATE\interface\commander.h
+..\obj\position_pid.o: ..\FLIGHT\interface\commander.h
 ..\obj\position_pid.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\position_pid.o: ..\CONFIG\interface\config.h
 ..\obj\position_pid.o: ..\HARDWARE\interface\nvic.h
@@ -54,6 +54,6 @@
 ..\obj\position_pid.o: ..\FreeRTOS\include\task.h
 ..\obj\position_pid.o: ..\FreeRTOS\include\list.h
 ..\obj\position_pid.o: ..\FLIGHT\interface\position_pid.h
-..\obj\position_pid.o: ..\COMMUNICATE\interface\remoter_ctrl.h
+..\obj\position_pid.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\position_pid.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\position_pid.o: ..\COMMON\interface\maths.h

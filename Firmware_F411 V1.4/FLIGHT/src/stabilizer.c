@@ -42,14 +42,6 @@ static float setHeight = 0.f;		/*设定目标高度 单位cm*/
 static float baroLast = 0.f;
 static float baroVelLpf = 0.f;
 
-extern PidObject pidAngleRoll;
-extern PidObject pidAnglePitch;
-extern PidObject pidAngleYaw;
-extern PidObject pidRateRoll;
-extern PidObject pidRatePitch;
-extern PidObject pidRateYaw;
-
-
 void stabilizerTask(void* param);
 
 void stabilizerInit(void)
@@ -132,8 +124,6 @@ void stabilizerDataprocess(atkp_t* anlPacket){
 	else if(anlPacket->msgID == DOWN_PID6)
 	{
 		powerDataprocess(anlPacket);	/*电机参数设置*/
-		attitudePIDwriteToConfigParam();
-		positionPIDwriteToConfigParam();
 	}
 }
 
@@ -143,10 +133,7 @@ void stabilizerTask(void* param)
 	u32 lastWakeTime = getSysTickCnt();
 	
 	ledseqRun(SYS_LED, seq_alive);
-	// while(!sensorsAreCalibrated())
-	// {
-	// 	vTaskDelayUntil(&lastWakeTime, MAIN_LOOP_DT);
-	// }
+	
 	while(1) 
 	{
 		vTaskDelayUntil(&lastWakeTime, MAIN_LOOP_DT);		/*1ms周期延时*/

@@ -27,12 +27,9 @@ void systemInit(void)
 	delay_init(96);		/*delay初始化*/
 	ledInit();			/*led初始化*/
 	ledseqInit();		/*led灯序列初始化*/
-	
-	commInit();			/*通信初始化  STM32 & NRF51822 */
-	atkpInit();			/*传输协议初始化*/
-	consoleInit();		/*打印初始化*/
 
 	communicateInit();	/*和stablilizer通信的初始化*/
+	uartslkInit();		/*串口初始化*/
 	
 	configParamInit();	/*初始化配置参数*/
 	pmInit();			/*电源管理初始化*/
@@ -66,9 +63,10 @@ static bool systemTest(void)
 	
 	pass &= ledseqTest();
 	pass &= pmTest();
+	pass &= uartslkTest();
 	pass &= configParamTest();
-	pass &= commTest();
 	pass &= stabilizerTest();	
+	pass &= communicateTest();
 	pass &= watchdogTest();
 	
 	return pass;
