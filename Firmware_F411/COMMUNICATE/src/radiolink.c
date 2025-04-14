@@ -77,7 +77,6 @@ void radiolinkTask(void *param)
 				case waitForChksum1:
 					if (cksum == c)	/*所有校验正确*/
 					{
-						// atkpPacketDispatch(&rxPacket);
 						atkp_write(&rxPacket);
 					} 
 					else	/*校验错误*/

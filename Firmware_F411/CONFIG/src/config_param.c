@@ -1,16 +1,7 @@
 #include <stdbool.h>
 #include <string.h>
-#include "math.h"
 #include "config.h"
 #include "config_param.h"
-#include "watchdog.h"
-#include "delay.h"
-
-/*FreeRTOS相关头文件*/
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
-#include "queue.h"
 configParam_t configParam=
 {
 	.pidAngle=	/*角度PID*/
@@ -100,19 +91,3 @@ configParam_t configParam=
 	.trimR = 0.f,	/*roll微调*/
 	.thrustBase=34000,	/*定高油门基础值*/
 };
-
-static bool isInit = false;
-
-//static SemaphoreHandle_t  xSemaphore = NULL;
-
-void configParamInit(void)	/*参数配置初始化*/
-{
-	if(isInit) return;
-	//xSemaphore = xSemaphoreCreateBinary();
-	isInit=true;
-}
-
-//void configParamGiveSemaphore(void)
-//{
-//	xSemaphoreGive(xSemaphore);		
-//}

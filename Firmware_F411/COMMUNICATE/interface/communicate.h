@@ -5,7 +5,6 @@
 #include "queue.h"
 #include "atkp.h"
 
-void communicateInit(void);
 
 bool atkp_write(atkp_t *p);
 

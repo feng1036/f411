@@ -30,10 +30,3 @@ bool atkp_read(atkp_t *p)
     return (pdTRUE==xQueueReceive(atkp_stabilizer_queue, p, 0));	/*接收数据从stablilizer通信的队列*/
 }
 
-bool communicateTest(void)
-{
-    return isInit;
-}
-
-
-

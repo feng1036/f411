@@ -31,5 +31,4 @@ void positionResetAllPID(void);
 void positionController(float* thrust, attitude_t *attitude, setpoint_t *setpoint, const state_t *state, float dt);
 void positionPIDwriteToConfigParam(void);
 float getAltholdThrust(void);
-	
 #endif /* __POSITION_PID_H */
