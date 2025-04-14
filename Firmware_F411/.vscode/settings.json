@@ -14,6 +14,7 @@
         "system.h": "c",
         "freertos.h": "c",
         "i2c_drv.h": "c",
-        "stm32f4xx.h": "c"
+        "stm32f4xx.h": "c",
+        "task.h": "c"
     }
 }

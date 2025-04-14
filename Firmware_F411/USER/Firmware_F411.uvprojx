@@ -524,11 +524,6 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\spi.c</FilePath>
             </File>
-            <File>
-              <FileName>spl06.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\spl06.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

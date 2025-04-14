@@ -45,7 +45,6 @@
 ..\obj\sensors.o: ..\FreeRTOS\include\queue.h
 ..\obj\sensors.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\sensors.o: ..\COMMON\interface\filter.h
-..\obj\sensors.o: ..\HARDWARE\interface\spl06.h
 ..\obj\sensors.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\sensors.o: ..\FreeRTOS\include\task.h
 ..\obj\sensors.o: ..\FreeRTOS\include\list.h

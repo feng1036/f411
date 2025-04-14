@@ -46,7 +46,6 @@
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\queue.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\attitude_pid.o: ..\COMMON\interface\filter.h
-..\obj\attitude_pid.o: ..\HARDWARE\interface\spl06.h
 ..\obj\attitude_pid.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\task.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\list.h

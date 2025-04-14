@@ -60,7 +60,6 @@
 ..\obj\stabilizer.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\stabilizer.o: ..\COMMON\interface\filter.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\spl06.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\watchdog.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\pm.h

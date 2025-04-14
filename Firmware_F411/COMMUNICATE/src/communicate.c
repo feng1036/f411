@@ -12,7 +12,7 @@ static xQueueHandle atkp_stabilizer_queue;	/*和stablilizer通信的队列*/
 
 static bool isInit = false;
 
-void communicateInit(void)
+void communicateInit()
 {
     if(isInit) return;
     atkp_stabilizer_queue = xQueueCreate(1, sizeof(atkp_t));	/*创建和stablilizer通信的队列*/

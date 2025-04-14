@@ -20,7 +20,6 @@
 "..\obj\watchdog.o"
 "..\obj\ws2812.o"
 "..\obj\spi.o"
-"..\obj\spl06.o"
 "..\obj\startup_stm32f411xe.o"
 "..\obj\misc.o"
 "..\obj\stm32f4xx_adc.o"

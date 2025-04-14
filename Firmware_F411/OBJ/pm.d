@@ -61,7 +61,6 @@
 ..\obj\pm.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\pm.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\pm.o: ..\COMMON\interface\filter.h
-..\obj\pm.o: ..\HARDWARE\interface\spl06.h
 ..\obj\pm.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\pm.o: ..\HARDWARE\interface\watchdog.h
 ..\obj\pm.o: ..\FLIGHT\interface\pm.h

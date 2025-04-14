@@ -57,6 +57,5 @@
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\semphr.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\remoter_ctrl.o: ..\COMMON\interface\filter.h
-..\obj\remoter_ctrl.o: ..\HARDWARE\interface\spl06.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\pm.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\stabilizer.h

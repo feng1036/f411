@@ -1,21 +1,7 @@
 #include "system.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 系统初始化函数	
- * 包括系统和底层硬件初始化
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
 
 static bool systemTest(void);
-
 
 /*底层硬件初始化*/
 void systemInit(void)
@@ -37,30 +23,13 @@ void systemInit(void)
 		{
 			ledFlashOne(LED_GREEN_L, 50, 50);
 		}			
-	}else
-	{		
-		while(1)		/*初始化错误 右上红灯间隔1s快闪5次*/
-		{
-			if(cnt++ > 4)
-			{
-				cnt=0;
-				delay_xms(1000);
-			}
-			ledFlashOne(LED_RED_R, 50, 50);		
-		}
 	}
-
 	watchdogInit(WATCHDOG_RESET_MS);	/*看门狗初始化*/
-	
 }
 
 static bool systemTest(void)
 {
 	bool pass = true;
-	// pass &= ledseqTest();
-	// pass &= pmTest();
-	// pass &= stabilizerTest();	
-	// pass &= watchdogTest();
 	return pass;
 }
 

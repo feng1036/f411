@@ -4,7 +4,6 @@
 #include "mpu6500.h"
 #include "bmp280.h"
 #include "filter.h"
-#include "spl06.h"
 #include "com_queue.h"
 
 
