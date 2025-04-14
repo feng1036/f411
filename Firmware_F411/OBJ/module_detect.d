@@ -13,7 +13,6 @@
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\module_detect.o: ..\FWLIB\inc\misc.h
-..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\module_detect.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\module_detect.o: ..\SYSTEM\sys\sys.h
 ..\obj\module_detect.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h

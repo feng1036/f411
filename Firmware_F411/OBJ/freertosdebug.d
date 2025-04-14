@@ -13,7 +13,6 @@
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\misc.h
-..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\freertosdebug.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\freertosdebug.o: ..\CONFIG\interface\config.h
 ..\obj\freertosdebug.o: ..\HARDWARE\interface\nvic.h

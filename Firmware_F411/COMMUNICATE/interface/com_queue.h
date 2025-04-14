@@ -41,7 +41,6 @@ typedef struct
 {
 	Axis3f acc;
 	Axis3f gyro;
-	Axis3f mag;
 	baro_t baro;
 } sensorData_t;
 

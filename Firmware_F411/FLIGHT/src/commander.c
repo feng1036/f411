@@ -175,9 +175,6 @@ void flyerAutoLand(setpoint_t *setpoint,const state_t *state)
 
 static bool initHigh = false;
 static bool isAdjustingPosZ = false;/*调整Z位置*/
-//static bool isAdjustingPosXY = true;/*调整XY位置*/
-// static float errorPosX = 0.f;		/*X位移误差*/
-// static float errorPosY = 0.f;		/*Y位移误差*/
  static float errorPosZ = 0.f;		/*Z位移误差*/
 
 
@@ -203,10 +200,7 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 			if (initHigh == false)
 			{
 				initHigh = true;	
-				// isAdjustingPosXY = true;
-				// errorPosX = 0.f;
-				// errorPosY = 0.f;
-				 errorPosZ = 0.f;
+				errorPosZ = 0.f;
 
 				setFastAdjustPosParam(0, 1, 80.f);	/*一键起飞高度80cm*/															
 			}		

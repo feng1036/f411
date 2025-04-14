@@ -13,7 +13,6 @@
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\motors.o: ..\FWLIB\inc\misc.h
-..\obj\motors.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\motors.o: ..\SYSTEM\sys\sys.h
 ..\obj\motors.o: ..\SYSTEM\delay\delay.h
 ..\obj\motors.o: ..\HARDWARE\interface\motors.h

@@ -13,7 +13,6 @@
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\ws2812.o: ..\FWLIB\inc\misc.h
-..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\ws2812.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\ws2812.o: ..\HARDWARE\interface\ws2812.h
 ..\obj\ws2812.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h

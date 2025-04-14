@@ -13,7 +13,6 @@
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\sensors.o: ..\FWLIB\inc\misc.h
-..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\sensors.o: ..\FLIGHT\interface\sensors.h
@@ -50,7 +48,6 @@
 ..\obj\sensors.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\sensors.o: ..\FreeRTOS\include\semphr.h
 ..\obj\sensors.o: ..\FreeRTOS\include\queue.h
-..\obj\sensors.o: ..\HARDWARE\interface\ak8963.h
 ..\obj\sensors.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\sensors.o: ..\COMMON\interface\filter.h
 ..\obj\sensors.o: ..\HARDWARE\interface\spl06.h

@@ -13,7 +13,6 @@
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\attitude_pid.o: ..\FWLIB\inc\misc.h
-..\obj\attitude_pid.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\attitude_pid.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\attitude_pid.o: ..\FLIGHT\interface\pid.h
 ..\obj\attitude_pid.o: ..\CONFIG\interface\config_param.h
@@ -51,7 +49,6 @@
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\semphr.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\queue.h
-..\obj\attitude_pid.o: ..\HARDWARE\interface\ak8963.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\attitude_pid.o: ..\COMMON\interface\filter.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\spl06.h

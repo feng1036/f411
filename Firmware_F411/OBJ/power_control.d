@@ -13,7 +13,6 @@
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\power_control.o: ..\FWLIB\inc\misc.h
-..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\power_control.o: ..\FLIGHT\interface\power_control.h
 ..\obj\power_control.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\power_control.o: ..\SYSTEM\sys\sys.h

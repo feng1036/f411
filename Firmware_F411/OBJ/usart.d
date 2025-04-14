@@ -13,7 +13,6 @@
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\usart.o: ..\FWLIB\inc\misc.h
-..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\usart.o: ..\SYSTEM\sys\sys.h
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h

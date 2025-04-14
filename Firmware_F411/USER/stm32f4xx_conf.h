@@ -36,7 +36,6 @@
 #include "stm32f4xx_dbgmcu.h"
 #include "stm32f4xx_dma.h"
 #include "stm32f4xx_exti.h"
-#include "stm32f4xx_flash.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_i2c.h"
 #include "stm32f4xx_iwdg.h"
@@ -86,9 +85,6 @@
 #include "stm32f4xx_fsmc.h"
 #endif /* STM32F40_41xxx */
 
-#if defined (STM32F411xE)
-#include "stm32f4xx_flash_ramfunc.h"
-#endif /* STM32F411xE */
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 

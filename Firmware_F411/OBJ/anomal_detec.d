@@ -13,7 +13,6 @@
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\anomal_detec.o: ..\FWLIB\inc\misc.h
-..\obj\anomal_detec.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\anomal_detec.o: ..\COMMON\interface\maths.h
 ..\obj\anomal_detec.o: ..\FLIGHT\interface\commander.h

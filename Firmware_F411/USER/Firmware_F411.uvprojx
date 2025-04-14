@@ -450,11 +450,6 @@
           <GroupName>HARDWARE</GroupName>
           <Files>
             <File>
-              <FileName>ak8963.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\ak8963.c</FilePath>
-            </File>
-            <File>
               <FileName>bmp280.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\bmp280.c</FilePath>
@@ -515,11 +510,6 @@
               <FilePath>..\HARDWARE\src\system.c</FilePath>
             </File>
             <File>
-              <FileName>stmflash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\stmflash.c</FilePath>
-            </File>
-            <File>
               <FileName>watchdog.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\watchdog.c</FilePath>
@@ -578,11 +568,6 @@
               <FileName>stm32f4xx_exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FWLIB\src\stm32f4xx_exti.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FWLIB\src\stm32f4xx_flash.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_gpio.c</FileName>

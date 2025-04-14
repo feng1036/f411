@@ -3,7 +3,6 @@
 #include "sensors.h"
 
 static bool gyroBiasFound=false;
-static bool isMagPresent=false;
 static bool isBaroPresent=false;
 static float accScaleSum=0;
 static float accScale=1;
@@ -41,7 +40,7 @@ void sensorsDeviceInit(void)
 	
 	vTaskDelay(10);
 	mpu6500Reset();	// 复位MPU6500
-	vTaskDelay(20);	// 延时等待寄存器复位
+	vTaskDelay(20);	// 延时等待寄存器复位	
 	mpu6500SetSleepEnabled(false);	// 唤醒MPU6500
 	vTaskDelay(10);		
 	mpu6500SetClockSource(MPU6500_CLOCK_PLL_XGYRO);	// 设置X轴陀螺作为时钟	
@@ -62,15 +61,6 @@ void sensorsDeviceInit(void)
 		lpf2pInit(&accLpf[i],  1000, ACCEL_LPF_CUTOFF_FREQ);
 	}
 
-
-#ifdef SENSORS_ENABLE_MAG_AK8963
-	ak8963Init(I2C1_DEV);	//ak8963磁力计初始化
-	if (ak8963TestConnection() == true)
-	{
-		isMagPresent = true;
-		ak8963SetMode(AK8963_MODE_16BIT | AK8963_MODE_CONT2); // 16bit 100Hz
-	}
-#endif
 
 	if (bmp280Init(I2C1_DEV) == true)//BMP280初始化
 	{
@@ -170,19 +160,6 @@ static void sensorsSetupSlaveRead(void)
 	mpu6500SetInterruptLatchClear(1); 	// 中断清除模式(0=status-read-only, 1=any-register-read)
 	mpu6500SetSlaveReadWriteTransitionEnabled(false); // 关闭从机读写传输
 	mpu6500SetMasterClockSpeed(13); 	// 设置i2c速度400kHz
-
-#ifdef SENSORS_ENABLE_MAG_AK8963
-	if (isMagPresent)
-	{
-		// 设置MPU6500主机要读取的寄存器
-		mpu6500SetSlaveAddress(0, 0x80 | AK8963_ADDRESS_00); 	// 设置磁力计为0号从机
-		mpu6500SetSlaveRegister(0, AK8963_RA_ST1); 				// 从机0需要读取的寄存器
-		mpu6500SetSlaveDataLength(0, SENSORS_MAG_BUFF_LEN); 	// 读取8个字节(ST1, x, y, z heading, ST2 (overflow check))
-		mpu6500SetSlaveDelayEnabled(0, true);
-		mpu6500SetSlaveEnabled(0, true);
-	}
-#endif
-
 
 	if (isBaroPresent && baroType == BMP280)
 	{
@@ -314,20 +291,6 @@ void processBarometerMeasurements(const u8 *buffer)
 	}
 
 }
-/*处理磁力计数据*/
-void processMagnetometerMeasurements(const uint8_t *buffer)
-{
-	if (buffer[0] & (1 << AK8963_ST1_DRDY_BIT)) 
-	{
-		int16_t headingx = (((int16_t) buffer[2]) << 8) | buffer[1];
-		int16_t headingy = (((int16_t) buffer[4]) << 8) | buffer[3];
-		int16_t headingz = (((int16_t) buffer[6]) << 8) | buffer[5];
-
-		sensors.mag.x = (float)headingx / MAG_GAUSS_PER_LSB;
-		sensors.mag.y = (float)headingy / MAG_GAUSS_PER_LSB;
-		sensors.mag.z = (float)headingz / MAG_GAUSS_PER_LSB;		
-	}
-}
 /*处理加速计和陀螺仪数据*/
 void processAccGyroMeasurements(const uint8_t *buffer)
 {
@@ -370,22 +333,15 @@ void sensorsTask(void *param)
 		{
 			/*确定数据长度*/
 			u8 dataLen = (u8) (SENSORS_MPU6500_BUFF_LEN +
-				(isMagPresent ? SENSORS_MAG_BUFF_LEN : 0) +
 				(isBaroPresent ? SENSORS_BARO_BUFF_LEN : 0));
 
 			i2cdevRead(I2C1_DEV, MPU6500_ADDRESS_AD0_HIGH, MPU6500_RA_ACCEL_XOUT_H, dataLen, buffer);
 			
 			/*处理原始数据，并放入数据队列中*/
 			processAccGyroMeasurements(&(buffer[0]));
-
-			if (isMagPresent)
-			{
-				processMagnetometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
-			}
 			if (isBaroPresent)
 			{
-				processBarometerMeasurements(&(buffer[isMagPresent ?
-					SENSORS_MPU6500_BUFF_LEN + SENSORS_MAG_BUFF_LEN : SENSORS_MPU6500_BUFF_LEN]));
+				processBarometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
 			}
 			
 			vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/

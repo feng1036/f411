@@ -13,7 +13,6 @@
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\state_control.o: ..\FWLIB\inc\misc.h
-..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\state_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\state_control.o: ..\FLIGHT\interface\state_control.h
 ..\obj\state_control.o: ..\FLIGHT\interface\stabilizer_types.h

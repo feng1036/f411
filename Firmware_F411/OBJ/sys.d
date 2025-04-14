@@ -13,7 +13,6 @@
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,5 +26,4 @@
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\sys.o: ..\FWLIB\inc\misc.h
-..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\sys.o: ..\SYSTEM\sys\sys.h

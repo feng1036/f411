@@ -13,7 +13,6 @@
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\tasks.o: ..\FWLIB\inc\misc.h
-..\obj\tasks.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
 ..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\tasks.o: ..\FreeRTOS\include\FreeRTOS.h

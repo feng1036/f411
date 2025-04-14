@@ -13,7 +13,6 @@
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\main.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\main.o: ..\FWLIB\inc\misc.h
-..\obj\main.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\main.o: ..\HARDWARE\interface\system.h
 ..\obj\main.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\main.o: ..\CONFIG\interface\config.h
@@ -56,6 +54,7 @@
 ..\obj\main.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\main.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\main.o: ..\CONFIG\interface\config_param.h
+..\obj\main.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\main.o: ..\FLIGHT\interface\commander.h
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\main.o: ..\COMMUNICATE\interface\com_queue.h
@@ -64,7 +63,6 @@
 ..\obj\main.o: ..\HARDWARE\interface\mpu6500.h
 ..\obj\main.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\main.o: ..\HARDWARE\interface\i2c_drv.h
-..\obj\main.o: ..\HARDWARE\interface\ak8963.h
 ..\obj\main.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\main.o: ..\COMMON\interface\filter.h
 ..\obj\main.o: ..\HARDWARE\interface\spl06.h

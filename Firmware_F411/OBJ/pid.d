@@ -13,7 +13,6 @@
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\pid.o: ..\FWLIB\inc\misc.h
-..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\pid.o: ..\FLIGHT\interface\pid.h
 ..\obj\pid.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\pid.o: ..\CONFIG\interface\config_param.h

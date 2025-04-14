@@ -13,7 +13,6 @@
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\commander.o: ..\FWLIB\inc\misc.h
-..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\commander.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\commander.o: ..\COMMON\interface\maths.h
 ..\obj\commander.o: ..\FLIGHT\interface\commander.h

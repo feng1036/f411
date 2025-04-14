@@ -13,7 +13,6 @@
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\misc.h
-..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h

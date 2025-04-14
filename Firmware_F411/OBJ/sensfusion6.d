@@ -13,7 +13,6 @@
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\sensfusion6.o: ..\FWLIB\inc\misc.h
-..\obj\sensfusion6.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\sensfusion6.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\sensfusion6.o: ..\FLIGHT\interface\sensfusion6.h
 ..\obj\sensfusion6.o: ..\FLIGHT\interface\stabilizer_types.h

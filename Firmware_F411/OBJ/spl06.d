@@ -13,7 +13,6 @@
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\spl06.o: ..\FWLIB\inc\misc.h
-..\obj\spl06.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\spl06.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\spl06.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\spl06.o: ..\SYSTEM\delay\delay.h

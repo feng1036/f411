@@ -13,7 +13,6 @@
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\delay.o: ..\FWLIB\inc\misc.h
-..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\delay.o: ..\SYSTEM\delay\delay.h
 ..\obj\delay.o: ..\SYSTEM\sys\sys.h
 ..\obj\delay.o: ..\FreeRTOS\include\FreeRTOS.h

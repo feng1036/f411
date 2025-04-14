@@ -13,7 +13,6 @@
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\watchdog.o: ..\FWLIB\inc\misc.h
-..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\watchdog.o: ..\CONFIG\interface\config.h
 ..\obj\watchdog.o: ..\HARDWARE\interface\nvic.h
 ..\obj\watchdog.o: ..\SYSTEM\sys\sys.h

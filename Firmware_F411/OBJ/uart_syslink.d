@@ -13,7 +13,6 @@
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\misc.h
-..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\uart_syslink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\uart_syslink.o: ..\SYSTEM\sys\sys.h
 ..\obj\uart_syslink.o: ..\CONFIG\interface\config.h

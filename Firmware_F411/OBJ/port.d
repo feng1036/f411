@@ -13,7 +13,6 @@
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\port.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\port.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\port.o: ..\FWLIB\inc\misc.h
-..\obj\port.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\port.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\port.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\port.o: ..\CONFIG\interface\FreeRTOSConfig.h

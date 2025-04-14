@@ -13,7 +13,6 @@
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\radiolink.o: ..\FWLIB\inc\misc.h
-..\obj\radiolink.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\radiolink.o: ..\CONFIG\interface\config.h
 ..\obj\radiolink.o: ..\HARDWARE\interface\nvic.h

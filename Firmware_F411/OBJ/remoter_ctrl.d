@@ -13,7 +13,6 @@
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\remoter_ctrl.o: ..\FWLIB\inc\misc.h
-..\obj\remoter_ctrl.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\remoter_ctrl.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\sensfusion6.h
@@ -62,7 +60,6 @@
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\semphr.h
-..\obj\remoter_ctrl.o: ..\HARDWARE\interface\ak8963.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\bmp280.h
 ..\obj\remoter_ctrl.o: ..\COMMON\interface\filter.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\spl06.h

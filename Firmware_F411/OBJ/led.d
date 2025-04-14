@@ -13,7 +13,6 @@
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\led.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\led.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\led.o: ..\FWLIB\inc\misc.h
-..\obj\led.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\led.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
 ..\obj\led.o: ..\HARDWARE\interface\led.h

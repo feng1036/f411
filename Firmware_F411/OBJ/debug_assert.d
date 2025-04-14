@@ -13,7 +13,6 @@
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\debug_assert.o: ..\FWLIB\inc\misc.h
-..\obj\debug_assert.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\debug_assert.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\debug_assert.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\debug_assert.o: ..\CONFIG\interface\FreeRTOSConfig.h

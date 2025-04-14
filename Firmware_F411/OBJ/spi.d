@@ -13,7 +13,6 @@
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\spi.o: ..\FWLIB\inc\misc.h
-..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\spi.o: ..\HARDWARE\interface\spi.h

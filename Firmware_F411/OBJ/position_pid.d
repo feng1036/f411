@@ -13,7 +13,6 @@
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\position_pid.o: ..\FWLIB\inc\misc.h
-..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\position_pid.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\position_pid.o: ..\FLIGHT\interface\pid.h
 ..\obj\position_pid.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h

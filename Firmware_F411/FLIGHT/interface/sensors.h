@@ -2,16 +2,13 @@
 #define __SENSORS_H
 #include "delay.h"
 #include "mpu6500.h"
-#include "ak8963.h"
 #include "bmp280.h"
 #include "filter.h"
 #include "spl06.h"
 #include "com_queue.h"
 
 
-//#define SENSORS_ENABLE_MAG_AK8963
 #define SENSORS_ENABLE_PRESSURE_BMP280	/*气压计使用bmp280*/
-
 #define BARO_UPDATE_RATE		RATE_50_HZ
 #define SENSOR9_UPDATE_RATE   	RATE_500_HZ
 #define SENSOR9_UPDATE_DT     	(1.0f/SENSOR9_UPDATE_RATE)

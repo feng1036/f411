@@ -13,7 +13,6 @@
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\i2cdev.o: ..\FWLIB\inc\misc.h
-..\obj\i2cdev.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\i2cdev.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\i2cdev.o: ..\HARDWARE\interface\i2c_drv.h

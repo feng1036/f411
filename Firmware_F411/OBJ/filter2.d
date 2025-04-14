@@ -13,7 +13,6 @@
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_exti.h
-..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_flash.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_i2c.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
@@ -27,7 +26,6 @@
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
 ..\obj\filter2.o: ..\FWLIB\inc\misc.h
-..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
