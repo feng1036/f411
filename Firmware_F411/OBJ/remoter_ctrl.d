@@ -49,13 +49,12 @@
 ..\obj\remoter_ctrl.o: ..\CONFIG\interface\config_param.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\commander.h
 ..\obj\remoter_ctrl.o: ..\COMMUNICATE\interface\radiolink.h
-..\obj\remoter_ctrl.o: ..\FLIGHT\interface\sensors.h
+..\obj\remoter_ctrl.o: ..\SENSOR\interface\sensors.h
 ..\obj\remoter_ctrl.o: ..\SYSTEM\delay\delay.h
-..\obj\remoter_ctrl.o: ..\HARDWARE\interface\mpu6500.h
+..\obj\remoter_ctrl.o: ..\SENSOR\interface\mpu6500.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\remoter_ctrl.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\remoter_ctrl.o: ..\FreeRTOS\include\semphr.h
-..\obj\remoter_ctrl.o: ..\HARDWARE\interface\bmp280.h
-..\obj\remoter_ctrl.o: ..\COMMON\interface\filter.h
-..\obj\remoter_ctrl.o: ..\FLIGHT\interface\pm.h
+..\obj\remoter_ctrl.o: ..\SENSOR\interface\bmp280.h
+..\obj\remoter_ctrl.o: ..\SENSOR\interface\filter.h
 ..\obj\remoter_ctrl.o: ..\FLIGHT\interface\stabilizer.h

@@ -1,4 +1,4 @@
-..\obj\bmp280.o: ..\HARDWARE\src\bmp280.c
+..\obj\bmp280.o: ..\SENSOR\src\bmp280.c
 ..\obj\bmp280.o: stm32f4xx_conf.h
 ..\obj\bmp280.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\bmp280.o: ..\USER\stm32f4xx.h
@@ -28,7 +28,7 @@
 ..\obj\bmp280.o: ..\CONFIG\interface\config.h
 ..\obj\bmp280.o: ..\HARDWARE\interface\nvic.h
 ..\obj\bmp280.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
-..\obj\bmp280.o: ..\HARDWARE\interface\bmp280.h
+..\obj\bmp280.o: ..\SENSOR\interface\bmp280.h
 ..\obj\bmp280.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\bmp280.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\bmp280.o: ..\FreeRTOS\include\FreeRTOS.h

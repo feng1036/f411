@@ -16,13 +16,6 @@ void stateControlInit(void)
 	positionControlInit(VELOCITY_PID_DT, POSITION_PID_DT); /*≥ı ºªØŒª÷√PID*/
 }
 
-bool stateControlTest(void)
-{
-	bool pass = true;
-	pass &= attitudeControlTest();
-	return pass;
-} 
-
 void stateControl(control_t *control, sensorData_t *sensors, state_t *state, setpoint_t *setpoint, const u32 tick)
 {
 	static u16 cnt = 0;

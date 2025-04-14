@@ -27,7 +27,6 @@ extern PidObject pidRateYaw;
 
 void attitudeControlInit(float rateDt, float angleDt);
 void attitudeDataprocess(atkp_t* anlPacket);
-bool attitudeControlTest(void);
 
 void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *output);
 void attitudeAnglePID(attitude_t *actualAngle,attitude_t *desiredAngle,attitude_t *outDesiredRate);

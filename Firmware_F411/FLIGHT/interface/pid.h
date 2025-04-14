@@ -32,7 +32,7 @@ void pidSetOutputLimit(PidObject* pid, const float limit);
 void pidSetDesired(PidObject* pid, const float desired);	/*pid设置期望值*/
 float pidUpdate(PidObject* pid, const float error);			/*pid更新*/
 float pidGetDesired(PidObject* pid);	/*pid获取期望值*/
-bool pidIsActive(PidObject* pid);		/*pid状态*/
+//bool pidIsActive(PidObject* pid);		/*pid状态*/
 void pidReset(PidObject* pid);			/*pid结构体复位*/
 void pidSetError(PidObject* pid, const float error);/*pid偏差设置*/
 void pidSetKp(PidObject* pid, const float kp);		/*pid Kp设置*/

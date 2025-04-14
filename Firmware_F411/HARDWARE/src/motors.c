@@ -1,7 +1,6 @@
 #include "sys.h"
 #include "delay.h"
 #include "motors.h"
-#include "pm.h"
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -114,7 +113,7 @@ void motorsSetRatio(u32 id, u16 ithrust)
 	#ifdef ENABLE_THRUST_BAT_COMPENSATED		
 		float thrust = ((float)ithrust / 65536.0f) * 60;
 		float volts = -0.0006239f * thrust * thrust + 0.088f * thrust;
-		float supply_voltage = pmGetBatteryVoltage();
+		float supply_voltage = 3.7f;
 		float percentage = volts / supply_voltage;
 		percentage = percentage > 1.0f ? 1.0f : percentage;
 		ratio = percentage * UINT16_MAX;

@@ -91,11 +91,6 @@ void attitudeDataprocess(atkp_t* anlPacket){
 	}
 }
 
-bool attitudeControlTest()
-{
-	return true;
-}
-
 void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *output)	/* ½ÇËÙ¶È»·PID */
 {
 	output->roll = pidOutLimit(pidUpdate(&pidRateRoll, desiredRate->roll - actualRate->x));

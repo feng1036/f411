@@ -21,8 +21,3 @@
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_tim.h
 ..\obj\filter2.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\filter2.o: ..\FWLIB\inc\misc.h
-..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\filter2.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
-..\obj\filter2.o: ..\COMMON\interface\filter2.h
-..\obj\filter2.o: ..\COMMON\interface\maths.h

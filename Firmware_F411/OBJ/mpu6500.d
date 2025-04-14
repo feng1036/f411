@@ -1,4 +1,4 @@
-..\obj\mpu6500.o: ..\HARDWARE\src\mpu6500.c
+..\obj\mpu6500.o: ..\SENSOR\src\mpu6500.c
 ..\obj\mpu6500.o: stm32f4xx_conf.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\mpu6500.o: ..\USER\stm32f4xx.h
@@ -42,4 +42,4 @@
 ..\obj\mpu6500.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\semphr.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\queue.h
-..\obj\mpu6500.o: ..\HARDWARE\interface\mpu6500.h
+..\obj\mpu6500.o: ..\SENSOR\interface\mpu6500.h

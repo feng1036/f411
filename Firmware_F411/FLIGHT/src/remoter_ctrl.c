@@ -6,7 +6,6 @@
 #include "commander.h"
 #include "radiolink.h"
 #include "sensors.h"
-#include "pm.h"
 #include "stabilizer.h"
 
 /*FreeRTOS相关头文件*/

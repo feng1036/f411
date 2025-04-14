@@ -25,9 +25,9 @@
 ..\obj\attitude_pid.o: ..\FLIGHT\interface\pid.h
 ..\obj\attitude_pid.o: ..\CONFIG\interface\config_param.h
 ..\obj\attitude_pid.o: ..\SYSTEM\sys\sys.h
-..\obj\attitude_pid.o: ..\FLIGHT\interface\sensors.h
+..\obj\attitude_pid.o: ..\SENSOR\interface\sensors.h
 ..\obj\attitude_pid.o: ..\SYSTEM\delay\delay.h
-..\obj\attitude_pid.o: ..\HARDWARE\interface\mpu6500.h
+..\obj\attitude_pid.o: ..\SENSOR\interface\mpu6500.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\FreeRTOS.h
@@ -44,8 +44,8 @@
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\semphr.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\queue.h
-..\obj\attitude_pid.o: ..\HARDWARE\interface\bmp280.h
-..\obj\attitude_pid.o: ..\COMMON\interface\filter.h
+..\obj\attitude_pid.o: ..\SENSOR\interface\bmp280.h
+..\obj\attitude_pid.o: ..\SENSOR\interface\filter.h
 ..\obj\attitude_pid.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\task.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\list.h

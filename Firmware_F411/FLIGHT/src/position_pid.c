@@ -6,22 +6,6 @@
 #include "remoter_ctrl.h"
 #include "maths.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 位置PID控制代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
- *
- * 修改说明:
- * 版本V1.3 水平定点PID输出较大，所以在位置环输出设置0.1的系数，
-	速率环输出设置0.15系数，从而增加PID的可调性。
-********************************************************************************/
 
 #define THRUST_BASE  		(20000)	/*基础油门值*/
 
@@ -156,34 +140,3 @@ void positionResetAllPID(void)
 	pidReset(&pidY);
 	pidReset(&pidZ);
 }
-
-void positionPIDwriteToConfigParam(void)
-{
-	configParam.pidPos.vx.kp  = pidVX.kp;
-	configParam.pidPos.vx.ki  = pidVX.ki;
-	configParam.pidPos.vx.kd  = pidVX.kd;
-	
-	configParam.pidPos.vy.kp  = pidVY.kp;
-	configParam.pidPos.vy.ki  = pidVY.ki;
-	configParam.pidPos.vy.kd  = pidVY.kd;
-	
-	configParam.pidPos.vz.kp  = pidVZ.kp;
-	configParam.pidPos.vz.ki  = pidVZ.ki;
-	configParam.pidPos.vz.kd  = pidVZ.kd;
-	
-	configParam.pidPos.x.kp  = pidX.kp;
-	configParam.pidPos.x.ki  = pidX.ki;
-	configParam.pidPos.x.kd  = pidX.kd;
-	
-	configParam.pidPos.y.kp  = pidY.kp;
-	configParam.pidPos.y.ki  = pidY.ki;
-	configParam.pidPos.y.kd  = pidY.kd;
-	
-	configParam.pidPos.z.kp  = pidZ.kp;
-	configParam.pidPos.z.ki  = pidZ.ki;
-	configParam.pidPos.z.kd  = pidZ.kd;
-}
-
-
-
-

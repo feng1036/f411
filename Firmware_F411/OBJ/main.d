@@ -54,12 +54,11 @@
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\main.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\main.o: ..\COMMUNICATE\interface\communicate.h
-..\obj\main.o: ..\FLIGHT\interface\sensors.h
-..\obj\main.o: ..\HARDWARE\interface\mpu6500.h
+..\obj\main.o: ..\SENSOR\interface\sensors.h
+..\obj\main.o: ..\SENSOR\interface\mpu6500.h
 ..\obj\main.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\main.o: ..\HARDWARE\interface\i2c_drv.h
-..\obj\main.o: ..\HARDWARE\interface\bmp280.h
-..\obj\main.o: ..\COMMON\interface\filter.h
+..\obj\main.o: ..\SENSOR\interface\bmp280.h
+..\obj\main.o: ..\SENSOR\interface\filter.h
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\main.o: ..\HARDWARE\interface\watchdog.h
-..\obj\main.o: ..\FLIGHT\interface\pm.h

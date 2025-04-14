@@ -44,10 +44,7 @@ void stabilizerInit(void)
 bool stabilizerTest(void)
 {
 	bool pass = true;
-
-	pass &= stateControlTest();
 	pass &= powerControlTest();
-
 	return pass;
 }
 

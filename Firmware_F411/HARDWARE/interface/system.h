@@ -30,7 +30,6 @@
 #include "sensors.h"
 #include "stabilizer.h"
 #include "watchdog.h"
-#include "pm.h"
 
 
 void systemInit(void);

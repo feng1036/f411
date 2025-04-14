@@ -28,4 +28,3 @@
 ..\obj\motors.o: ..\CONFIG\interface\config.h
 ..\obj\motors.o: ..\HARDWARE\interface\nvic.h
 ..\obj\motors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
-..\obj\motors.o: ..\FLIGHT\interface\pm.h

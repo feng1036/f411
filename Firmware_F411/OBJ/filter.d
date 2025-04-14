@@ -1,4 +1,4 @@
-..\obj\filter.o: ..\COMMON\src\filter.c
+..\obj\filter.o: ..\SENSOR\src\filter.c
 ..\obj\filter.o: stm32f4xx_conf.h
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\filter.o: ..\USER\stm32f4xx.h
@@ -23,4 +23,4 @@
 ..\obj\filter.o: ..\FWLIB\inc\misc.h
 ..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
-..\obj\filter.o: ..\COMMON\interface\filter.h
+..\obj\filter.o: ..\SENSOR\interface\filter.h

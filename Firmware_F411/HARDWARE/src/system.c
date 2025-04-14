@@ -15,7 +15,6 @@ void systemInit(void)
 	ledseqInit();		/*led灯序列初始化*/
 	communicateInit();	/*和stablilizer通信的初始化*/
 	uartslkInit();		/*串口初始化*/
-	pmInit();			/*电源管理初始化*/
 	stabilizerInit();	/*电机 传感器 PID初始化*/
 	if(systemTest() == true)
 	{	
