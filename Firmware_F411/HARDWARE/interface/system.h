@@ -24,7 +24,6 @@
 #include "ledseq.h"
 #include "radiolink.h"
 #include "config_param.h"
-#include "comm.h"
 #include "commander.h"
 #include "communicate.h"
 #include "sensors.h"

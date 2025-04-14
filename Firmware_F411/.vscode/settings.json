@@ -12,6 +12,7 @@
         "position_pid.h": "c",
         "stabilizer_types.h": "c",
         "system.h": "c",
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "i2c_drv.h": "c"
     }
 }

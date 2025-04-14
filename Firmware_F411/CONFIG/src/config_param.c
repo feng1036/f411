@@ -4,7 +4,6 @@
 #include "config.h"
 #include "config_param.h"
 #include "watchdog.h"
-#include "stmflash.h"
 #include "delay.h"
 
 /*FreeRTOS相关头文件*/
@@ -12,29 +11,8 @@
 #include "task.h"
 #include "semphr.h"
 #include "queue.h"
-
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 配置参数驱动代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
-
-#define VERSION 13	/*13 表示V1.3*/
-
-configParam_t configParam;
-
-static configParam_t configParamDefault=
+configParam_t configParam=
 {
-	.version = VERSION,		/*软件版本号*/
-
 	.pidAngle=	/*角度PID*/
 	{	
 		.roll=
@@ -123,70 +101,18 @@ static configParam_t configParamDefault=
 	.thrustBase=34000,	/*定高油门基础值*/
 };
 
-static u32 lenth = 0;
 static bool isInit = false;
-static bool isConfigParamOK = false;
 
-static SemaphoreHandle_t  xSemaphore = NULL;
-
-
-static u8 configParamCksum(configParam_t* data)
-{
-	int i;
-	u8 cksum=0;	
-	u8* c = (u8*)data;  	
-	size_t len=sizeof(configParam_t);
-
-	for (i=0; i<len; i++)
-		cksum += *(c++);
-	cksum-=data->cksum;
-	
-	return cksum;
-}
+//static SemaphoreHandle_t  xSemaphore = NULL;
 
 void configParamInit(void)	/*参数配置初始化*/
 {
 	if(isInit) return;
-	
-	lenth=sizeof(configParam);
-	lenth=lenth/4+(lenth%4 ? 1:0);
-
-	STMFLASH_Read(CONFIG_PARAM_ADDR, (u32 *)&configParam, lenth);
-	
-	if(configParam.version == VERSION)	/*版本正确*/
-	{
-		if(configParamCksum(&configParam) == configParam.cksum)	/*校验正确*/
-		{
-			isConfigParamOK = true;
-		} else
-		{
-			isConfigParamOK = false;
-		}
-	}	
-	else	/*版本更新*/
-	{
-		isConfigParamOK = false;
-	}
-	
-	if(isConfigParamOK == false)	/*配置参数错误，写入默认参数*/
-	{
-		memcpy((u8 *)&configParam, (u8 *)&configParamDefault, sizeof(configParam));
-		configParam.cksum = configParamCksum(&configParam);				/*计算校验值*/
-		STMFLASH_Write(CONFIG_PARAM_ADDR,(u32 *)&configParam, lenth);	/*写入stm32 flash*/
-		isConfigParamOK=true;
-	}	
-	
-	xSemaphore = xSemaphoreCreateBinary();
-	
+	//xSemaphore = xSemaphoreCreateBinary();
 	isInit=true;
 }
 
-bool configParamTest(void)
-{
-	return isInit;
-}
-
-void configParamGiveSemaphore(void)
-{
-	xSemaphoreGive(xSemaphore);		
-}
+//void configParamGiveSemaphore(void)
+//{
+//	xSemaphoreGive(xSemaphore);		
+//}

@@ -10,7 +10,7 @@
       <TargetName>Firmware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -743,11 +743,6 @@
               <FileName>attitude_pid.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\attitude_pid.c</FilePath>
-            </File>
-            <File>
-              <FileName>flip.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FLIGHT\src\flip.c</FilePath>
             </File>
             <File>
               <FileName>pid.c</FileName>

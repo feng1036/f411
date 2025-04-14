@@ -11,6 +11,4 @@ bool atkp_write(atkp_t *p);
 
 bool atkp_read(atkp_t *p);
 
-bool communicateTest();
-
 #endif // COMMUNICATE_WITH_STABILIZER_H

@@ -31,10 +31,8 @@ typedef enum
 
 void pmInit(void);
 bool pmTest(void);
-void pmTask(void *param);
-void pmSyslinkUpdate(atkp_t *slp);
 float pmGetBatteryVoltage(void);
-bool getIsLowpower(void);
+
 
 
 #endif /* __PM_H */

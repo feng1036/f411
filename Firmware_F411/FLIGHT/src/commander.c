@@ -129,7 +129,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 	remoteCache.timestamp = getSysTickCnt();
 }
 
-extern bool isExitFlip;			/*是否退出空翻*/
+
 /********************************************************
 * flyerAutoLand()
 * 四轴自动降落
@@ -158,14 +158,12 @@ void flyerAutoLand(setpoint_t *setpoint,const state_t *state)
 		lowThrustCnt = 0;
 	}
 	
-	if(isExitFlip == true)	/*退出空翻，再检测加速度*/
-	{
-		float accZ = state->acc.z;
-		if(minAccZ > accZ)
-			minAccZ = accZ;
-		if(maxAccZ < accZ)
-			maxAccZ = accZ;
-	}
+	float accZ = state->acc.z;
+	if(minAccZ > accZ)
+		minAccZ = accZ;
+	if(maxAccZ < accZ)
+		maxAccZ = accZ;
+
 	
 	if (minAccZ < -80.f && maxAccZ > 320.f)
 	{
@@ -177,11 +175,10 @@ void flyerAutoLand(setpoint_t *setpoint,const state_t *state)
 
 static bool initHigh = false;
 static bool isAdjustingPosZ = false;/*调整Z位置*/
-static bool isAdjustingPosXY = true;/*调整XY位置*/
-//static u8 adjustPosXYTime = 0;		/*XY位置调整时间*/
-static float errorPosX = 0.f;		/*X位移误差*/
-static float errorPosY = 0.f;		/*Y位移误差*/
-static float errorPosZ = 0.f;		/*Z位移误差*/
+//static bool isAdjustingPosXY = true;/*调整XY位置*/
+// static float errorPosX = 0.f;		/*X位移误差*/
+// static float errorPosY = 0.f;		/*Y位移误差*/
+ static float errorPosZ = 0.f;		/*Z位移误差*/
 
 
 void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
@@ -206,10 +203,10 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 			if (initHigh == false)
 			{
 				initHigh = true;	
-				isAdjustingPosXY = true;
-				errorPosX = 0.f;
-				errorPosY = 0.f;
-				errorPosZ = 0.f;
+				// isAdjustingPosXY = true;
+				// errorPosX = 0.f;
+				// errorPosY = 0.f;
+				 errorPosZ = 0.f;
 
 				setFastAdjustPosParam(0, 1, 80.f);	/*一键起飞高度80cm*/															
 			}		
@@ -228,15 +225,12 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 
 				if(climb < -(CLIMB_RATE/5.f))	/*油门下拉过大*/
 				{
-					if(isExitFlip == true)		/*退出空翻，再检测加速度*/
+					if(maxAccZ < state->acc.z)
+						maxAccZ = state->acc.z;
+					if(maxAccZ > 250.f)		/*油门下拉过大，飞机触地停机*/
 					{
-						if(maxAccZ < state->acc.z)
-							maxAccZ = state->acc.z;
-						if(maxAccZ > 250.f)		/*油门下拉过大，飞机触地停机*/
-						{
-							commander.keyFlight = false;
-							estRstAll();	/*复位估测*/
-						}
+						commander.keyFlight = false;
+						estRstAll();	/*复位估测*/
 					}
 				}else
 				{

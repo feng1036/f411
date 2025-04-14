@@ -3,33 +3,12 @@
 #include "sensors.h"
 
 static bool gyroBiasFound=false;
-static bool isMPUPresent=false;
 static bool isMagPresent=false;
 static bool isBaroPresent=false;
 static float accScaleSum=0;
 static float accScale=1;
 static enum {IDLE, BMP280, SPL06}baroType = IDLE;
 static bool isInit=false;
-// /*从队列读取陀螺数据*/
-// bool sensorsReadGyro(Axis3f *gyro)
-// {
-// 	return (pdTRUE == xQueueReceive(gyroDataQueue, gyro, 0));
-// }
-// /*从队列读取加速计数据*/
-// bool sensorsReadAcc(Axis3f *acc)
-// {
-// 	return (pdTRUE == xQueueReceive(accelerometerDataQueue, acc, 0));
-// }
-// /*从队列读取磁力计数据*/
-// bool sensorsReadMag(Axis3f *mag)
-// {
-// 	return (pdTRUE == xQueueReceive(magnetometerDataQueue, mag, 0));
-// }
-// /*从队列读取气压数据*/
-// bool sensorsReadBaro(baro_t *baro)
-// {
-// 	return (pdTRUE == xQueueReceive(barometerDataQueue, baro, 0));
-// }
 /*传感器中断初始化*/
 static void sensorsInterruptInit(void)
 {
@@ -63,18 +42,6 @@ void sensorsDeviceInit(void)
 	vTaskDelay(10);
 	mpu6500Reset();	// 复位MPU6500
 	vTaskDelay(20);	// 延时等待寄存器复位
-	
-	u8 temp = mpu6500GetDeviceID();
-	if (temp == 0x38 || temp == 0x39)
-	{
-		isMPUPresent=true;
-		printf("MPU9250 I2C connection [OK].\n");
-	}
-	else
-	{
-		printf("MPU9250 I2C connection [FAIL].\n");
-	}
-	
 	mpu6500SetSleepEnabled(false);	// 唤醒MPU6500
 	vTaskDelay(10);		
 	mpu6500SetClockSource(MPU6500_CLOCK_PLL_XGYRO);	// 设置X轴陀螺作为时钟	
@@ -102,11 +69,6 @@ void sensorsDeviceInit(void)
 	{
 		isMagPresent = true;
 		ak8963SetMode(AK8963_MODE_16BIT | AK8963_MODE_CONT2); // 16bit 100Hz
-		printf("AK8963 I2C connection [OK].\n");
-	}
-	else
-	{
-		printf("AK8963 I2C connection [FAIL].\n");
 	}
 #endif
 
@@ -126,12 +88,6 @@ void sensorsDeviceInit(void)
 	{
 		isBaroPresent = false;
 	}
-
-	/*创建传感器数据队列*/
-	//accelerometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	//gyroDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	//magnetometerDataQueue = xQueueCreate(1, sizeof(Axis3f));
-	//barometerDataQueue = xQueueCreate(1, sizeof(baro_t));
 }
 /*传感器偏置初始化*/
 static void sensorsBiasObjInit(BiasObj* bias)
@@ -337,8 +293,6 @@ void processBarometerMeasurements(const u8 *buffer)
 			s32 rawTemp = (s32)((((u32)(buffer[4])) << 12) | (((u32)(buffer[5])) << 4) | ((u32)buffer[6] >> 4));
 			temp = bmp280CompensateT(rawTemp)/100.0f;		
 			pressure = bmp280CompensateP(rawPressure)/25600.0f;			
-
-//			pressureFilter(&pressure, &sensors.baro.pressure);	
 			sensors.baro.pressure = pressure;
 			sensors.baro.temperature = (float)temp;	/*单位度*/
 			sensors.baro.asl = bmp280PressureToAltitude(&pressure) * 100.f;	/*转换成海拔*/
@@ -372,10 +326,6 @@ void processMagnetometerMeasurements(const uint8_t *buffer)
 		sensors.mag.x = (float)headingx / MAG_GAUSS_PER_LSB;
 		sensors.mag.y = (float)headingy / MAG_GAUSS_PER_LSB;
 		sensors.mag.z = (float)headingz / MAG_GAUSS_PER_LSB;		
-		magRaw.x = headingx;/*用于上传到上位机*/
-		
-		magRaw.y = headingy;
-		magRaw.z = headingz;
 	}
 }
 /*处理加速计和陀螺仪数据*/
@@ -388,13 +338,6 @@ void processAccGyroMeasurements(const uint8_t *buffer)
 	int16_t gy = (((int16_t) buffer[8]) << 8) | buffer[9];
 	int16_t gx = (((int16_t) buffer[10]) << 8) | buffer[11];
 	int16_t gz = (((int16_t) buffer[12]) << 8) | buffer[13];
-
-	accRaw.x = ax;/*用于上传到上位机*/
-	accRaw.y = ay;
-	accRaw.z = az;
-	gyroRaw.x = gx - gyroBias.x;
-	gyroRaw.y = gy - gyroBias.y;
-	gyroRaw.z = gz - gyroBias.z;
 
 	gyroBiasFound = processGyroBias(gx, gy, gz, &gyroBias);
 	
@@ -471,25 +414,3 @@ static void applyAxis3fLpf(lpf2pData *data, Axis3f* in)
 		in->axis[i] = lpf2pApply(&data[i], in->axis[i]);
 	}
 }
-
-/*上位机获取读取原始数据*/
-void getSensorRawData(Axis3i16* acc, Axis3i16* gyro, Axis3i16* mag)
-{
-	*acc = accRaw;
-	*gyro = gyroRaw;
-	*mag = magRaw;
-}
-
-// bool getIsMPU9250Present(void)
-// {
-// 	bool value = isMPUPresent;
-// #ifdef SENSORS_ENABLE_MAG_AK8963
-// 	value &= isMagPresent;
-// #endif
-// 	return value;
-// }
-
-// bool getIsBaroPresent(void)
-// {
-// 	return isBaroPresent;
-// }

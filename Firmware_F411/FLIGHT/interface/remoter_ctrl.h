@@ -25,11 +25,11 @@ typedef enum
 }remoterType_e;
 
 /*下行命令*/
-#define  CMD_GET_MSG		0x01	/*获取四轴信息（自检）*/
+//#define  CMD_GET_MSG		0x01	/*获取四轴信息（自检）*/
 #define  CMD_GET_CANFLY		0x02	/*获取四轴是否能飞*/
 #define  CMD_FLIGHT_LAND	0x03	/*起飞、降落*/
 #define  CMD_EMER_STOP		0x04	/*紧急停机*/
-#define  CMD_FLIP			0x05	/*4D翻滚*/
+//#define  CMD_FLIP			0x05	/*4D翻滚*/
 #define  CMD_POWER_MODULE	0x06	/*打开关闭扩展模块电源*/
 #define  CMD_LEDRING_EFFECT	0x07	/*设置RGB灯环效果*/
 #define  CMD_POWER_VL53LXX	0x08	/*打开关闭激光*/

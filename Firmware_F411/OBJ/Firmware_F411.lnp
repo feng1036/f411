@@ -57,7 +57,6 @@
 "..\obj\communicate.o"
 "..\obj\anomal_detec.o"
 "..\obj\attitude_pid.o"
-"..\obj\flip.o"
 "..\obj\pid.o"
 "..\obj\position_pid.o"
 "..\obj\power_control.o"

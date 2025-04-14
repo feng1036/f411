@@ -52,16 +52,10 @@ static sensorData_t sensors;
 static lpf2pData accLpf[3];
 static lpf2pData gyroLpf[3];
 
-static Axis3i16	gyroRaw;
-static Axis3i16	accRaw;
-static Axis3i16 magRaw;
 static xSemaphoreHandle sensorsDataReady;
 static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_MAG_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
 void sensorsTask(void *param);
 void sensorsInit(void);			/*传感器初始化*/
-void getSensorRawData(Axis3i16* acc, Axis3i16* gyro, Axis3i16* mag);
-// bool getIsMPU9250Present(void);
-// bool getIsBaroPresent(void);
 static void applyAxis3fLpf(lpf2pData *data, Axis3f* in);
 static void sensorsBiasObjInit(BiasObj* bias);
 static void sensorsCalculateVarianceAndMean(BiasObj* bias, Axis3f* varOut, Axis3f* meanOut);

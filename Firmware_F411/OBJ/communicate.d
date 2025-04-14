@@ -3,7 +3,7 @@
 ..\obj\communicate.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\communicate.o: ..\USER\stm32f4xx.h
 ..\obj\communicate.o: ..\CORE\core_cm4.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\communicate.o: ..\CORE\core_cmInstr.h
 ..\obj\communicate.o: ..\CORE\core_cmFunc.h
 ..\obj\communicate.o: ..\CORE\core_cm4_simd.h
@@ -30,15 +30,13 @@
 ..\obj\communicate.o: ..\FWLIB\inc\stm32f4xx_flash_ramfunc.h
 ..\obj\communicate.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\communicate.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\communicate.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\communicate.o: ..\CONFIG\interface\config.h
 ..\obj\communicate.o: ..\HARDWARE\interface\nvic.h
 ..\obj\communicate.o: ..\SYSTEM\sys\sys.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\communicate.o: ..\COMMON\interface\debug_assert.h
-..\obj\communicate.o: ..\COMMUNICATE\interface\console.h
-..\obj\communicate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\communicate.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\communicate.o: ..\FreeRTOS\include\portable.h
 ..\obj\communicate.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -46,3 +44,4 @@
 ..\obj\communicate.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\communicate.o: ..\FreeRTOS\include\queue.h
 ..\obj\communicate.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h

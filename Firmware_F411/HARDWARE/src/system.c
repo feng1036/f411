@@ -63,10 +63,7 @@ static bool systemTest(void)
 	
 	pass &= ledseqTest();
 	pass &= pmTest();
-	pass &= uartslkTest();
-	pass &= configParamTest();
 	pass &= stabilizerTest();	
-	pass &= communicateTest();
 	pass &= watchdogTest();
 	
 	return pass;

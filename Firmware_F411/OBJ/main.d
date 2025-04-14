@@ -3,7 +3,7 @@
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\main.o: ..\USER\stm32f4xx.h
 ..\obj\main.o: ..\CORE\core_cm4.h
-..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\main.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\main.o: ..\CORE\core_cmInstr.h
 ..\obj\main.o: ..\CORE\core_cmFunc.h
 ..\obj\main.o: ..\CORE\core_cm4_simd.h
@@ -33,12 +33,10 @@
 ..\obj\main.o: ..\CONFIG\interface\config.h
 ..\obj\main.o: ..\HARDWARE\interface\nvic.h
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
-..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\main.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\main.o: ..\COMMON\interface\debug_assert.h
-..\obj\main.o: ..\COMMUNICATE\interface\console.h
-..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\main.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\main.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\main.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\main.o: ..\FreeRTOS\include\portable.h
 ..\obj\main.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -50,6 +48,7 @@
 ..\obj\main.o: ..\FreeRTOS\include\timers.h
 ..\obj\main.o: ..\FreeRTOS\include\semphr.h
 ..\obj\main.o: ..\HARDWARE\interface\exti.h
+..\obj\main.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\HARDWARE\interface\uart1.h
 ..\obj\main.o: ..\HARDWARE\interface\led.h
@@ -57,7 +56,6 @@
 ..\obj\main.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\main.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\main.o: ..\CONFIG\interface\config_param.h
-..\obj\main.o: ..\COMMUNICATE\interface\comm.h
 ..\obj\main.o: ..\FLIGHT\interface\commander.h
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\main.o: ..\COMMUNICATE\interface\com_queue.h
