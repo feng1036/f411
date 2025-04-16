@@ -7,7 +7,6 @@ static bool systemTest(void);
 void systemInit(void)
 {
 	u8 cnt = 0;
-	
 	nvicInit();			/*中断配置初始化*/
 	extiInit();			/*外部中断初始化*/	
 	delay_init(96);		/*delay初始化*/

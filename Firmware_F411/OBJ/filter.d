@@ -1,6 +1,6 @@
 ..\obj\filter.o: ..\SENSOR\src\filter.c
 ..\obj\filter.o: stm32f4xx_conf.h
-..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\filter.o: ..\USER\stm32f4xx.h
 ..\obj\filter.o: ..\CORE\core_cm4.h
 ..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\filter.o: ..\CORE\core_cm4_simd.h
 ..\obj\filter.o: ..\USER\system_stm32f4xx.h
 ..\obj\filter.o: ..\USER\stm32f4xx_conf.h
-..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_i2c.h

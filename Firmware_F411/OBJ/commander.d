@@ -1,6 +1,6 @@
 ..\obj\commander.o: ..\FLIGHT\src\commander.c
 ..\obj\commander.o: stm32f4xx_conf.h
-..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\commander.o: ..\USER\stm32f4xx.h
 ..\obj\commander.o: ..\CORE\core_cm4.h
 ..\obj\commander.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\commander.o: ..\CORE\core_cm4_simd.h
 ..\obj\commander.o: ..\USER\system_stm32f4xx.h
 ..\obj\commander.o: ..\USER\stm32f4xx_conf.h
-..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\commander.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -27,10 +25,9 @@
 ..\obj\commander.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\commander.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\commander.o: ..\CONFIG\interface\config.h
-..\obj\commander.o: ..\HARDWARE\interface\nvic.h
-..\obj\commander.o: ..\SYSTEM\sys\sys.h
 ..\obj\commander.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\commander.o: ..\FLIGHT\interface\stabilizer_types.h
+..\obj\commander.o: ..\SYSTEM\sys\sys.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\commander.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\commander.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
@@ -44,10 +41,10 @@
 ..\obj\commander.o: ..\FreeRTOS\include\queue.h
 ..\obj\commander.o: ..\FreeRTOS\include\task.h
 ..\obj\commander.o: ..\FreeRTOS\include\list.h
+..\obj\commander.o: ..\HARDWARE\interface\nvic.h
 ..\obj\commander.o: ..\CONFIG\interface\config_param.h
 ..\obj\commander.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\commander.o: ..\FLIGHT\interface\remoter_ctrl.h
-..\obj\commander.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\commander.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\commander.o: ..\FLIGHT\interface\state_estimator.h
 ..\obj\commander.o: ..\FLIGHT\interface\position_pid.h

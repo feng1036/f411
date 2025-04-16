@@ -3,19 +3,6 @@
 #include "i2cdev.h"
 #include "i2c_drv.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * IIC器件读写控制代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2018/5/2
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
 
 /**
  * IIC器件初始化
@@ -72,16 +59,7 @@ bool i2cdevReadBits(I2C_Dev *dev, uint8_t devAddress, uint8_t memAddress, uint8_
 bool i2cdevRead(I2C_Dev *dev, uint8_t devAddress, uint8_t memAddress, uint16_t len, uint8_t *data)
 {
 	I2cMessage message;
-
-//	if (memAddress == I2CDEV_NO_MEM_ADDR)
-//	{
-//		i2cdrvCreateMessage(&message, devAddress, i2cRead, len, data);
-//	}
-//	else
-	{
-		i2cdrvCreateMessageIntAddr(&message, devAddress, false, memAddress, i2cRead, len, data);
-	}
-
+	i2cdrvCreateMessageIntAddr(&message, devAddress, false, memAddress, i2cRead, len, data);
 	return i2cdrvMessageTransfer(dev, &message);
 }
 /**

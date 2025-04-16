@@ -325,7 +325,7 @@ static void i2cdrvdevUnlockBus(GPIO_TypeDef* portSCL, GPIO_TypeDef* portSDA, uin
 	GPIO_WAIT_FOR_HIGH(portSDA, pinSDA, I2CDEV_LOOPS_PER_MS);
 }
 
-//-----------------------------------------------------------
+
 /**
  * IIC外设初始化
  */
@@ -334,24 +334,6 @@ void i2cdrvInit(I2cDrv* i2c)
 	i2cdrvInitBus(i2c);
 }
 
-/**
- * 创建一个传输信息
- */
-void i2cdrvCreateMessage(I2cMessage *message,
-                      uint8_t  slaveAddress,
-                      I2cDirection  direction,	
-                      uint32_t length,
-                      uint8_t  *buffer)
-{
-	message->slaveAddress = slaveAddress;
-	message->direction = direction;
-	message->isInternal16bit = false;
-	message->internalAddress = I2C_NO_INTERNAL_ADDRESS;
-	message->messageLength = length;
-	message->status = i2cAck;
-	message->buffer = buffer;
-	message->nbrOfRetries = I2C_MAX_RETRIES;
-}
 
 /**
  * 创建一个用于传输内部寄存器的信息

@@ -1,6 +1,6 @@
 ..\obj\sys.o: ..\SYSTEM\sys\sys.c
 ..\obj\sys.o: stm32f4xx_conf.h
-..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sys.o: ..\USER\stm32f4xx.h
 ..\obj\sys.o: ..\CORE\core_cm4.h
 ..\obj\sys.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\sys.o: ..\CORE\core_cm4_simd.h
 ..\obj\sys.o: ..\USER\system_stm32f4xx.h
 ..\obj\sys.o: ..\USER\stm32f4xx_conf.h
-..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\sys.o: ..\FWLIB\inc\stm32f4xx_i2c.h

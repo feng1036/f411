@@ -1,32 +1,3 @@
-/**
-  ******************************************************************************
-  * @file    stm32f4xx_gpio.h
-  * @author  MCD Application Team
-  * @version V1.4.0
-  * @date    04-August-2014
-  * @brief   This file contains all the functions prototypes for the GPIO firmware
-  *          library.  
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
-
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_GPIO_H
 #define __STM32F4xx_GPIO_H
 
@@ -34,19 +5,7 @@
  extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
-
-/** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
-  */
-
-/** @addtogroup GPIO
-  * @{
-  */ 
-
-/* Exported types ------------------------------------------------------------*/
-
 #define IS_GPIO_ALL_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \
                                     ((PERIPH) == GPIOB) || \
                                     ((PERIPH) == GPIOC) || \
@@ -392,76 +351,18 @@ typedef struct
                           ((AF) == GPIO_AF_EVENTOUT)  || ((AF) == GPIO_AF_FSMC))
 #endif /* STM32F40_41xxx */
 
-#if defined (STM32F401xx)
-#define IS_GPIO_AF(AF)   (((AF) == GPIO_AF_RTC_50Hz)  || ((AF) == GPIO_AF_TIM14)     || \
-                          ((AF) == GPIO_AF_MCO)       || ((AF) == GPIO_AF_TAMPER)    || \
-                          ((AF) == GPIO_AF_SWJ)       || ((AF) == GPIO_AF_TRACE)     || \
-                          ((AF) == GPIO_AF_TIM1)      || ((AF) == GPIO_AF_TIM2)      || \
-                          ((AF) == GPIO_AF_TIM3)      || ((AF) == GPIO_AF_TIM4)      || \
-                          ((AF) == GPIO_AF_TIM5)      || ((AF) == GPIO_AF_TIM8)      || \
-                          ((AF) == GPIO_AF_I2C1)      || ((AF) == GPIO_AF_I2C2)      || \
-                          ((AF) == GPIO_AF_I2C3)      || ((AF) == GPIO_AF_SPI1)      || \
-                          ((AF) == GPIO_AF_SPI2)      || ((AF) == GPIO_AF_TIM13)     || \
-                          ((AF) == GPIO_AF_SPI3)      || ((AF) == GPIO_AF_TIM14)     || \
-                          ((AF) == GPIO_AF_USART1)    || ((AF) == GPIO_AF_USART2)    || \
-                          ((AF) == GPIO_AF_SDIO)      || ((AF) == GPIO_AF_USART6)    || \
-                          ((AF) == GPIO_AF_OTG_FS)    || ((AF) == GPIO_AF_OTG_HS)    || \
-                          ((AF) == GPIO_AF_EVENTOUT)  || ((AF) == GPIO_AF_SPI4))
-#endif /* STM32F401xx */
 
 #if defined (STM32F411xE)
 #define IS_GPIO_AF(AF)   (((AF) < 16) && ((AF) != 11) && ((AF) != 13) && ((AF) != 14))
 #endif /* STM32F411xE */
 
-#if defined (STM32F427_437xx) || defined (STM32F429_439xx)
-#define IS_GPIO_AF(AF)   (((AF) == GPIO_AF_RTC_50Hz)  || ((AF) == GPIO_AF_TIM14)     || \
-                          ((AF) == GPIO_AF_MCO)       || ((AF) == GPIO_AF_TAMPER)    || \
-                          ((AF) == GPIO_AF_SWJ)       || ((AF) == GPIO_AF_TRACE)     || \
-                          ((AF) == GPIO_AF_TIM1)      || ((AF) == GPIO_AF_TIM2)      || \
-                          ((AF) == GPIO_AF_TIM3)      || ((AF) == GPIO_AF_TIM4)      || \
-                          ((AF) == GPIO_AF_TIM5)      || ((AF) == GPIO_AF_TIM8)      || \
-                          ((AF) == GPIO_AF_I2C1)      || ((AF) == GPIO_AF_I2C2)      || \
-                          ((AF) == GPIO_AF_I2C3)      || ((AF) == GPIO_AF_SPI1)      || \
-                          ((AF) == GPIO_AF_SPI2)      || ((AF) == GPIO_AF_TIM13)     || \
-                          ((AF) == GPIO_AF_SPI3)      || ((AF) == GPIO_AF_TIM14)     || \
-                          ((AF) == GPIO_AF_USART1)    || ((AF) == GPIO_AF_USART2)    || \
-                          ((AF) == GPIO_AF_USART3)    || ((AF) == GPIO_AF_UART4)     || \
-                          ((AF) == GPIO_AF_UART5)     || ((AF) == GPIO_AF_USART6)    || \
-                          ((AF) == GPIO_AF_CAN1)      || ((AF) == GPIO_AF_CAN2)      || \
-                          ((AF) == GPIO_AF_OTG_FS)    || ((AF) == GPIO_AF_OTG_HS)    || \
-                          ((AF) == GPIO_AF_ETH)       || ((AF) == GPIO_AF_OTG_HS_FS) || \
-                          ((AF) == GPIO_AF_SDIO)      || ((AF) == GPIO_AF_DCMI)      || \
-                          ((AF) == GPIO_AF_EVENTOUT)  || ((AF) == GPIO_AF_SPI4)      || \
-                          ((AF) == GPIO_AF_SPI5)      || ((AF) == GPIO_AF_SPI6)      || \
-                          ((AF) == GPIO_AF_UART7)     || ((AF) == GPIO_AF_UART8)     || \
-                          ((AF) == GPIO_AF_FMC)       ||  ((AF) == GPIO_AF_SAI1)     || \
-                          ((AF) == GPIO_AF_LTDC))
-#endif /* STM32F427_437xx ||  STM32F429_439xx */
-                          
-/**
-  * @}
-  */ 
+// @defgroup GPIO_Legacy 
 
-/** @defgroup GPIO_Legacy 
-  * @{
-  */
-    
 #define GPIO_Mode_AIN           GPIO_Mode_AN
 
 #define GPIO_AF_OTG1_FS         GPIO_AF_OTG_FS
 #define GPIO_AF_OTG2_HS         GPIO_AF_OTG_HS
 #define GPIO_AF_OTG2_FS         GPIO_AF_OTG_HS_FS
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions --------------------------------------------------------*/
 
 /*  Function used to set the GPIO configuration to the default reset state ****/
 void GPIO_DeInit(GPIO_TypeDef* GPIOx);
@@ -490,13 +391,3 @@ void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO
 #endif
 
 #endif /*__STM32F4xx_GPIO_H */
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

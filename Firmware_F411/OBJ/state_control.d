@@ -1,6 +1,6 @@
 ..\obj\state_control.o: ..\FLIGHT\src\state_control.c
 ..\obj\state_control.o: stm32f4xx_conf.h
-..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\state_control.o: ..\USER\stm32f4xx.h
 ..\obj\state_control.o: ..\CORE\core_cm4.h
 ..\obj\state_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\state_control.o: ..\CORE\core_cm4_simd.h
 ..\obj\state_control.o: ..\USER\system_stm32f4xx.h
 ..\obj\state_control.o: ..\USER\stm32f4xx_conf.h
-..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\state_control.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -31,7 +29,6 @@
 ..\obj\state_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\state_control.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\state_control.o: ..\CONFIG\interface\config.h
-..\obj\state_control.o: ..\HARDWARE\interface\nvic.h
 ..\obj\state_control.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\state_control.o: ..\COMMON\interface\debug_assert.h
 ..\obj\state_control.o: ..\FreeRTOS\include\projdefs.h

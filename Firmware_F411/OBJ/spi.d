@@ -1,6 +1,6 @@
 ..\obj\spi.o: ..\HARDWARE\src\spi.c
 ..\obj\spi.o: stm32f4xx_conf.h
-..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\spi.o: ..\USER\stm32f4xx.h
 ..\obj\spi.o: ..\CORE\core_cm4.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\spi.o: ..\CORE\core_cm4_simd.h
 ..\obj\spi.o: ..\USER\system_stm32f4xx.h
 ..\obj\spi.o: ..\USER\stm32f4xx_conf.h
-..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\spi.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -31,7 +29,6 @@
 ..\obj\spi.o: ..\FLIGHT\interface\commander.h
 ..\obj\spi.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\spi.o: ..\CONFIG\interface\config.h
-..\obj\spi.o: ..\HARDWARE\interface\nvic.h
 ..\obj\spi.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\spi.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\spi.o: ..\COMMUNICATE\interface\com_queue.h

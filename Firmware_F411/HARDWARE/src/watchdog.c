@@ -24,7 +24,7 @@ bool watchdogTest(void)
 	{
 		RCC_ClearFlag();
 		wasNormalStart = false;
-		printf("The system resumed after watchdog timeout [WARNING]\n");
+		//printf("The system resumed after watchdog timeout [WARNING]\n");
 		printAssertSnapshotData();
 	}
 	return wasNormalStart;

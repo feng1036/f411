@@ -1,6 +1,6 @@
 ..\obj\pid.o: ..\FLIGHT\src\pid.c
 ..\obj\pid.o: stm32f4xx_conf.h
-..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\pid.o: ..\USER\stm32f4xx.h
 ..\obj\pid.o: ..\CORE\core_cm4.h
 ..\obj\pid.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\pid.o: ..\CORE\core_cm4_simd.h
 ..\obj\pid.o: ..\USER\system_stm32f4xx.h
 ..\obj\pid.o: ..\USER\stm32f4xx_conf.h
-..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\pid.o: ..\FWLIB\inc\stm32f4xx_i2c.h

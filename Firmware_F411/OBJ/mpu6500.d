@@ -1,6 +1,6 @@
 ..\obj\mpu6500.o: ..\SENSOR\src\mpu6500.c
 ..\obj\mpu6500.o: stm32f4xx_conf.h
-..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\mpu6500.o: ..\USER\stm32f4xx.h
 ..\obj\mpu6500.o: ..\CORE\core_cm4.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\mpu6500.o: ..\CORE\core_cm4_simd.h
 ..\obj\mpu6500.o: ..\USER\system_stm32f4xx.h
 ..\obj\mpu6500.o: ..\USER\stm32f4xx_conf.h
-..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\mpu6500.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -26,8 +24,6 @@
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\mpu6500.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\mpu6500.o: ..\CONFIG\interface\config.h
-..\obj\mpu6500.o: ..\HARDWARE\interface\nvic.h
-..\obj\mpu6500.o: ..\SYSTEM\sys\sys.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\mpu6500.o: ..\COMMON\interface\debug_assert.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\projdefs.h

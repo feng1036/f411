@@ -1,6 +1,6 @@
 ..\obj\delay.o: ..\SYSTEM\delay\delay.c
 ..\obj\delay.o: stm32f4xx_conf.h
-..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\delay.o: ..\USER\stm32f4xx.h
 ..\obj\delay.o: ..\CORE\core_cm4.h
 ..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\delay.o: ..\CORE\core_cm4_simd.h
 ..\obj\delay.o: ..\USER\system_stm32f4xx.h
 ..\obj\delay.o: ..\USER\stm32f4xx_conf.h
-..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\delay.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -27,7 +25,6 @@
 ..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\delay.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\delay.o: ..\CONFIG\interface\config.h
-..\obj\delay.o: ..\HARDWARE\interface\nvic.h
 ..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\delay.o: ..\COMMON\interface\debug_assert.h
 ..\obj\delay.o: ..\FreeRTOS\include\projdefs.h

@@ -4,24 +4,9 @@
 #include "debug_assert.h"
 #include "spi.h"
 
-
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"		 
 #include "task.h"
-
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 中断配置驱动代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
 
 static u32 sysTickCnt=0;
 
@@ -88,13 +73,6 @@ void  NMI_Handler(void)
  */
 __asm void HardFault_Handler(void)
 {
-	//http://www.st.com/mcu/forums-cat-6778-23.html
-	//****************************************************
-	//To test this application, you can use this snippet anywhere:
-	// //Let's crash the MCU!
-	// asm (" MOVS r0, #1 \n"
-	// " LDM r0,{r1-r2} \n"
-	// " BX LR; \n");
 	PRESERVE8
     IMPORT printHardFault
     TST r14, #4
@@ -106,40 +84,39 @@ __asm void HardFault_Handler(void)
 
 void  printHardFault(u32* hardfaultArgs)
 {
-	unsigned int stacked_r0;
-	unsigned int stacked_r1;
-	unsigned int stacked_r2;
-	unsigned int stacked_r3;
-	unsigned int stacked_r12;
-	unsigned int stacked_lr;
-	unsigned int stacked_pc;
-	unsigned int stacked_psr;
+	// unsigned int stacked_r0;
+	// unsigned int stacked_r1;
+	// unsigned int stacked_r2;
+	// unsigned int stacked_r3;
+	// unsigned int stacked_r12;
+	// unsigned int stacked_lr;
+	// unsigned int stacked_pc;
+	// unsigned int stacked_psr;
 
-	stacked_r0 = ((unsigned long) hardfaultArgs[0]);
-	stacked_r1 = ((unsigned long) hardfaultArgs[1]);
-	stacked_r2 = ((unsigned long) hardfaultArgs[2]);
-	stacked_r3 = ((unsigned long) hardfaultArgs[3]);
+	// stacked_r0 = ((unsigned long) hardfaultArgs[0]);
+	// stacked_r1 = ((unsigned long) hardfaultArgs[1]);
+	// stacked_r2 = ((unsigned long) hardfaultArgs[2]);
+	// stacked_r3 = ((unsigned long) hardfaultArgs[3]);
 
-	stacked_r12 = ((unsigned long) hardfaultArgs[4]);
-	stacked_lr = ((unsigned long) hardfaultArgs[5]);
-	stacked_pc = ((unsigned long) hardfaultArgs[6]);
-	stacked_psr = ((unsigned long) hardfaultArgs[7]);
+	// stacked_r12 = ((unsigned long) hardfaultArgs[4]);
+	// stacked_lr = ((unsigned long) hardfaultArgs[5]);
+	// stacked_pc = ((unsigned long) hardfaultArgs[6]);
+	// stacked_psr = ((unsigned long) hardfaultArgs[7]);
 
-
-	printf("[Hard fault handler]\n");
-	printf("R0 = %x\n", stacked_r0);
-	printf("R1 = %x\n", stacked_r1);
-	printf("R2 = %x\n", stacked_r2);
-	printf("R3 = %x\n", stacked_r3);
-	printf("R12 = %x\n", stacked_r12);
-	printf("LR = %x\n", stacked_lr);
-	printf("PC = %x\n", stacked_pc);
-	printf("PSR = %x\n", stacked_psr);
-	printf("BFAR = %x\n", (*((volatile unsigned int *)(0xE000ED38))));
-	printf("CFSR = %x\n", (*((volatile unsigned int *)(0xE000ED28))));
-	printf("HFSR = %x\n", (*((volatile unsigned int *)(0xE000ED2C))));
-	printf("DFSR = %x\n", (*((volatile unsigned int *)(0xE000ED30))));
-	printf("AFSR = %x\n", (*((volatile unsigned int *)(0xE000ED3C))));
+    // printf("[Hard fault handler]\n");
+	// printf("R0 = %x\n", stacked_r0);
+	// printf("R1 = %x\n", stacked_r1);
+	// printf("R2 = %x\n", stacked_r2);
+	// printf("R3 = %x\n", stacked_r3);
+	// printf("R12 = %x\n", stacked_r12);
+	// printf("LR = %x\n", stacked_lr);
+	// printf("PC = %x\n", stacked_pc);
+	// printf("PSR = %x\n", stacked_psr);
+	// printf("BFAR = %x\n", (*((volatile unsigned int *)(0xE000ED38))));
+	// printf("CFSR = %x\n", (*((volatile unsigned int *)(0xE000ED28))));
+	// printf("HFSR = %x\n", (*((volatile unsigned int *)(0xE000ED2C))));
+	// printf("DFSR = %x\n", (*((volatile unsigned int *)(0xE000ED30))));
+	// printf("AFSR = %x\n", (*((volatile unsigned int *)(0xE000ED3C))));
 
 	motorsSetRatio(MOTOR_M1, 0);
 	motorsSetRatio(MOTOR_M2, 0);

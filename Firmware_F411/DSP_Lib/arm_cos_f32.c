@@ -121,7 +121,3 @@ float32_t arm_cos_f32(
   /* Return the output value */
   return (cosVal);
 }
-
-/**
- * @} end of cos group
- */

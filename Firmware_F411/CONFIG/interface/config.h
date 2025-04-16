@@ -1,6 +1,5 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
-#include "nvic.h"
 #include "stdio.h"	/*printf µ÷ÓÃ*/
 
 //#define CONFIG_PARAM_SIZE	(16*1024)

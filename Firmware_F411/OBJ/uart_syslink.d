@@ -1,6 +1,6 @@
 ..\obj\uart_syslink.o: ..\HARDWARE\src\uart_syslink.c
 ..\obj\uart_syslink.o: stm32f4xx_conf.h
-..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\uart_syslink.o: ..\USER\stm32f4xx.h
 ..\obj\uart_syslink.o: ..\CORE\core_cm4.h
 ..\obj\uart_syslink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\uart_syslink.o: ..\CORE\core_cm4_simd.h
 ..\obj\uart_syslink.o: ..\USER\system_stm32f4xx.h
 ..\obj\uart_syslink.o: ..\USER\stm32f4xx_conf.h
-..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\uart_syslink.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -24,7 +22,6 @@
 ..\obj\uart_syslink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\uart_syslink.o: ..\SYSTEM\sys\sys.h
 ..\obj\uart_syslink.o: ..\CONFIG\interface\config.h
-..\obj\uart_syslink.o: ..\HARDWARE\interface\nvic.h
 ..\obj\uart_syslink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\uart_syslink.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\uart_syslink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h

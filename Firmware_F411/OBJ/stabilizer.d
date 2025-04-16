@@ -1,6 +1,6 @@
 ..\obj\stabilizer.o: ..\FLIGHT\src\stabilizer.c
 ..\obj\stabilizer.o: stm32f4xx_conf.h
-..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\stabilizer.o: ..\USER\stm32f4xx.h
 ..\obj\stabilizer.o: ..\CORE\core_cm4.h
 ..\obj\stabilizer.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\stabilizer.o: ..\CORE\core_cm4_simd.h
 ..\obj\stabilizer.o: ..\USER\system_stm32f4xx.h
 ..\obj\stabilizer.o: ..\USER\stm32f4xx_conf.h
-..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\stabilizer.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -24,8 +22,6 @@
 ..\obj\stabilizer.o: ..\HARDWARE\interface\system.h
 ..\obj\stabilizer.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\stabilizer.o: ..\CONFIG\interface\config.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\nvic.h
-..\obj\stabilizer.o: ..\SYSTEM\sys\sys.h
 ..\obj\stabilizer.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\stabilizer.o: ..\COMMON\interface\debug_assert.h
 ..\obj\stabilizer.o: ..\FreeRTOS\include\FreeRTOS.h
@@ -40,6 +36,8 @@
 ..\obj\stabilizer.o: ..\FreeRTOS\include\queue.h
 ..\obj\stabilizer.o: ..\FreeRTOS\include\timers.h
 ..\obj\stabilizer.o: ..\FreeRTOS\include\semphr.h
+..\obj\stabilizer.o: ..\HARDWARE\interface\nvic.h
+..\obj\stabilizer.o: ..\SYSTEM\sys\sys.h
 ..\obj\stabilizer.o: ..\HARDWARE\interface\exti.h
 ..\obj\stabilizer.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\stabilizer.o: ..\SYSTEM\delay\delay.h
@@ -72,4 +70,3 @@
 ..\obj\stabilizer.o: ..\FLIGHT\interface\attitude_pid.h
 ..\obj\stabilizer.o: ..\COMMON\interface\maths.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\remoter_ctrl.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\module_detect.h

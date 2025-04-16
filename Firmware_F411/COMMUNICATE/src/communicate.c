@@ -12,7 +12,7 @@ static xQueueHandle atkp_stabilizer_queue;	/*和stablilizer通信的队列*/
 
 static bool isInit = false;
 
-void communicateInit()
+void communicateInit(void)
 {
     if(isInit) return;
     atkp_stabilizer_queue = xQueueCreate(1, sizeof(atkp_t));	/*创建和stablilizer通信的队列*/
@@ -20,13 +20,13 @@ void communicateInit()
     isInit = true;
 }
 
-bool atkp_write(atkp_t *p)
+BaseType_t atkp_write(atkp_t *p)
 {
-    return (pdTRUE==xQueueSend(atkp_stabilizer_queue, p, 0));	/*发送遥控数据到stablilizer通信的队列*/
+    return xQueueSend(atkp_stabilizer_queue, p, 0);	/*发送遥控数据到stablilizer通信的队列*/
 }
 
-bool atkp_read(atkp_t *p)
+BaseType_t atkp_read(atkp_t *p)
 {
-    return (pdTRUE==xQueueReceive(atkp_stabilizer_queue, p, 0));	/*接收数据从stablilizer通信的队列*/
+    return xQueueReceive(atkp_stabilizer_queue, p, 0);	/*接收数据从stablilizer通信的队列*/
 }
 

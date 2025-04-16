@@ -1,5 +1,3 @@
-#include <stdbool.h>
-#include <string.h>
 #include "config.h"
 #include "config_param.h"
 configParam_t configParam=

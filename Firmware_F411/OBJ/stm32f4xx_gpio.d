@@ -1,6 +1,6 @@
 ..\obj\stm32f4xx_gpio.o: ..\FWLIB\src\stm32f4xx_gpio.c
 ..\obj\stm32f4xx_gpio.o: stm32f4xx_conf.h
-..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\stm32f4xx_gpio.o: ..\USER\stm32f4xx.h
 ..\obj\stm32f4xx_gpio.o: ..\CORE\core_cm4.h
 ..\obj\stm32f4xx_gpio.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\stm32f4xx_gpio.o: ..\CORE\core_cm4_simd.h
 ..\obj\stm32f4xx_gpio.o: ..\USER\system_stm32f4xx.h
 ..\obj\stm32f4xx_gpio.o: ..\USER\stm32f4xx_conf.h
-..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\stm32f4xx_gpio.o: ..\FWLIB\inc\stm32f4xx_i2c.h

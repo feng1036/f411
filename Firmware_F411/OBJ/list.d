@@ -1,6 +1,6 @@
 ..\obj\list.o: ..\FreeRTOS\list.c
 ..\obj\list.o: stm32f4xx_conf.h
-..\obj\list.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\list.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\list.o: ..\USER\stm32f4xx.h
 ..\obj\list.o: ..\CORE\core_cm4.h
 ..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\list.o: ..\CORE\core_cm4_simd.h
 ..\obj\list.o: ..\USER\system_stm32f4xx.h
 ..\obj\list.o: ..\USER\stm32f4xx_conf.h
-..\obj\list.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\list.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\list.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\list.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\list.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -26,8 +24,6 @@
 ..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\list.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\list.o: ..\CONFIG\interface\config.h
-..\obj\list.o: ..\HARDWARE\interface\nvic.h
-..\obj\list.o: ..\SYSTEM\sys\sys.h
 ..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\list.o: ..\COMMON\interface\debug_assert.h
 ..\obj\list.o: ..\FreeRTOS\include\projdefs.h
