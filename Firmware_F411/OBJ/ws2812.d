@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ..\obj\ws2812.o: ..\HARDWARE\src\ws2812.c
 ..\obj\ws2812.o: stm32f4xx_conf.h
 ..\obj\ws2812.o: ..\FWLIB\inc\stm32f4xx_adc.h
@@ -39,3 +40,5 @@
 ..\obj\ws2812.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\ws2812.o: ..\FreeRTOS\include\semphr.h
 ..\obj\ws2812.o: ..\FreeRTOS\include\queue.h
+=======
+>>>>>>> 1949affd6f8ed0b48d9778862372ad8cc1072136

@@ -2,8 +2,6 @@
 #define REMOTER_CTRL_H
 #include "atkp.h"
 #include "sys.h"
-#include "module_detect.h"
-
 
 /*遥控数据类别*/
 typedef enum 
@@ -44,7 +42,6 @@ typedef __packed struct
 	bool baro_slfTest;
 	bool isCanFly;
 	bool isLowpower;
-	enum expModuleID moduleID;
 	
 	float trimRoll;		/*roll微调*/
 	float trimPitch;	/*pitch微调*/

@@ -46,9 +46,9 @@ typedef struct
 
 static xQueueHandle sensor_data_queue;
 static xQueueHandle sensor_gyroBias_queue;
-bool sensor_data_Read(sensorData_t* sensordata);
+BaseType_t sensor_data_Read(sensorData_t* sensordata);
 void sensor_data_Write(sensorData_t* sensordata);
-bool sensor_gyroBias_Read(bool* gyroBias);
+BaseType_t sensor_gyroBias_Read(bool* gyroBias);
 void sensor_gyroBias_Write(bool* gyroBias);
 void queue_init(bool init);
 

@@ -1,6 +1,6 @@
 ..\obj\power_control.o: ..\FLIGHT\src\power_control.c
 ..\obj\power_control.o: stm32f4xx_conf.h
-..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\power_control.o: ..\USER\stm32f4xx.h
 ..\obj\power_control.o: ..\CORE\core_cm4.h
 ..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\power_control.o: ..\CORE\core_cm4_simd.h
 ..\obj\power_control.o: ..\USER\system_stm32f4xx.h
 ..\obj\power_control.o: ..\USER\stm32f4xx_conf.h
-..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\power_control.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -30,7 +28,6 @@
 ..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\power_control.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\power_control.o: ..\CONFIG\interface\config.h
-..\obj\power_control.o: ..\HARDWARE\interface\nvic.h
 ..\obj\power_control.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\power_control.o: ..\COMMON\interface\debug_assert.h
 ..\obj\power_control.o: ..\FreeRTOS\include\projdefs.h

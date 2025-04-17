@@ -1,6 +1,6 @@
 ..\obj\heap_4.o: ..\FreeRTOS\portable\MemMang\heap_4.c
 ..\obj\heap_4.o: stm32f4xx_conf.h
-..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\heap_4.o: ..\USER\stm32f4xx.h
 ..\obj\heap_4.o: ..\CORE\core_cm4.h
 ..\obj\heap_4.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\heap_4.o: ..\CORE\core_cm4_simd.h
 ..\obj\heap_4.o: ..\USER\system_stm32f4xx.h
 ..\obj\heap_4.o: ..\USER\stm32f4xx_conf.h
-..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\heap_4.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -26,8 +24,6 @@
 ..\obj\heap_4.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\heap_4.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\heap_4.o: ..\CONFIG\interface\config.h
-..\obj\heap_4.o: ..\HARDWARE\interface\nvic.h
-..\obj\heap_4.o: ..\SYSTEM\sys\sys.h
 ..\obj\heap_4.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\heap_4.o: ..\COMMON\interface\debug_assert.h
 ..\obj\heap_4.o: ..\FreeRTOS\include\projdefs.h

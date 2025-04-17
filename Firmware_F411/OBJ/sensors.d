@@ -1,6 +1,6 @@
 ..\obj\sensors.o: ..\SENSOR\src\sensors.c
 ..\obj\sensors.o: stm32f4xx_conf.h
-..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sensors.o: ..\USER\stm32f4xx.h
 ..\obj\sensors.o: ..\CORE\core_cm4.h
 ..\obj\sensors.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\sensors.o: ..\CORE\core_cm4_simd.h
 ..\obj\sensors.o: ..\USER\system_stm32f4xx.h
 ..\obj\sensors.o: ..\USER\stm32f4xx_conf.h
-..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\sensors.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -34,7 +32,6 @@
 ..\obj\sensors.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\sensors.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\sensors.o: ..\CONFIG\interface\config.h
-..\obj\sensors.o: ..\HARDWARE\interface\nvic.h
 ..\obj\sensors.o: ..\COMMON\interface\debug_assert.h
 ..\obj\sensors.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\sensors.o: ..\FreeRTOS\include\portable.h

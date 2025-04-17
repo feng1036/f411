@@ -37,6 +37,6 @@ void debugInitTrace(void);
  * used with the freertos traceTASK_SWITCHED_IN() macro.
  * @param Task number currently running
  */
-void debugSendTraceInfo(unsigned int taskNbr);
+//void debugSendTraceInfo(unsigned int taskNbr);
 
 #endif /* DEBUG_H_ */

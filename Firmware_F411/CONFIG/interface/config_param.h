@@ -58,11 +58,6 @@ typedef struct
 	u16 thrustBase;			/*油门基础值*/
 } configParam_t;
 
-
 extern configParam_t configParam;
-
-void configParamInit(void);	/*参数配置初始化*/
-//void configParamGiveSemaphore(void);
-
 #endif /*__CONFIG_PARAM_H */
 

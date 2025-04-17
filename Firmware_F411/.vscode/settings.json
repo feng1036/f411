@@ -1,21 +1,23 @@
 {
     "files.associations": {
-        "config_param.h": "c",
-        "axis.h": "c",
-        "sensors.h": "c",
-        "sys.h": "c",
-        "com_queue.h": "c",
-        "stdio.h": "c",
-        "communicate.h": "c",
-        "queue.h": "c",
-        "remoter_ctrl.h": "c",
-        "position_pid.h": "c",
-        "stabilizer_types.h": "c",
-        "system.h": "c",
-        "freertos.h": "c",
-        "i2c_drv.h": "c",
+        "nvic.h": "c",
+        "config.h": "c",
         "stm32f4xx.h": "c",
+<<<<<<< HEAD
         "task.h": "c",
         "propkeydef.h": "c"
+=======
+        "commander.h": "c",
+        "atkp.h": "c",
+        "communicate.h": "c",
+        "bmp280.h": "c",
+        "i2cdev.h": "c",
+        "delay.h": "c",
+        "math.h": "c",
+        "system.h": "c",
+        "spi.h": "c",
+        "sys.h": "c",
+        "stm32f4xx_dbgmcu.h": "c"
+>>>>>>> 1949affd6f8ed0b48d9778862372ad8cc1072136
     }
 }

@@ -97,21 +97,6 @@ bool i2cdrvMessageTransfer(I2cDrv* i2c, I2cMessage* message);
 
 
 /**
- * Create a message to transfer
- *
- * @param message       pointer to message struct that will be filled in.
- * @param slaveAddress  i2c slave address
- * @param direction     i2cWrite or i2cRead
- * @param length        Length of message
- * @param buffer        pointer to buffer of send/receive data
- */
-void i2cdrvCreateMessage(I2cMessage *message,
-                      uint8_t  slaveAddress,
-                      I2cDirection  direction,
-                      uint32_t length,
-                      uint8_t  *buffer);
-
-/**
  * Create a message to transfer with internal "reg" address. Will first do a write
  * of one or two bytes depending of IsInternal16 and then write/read the data.
  *

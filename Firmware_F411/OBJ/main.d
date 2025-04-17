@@ -1,6 +1,6 @@
 ..\obj\main.o: ..\USER\main.c
 ..\obj\main.o: stm32f4xx_conf.h
-..\obj\main.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\main.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\main.o: ..\USER\stm32f4xx.h
 ..\obj\main.o: ..\CORE\core_cm4.h
 ..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\main.o: ..\CORE\core_cm4_simd.h
 ..\obj\main.o: ..\USER\system_stm32f4xx.h
 ..\obj\main.o: ..\USER\stm32f4xx_conf.h
-..\obj\main.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\main.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\main.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -24,8 +22,6 @@
 ..\obj\main.o: ..\HARDWARE\interface\system.h
 ..\obj\main.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\main.o: ..\CONFIG\interface\config.h
-..\obj\main.o: ..\HARDWARE\interface\nvic.h
-..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\COMMON\interface\debug_assert.h
 ..\obj\main.o: ..\FreeRTOS\include\FreeRTOS.h
@@ -40,6 +36,8 @@
 ..\obj\main.o: ..\FreeRTOS\include\queue.h
 ..\obj\main.o: ..\FreeRTOS\include\timers.h
 ..\obj\main.o: ..\FreeRTOS\include\semphr.h
+..\obj\main.o: ..\HARDWARE\interface\nvic.h
+..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: ..\HARDWARE\interface\exti.h
 ..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\main.o: ..\SYSTEM\delay\delay.h

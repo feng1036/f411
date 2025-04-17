@@ -44,19 +44,3 @@ void vApplicationIdleHook( void )
 
     __WFI();	/*进入低功耗模式*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -28,8 +28,6 @@ void assertFail(char *exp, char *file, int line)
 {
 	portDISABLE_INTERRUPTS();
 	storeAssertSnapshotData(file, line);
-	printf("Assert failed %s:%d\n", file, line);
-
 	motorsSetRatio(MOTOR_M1, 0);
 	motorsSetRatio(MOTOR_M2, 0);
 	motorsSetRatio(MOTOR_M3, 0);
@@ -53,10 +51,10 @@ void printAssertSnapshotData()
 {
 	if (MAGIC_ASSERT_INDICATOR == snapshot.magicNumber) 
 	{
-		printf("Assert failed at %s:%d\n", snapshot.fileName, snapshot.line);
+		//printf("Assert failed at %s:%d\n", snapshot.fileName, snapshot.line);
 	} else 
 	{
-		printf("No assert information found\n");
+		//printf("No assert information found\n");
 	}
 }
 

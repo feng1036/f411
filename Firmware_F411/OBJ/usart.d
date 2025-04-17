@@ -1,6 +1,6 @@
 ..\obj\usart.o: ..\SYSTEM\usart\usart.c
 ..\obj\usart.o: stm32f4xx_conf.h
-..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\usart.o: ..\USER\stm32f4xx.h
 ..\obj\usart.o: ..\CORE\core_cm4.h
 ..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\usart.o: ..\CORE\core_cm4_simd.h
 ..\obj\usart.o: ..\USER\system_stm32f4xx.h
 ..\obj\usart.o: ..\USER\stm32f4xx_conf.h
-..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\usart.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -28,7 +26,6 @@
 ..\obj\usart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\usart.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\usart.o: ..\CONFIG\interface\config.h
-..\obj\usart.o: ..\HARDWARE\interface\nvic.h
 ..\obj\usart.o: ..\COMMON\interface\debug_assert.h
 ..\obj\usart.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\usart.o: ..\FreeRTOS\include\portable.h

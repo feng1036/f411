@@ -6,9 +6,9 @@ void queue_init(bool init)
 	sensor_gyroBias_queue=xQueueCreate(1,sizeof(bool));
 }
 
-bool sensor_data_Read(sensorData_t* sensordata)
+BaseType_t sensor_data_Read(sensorData_t* sensordata)
 {
-    return(pdTRUE==xQueueReceive(sensor_data_queue,sensordata,0));
+    return xQueueReceive(sensor_data_queue,sensordata,0);
 }
 
 void sensor_data_Write(sensorData_t* sensordata)
@@ -16,9 +16,9 @@ void sensor_data_Write(sensorData_t* sensordata)
     xQueueOverwrite(sensor_data_queue,sensordata);
 }
 
-bool sensor_gyroBias_Read(bool* gyroBias)
+BaseType_t sensor_gyroBias_Read(bool* gyroBias)
 {
-    return(pdTRUE==xQueueReceive(sensor_gyroBias_queue,gyroBias,0));
+    return xQueueReceive(sensor_gyroBias_queue,gyroBias,0);
 }
 
 void sensor_gyroBias_Write(bool* gyroBias)

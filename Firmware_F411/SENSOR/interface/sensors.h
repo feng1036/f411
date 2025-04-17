@@ -5,8 +5,6 @@
 #include "bmp280.h"
 #include "filter.h"
 #include "com_queue.h"
-
-
 #define SENSORS_ENABLE_PRESSURE_BMP280	/*气压计使用bmp280*/
 #define BARO_UPDATE_RATE		RATE_50_HZ
 #define SENSOR9_UPDATE_RATE   	RATE_500_HZ

@@ -1,6 +1,6 @@
 ..\obj\state_estimator.o: ..\FLIGHT\src\state_estimator.c
 ..\obj\state_estimator.o: stm32f4xx_conf.h
-..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\state_estimator.o: ..\USER\stm32f4xx.h
 ..\obj\state_estimator.o: ..\CORE\core_cm4.h
 ..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\state_estimator.o: ..\CORE\core_cm4_simd.h
 ..\obj\state_estimator.o: ..\USER\system_stm32f4xx.h
 ..\obj\state_estimator.o: ..\USER\stm32f4xx_conf.h
-..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\state_estimator.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -30,7 +28,6 @@
 ..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\config.h
-..\obj\state_estimator.o: ..\HARDWARE\interface\nvic.h
 ..\obj\state_estimator.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\state_estimator.o: ..\COMMON\interface\debug_assert.h
 ..\obj\state_estimator.o: ..\FreeRTOS\include\projdefs.h

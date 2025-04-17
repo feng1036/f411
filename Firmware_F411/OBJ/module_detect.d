@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ..\obj\module_detect.o: ..\HARDWARE\src\module_detect.c
 ..\obj\module_detect.o: stm32f4xx_conf.h
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_adc.h
@@ -39,3 +40,5 @@
 ..\obj\module_detect.o: ..\FreeRTOS\include\task.h
 ..\obj\module_detect.o: ..\FreeRTOS\include\list.h
 ..\obj\module_detect.o: ..\FreeRTOS\include\timers.h
+=======
+>>>>>>> 1949affd6f8ed0b48d9778862372ad8cc1072136

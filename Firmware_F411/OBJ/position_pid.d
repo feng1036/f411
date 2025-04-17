@@ -1,6 +1,6 @@
 ..\obj\position_pid.o: ..\FLIGHT\src\position_pid.c
 ..\obj\position_pid.o: stm32f4xx_conf.h
-..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\position_pid.o: ..\USER\stm32f4xx.h
 ..\obj\position_pid.o: ..\CORE\core_cm4.h
 ..\obj\position_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\position_pid.o: ..\CORE\core_cm4_simd.h
 ..\obj\position_pid.o: ..\USER\system_stm32f4xx.h
 ..\obj\position_pid.o: ..\USER\stm32f4xx_conf.h
-..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\position_pid.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -29,7 +27,6 @@
 ..\obj\position_pid.o: ..\FLIGHT\interface\commander.h
 ..\obj\position_pid.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\position_pid.o: ..\CONFIG\interface\config.h
-..\obj\position_pid.o: ..\HARDWARE\interface\nvic.h
 ..\obj\position_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\position_pid.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\position_pid.o: ..\COMMUNICATE\interface\com_queue.h
@@ -47,5 +44,4 @@
 ..\obj\position_pid.o: ..\FreeRTOS\include\list.h
 ..\obj\position_pid.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\position_pid.o: ..\FLIGHT\interface\remoter_ctrl.h
-..\obj\position_pid.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\position_pid.o: ..\COMMON\interface\maths.h

@@ -1,6 +1,6 @@
 ..\obj\arm_common_tables.o: ..\DSP_Lib\arm_common_tables.c
 ..\obj\arm_common_tables.o: stm32f4xx_conf.h
-..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\arm_common_tables.o: ..\USER\stm32f4xx.h
 ..\obj\arm_common_tables.o: ..\CORE\core_cm4.h
 ..\obj\arm_common_tables.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\arm_common_tables.o: ..\CORE\core_cm4_simd.h
 ..\obj\arm_common_tables.o: ..\USER\system_stm32f4xx.h
 ..\obj\arm_common_tables.o: ..\USER\stm32f4xx_conf.h
-..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\arm_common_tables.o: ..\FWLIB\inc\stm32f4xx_i2c.h

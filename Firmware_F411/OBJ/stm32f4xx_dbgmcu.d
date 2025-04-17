@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ..\obj\stm32f4xx_dbgmcu.o: ..\FWLIB\src\stm32f4xx_dbgmcu.c
 ..\obj\stm32f4xx_dbgmcu.o: stm32f4xx_conf.h
 ..\obj\stm32f4xx_dbgmcu.o: ..\FWLIB\inc\stm32f4xx_adc.h
@@ -21,3 +22,5 @@
 ..\obj\stm32f4xx_dbgmcu.o: ..\FWLIB\inc\stm32f4xx_tim.h
 ..\obj\stm32f4xx_dbgmcu.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\stm32f4xx_dbgmcu.o: ..\FWLIB\inc\misc.h
+=======
+>>>>>>> 1949affd6f8ed0b48d9778862372ad8cc1072136

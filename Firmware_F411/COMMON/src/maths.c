@@ -56,10 +56,6 @@ float cos_approx(float x)
     return sin_approx(x + (0.5f * M_PIf));
 }
 
-// https://github.com/Crashpilot1000/HarakiriWebstore1/blob/396715f73c6fcf859e0db0f34e12fe44bace6483/src/mw.c#L1292
-// http://http.developer.nvidia.com/Cg/atan2.html (not working correctly!)
-// Poly coefficients by @ledvinap (https://github.com/cleanflight/cleanflight/pull/1107)
-// Max absolute error 0,000027 degree
 float atan2_approx(float y, float x)
 {
     #define atanPolyCoef1  3.14551665884836e-07f

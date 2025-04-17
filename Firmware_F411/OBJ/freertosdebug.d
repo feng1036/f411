@@ -1,6 +1,6 @@
 ..\obj\freertosdebug.o: ..\COMMON\src\freeRTOSdebug.c
 ..\obj\freertosdebug.o: stm32f4xx_conf.h
-..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\freertosdebug.o: ..\USER\stm32f4xx.h
 ..\obj\freertosdebug.o: ..\CORE\core_cm4.h
 ..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\freertosdebug.o: ..\CORE\core_cm4_simd.h
 ..\obj\freertosdebug.o: ..\USER\system_stm32f4xx.h
 ..\obj\freertosdebug.o: ..\USER\stm32f4xx_conf.h
-..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\freertosdebug.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -23,9 +21,8 @@
 ..\obj\freertosdebug.o: ..\FWLIB\inc\misc.h
 ..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\freertosdebug.o: ..\CONFIG\interface\config.h
-..\obj\freertosdebug.o: ..\HARDWARE\interface\nvic.h
-..\obj\freertosdebug.o: ..\SYSTEM\sys\sys.h
 ..\obj\freertosdebug.o: ..\HARDWARE\interface\led.h
+..\obj\freertosdebug.o: ..\SYSTEM\sys\sys.h
 ..\obj\freertosdebug.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\freertosdebug.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\freertosdebug.o: ..\COMMON\interface\debug_assert.h

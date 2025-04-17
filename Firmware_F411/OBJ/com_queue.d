@@ -1,6 +1,6 @@
 ..\obj\com_queue.o: ..\COMMUNICATE\src\com_queue.c
 ..\obj\com_queue.o: stm32f4xx_conf.h
-..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_adc.h
+..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\com_queue.o: ..\USER\stm32f4xx.h
 ..\obj\com_queue.o: ..\CORE\core_cm4.h
 ..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -9,8 +9,6 @@
 ..\obj\com_queue.o: ..\CORE\core_cm4_simd.h
 ..\obj\com_queue.o: ..\USER\system_stm32f4xx.h
 ..\obj\com_queue.o: ..\USER\stm32f4xx_conf.h
-..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
-..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_dma.h
 ..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_gpio.h
 ..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_i2c.h
@@ -26,8 +24,6 @@
 ..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\com_queue.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\com_queue.o: ..\CONFIG\interface\config.h
-..\obj\com_queue.o: ..\HARDWARE\interface\nvic.h
-..\obj\com_queue.o: ..\SYSTEM\sys\sys.h
 ..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\com_queue.o: ..\COMMON\interface\debug_assert.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\projdefs.h

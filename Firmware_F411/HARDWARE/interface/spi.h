@@ -3,7 +3,6 @@
 #include "sys.h"
 #include <stdbool.h>
 
-
 // Based on 48MHz peripheral clock
 #define SPI_BAUDRATE_24MHZ  SPI_BaudRatePrescaler_2		// 24MHz
 #define SPI_BAUDRATE_12MHZ  SPI_BaudRatePrescaler_4		// 12MHz
@@ -15,12 +14,12 @@
  * 初始化SPI.
  */
 void spi2Init(void);
-void spiBeginTransaction(void);
-void spiEndTransaction(void);
-void spiTxDmaIsr(void);
+// void spiBeginTransaction(void);
+// void spiEndTransaction(void);
+// void spiTxDmaIsr(void);
 
-/* 收发缓冲数据 */
-bool spiExchange(size_t length, const uint8_t *data_tx, uint8_t *data_rx);
+// /* 收发缓冲数据 */
+// bool spiExchange(size_t length, const uint8_t *data_tx, uint8_t *data_rx);
 
 
 #endif /* __SPI_H */

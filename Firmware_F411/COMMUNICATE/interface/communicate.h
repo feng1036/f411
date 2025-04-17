@@ -5,9 +5,10 @@
 #include "queue.h"
 #include "atkp.h"
 
+void communicateInit(void);
 
-bool atkp_write(atkp_t *p);
+BaseType_t atkp_write(atkp_t *p);
 
-bool atkp_read(atkp_t *p);
+BaseType_t atkp_read(atkp_t *p);
 
 #endif // COMMUNICATE_WITH_STABILIZER_H

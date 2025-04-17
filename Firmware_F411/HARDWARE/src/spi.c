@@ -57,11 +57,9 @@
 
 #endif
 
-static bool isInit = false;
-
-static SemaphoreHandle_t txComplete;
-static SemaphoreHandle_t rxComplete;
-static SemaphoreHandle_t spiMutex;
+// static SemaphoreHandle_t txComplete;
+// static SemaphoreHandle_t rxComplete;
+// static SemaphoreHandle_t spiMutex;
 
 static void spiDMAInit(void);
 
@@ -71,9 +69,9 @@ void spi2Init(void)
 	SPI_InitTypeDef  SPI_InitStructure;
 
 	/*创建2值信号量，使用之前先释放*/
-	txComplete = xSemaphoreCreateBinary();
-	rxComplete = xSemaphoreCreateBinary();
-	spiMutex = xSemaphoreCreateMutex();
+	//txComplete = xSemaphoreCreateBinary();
+	//rxComplete = xSemaphoreCreateBinary();
+	//spiMutex = xSemaphoreCreateMutex();
 
 	/* 使能GPIO时钟 */
 	RCC_AHB1PeriphClockCmd(SPI_SCK_GPIO_CLK | SPI_MISO_GPIO_CLK | SPI_MOSI_GPIO_CLK, ENABLE);
@@ -124,8 +122,6 @@ void spi2Init(void)
 	SPI_InitStructure.SPI_CRCPolynomial = 0; 
 
 	SPI_Init(SPI, &SPI_InitStructure);
-
-	isInit = true;
 }
 
 /*DMA 初始化*/
@@ -175,113 +171,103 @@ static void spiDMAInit()
 	NVIC_Init(&NVIC_InitStructure);
 }
 
+// bool spiExchange(size_t length, const uint8_t * data_tx, uint8_t * data_rx)
+// {
+// 	// 设置内存地址 
+// 	SPI_TX_DMA_STREAM->M0AR = (uint32_t)data_tx;
+// 	SPI_TX_DMA_STREAM->NDTR = length;
 
-bool spiTest(void)
-{
-	return isInit;
-}
+// 	SPI_RX_DMA_STREAM->M0AR = (uint32_t)data_rx;
+// 	SPI_RX_DMA_STREAM->NDTR = length;
 
-bool spiExchange(size_t length, const uint8_t * data_tx, uint8_t * data_rx)
-{
-	// 设置内存地址 
-	SPI_TX_DMA_STREAM->M0AR = (uint32_t)data_tx;
-	SPI_TX_DMA_STREAM->NDTR = length;
+// 	//使能SPI DMA 中断
+// 	DMA_ITConfig(SPI_TX_DMA_STREAM, DMA_IT_TC, ENABLE);
+// 	DMA_ITConfig(SPI_RX_DMA_STREAM, DMA_IT_TC, ENABLE);
 
-	SPI_RX_DMA_STREAM->M0AR = (uint32_t)data_rx;
-	SPI_RX_DMA_STREAM->NDTR = length;
+// 	// 清除中断标志位
+// 	DMA_ClearFlag(SPI_TX_DMA_STREAM, DMA_FLAG_FEIF4|DMA_FLAG_DMEIF4|DMA_FLAG_TEIF4|DMA_FLAG_HTIF4|DMA_FLAG_TCIF4);
+// 	DMA_ClearFlag(SPI_RX_DMA_STREAM, DMA_FLAG_FEIF3|DMA_FLAG_DMEIF3|DMA_FLAG_TEIF3|DMA_FLAG_HTIF3|DMA_FLAG_TCIF3);
 
-	//使能SPI DMA 中断
-	DMA_ITConfig(SPI_TX_DMA_STREAM, DMA_IT_TC, ENABLE);
-	DMA_ITConfig(SPI_RX_DMA_STREAM, DMA_IT_TC, ENABLE);
+// 	// 使能 DMA 数据流
+// 	DMA_Cmd(SPI_TX_DMA_STREAM,ENABLE);
+// 	DMA_Cmd(SPI_RX_DMA_STREAM,ENABLE);
 
-	// 清除中断标志位
-	DMA_ClearFlag(SPI_TX_DMA_STREAM, DMA_FLAG_FEIF4|DMA_FLAG_DMEIF4|DMA_FLAG_TEIF4|DMA_FLAG_HTIF4|DMA_FLAG_TCIF4);
-	DMA_ClearFlag(SPI_RX_DMA_STREAM, DMA_FLAG_FEIF3|DMA_FLAG_DMEIF3|DMA_FLAG_TEIF3|DMA_FLAG_HTIF3|DMA_FLAG_TCIF3);
+// 	//使能 SPI DMA 请求
+// 	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Tx, ENABLE);
+// 	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Rx, ENABLE);
 
-	// 使能 DMA 数据流
-	DMA_Cmd(SPI_TX_DMA_STREAM,ENABLE);
-	DMA_Cmd(SPI_RX_DMA_STREAM,ENABLE);
+// 	// 使能SPI
+// 	SPI_Cmd(SPI, ENABLE);
 
-	//使能 SPI DMA 请求
-	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Tx, ENABLE);
-	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Rx, ENABLE);
+// 	// 等待传输完成
+// 	bool result = (xSemaphoreTake(txComplete, portMAX_DELAY) == pdTRUE)
+// 				&& (xSemaphoreTake(rxComplete, portMAX_DELAY) == pdTRUE);
 
-	// 使能SPI
-	SPI_Cmd(SPI, ENABLE);
+// 	// 关闭SPI
+// 	SPI_Cmd(SPI, DISABLE);
+// 	return result;
+// }
 
-	// 等待传输完成
-	bool result = (xSemaphoreTake(txComplete, portMAX_DELAY) == pdTRUE)
-				&& (xSemaphoreTake(rxComplete, portMAX_DELAY) == pdTRUE);
+// void spiBeginTransaction(void)
+// {
+// 	xSemaphoreTake(spiMutex, portMAX_DELAY);
+// }
 
-	// 关闭SPI
-	SPI_Cmd(SPI, DISABLE);
-	return result;
-}
+// void spiEndTransaction()
+// {
+// 	xSemaphoreGive(spiMutex);
+// }
 
-void spiBeginTransaction(void)
-{
-	xSemaphoreTake(spiMutex, portMAX_DELAY);
-}
+// /*DMA TX中断*/
+// void  spiTxDmaIsr(void)
+// {
+// 	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
-void spiEndTransaction()
-{
-	xSemaphoreGive(spiMutex);
-}
+// 	// 停止并清除 DMA 数据流
+// 	DMA_ITConfig(SPI_TX_DMA_STREAM, DMA_IT_TC, DISABLE);
+// 	DMA_ClearITPendingBit(SPI_TX_DMA_STREAM, SPI_TX_DMA_FLAG_TCIF);
 
-/*DMA TX中断*/
-void  spiTxDmaIsr(void)
-{
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+// 	// 清除标志位
+// 	DMA_ClearFlag(SPI_TX_DMA_STREAM,SPI_TX_DMA_FLAG_TCIF);
 
-	// 停止并清除 DMA 数据流
-	DMA_ITConfig(SPI_TX_DMA_STREAM, DMA_IT_TC, DISABLE);
-	DMA_ClearITPendingBit(SPI_TX_DMA_STREAM, SPI_TX_DMA_FLAG_TCIF);
+// 	// 关闭 SPI DMA 请求
+// 	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Tx, DISABLE);
 
-	// 清除标志位
-	DMA_ClearFlag(SPI_TX_DMA_STREAM,SPI_TX_DMA_FLAG_TCIF);
+// 	// 关闭数据流
+// 	DMA_Cmd(SPI_TX_DMA_STREAM,DISABLE);
 
-	// 关闭 SPI DMA 请求
-	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Tx, DISABLE);
+// 	// 释放信号量
+// 	xSemaphoreGiveFromISR(txComplete, &xHigherPriorityTaskWoken);
 
-	// 关闭数据流
-	DMA_Cmd(SPI_TX_DMA_STREAM,DISABLE);
+// 	if (xHigherPriorityTaskWoken)
+// 	{
+// 		portYIELD();
+// 	}
+// }
 
-	// 释放信号量
-	xSemaphoreGiveFromISR(txComplete, &xHigherPriorityTaskWoken);
+// /*DMA RX中断*/
+// void spiRxDmaIsr(void)
+// {
+// 	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
-	if (xHigherPriorityTaskWoken)
-	{
-		portYIELD();
-	}
-}
+// 	// 停止并清除 DMA 数据流
+// 	DMA_ITConfig(SPI_RX_DMA_STREAM, DMA_IT_TC, DISABLE);
+// 	DMA_ClearITPendingBit(SPI_RX_DMA_STREAM, SPI_RX_DMA_FLAG_TCIF);
 
-/*DMA RX中断*/
-void spiRxDmaIsr(void)
-{
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+// 	// 清除标志位
+// 	DMA_ClearFlag(SPI_RX_DMA_STREAM,SPI_RX_DMA_FLAG_TCIF);
 
-	// 停止并清除 DMA 数据流
-	DMA_ITConfig(SPI_RX_DMA_STREAM, DMA_IT_TC, DISABLE);
-	DMA_ClearITPendingBit(SPI_RX_DMA_STREAM, SPI_RX_DMA_FLAG_TCIF);
+// 	// 关闭 SPI DMA 请求
+// 	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Rx, DISABLE);
 
-	// 清除标志位
-	DMA_ClearFlag(SPI_RX_DMA_STREAM,SPI_RX_DMA_FLAG_TCIF);
+// 	// 关闭数据流
+// 	DMA_Cmd(SPI_RX_DMA_STREAM,DISABLE);
 
-	// 关闭 SPI DMA 请求
-	SPI_I2S_DMACmd(SPI, SPI_I2S_DMAReq_Rx, DISABLE);
+// 	// 释放信号量
+// 	xSemaphoreGiveFromISR(rxComplete, &xHigherPriorityTaskWoken);
 
-	// 关闭数据流
-	DMA_Cmd(SPI_RX_DMA_STREAM,DISABLE);
-
-	// 释放信号量
-	xSemaphoreGiveFromISR(rxComplete, &xHigherPriorityTaskWoken);
-
-	if (xHigherPriorityTaskWoken)
-	{
-		portYIELD();
-	}
-}
-
-
-
-
+// 	if (xHigherPriorityTaskWoken)
+// 	{
+// 		portYIELD();
+// 	}
+// }

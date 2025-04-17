@@ -2,6 +2,7 @@
 #include "maths.h"
 #include "commander.h"
 #include "atkp.h"
+#include "nvic.h"
 #include "config_param.h"
 #include "radiolink.h"
 #include "remoter_ctrl.h"
@@ -12,8 +13,6 @@
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"
 #include "task.h"
-
-
 
 #define CLIMB_RATE			100.f
 #define MAX_CLIMB_UP		100.f
@@ -59,8 +58,6 @@ static void ctrlDataUpdate(void)
 	static float lpfVal = 0.2f;
 	u32 tickNow = getSysTickCnt();	
 
-	// isRCLocked = false;			/*解锁*/
-	// nowCache = &remoteCache;	/* 遥控缓存数据 */
 	
 	if ((tickNow - remoteCache.timestamp) < COMMANDER_WDT_TIMEOUT_STABILIZE) 
 	{
