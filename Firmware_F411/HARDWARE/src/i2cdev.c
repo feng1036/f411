@@ -73,14 +73,7 @@ bool i2cdevRead(I2C_Dev *dev, uint8_t devAddress, uint8_t memAddress, uint16_t l
 {
 	I2cMessage message;
 
-//	if (memAddress == I2CDEV_NO_MEM_ADDR)
-//	{
-//		i2cdrvCreateMessage(&message, devAddress, i2cRead, len, data);
-//	}
-//	else
-	{
-		i2cdrvCreateMessageIntAddr(&message, devAddress, false, memAddress, i2cRead, len, data);
-	}
+	i2cdrvCreateMessageIntAddr(&message, devAddress, false, memAddress, i2cRead, len, data);
 
 	return i2cdrvMessageTransfer(dev, &message);
 }

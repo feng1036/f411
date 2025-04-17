@@ -290,26 +290,26 @@ void sensorsTask(void *param)
 
 	while (1)
 	{
-		if (pdTRUE == xSemaphoreTake(sensorsDataReady, portMAX_DELAY))
-		{
-			/*确定数据长度*/
-			u8 dataLen = (u8) (SENSORS_MPU6500_BUFF_LEN +
-				(isBaroPresent ? SENSORS_BARO_BUFF_LEN : 0));
+		/*确定数据长度*/
+		u8 dataLen = (u8) (SENSORS_MPU6500_BUFF_LEN +
+			(isBaroPresent ? SENSORS_BARO_BUFF_LEN : 0));
 
-			i2cdevRead(I2C1_DEV, MPU6500_ADDRESS_AD0_HIGH, MPU6500_RA_ACCEL_XOUT_H, dataLen, buffer);
-			
-			/*处理原始数据，并放入数据队列中*/
-			processAccGyroMeasurements(&(buffer[0]));
-			if (isBaroPresent)
-			{
-				processBarometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
-			}
-			
-			vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
-			
-			sensor_data_Write(&sensors);
-			xTaskResumeAll();
+		i2cdevRead(I2C1_DEV, MPU6500_ADDRESS_AD0_HIGH, MPU6500_RA_ACCEL_XOUT_H, dataLen, buffer);
+		
+		/*处理原始数据，并放入数据队列中*/
+		processAccGyroMeasurements(&(buffer[0]));
+		if (isBaroPresent)
+		{
+			processBarometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
 		}
+		
+		vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
+		
+		sensor_data_Write(&sensors);
+		xTaskResumeAll();
+		
+		//每1ms更新一次数据
+		vTaskDelay(1);
 	}	
 }
 

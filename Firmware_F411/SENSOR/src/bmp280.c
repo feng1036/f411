@@ -62,10 +62,6 @@ bool bmp280Init(I2C_Dev *i2cPort)
 	i2cdevWriteByte(I2Cx, devAddr, BMP280_CTRL_MEAS_REG, BMP280_MODE);
 	i2cdevWriteByte(I2Cx, devAddr, BMP280_CONFIG_REG, 5<<2);		/*ÅäÖÃIIRÂË²¨*/
 	
-//	printf("BMP280 Calibrate Registor Are: \r\n");
-//	for(i=0;i<24;i++)
-//		printf("Registor %2d: 0x%X\n",i,p[i]);
-	
     isInit = true;
 
     return true;

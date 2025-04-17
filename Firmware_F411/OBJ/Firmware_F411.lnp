@@ -63,7 +63,7 @@
 "..\obj\debug_assert.o"
 "..\obj\freertosdebug.o"
 "..\obj\maths.o"
-"..\obj\sensors_1.o"
+"..\obj\sensors.o"
 "..\obj\bmp280.o"
 "..\obj\filter.o"
 "..\obj\mpu6500.o"

@@ -3,7 +3,7 @@
 ..\obj\com_queue.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\com_queue.o: ..\USER\stm32f4xx.h
 ..\obj\com_queue.o: ..\CORE\core_cm4.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\com_queue.o: ..\CORE\core_cmInstr.h
 ..\obj\com_queue.o: ..\CORE\core_cmFunc.h
 ..\obj\com_queue.o: ..\CORE\core_cm4_simd.h
@@ -23,12 +23,12 @@
 ..\obj\com_queue.o: ..\FWLIB\inc\misc.h
 ..\obj\com_queue.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\com_queue.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\com_queue.o: ..\CONFIG\interface\config.h
 ..\obj\com_queue.o: ..\HARDWARE\interface\nvic.h
 ..\obj\com_queue.o: ..\SYSTEM\sys\sys.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\com_queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\com_queue.o: ..\COMMON\interface\debug_assert.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\portable.h

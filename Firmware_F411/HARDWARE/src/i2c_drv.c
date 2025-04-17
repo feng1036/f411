@@ -161,10 +161,8 @@ static void i2cdrvStartTransfer(I2cDrv *i2c)
 {
 	if (i2c->txMessage.direction == i2cRead)
 	{
-		i2c->DMAStruct.DMA_BufferSize = i2c->txMessage.messageLength;
-		i2c->DMAStruct.DMA_Memory0BaseAddr = (uint32_t)i2c->txMessage.buffer;
-		DMA_Init(i2c->def->dmaRxStream, &i2c->DMAStruct);
-		DMA_Cmd(i2c->def->dmaRxStream, ENABLE);
+		//改为直接操纵寄存器进行传输
+		
 	}
 
 	I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, DISABLE);
@@ -375,265 +373,199 @@ void i2cdrvCreateMessageIntAddr(I2cMessage *message,
 }
 
 /**
- * 发送或者接收IIC信息
+ * I2C轮询方式写数据
+ */
+static bool i2cWritePoll(I2cDrv* i2c, I2cMessage* message)
+{
+    uint16_t timeout;
+    uint16_t i;
+
+    // 发送起始位
+    i2c->def->i2cPort->CR1 |= I2C_CR1_START;
+    
+    // 等待起始位发送完成
+    timeout = I2C_MESSAGE_TIMEOUT;
+    while (!(i2c->def->i2cPort->SR1 & I2C_SR1_SB)) {
+        if (--timeout == 0) return false;
+    }
+    
+    // 发送设备地址(写)
+    i2c->def->i2cPort->DR = message->slaveAddress << 1;
+    
+    // 等待地址发送完成
+    timeout = I2C_MESSAGE_TIMEOUT;
+    while (!(i2c->def->i2cPort->SR1 & I2C_SR1_ADDR)) {
+        if (--timeout == 0) return false;
+        // 检查是否有ACK错误
+        if (i2c->def->i2cPort->SR1 & I2C_SR1_AF) {
+            i2c->def->i2cPort->SR1 &= ~I2C_SR1_AF; // 清除AF标志
+            i2c->def->i2cPort->CR1 |= I2C_CR1_STOP; // 发送停止位
+            return false;
+        }
+    }
+    
+    // 清除ADDR标志
+    uint16_t temp = i2c->def->i2cPort->SR2;
+    (void)temp;
+    
+    // 如果有内部地址，先发送内部地址
+    if (message->internalAddress != I2C_NO_INTERNAL_ADDRESS) {
+        if (message->isInternal16bit) {
+            // 发送内部地址高字节
+            i2c->def->i2cPort->DR = (message->internalAddress & 0xFF00) >> 8;
+            timeout = I2C_MESSAGE_TIMEOUT;
+            while (!(i2c->def->i2cPort->SR1 & I2C_SR1_TXE)) {
+                if (--timeout == 0) return false;
+            }
+        }
+        
+        // 发送内部地址低字节
+        i2c->def->i2cPort->DR = message->internalAddress & 0x00FF;
+        timeout = I2C_MESSAGE_TIMEOUT;
+        while (!(i2c->def->i2cPort->SR1 & I2C_SR1_TXE)) {
+            if (--timeout == 0) return false;
+        }
+        
+        // 如果是读操作，需要发送重复起始位
+        if (message->direction == i2cRead) {
+            return true; // 返回成功，继续发送重复起始位
+        }
+    }
+    
+    // 发送数据(只在写操作时)
+    if (message->direction == i2cWrite) {
+        for (i = 0; i < message->messageLength; i++) {
+            i2c->def->i2cPort->DR = message->buffer[i];
+            
+            timeout = I2C_MESSAGE_TIMEOUT;
+            while (!(i2c->def->i2cPort->SR1 & I2C_SR1_TXE)) {
+                if (--timeout == 0) return false;
+            }
+        }
+    }
+    
+    // 等待传输完成
+    timeout = I2C_MESSAGE_TIMEOUT;
+    while (!(i2c->def->i2cPort->SR1 & I2C_SR1_BTF)) {
+        if (--timeout == 0) return false;
+    }
+    
+    // 发送停止位
+    i2c->def->i2cPort->CR1 |= I2C_CR1_STOP;
+    
+    return true;
+}
+
+/**
+ * I2C轮询方式读数据
+ */
+static bool i2cReadPoll(I2cDrv* i2c, I2cMessage* message)
+{
+    uint16_t timeout;
+    uint16_t i;
+    
+    // 发送起始位
+    i2c->def->i2cPort->CR1 |= I2C_CR1_START;
+    
+    // 等待起始位发送完成
+    timeout = I2C_MESSAGE_TIMEOUT;
+    while (!(i2c->def->i2cPort->SR1 & I2C_SR1_SB)) {
+        if (--timeout == 0) return false;
+    }
+    
+    // 发送设备地址(读)
+    i2c->def->i2cPort->DR = (message->slaveAddress << 1) | 0x01;
+    
+    // 等待地址发送完成
+    timeout = I2C_MESSAGE_TIMEOUT;
+    while (!(i2c->def->i2cPort->SR1 & I2C_SR1_ADDR)) {
+        if (--timeout == 0) return false;
+        // 检查是否有ACK错误
+        if (i2c->def->i2cPort->SR1 & I2C_SR1_AF) {
+            i2c->def->i2cPort->SR1 &= ~I2C_SR1_AF; // 清除AF标志
+            i2c->def->i2cPort->CR1 |= I2C_CR1_STOP; // 发送停止位
+            return false;
+        }
+    }
+    
+    // 配置ACK
+    if (message->messageLength == 1) {
+        // 单字节读取，需要在清除ADDR前禁用ACK
+        i2c->def->i2cPort->CR1 &= ~I2C_CR1_ACK;
+    } else {
+        // 多字节读取，启用ACK
+        i2c->def->i2cPort->CR1 |= I2C_CR1_ACK;
+    }
+    
+    // 清除ADDR标志
+    uint16_t temp = i2c->def->i2cPort->SR2;
+    (void)temp;
+    
+    // 读取数据
+    for (i = 0; i < message->messageLength; i++) {
+        if (i == message->messageLength - 1) {
+            // 最后一个字节发送NACK
+            i2c->def->i2cPort->CR1 &= ~I2C_CR1_ACK;
+        }
+        
+        if (i == message->messageLength - 1) {
+            // 最后一个字节之前发送停止位
+            i2c->def->i2cPort->CR1 |= I2C_CR1_STOP;
+        }
+        
+        // 等待接收数据
+        timeout = I2C_MESSAGE_TIMEOUT;
+        while (!(i2c->def->i2cPort->SR1 & I2C_SR1_RXNE)) {
+            if (--timeout == 0) return false;
+        }
+        
+        // 读取数据
+        message->buffer[i] = i2c->def->i2cPort->DR;
+    }
+    
+    return true;
+}
+
+/**
+ * 发送或者接收IIC信息(轮询方式)
  */
 bool i2cdrvMessageTransfer(I2cDrv* i2c, I2cMessage* message)
 {
-	bool status = false;
+    bool status = false;
+    int retries = message->nbrOfRetries;
 
-	xSemaphoreTake(i2c->isBusFreeMutex, portMAX_DELAY); // Protect message data
-	//	Copy message
-	memcpy((char*)&i2c->txMessage, (char*)message, sizeof(I2cMessage));
-	//	We can now start the ISR sending this message.
-	i2cdrvStartTransfer(i2c);
-	//	Wait for transaction to be done
+    xSemaphoreTake(i2c->isBusFreeMutex, portMAX_DELAY); // 保护消息数据
 
-	if (xSemaphoreTake(i2c->isBusFreeSemaphore, I2C_MESSAGE_TIMEOUT) == pdTRUE)
-	{		
-		if (i2c->txMessage.status == i2cAck)
-		{
-			status = true;
-		}
-	}
-	else
-	{
-		i2cdrvClearDMA(i2c);
-		i2cdrvTryToRestartBus(i2c);
-	//TODO: If bus is really hanged... fail safe
-	}
-	
-	xSemaphoreGive(i2c->isBusFreeMutex);
-	return status;
-}
-
-/**
- * 事件中断服务函数
- */
-static void i2cdrvEventIsrHandler(I2cDrv* i2c)
-{
-	uint16_t SR1;
-	uint16_t SR2;
-
-	// read the status register first
-	SR1 = i2c->def->i2cPort->SR1;
-
-	// Start bit event
-	if (SR1 & I2C_SR1_SB)
-	{
-		i2c->messageIndex = 0;
-
-		if(i2c->txMessage.direction == i2cWrite ||
-		i2c->txMessage.internalAddress != I2C_NO_INTERNAL_ADDRESS)
-		{
-			I2C_Send7bitAddress(i2c->def->i2cPort, i2c->txMessage.slaveAddress << 1, I2C_Direction_Transmitter);
-		}
-		else
-		{
-			I2C_AcknowledgeConfig(i2c->def->i2cPort, ENABLE);
-			I2C_Send7bitAddress(i2c->def->i2cPort, i2c->txMessage.slaveAddress << 1, I2C_Direction_Receiver);
-		}
-	}
-	// Address event
-	else if (SR1 & I2C_SR1_ADDR)
-	{
-		if(i2c->txMessage.direction == i2cWrite ||
-		i2c->txMessage.internalAddress != I2C_NO_INTERNAL_ADDRESS)
-		{
-			SR2 = i2c->def->i2cPort->SR2;                               // clear ADDR
-			// In write mode transmit is always empty so can send up to two bytes
-			if (i2c->txMessage.internalAddress != I2C_NO_INTERNAL_ADDRESS)
-			{
-				if (i2c->txMessage.isInternal16bit)
-				{
-					I2C_SendData(i2c->def->i2cPort, (i2c->txMessage.internalAddress & 0xFF00) >> 8);
-					I2C_SendData(i2c->def->i2cPort, (i2c->txMessage.internalAddress & 0x00FF));
-				}
-				else
-				{
-					I2C_SendData(i2c->def->i2cPort, (i2c->txMessage.internalAddress & 0x00FF));
-				}
-				i2c->txMessage.internalAddress = I2C_NO_INTERNAL_ADDRESS;
-			}
-			I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, ENABLE);        // allow us to have an EV7
-		}
-		else // Reading, start DMA transfer
-		{
-			if(i2c->txMessage.messageLength == 1)
-			{
-				I2C_AcknowledgeConfig(i2c->def->i2cPort, DISABLE);
-			}
-			else
-			{
-				I2C_DMALastTransferCmd(i2c->def->i2cPort, ENABLE); // No repetitive start
-			}
-			// Disable buffer I2C interrupts
-			I2C_ITConfig(i2c->def->i2cPort, I2C_IT_EVT | I2C_IT_BUF, DISABLE);
-			// Enable the Transfer Complete interrupt
-			DMA_ITConfig(i2c->def->dmaRxStream, DMA_IT_TC | DMA_IT_TE, ENABLE);
-			I2C_DMACmd(i2c->def->i2cPort, ENABLE); // Enable before ADDR clear
-
-			__DMB();                         // Make sure instructions (clear address) are in correct order
-			SR2 = i2c->def->i2cPort->SR2;    // clear ADDR
-		}
-	}
-	// Byte transfer finished
-	else if (SR1 & I2C_SR1_BTF)
-	{
-		SR2 = i2c->def->i2cPort->SR2;
-		if (SR2 & I2C_SR2_TRA) // In write mode?
-		{
-			if (i2c->txMessage.direction == i2cRead) // internal address read
-			{
-				/* Internal address written, switch to read */
-				i2c->def->i2cPort->CR1 = (I2C_CR1_START | I2C_CR1_PE); // Generate start
-			}
-			else
-			{
-				i2cNotifyClient(i2c);
-				// Are there any other messages to transact? If so stop else repeated start.
-				i2cTryNextMessage(i2c);
-			}
-		}
-		else // Reading. Shouldn't happen since we use DMA for reading.
-		{
-			ASSERT(1);
-			i2c->txMessage.buffer[i2c->messageIndex++] = I2C_ReceiveData(i2c->def->i2cPort);
-			if(i2c->messageIndex == i2c->txMessage.messageLength)
-			{
-				i2cNotifyClient(i2c);
-				// Are there any other messages to transact?
-				i2cTryNextMessage(i2c);
-			}
-		}
-		// A second BTF interrupt might occur if we don't wait for it to clear.
-		// TODO Implement better method.
-		while (i2c->def->i2cPort->CR1 & 0x0100) { ; }
-	}
-	// Byte received
-	else if (SR1 & I2C_SR1_RXNE) // Should not happen when we use DMA for reception.
-	{
-		i2c->txMessage.buffer[i2c->messageIndex++] = I2C_ReceiveData(i2c->def->i2cPort);
-		if(i2c->messageIndex == i2c->txMessage.messageLength)
-		{
-			I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, DISABLE);   // disable RXE to get BTF
-		}
-	}
-	// Byte ready to be transmitted
-	else if (SR1 & I2C_SR1_TXE)
-	{
-		if (i2c->txMessage.direction == i2cRead)
-		{
-			// Disable TXE to flush and get BTF to switch to read.
-			// Switch must be done in BTF or strange things happen.
-			I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, DISABLE);
-		}
-		else
-		{
-			I2C_SendData(i2c->def->i2cPort, i2c->txMessage.buffer[i2c->messageIndex++]);
-			if(i2c->messageIndex == i2c->txMessage.messageLength)
-			{
-				// Disable TXE to allow the buffer to flush and get BTF
-				I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, DISABLE);
-			}
-		}
-	}
-}
-
-/**
- * 错误中断服务函数
- */
-static void i2cdrvErrorIsrHandler(I2cDrv* i2c)
-{
-	if (I2C_GetFlagStatus(i2c->def->i2cPort, I2C_FLAG_AF))
-	{
-		if(i2c->txMessage.nbrOfRetries-- > 0)
-		{
-			// Retry by generating start
-			i2c->def->i2cPort->CR1 = (I2C_CR1_START | I2C_CR1_PE);
-		}
-		else
-		{
-			// Failed so notify client and try next message if any.
-			i2c->txMessage.status = i2cNack;
-			i2cNotifyClient(i2c);
-			i2cTryNextMessage(i2c);
-		}
-		I2C_ClearFlag(i2c->def->i2cPort, I2C_FLAG_AF);
-	}
-	if (I2C_GetFlagStatus(i2c->def->i2cPort, I2C_FLAG_BERR))
-	{
-		I2C_ClearFlag(i2c->def->i2cPort, I2C_FLAG_BERR);
-	}
-	if (I2C_GetFlagStatus(i2c->def->i2cPort, I2C_FLAG_OVR))
-	{
-		I2C_ClearFlag(i2c->def->i2cPort, I2C_FLAG_OVR);
-	}
-	if (I2C_GetFlagStatus(i2c->def->i2cPort, I2C_FLAG_ARLO))
-	{
-		I2C_ClearFlag(i2c->def->i2cPort,I2C_FLAG_ARLO);
-	}
-}
-/**
- * 清除DMA中断标志
- */
-static void i2cdrvClearDMA(I2cDrv* i2c)
-{
-	DMA_Cmd(i2c->def->dmaRxStream, DISABLE);
-	DMA_ClearITPendingBit(i2c->def->dmaRxStream, i2c->def->dmaRxTCFlag);
-	I2C_DMACmd(i2c->def->i2cPort, DISABLE);
-	I2C_DMALastTransferCmd(i2c->def->i2cPort, DISABLE);
-	DMA_ITConfig(i2c->def->dmaRxStream, DMA_IT_TC | DMA_IT_TE, DISABLE);
-}
-/**
- * 事件中断服务函数
- */
-static void i2cdrvDmaIsrHandler(I2cDrv* i2c)
-{
-	if (DMA_GetFlagStatus(i2c->def->dmaRxStream, i2c->def->dmaRxTCFlag)) // Tranasfer complete
-	{
-		i2cdrvClearDMA(i2c);
-		i2cNotifyClient(i2c);
-		// Are there any other messages to transact?
-		i2cTryNextMessage(i2c);
-	}
-	if (DMA_GetFlagStatus(i2c->def->dmaRxStream, i2c->def->dmaRxTEFlag)) // Transfer error
-	{
-		DMA_ClearITPendingBit(i2c->def->dmaRxStream, i2c->def->dmaRxTEFlag);
-		//TODO: Best thing we could do?
-		i2c->txMessage.status = i2cNack;
-		i2cNotifyClient(i2c);
-		i2cTryNextMessage(i2c);
-	}
-}
-
-
-void __attribute__((used)) I2C1_ER_IRQHandler(void)
-{
-	i2cdrvErrorIsrHandler(&sensorsBus);
-}
-
-void __attribute__((used)) I2C1_EV_IRQHandler(void)
-{
-	i2cdrvEventIsrHandler(&sensorsBus);
-}
-
-void __attribute__((used)) DMA1_Stream0_IRQHandler(void)
-{
-	i2cdrvDmaIsrHandler(&sensorsBus);
-}
-
-void __attribute__((used)) I2C3_ER_IRQHandler(void)
-{
-	i2cdrvErrorIsrHandler(&deckBus);
-}
-
-void __attribute__((used)) I2C3_EV_IRQHandler(void)
-{
-	i2cdrvEventIsrHandler(&deckBus);
-}
-
-void __attribute__((used)) DMA1_Stream2_IRQHandler(void)
-{
-	i2cdrvDmaIsrHandler(&deckBus);
+    while (retries >= 0) {
+        // 写操作或需要写内部地址
+        if (message->direction == i2cWrite || 
+            message->internalAddress != I2C_NO_INTERNAL_ADDRESS) {
+            status = i2cWritePoll(i2c, message);
+            
+            // 如果成功且是读操作，需要发送重复起始位进行读取
+            if (status && message->direction == i2cRead) {
+                status = i2cReadPoll(i2c, message);
+            }
+        } else {
+            // 直接读操作
+            status = i2cReadPoll(i2c, message);
+        }
+        
+        if (status) {
+            // 传输成功
+            break;
+        }
+        
+        retries--;
+        i2cdrvRoughLoopDelay(100); // 延时一段时间再重试
+    }
+    
+    if (!status) {
+        // 所有重试失败，尝试重启总线
+        i2cdrvTryToRestartBus(i2c);
+    }
+    
+    xSemaphoreGive(i2c->isBusFreeMutex);
+    return status;
 }
 

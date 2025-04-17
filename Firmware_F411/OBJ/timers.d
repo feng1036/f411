@@ -3,7 +3,7 @@
 ..\obj\timers.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\timers.o: ..\USER\stm32f4xx.h
 ..\obj\timers.o: ..\CORE\core_cm4.h
-..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\timers.o: ..\CORE\core_cmInstr.h
 ..\obj\timers.o: ..\CORE\core_cmFunc.h
 ..\obj\timers.o: ..\CORE\core_cm4_simd.h
@@ -21,14 +21,14 @@
 ..\obj\timers.o: ..\FWLIB\inc\stm32f4xx_tim.h
 ..\obj\timers.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\timers.o: ..\FWLIB\inc\misc.h
-..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
+..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\timers.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\timers.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\timers.o: ..\CONFIG\interface\config.h
 ..\obj\timers.o: ..\HARDWARE\interface\nvic.h
 ..\obj\timers.o: ..\SYSTEM\sys\sys.h
-..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\timers.o: ..\COMMON\interface\debug_assert.h
 ..\obj\timers.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\timers.o: ..\FreeRTOS\include\portable.h

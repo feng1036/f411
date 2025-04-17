@@ -3,7 +3,7 @@
 ..\obj\config_param.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\config_param.o: ..\USER\stm32f4xx.h
 ..\obj\config_param.o: ..\CORE\core_cm4.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\config_param.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\config_param.o: ..\CORE\core_cmInstr.h
 ..\obj\config_param.o: ..\CORE\core_cmFunc.h
 ..\obj\config_param.o: ..\CORE\core_cm4_simd.h
@@ -21,10 +21,10 @@
 ..\obj\config_param.o: ..\FWLIB\inc\stm32f4xx_tim.h
 ..\obj\config_param.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\config_param.o: ..\FWLIB\inc\misc.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\config_param.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\config_param.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\config_param.o: ..\CONFIG\interface\config.h
 ..\obj\config_param.o: ..\HARDWARE\interface\nvic.h
 ..\obj\config_param.o: ..\SYSTEM\sys\sys.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\config_param.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\config_param.o: ..\CONFIG\interface\config_param.h

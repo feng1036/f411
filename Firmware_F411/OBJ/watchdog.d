@@ -3,7 +3,7 @@
 ..\obj\watchdog.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\watchdog.o: ..\USER\stm32f4xx.h
 ..\obj\watchdog.o: ..\CORE\core_cm4.h
-..\obj\watchdog.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\watchdog.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\watchdog.o: ..\CORE\core_cmInstr.h
 ..\obj\watchdog.o: ..\CORE\core_cmFunc.h
 ..\obj\watchdog.o: ..\CORE\core_cm4_simd.h
@@ -24,7 +24,7 @@
 ..\obj\watchdog.o: ..\CONFIG\interface\config.h
 ..\obj\watchdog.o: ..\HARDWARE\interface\nvic.h
 ..\obj\watchdog.o: ..\SYSTEM\sys\sys.h
-..\obj\watchdog.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\watchdog.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\watchdog.o: ..\HARDWARE\interface\watchdog.h
-..\obj\watchdog.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\watchdog.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\watchdog.o: ..\COMMON\interface\debug_assert.h

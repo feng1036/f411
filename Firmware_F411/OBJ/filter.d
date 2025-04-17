@@ -3,7 +3,7 @@
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\filter.o: ..\USER\stm32f4xx.h
 ..\obj\filter.o: ..\CORE\core_cm4.h
-..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\filter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\filter.o: ..\CORE\core_cmInstr.h
 ..\obj\filter.o: ..\CORE\core_cmFunc.h
 ..\obj\filter.o: ..\CORE\core_cm4_simd.h
@@ -21,6 +21,6 @@
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_tim.h
 ..\obj\filter.o: ..\FWLIB\inc\stm32f4xx_usart.h
 ..\obj\filter.o: ..\FWLIB\inc\misc.h
-..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
-..\obj\filter.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
+..\obj\filter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\filter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\filter.o: ..\SENSOR\interface\filter.h

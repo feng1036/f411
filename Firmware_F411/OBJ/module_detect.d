@@ -3,7 +3,7 @@
 ..\obj\module_detect.o: ..\FWLIB\inc\stm32f4xx_adc.h
 ..\obj\module_detect.o: ..\USER\stm32f4xx.h
 ..\obj\module_detect.o: ..\CORE\core_cm4.h
-..\obj\module_detect.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\module_detect.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\module_detect.o: ..\CORE\core_cmInstr.h
 ..\obj\module_detect.o: ..\CORE\core_cmFunc.h
 ..\obj\module_detect.o: ..\CORE\core_cm4_simd.h
@@ -23,13 +23,13 @@
 ..\obj\module_detect.o: ..\FWLIB\inc\misc.h
 ..\obj\module_detect.o: ..\HARDWARE\interface\module_detect.h
 ..\obj\module_detect.o: ..\SYSTEM\sys\sys.h
-..\obj\module_detect.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\module_detect.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\module_detect.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\module_detect.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\module_detect.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\module_detect.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\module_detect.o: ..\CONFIG\interface\config.h
 ..\obj\module_detect.o: ..\HARDWARE\interface\nvic.h
-..\obj\module_detect.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\module_detect.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\module_detect.o: ..\COMMON\interface\debug_assert.h
 ..\obj\module_detect.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\module_detect.o: ..\FreeRTOS\include\portable.h
