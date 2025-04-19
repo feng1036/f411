@@ -2,63 +2,63 @@
 #include "sys.h"
 #include "exti.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 外部中断驱动代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
 
 static bool isInit;
+
+
+#define NVIC_PRIORITY_GROUP_POS   (8U)
+#define NVIC_PRIORITY_GROUP_MASK  (0x700U)
+#define NVIC_PRIORITY_GROUP       ((SCB->AIRCR & NVIC_PRIORITY_GROUP_MASK) >> NVIC_PRIORITY_GROUP_POS)
+void NVIC_ConfigureIRQ(IRQn_Type IRQn, uint8_t preempt_prio)
+{
+	uint32_t prigroup = NVIC_PRIORITY_GROUP;
+    //uint8_t pre_bits = 4, sub_bits = 0;
+	uint8_t priority = (preempt_prio & 0x0F);
+    NVIC->IP[IRQn] = priority << 4;
+    NVIC->ISER[IRQn >> 0x05] = ((uint32_t)1U << (IRQn & (uint8_t)0x1F));
+}
 
 /* Interruption initialisation */
 void extiInit()
 {
-	static NVIC_InitTypeDef NVIC_InitStructure;
+	//static NVIC_InitTypeDef NVIC_InitStructure;
 
 	if (isInit)	return;
 	
+	//RCC_AHB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE); 
+	RCC->AHB2ENR |=  (uint32_t)0x00004000;
+	// NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	// NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 
-	RCC_AHB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE); 
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI0_IRQn,5);
 
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
-	NVIC_Init(&NVIC_InitStructure);
-
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI1_IRQn,12);
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI2_IRQn,12);
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI3_IRQn,12);
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI4_IRQn,12);
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI9_5_IRQn,12);
+	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
+	// NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
+	// NVIC_Init(&NVIC_InitStructure);
+	NVIC_ConfigureIRQ(EXTI15_10_IRQn,10);
 	isInit = true;
 }
 
@@ -69,93 +69,93 @@ bool extiTest(void)
 
 void __attribute__((used)) EXTI0_IRQHandler(void)
 {
-	EXTI_ClearITPendingBit(EXTI_Line0);
+	EXTI->PR=(uint32_t)0x00001;
 	EXTI0_Callback();
 }
 
 void __attribute__((used)) EXTI1_IRQHandler(void)
 {
-	EXTI_ClearITPendingBit(EXTI_Line1);
+	EXTI->PR=(uint32_t)0x00002;
 	EXTI1_Callback();
 }
 
 void __attribute__((used)) EXTI2_IRQHandler(void)
 {
-	EXTI_ClearITPendingBit(EXTI_Line2);
+	EXTI->PR=(uint32_t)0x00004;
 	EXTI2_Callback();
 }
 
 void __attribute__((used)) EXTI3_IRQHandler(void)
 {
-	EXTI_ClearITPendingBit(EXTI_Line3);
+	EXTI->PR=(uint32_t)0x00008;
 	EXTI3_Callback();
 }
 
 void __attribute__((used)) EXTI4_IRQHandler(void)
 {
-	EXTI_ClearITPendingBit(EXTI_Line4);
+	EXTI->PR=(uint32_t)0x00010;
 	EXTI4_Callback();
 }
 
 void __attribute__((used)) EXTI9_5_IRQHandler(void)
 {
-	if (EXTI_GetITStatus(EXTI_Line5) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00020) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line5);
+		EXTI->PR=(uint32_t)0x00020;
 		EXTI5_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line6) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00040) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line6);
+		EXTI->PR=(uint32_t)0x00040;
 		EXTI6_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line7) == SET)
+	if ((EXTI->PR & (uint32_t)0x00080) != RESET)
 	{
-		EXTI_ClearITPendingBit(EXTI_Line7);
+		EXTI->PR=(uint32_t)0x00080;
 		EXTI7_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line8) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00100) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line8);
+		EXTI->PR=(uint32_t)0x00100;
 		EXTI8_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line9) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00200) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line9);
+		EXTI->PR=(uint32_t)0x00200;
 		EXTI9_Callback();
 	}
 }
 
 void __attribute__((used)) EXTI15_10_IRQHandler(void)
 {
-	if (EXTI_GetITStatus(EXTI_Line10) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00400) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line10);
+		EXTI->PR=(uint32_t)0x00400;
 		EXTI10_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line11) == SET) 
+	if ((EXTI->PR & (uint32_t)0x00800) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line11);
+		EXTI->PR=(uint32_t)0x00800;
 		EXTI11_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line12) == SET) 
+	if ((EXTI->PR & (uint32_t)0x01000) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line12);
+		EXTI->PR=(uint32_t)0x01000;
 		EXTI12_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line13) == SET) 
+	if ((EXTI->PR & (uint32_t)0x02000) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line13);
+		EXTI->PR=(uint32_t)0x02000;
 		EXTI13_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line14) == SET) 
+	if ((EXTI->PR & (uint32_t)0x04000) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line14);
+		EXTI->PR=(uint32_t)0x04000;
 		EXTI14_Callback();
 	}
-	if (EXTI_GetITStatus(EXTI_Line15) == SET) 
+	if ((EXTI->PR & (uint32_t)0x08000) != RESET) 
 	{
-		EXTI_ClearITPendingBit(EXTI_Line15);
+		EXTI->PR=(uint32_t)0x08000;
 		EXTI15_Callback();
 	}
 }

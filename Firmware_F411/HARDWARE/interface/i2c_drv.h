@@ -55,12 +55,6 @@ typedef struct
 	uint32_t            gpioSDAPin;
 	uint32_t            gpioSDAPinSource;
 	uint32_t            gpioAF;
-	uint32_t            dmaPerif;
-	uint32_t            dmaChannel;
-	DMA_Stream_TypeDef* dmaRxStream;
-	uint32_t            dmaRxIRQ;
-	uint32_t            dmaRxTCFlag;
-	uint32_t            dmaRxTEFlag;
 
 } I2cDef;
 
@@ -72,7 +66,6 @@ typedef struct
 	uint32_t nbrOfretries;                //< Retries done
 	SemaphoreHandle_t isBusFreeSemaphore; //< Semaphore to block during transaction.
 	SemaphoreHandle_t isBusFreeMutex;     //< Mutex to protect buss
-	DMA_InitTypeDef DMAStruct;            //< DMA configuration structure used during transfer setup.
 } I2cDrv;
 
 // Definitions of i2c busses found in c file.
@@ -116,4 +109,3 @@ void i2cdrvCreateMessageIntAddr(I2cMessage *message,
                              uint8_t  *buffer);
 
 #endif
-

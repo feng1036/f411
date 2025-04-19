@@ -1,18 +1,12 @@
-
-
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_CONF_H
 #define __STM32F4xx_CONF_H
 
-/* Includes ------------------------------------------------------------------*/
 /* Uncomment the line below to enable peripheral header file inclusion */
-#include "stm32f4xx_dma.h"
 #include "stm32f4xx_exti.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_i2c.h"
 #include "stm32f4xx_iwdg.h"
 #include "stm32f4xx_rcc.h"
-#include "stm32f4xx_spi.h"
 #include "stm32f4xx_syscfg.h"
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_usart.h"
@@ -31,7 +25,6 @@
    Standard Peripheral Library drivers code */
 /* #define USE_FULL_ASSERT    1 */
 
-/* Exported macro ------------------------------------------------------------*/
 #ifdef  USE_FULL_ASSERT
 
 /**
@@ -50,5 +43,3 @@
 #endif /* USE_FULL_ASSERT */
 
 #endif /* __STM32F4xx_CONF_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

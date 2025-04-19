@@ -1,101 +1,6 @@
-/**
-  ******************************************************************************
-  * @file    misc.c
-  * @author  MCD Application Team
-  * @version V1.4.0
-  * @date    04-August-2014
-  * @brief   This file provides all the miscellaneous firmware functions (add-on
-  *          to CMSIS functions).
-  *          
-  *  @verbatim   
-  *                               
-  *          ===================================================================      
-  *                        How to configure Interrupts using driver 
-  *          ===================================================================      
-  * 
-  *            This section provide functions allowing to configure the NVIC interrupts (IRQ).
-  *            The Cortex-M4 exceptions are managed by CMSIS functions.
-  *
-  *            1. Configure the NVIC Priority Grouping using NVIC_PriorityGroupConfig()
-  *                function according to the following table.
- 
-  *  The table below gives the allowed values of the pre-emption priority and subpriority according
-  *  to the Priority Grouping configuration performed by NVIC_PriorityGroupConfig function
-  *    ==========================================================================================================================
-  *      NVIC_PriorityGroup   | NVIC_IRQChannelPreemptionPriority | NVIC_IRQChannelSubPriority  |       Description
-  *    ==========================================================================================================================
-  *     NVIC_PriorityGroup_0  |                0                  |            0-15             | 0 bits for pre-emption priority
-  *                           |                                   |                             | 4 bits for subpriority
-  *    --------------------------------------------------------------------------------------------------------------------------
-  *     NVIC_PriorityGroup_1  |                0-1                |            0-7              | 1 bits for pre-emption priority
-  *                           |                                   |                             | 3 bits for subpriority
-  *    --------------------------------------------------------------------------------------------------------------------------    
-  *     NVIC_PriorityGroup_2  |                0-3                |            0-3              | 2 bits for pre-emption priority
-  *                           |                                   |                             | 2 bits for subpriority
-  *    --------------------------------------------------------------------------------------------------------------------------    
-  *     NVIC_PriorityGroup_3  |                0-7                |            0-1              | 3 bits for pre-emption priority
-  *                           |                                   |                             | 1 bits for subpriority
-  *    --------------------------------------------------------------------------------------------------------------------------    
-  *     NVIC_PriorityGroup_4  |                0-15               |            0                | 4 bits for pre-emption priority
-  *                           |                                   |                             | 0 bits for subpriority                       
-  *    ==========================================================================================================================     
-  *
-  *            2. Enable and Configure the priority of the selected IRQ Channels using NVIC_Init()  
-  *
-  * @note  When the NVIC_PriorityGroup_0 is selected, IRQ pre-emption is no more possible. 
-  *        The pending IRQ priority will be managed only by the subpriority.
-  *
-  * @note  IRQ priority order (sorted by highest to lowest priority):
-  *         - Lowest pre-emption priority
-  *         - Lowest subpriority
-  *         - Lowest hardware priority (IRQ number)
-  *
-  *  @endverbatim
-  *
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
-
-/* Includes ------------------------------------------------------------------*/
 #include "misc.h"
 
-/** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
-  */
-
-/** @defgroup MISC 
-  * @brief MISC driver modules
-  * @{
-  */
-
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
 #define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
-
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
-/* Private functions ---------------------------------------------------------*/
-
-/** @defgroup MISC_Private_Functions
-  * @{
-  */
 
 /**
   * @brief  Configures the priority grouping: pre-emption priority and subpriority.
@@ -137,18 +42,13 @@ void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
 {
   uint8_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
   
-  /* Check the parameters */
-  assert_param(IS_FUNCTIONAL_STATE(NVIC_InitStruct->NVIC_IRQChannelCmd));
-  assert_param(IS_NVIC_PREEMPTION_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority));  
-  assert_param(IS_NVIC_SUB_PRIORITY(NVIC_InitStruct->NVIC_IRQChannelSubPriority));
-    
   if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
   {
     /* Compute the Corresponding IRQ Priority --------------------------------*/    
     tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
     tmppre = (0x4 - tmppriority);
     tmpsub = tmpsub >> tmppriority;
-
+    
     tmppriority = NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
     tmppriority |=  (uint8_t)(NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub);
         
@@ -187,32 +87,6 @@ void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset)
 }
 
 /**
-  * @brief  Selects the condition for the system to enter low power mode.
-  * @param  LowPowerMode: Specifies the new mode for the system to enter low power mode.
-  *   This parameter can be one of the following values:
-  *     @arg NVIC_LP_SEVONPEND: Low Power SEV on Pend.
-  *     @arg NVIC_LP_SLEEPDEEP: Low Power DEEPSLEEP request.
-  *     @arg NVIC_LP_SLEEPONEXIT: Low Power Sleep on Exit.
-  * @param  NewState: new state of LP condition. This parameter can be: ENABLE or DISABLE.
-  * @retval None
-  */
-void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState)
-{
-  /* Check the parameters */
-  assert_param(IS_NVIC_LP(LowPowerMode));
-  assert_param(IS_FUNCTIONAL_STATE(NewState));  
-  
-  if (NewState != DISABLE)
-  {
-    SCB->SCR |= LowPowerMode;
-  }
-  else
-  {
-    SCB->SCR &= (uint32_t)(~(uint32_t)LowPowerMode);
-  }
-}
-
-/**
   * @brief  Configures the SysTick clock source.
   * @param  SysTick_CLKSource: specifies the SysTick clock source.
   *   This parameter can be one of the following values:
@@ -233,17 +107,3 @@ void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
     SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
   }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

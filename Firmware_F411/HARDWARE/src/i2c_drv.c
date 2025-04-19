@@ -10,7 +10,6 @@
 #include "queue.h"
 #include "semphr.h"
 
-
 //传感器IIC总线速度
 #define I2C_SENSORS_CLOCK_SPEED	400000
 #define I2C_DECK_CLOCK_SPEED	400000
@@ -44,14 +43,6 @@
  */
 static void i2cdrvInitBus(I2cDrv* i2c);
 /**
- * IIC DMA初始化
- */
-static void i2cdrvDmaSetupBus(I2cDrv* i2c);
-/**
- * 启动IIC传输
- */
-static void i2cdrvStartTransfer(I2cDrv *i2c);
-/**
  * 重启IIC总线
  */
 static void i2cdrvTryToRestartBus(I2cDrv* i2c);
@@ -63,26 +54,7 @@ static inline void i2cdrvRoughLoopDelay(uint32_t us);
  * 解锁IIC总线
  */
 static void i2cdrvdevUnlockBus(GPIO_TypeDef* portSCL, GPIO_TypeDef* portSDA, uint16_t pinSCL, uint16_t pinSDA);
-/**
- * 清除DMA数据流
- */
-static void i2cdrvClearDMA(I2cDrv* i2c);
-/**
- * 事件中断服务函数
- */
-static void i2cdrvEventIsrHandler(I2cDrv* i2c);
-/**
- * 错误中断服务函数
- */
-static void i2cdrvErrorIsrHandler(I2cDrv* i2c);
-/**
- * DMA中断服务函数
- */
-static void i2cdrvDmaIsrHandler(I2cDrv* i2c);
 
-/**
- * 传感器总线定义
- */
 static const I2cDef sensorsBusDef =
 {
 	.i2cPort            = I2C1,
@@ -99,12 +71,6 @@ static const I2cDef sensorsBusDef =
 	.gpioSDAPin         = GPIO_Pin_9,
 	.gpioSDAPinSource   = GPIO_PinSource9,
 	.gpioAF             = GPIO_AF_I2C1,
-	.dmaPerif           = RCC_AHB1Periph_DMA1,
-	.dmaChannel         = DMA_Channel_1,
-	.dmaRxStream        = DMA1_Stream0,
-	.dmaRxIRQ           = DMA1_Stream0_IRQn,
-	.dmaRxTCFlag        = DMA_FLAG_TCIF0,
-	.dmaRxTEFlag        = DMA_FLAG_TEIF0,
 };
 
 /**
@@ -131,12 +97,6 @@ static const I2cDef deckBusDef =
 	.gpioSDAPin         = GPIO_Pin_4,
 	.gpioSDAPinSource   = GPIO_PinSource4,
 	.gpioAF             = GPIO_AF_I2C3,
-	.dmaPerif           = RCC_AHB1Periph_DMA1,
-	.dmaChannel         = DMA_Channel_3,
-	.dmaRxStream        = DMA1_Stream2,
-	.dmaRxIRQ           = DMA1_Stream2_IRQn,
-	.dmaRxTCFlag        = DMA_FLAG_TCIF2,
-	.dmaRxTEFlag        = DMA_FLAG_TEIF2,
 };
 
 I2cDrv deckBus =
@@ -155,72 +115,13 @@ static inline void i2cdrvRoughLoopDelay(uint32_t us)
 	for(delay = 0; delay < I2CDEV_LOOPS_PER_US * us; ++delay) { };
 }
 /**
- * 启动IIC传输
- */
-static void i2cdrvStartTransfer(I2cDrv *i2c)
-{
-	if (i2c->txMessage.direction == i2cRead)
-	{
-		//改为直接操纵寄存器进行传输
-		
-	}
-
-	I2C_ITConfig(i2c->def->i2cPort, I2C_IT_BUF, DISABLE);
-	I2C_ITConfig(i2c->def->i2cPort, I2C_IT_EVT, ENABLE);
-	i2c->def->i2cPort->CR1 = (I2C_CR1_START | I2C_CR1_PE);
-}
-
-static void i2cTryNextMessage(I2cDrv* i2c)
-{
-	i2c->def->i2cPort->CR1 = (I2C_CR1_STOP | I2C_CR1_PE);
-	I2C_ITConfig(i2c->def->i2cPort, I2C_IT_EVT | I2C_IT_BUF, DISABLE);
-}
-
-static void i2cNotifyClient(I2cDrv* i2c)
-{
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
-	xSemaphoreGiveFromISR(i2c->isBusFreeSemaphore, &xHigherPriorityTaskWoken);
-	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-}
-/**
  * 重启IIC总线
  */
 static void i2cdrvTryToRestartBus(I2cDrv* i2c)
 {
 	i2cdrvInitBus(i2c);
 }
-/**
- * IIC DMA初始化
- */
-static void i2cdrvDmaSetupBus(I2cDrv* i2c)
-{
-	NVIC_InitTypeDef NVIC_InitStructure;
 
-	RCC_AHB1PeriphClockCmd(i2c->def->dmaPerif, ENABLE);
-
-	// RX DMA Channel Config
-	i2c->DMAStruct.DMA_Channel = i2c->def->dmaChannel;
-	i2c->DMAStruct.DMA_PeripheralBaseAddr = (uint32_t)&i2c->def->i2cPort->DR;
-	i2c->DMAStruct.DMA_Memory0BaseAddr = 0;
-	i2c->DMAStruct.DMA_DIR = DMA_DIR_PeripheralToMemory;
-	i2c->DMAStruct.DMA_BufferSize = 0;
-	i2c->DMAStruct.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-	i2c->DMAStruct.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	i2c->DMAStruct.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-	i2c->DMAStruct.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-	i2c->DMAStruct.DMA_Mode = DMA_Mode_Normal;
-	i2c->DMAStruct.DMA_Priority = DMA_Priority_High;
-	i2c->DMAStruct.DMA_FIFOMode = DMA_FIFOMode_Disable;
-	i2c->DMAStruct.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull;
-	i2c->DMAStruct.DMA_MemoryBurst = DMA_MemoryBurst_Single;
-	i2c->DMAStruct.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-
-	NVIC_InitStructure.NVIC_IRQChannel = i2c->def->dmaRxIRQ;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 6;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-}
 /**
  * IIC底层驱动初始化
  */
@@ -232,7 +133,9 @@ static void i2cdrvInitBus(I2cDrv* i2c)
 
 	// Enable GPIOA clock
 	RCC_AHB1PeriphClockCmd(i2c->def->gpioSDAPerif, ENABLE);
+    //RCC->AHB1ENR |= i2c->def->gpioSDAPerif;
 	RCC_AHB1PeriphClockCmd(i2c->def->gpioSCLPerif, ENABLE);
+    //RCC->AHB1ENR |= i2c->def->gpioSCLPerif;
 	// Enable I2C_SENSORS clock
 	RCC_APB1PeriphClockCmd(i2c->def->i2cPerif, ENABLE);	
 	
@@ -279,8 +182,6 @@ static void i2cdrvInitBus(I2cDrv* i2c)
 	NVIC_Init(&NVIC_InitStructure);
 	NVIC_InitStructure.NVIC_IRQChannel = i2c->def->i2cERIRQn;
 	NVIC_Init(&NVIC_InitStructure);
-
-	i2cdrvDmaSetupBus(i2c);
 
 	i2c->isBusFreeSemaphore = xSemaphoreCreateBinary();
 	i2c->isBusFreeMutex = xSemaphoreCreateMutex();
@@ -550,4 +451,3 @@ bool i2cdrvMessageTransfer(I2cDrv* i2c, I2cMessage* message)
     xSemaphoreGive(i2c->isBusFreeMutex);
     return status;
 }
-

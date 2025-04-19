@@ -10,7 +10,7 @@
       <TargetName>Firmware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -480,11 +480,6 @@
               <FilePath>..\HARDWARE\src\uart_syslink.c</FilePath>
             </File>
             <File>
-              <FileName>uart1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\uart1.c</FilePath>
-            </File>
-            <File>
               <FileName>system.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\system.c</FilePath>
@@ -493,11 +488,6 @@
               <FileName>watchdog.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\watchdog.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\spi.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -518,11 +508,6 @@
               <FileName>misc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FWLIB\src\misc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FWLIB\src\stm32f4xx_dma.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_exti.c</FileName>
@@ -548,11 +533,6 @@
               <FileName>stm32f4xx_rcc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FWLIB\src\stm32f4xx_rcc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FWLIB\src\stm32f4xx_spi.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_tim.c</FileName>

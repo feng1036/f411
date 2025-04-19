@@ -23,51 +23,9 @@ static xSemaphoreHandle waitUntilSendDone;
 static xSemaphoreHandle uartBusy;
 static xQueueHandle uartslkDataDelivery;
 
-static u8 dmaBuffer[64];
 static u8 *outDataIsr;
 static u8 dataIndexIsr;
 static u8 dataSizeIsr;
-static bool    isUartDmaInitialized;
-static DMA_InitTypeDef DMA_InitStructure;
-static u32 initialDMACount;
-static u32 remainingDMACount;
-static bool     dmaIsPaused;
-
-static void uartslkPauseDma(void);
-static void uartslkResumeDma(void);
-
-/*配置串口DMA*/
-void uartslkDmaInit(void)
-{
-	NVIC_InitTypeDef NVIC_InitStructure;
-	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);	
-
-	/* USART TX DMA 通道配置*/
-	DMA_InitStructure.DMA_PeripheralBaseAddr = (u32)&UARTSLK_TYPE->DR;
-	DMA_InitStructure.DMA_Memory0BaseAddr = (u32)dmaBuffer;
-	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
-	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-	DMA_InitStructure.DMA_BufferSize = 0;
-	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-	DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-	DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;
-	DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;
-	DMA_InitStructure.DMA_Priority = DMA_Priority_High;
-	DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
-	DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull ;
-	DMA_InitStructure.DMA_Channel = UARTSLK_DMA_CH;
-
-	NVIC_InitStructure.NVIC_IRQChannel = UARTSLK_DMA_IRQ;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 7;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
-
-	isUartDmaInitialized = true;
-}
 
 void uartslkInit(void)	/*串口初始化*/
 {
@@ -113,7 +71,6 @@ void uartslkInit(void)	/*串口初始化*/
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_Init(UARTSLK_TYPE, &USART_InitStructure);
 
-	uartslkDmaInit();
 
 	/*配置串口非空中断*/
 	NVIC_InitStructure.NVIC_IRQChannel = UARTSLK_IRQ;
@@ -200,64 +157,6 @@ int uartslkPutchar(int ch)
     
     return (u8)ch;
 }
-/*通过DMA发送原始数据*/
-void uartslkSendDataDmaBlocking(u32 size, u8* data)
-{
-	if (isUartDmaInitialized)
-	{
-		xSemaphoreTake(uartBusy, portMAX_DELAY);
-		while(DMA_GetCmdStatus(UARTSLK_DMA_STREAM) != DISABLE);	/*等待DMA空闲*/
-		memcpy(dmaBuffer, data, size);		/*复制数据到DMA缓冲区*/
-		DMA_InitStructure.DMA_BufferSize = size;
-		initialDMACount = size;
-		DMA_Init(UARTSLK_DMA_STREAM, &DMA_InitStructure);	/*重新初始化DMA数据流*/
-		DMA_ITConfig(UARTSLK_DMA_STREAM, DMA_IT_TC, ENABLE);/*开启DMA传输完成中断*/		
-		USART_DMACmd(UARTSLK_TYPE, USART_DMAReq_Tx, ENABLE);/* 使能USART DMA TX请求 */
-		USART_ClearFlag(UARTSLK_TYPE, USART_FLAG_TC);		/* 清除传输完成中断标志位 */
-		DMA_Cmd(UARTSLK_DMA_STREAM, ENABLE);	/* 使能DMA USART TX数据流 */
-		xSemaphoreTake(waitUntilSendDone, portMAX_DELAY);
-		xSemaphoreGive(uartBusy);
-	}
-}
-/*暂停DMA传输*/
-static void uartslkPauseDma()
-{
-	if (DMA_GetCmdStatus(UARTSLK_DMA_STREAM) == ENABLE)
-	{
-		DMA_ITConfig(UARTSLK_DMA_STREAM, DMA_IT_TC, DISABLE);	/*关闭DMA传输完成中断*/	
-		DMA_Cmd(UARTSLK_DMA_STREAM, DISABLE);
-		while(DMA_GetCmdStatus(UARTSLK_DMA_STREAM) != DISABLE);
-		DMA_ClearITPendingBit(UARTSLK_DMA_STREAM, UARTSLK_DMA_IT_TCIF);
-		remainingDMACount = DMA_GetCurrDataCounter(UARTSLK_DMA_STREAM);
-		dmaIsPaused = true;
-	}
-}
-/*恢复DMA传输*/
-static void uartslkResumeDma()
-{
-	if (dmaIsPaused)
-	{
-		DMA_SetCurrDataCounter(UARTSLK_DMA_STREAM, remainingDMACount);	/*更新DMA计数器*/
-		UARTSLK_DMA_STREAM->M0AR = (u32)&dmaBuffer[initialDMACount - remainingDMACount];/*更新内存读取地址*/
-		DMA_ITConfig(UARTSLK_DMA_STREAM, DMA_IT_TC, ENABLE);	/*开启DMA传输完成中断*/	
-		USART_ClearFlag(UARTSLK_TYPE, USART_FLAG_TC);	/* 清除传输完成中断标志位 */
-		DMA_Cmd(UARTSLK_DMA_STREAM, ENABLE);	/* 使能DMA USART TX数据流 */
-		dmaIsPaused = false;
-	}
-}
-
-void uartslkDmaIsr(void)
-{
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
-
-	DMA_ITConfig(UARTSLK_DMA_STREAM, DMA_IT_TC, DISABLE);
-	DMA_ClearITPendingBit(UARTSLK_DMA_STREAM, UARTSLK_DMA_IT_TCIF);
-	USART_DMACmd(UARTSLK_TYPE, USART_DMAReq_Tx, DISABLE);
-	DMA_Cmd(UARTSLK_DMA_STREAM, DISABLE);
-
-	remainingDMACount = 0;
-	xSemaphoreGiveFromISR(waitUntilSendDone, &xHigherPriorityTaskWoken);
-}
 
 void uartslkIsr(void)
 {
@@ -282,33 +181,33 @@ void uartslkIsr(void)
 	}
 }
 
-void uartslkTxenFlowctrlIsr()
-{
-	EXTI_ClearFlag(UARTSLK_TXEN_EXTI);
-	if (GPIO_ReadInputDataBit(UARTSLK_TXEN_PORT, UARTSLK_TXEN_PIN) == Bit_SET)
-	{
-		uartslkPauseDma();
-		//ledSet(LED_GREEN_R, 1);
-	}
-	else
-	{
-		uartslkResumeDma();
-		//ledSet(LED_GREEN_R, 0);
-	}
-}
+// void uartslkTxenFlowctrlIsr()
+// {
+// 	EXTI_ClearFlag(UARTSLK_TXEN_EXTI);
+// 	if (GPIO_ReadInputDataBit(UARTSLK_TXEN_PORT, UARTSLK_TXEN_PIN) == Bit_SET)
+// 	{
+// 		uartslkPauseDma();
+// 		//ledSet(LED_GREEN_R, 1);
+// 	}
+// 	else
+// 	{
+// 		uartslkResumeDma();
+// 		//ledSet(LED_GREEN_R, 0);
+// 	}
+// }
 
-void __attribute__((used)) EXTI0_Callback(void)
-{
-	uartslkTxenFlowctrlIsr();
-}
+// void __attribute__((used)) EXTI0_Callback(void)
+// {
+// 	uartslkTxenFlowctrlIsr();
+// }
 
 void __attribute__((used)) USART2_IRQHandler(void)	
 {
 	uartslkIsr();
 }
 
-void __attribute__((used)) DMA1_Stream6_IRQHandler(void)	
-{
-	uartslkDmaIsr();
-}
+// void __attribute__((used)) DMA1_Stream6_IRQHandler(void)	
+// {
+// 	uartslkDmaIsr();
+// }
 

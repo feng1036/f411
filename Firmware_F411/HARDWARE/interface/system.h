@@ -19,7 +19,6 @@
 /*µ×²ãÓ²¼þÇý¶¯*/
 #include "sys.h"
 #include "delay.h"
-#include "uart1.h"
 #include "led.h"
 #include "ledseq.h"
 #include "radiolink.h"

@@ -2,7 +2,6 @@
 #include "led.h"
 #include "motors.h"
 #include "debug_assert.h"
-#include "spi.h"
 
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"		 
@@ -46,31 +45,8 @@ u32 getSysTickCnt(void)
 }
 
 
-/**
-  * @brief  This function handles SVCall exception.
-  */
-//void  SVC_Handler(void)
-//{
-//}
 
-/**
- * @brief  This function handles PendSV_Handler exception.
- */
-//void  PendSV_Handler(void)
-//{
-//}
-
-
-/**
-  * @brief  This function handles NMI exception.
-  */
-void  NMI_Handler(void)
-{
-}
-
-/**
- * @brief  This function handles Hard Fault exception.
- */
+//This function handles Hard Fault exception 
 __asm void HardFault_Handler(void)
 {
 	PRESERVE8
@@ -190,17 +166,3 @@ void  UsageFault_Handler(void)
 	while (1)
 	{}
 }
-
-/**
- * @brief  This function handles Debug Monitor exception.
- */
-void  DebugMon_Handler(void)
-{
-}
-
-
-/************************************************************
-*光流模块和灯环模块共用DMA1_Stream4, 这里需要分开处理一下
-*************************************************************/
-
-

@@ -9,12 +9,6 @@
 #define ENABLE_UARTSLK_RCC       RCC_APB1PeriphClockCmd
 #define UARTSLK_IRQ              USART2_IRQn
 
-#define UARTSLK_DMA_IRQ          DMA1_Stream6_IRQn	
-#define UARTSLK_DMA_IT_TC        DMA_IT_TC
-#define UARTSLK_DMA_STREAM       DMA1_Stream6
-#define UARTSLK_DMA_CH           DMA_Channel_4
-#define UARTSLK_DMA_IT_TCIF    	 DMA_IT_TCIF6
-
 #define UARTSLK_GPIO_PERIF       RCC_AHB1Periph_GPIOA 
 #define UARTSLK_GPIO_PORT        GPIOA
 #define UARTSLK_GPIO_TX_PIN      GPIO_Pin_2
@@ -36,9 +30,6 @@ bool uartslkGetDataWithTimout(u8 *c);	/*从接收队列读取数据(带超时处理)*/
 void uartslkSendData(u32 size, u8* data);	/*发送原始数据*/
 void uartslkSendDataIsrBlocking(u32 size, u8* data);/*中断方式发送原始数据*/
 int uartslkPutchar(int ch);		/*发送一个字符到串口*/
-void uartslkSendDataDmaBlocking(u32 size, u8* data);/*通过DMA发送原始数据*/
 void uartslkIsr(void);		/*串口中断服务函数*/
-void uartslkDmaIsr(void);	/*DMA中断服务函数*/
-void uartslkTxenFlowctrlIsr(void);
 
 #endif /* __UART_SYSLINK_H */
