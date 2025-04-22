@@ -3,7 +3,7 @@
 ..\obj\misc.o: ..\FWLIB\inc\stm32f4xx_exti.h
 ..\obj\misc.o: ..\USER\stm32f4xx.h
 ..\obj\misc.o: ..\CORE\core_cm4.h
-..\obj\misc.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\misc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\misc.o: ..\CORE\core_cmInstr.h
 ..\obj\misc.o: ..\CORE\core_cmFunc.h
 ..\obj\misc.o: ..\CORE\core_cm4_simd.h

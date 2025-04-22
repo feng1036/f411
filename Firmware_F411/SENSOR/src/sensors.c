@@ -11,25 +11,34 @@ static bool isInit=false;
 /*传感器中断初始化*/
 static void sensorsInterruptInit(void)
 {
-	GPIO_InitTypeDef GPIO_InitStructure;
-	EXTI_InitTypeDef EXTI_InitStructure;
-
-	/*使能MPU6500中断*/
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource4);
-
-	EXTI_InitStructure.EXTI_Line = EXTI_Line4;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	portDISABLE_INTERRUPTS();
-	EXTI_Init(&EXTI_InitStructure);
-	EXTI_ClearITPendingBit(EXTI_Line4);
-	portENABLE_INTERRUPTS();
+    /* 使能GPIOA和SYSCFG时钟 */
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
+    
+    /* 配置PA4为输入模式，下拉 */
+    GPIOA->MODER &= ~GPIO_MODER_MODER4;          // 清除相关位，设置为输入模式(00)
+    GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR4;          // 清除上下拉设置
+    GPIOA->PUPDR |= GPIO_PUPDR_PUPDR4_1;         // 设置为下拉(10)
+    
+    /* 配置EXTI线路4连接到GPIOA */
+    SYSCFG->EXTICR[1] &= ~SYSCFG_EXTICR2_EXTI4;  // 清除EXTI4配置位
+    SYSCFG->EXTICR[1] |= SYSCFG_EXTICR2_EXTI4_PA; // 配置PA4连接到EXTI4
+    
+    /* 配置EXTI4中断 */
+    portDISABLE_INTERRUPTS();
+    
+    EXTI->IMR |= EXTI_IMR_MR4;                   // 使能中断请求
+    EXTI->RTSR |= EXTI_RTSR_TR4;                 // 设置上升沿触发
+    EXTI->FTSR &= ~EXTI_FTSR_TR4;                // 禁用下降沿触发
+    
+    /* 清除EXTI4中断标志位 */
+    EXTI->PR = EXTI_PR_PR4;
+    
+    /* 配置NVIC */
+    NVIC_SetPriority(EXTI4_IRQn, 5);             // 设置中断优先级
+    NVIC_EnableIRQ(EXTI4_IRQn);                  // 使能NVIC中断
+    
+    portENABLE_INTERRUPTS();
 }
 
 /* 传感器器件初始化 */

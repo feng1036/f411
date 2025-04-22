@@ -19,8 +19,6 @@ static bool isInit = false;
 u32 motor_ratios[] = {0, 0, 0, 0};
 static const u32 MOTORS[] = { MOTOR_M1, MOTOR_M2, MOTOR_M3, MOTOR_M4 };
 
-
-
 static u16 ratioToCCRx(u16 val)
 {
 	return ((val) >> (16 - MOTORS_PWM_BITS) & ((1 << MOTORS_PWM_BITS) - 1));
@@ -28,60 +26,111 @@ static u16 ratioToCCRx(u16 val)
 
 void motorsInit(void)	/*电机初始化*/
 {
-	GPIO_InitTypeDef GPIO_InitStructure;
-	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-	TIM_OCInitTypeDef  TIM_OCInitStructure;
+	// 使能GPIO和定时器时钟
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOBEN;
+	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM4EN;
 	
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB, ENABLE);	//使能PORTA PORTB时钟
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2|RCC_APB1Periph_TIM4,ENABLE);  	//TIM2和TIM4时钟使能    
+	// 复位定时器
+	TIM4->CR1 = 0;
+	TIM4->CCER = 0;
+	TIM4->CCMR1 = 0;
+	TIM4->CCMR2 = 0;
+	TIM4->CNT = 0;
+	TIM4->ARR = 0;
+	TIM4->PSC = 0;
 	
-	TIM_DeInit(TIM4);	//重新初始化TIM4为默认状态
-	TIM_DeInit(TIM2);	//重新初始化TIM2为默认状态
+	TIM2->CR1 = 0;
+	TIM2->CCER = 0;
+	TIM2->CCMR1 = 0;
+	TIM2->CCMR2 = 0;
+	TIM2->CNT = 0;
+	TIM2->ARR = 0;
+	TIM2->PSC = 0;
 	
-	GPIO_PinAFConfig(GPIOB,GPIO_PinSource7,GPIO_AF_TIM4); 	//PB7 复用为TIM4 CH2	MOTOR1
-	GPIO_PinAFConfig(GPIOB,GPIO_PinSource6,GPIO_AF_TIM4); 	//PB6 复用为TIM4 CH1	MOTOR2
-	GPIO_PinAFConfig(GPIOB,GPIO_PinSource10,GPIO_AF_TIM2); 	//PB10复用为TIM2 CH3	MOTOR3
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource5,GPIO_AF_TIM2); 	//PA5 复用为TIM2 CH1	MOTOR4
+	// 配置引脚复用功能
+	// PB7->TIM4 CH2, PB6->TIM4 CH1, PB10->TIM2 CH3, PA5->TIM2 CH1
 	
-	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_10;	//PB6 7 10
-	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF;        				//复用功能
-	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_100MHz;				//速度100MHz
-	GPIO_InitStructure.GPIO_OType=GPIO_OType_PP;      				//推挽复用输出
-	GPIO_InitStructure.GPIO_PuPd=GPIO_PuPd_UP;        				//上拉
-	GPIO_Init(GPIOB,&GPIO_InitStructure);              				//初始化PB6 7 10
+	// 配置PB7为TIM4 CH2 (MOTOR1)
+	GPIOB->MODER &= ~GPIO_MODER_MODER7;
+	GPIOB->MODER |= GPIO_MODER_MODER7_1;  // 设置为复用功能
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_7;   // 推挽输出
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR7; // 100MHz
+	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR7;
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR7_0;  // 上拉
+	GPIOB->AFR[0] &= ~(0xFUL << 28); // 清除位28-31
+	GPIOB->AFR[0] |= (2UL << 28);    // AF2
 	
-	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_5;							//PA5
-	GPIO_Init(GPIOA,&GPIO_InitStructure);              				//初始化PA5		
+	// 配置PB6为TIM4 CH1 (MOTOR2)
+	GPIOB->MODER &= ~GPIO_MODER_MODER6;
+	GPIOB->MODER |= GPIO_MODER_MODER6_1;  // 设置为复用功能
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_6;   // 推挽输出
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR6; // 100MHz
+	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR6;
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR6_0;  // 上拉
+	GPIOB->AFR[0] &= ~(0xFUL << 24); // 清除位24-27
+	GPIOB->AFR[0] |= (2UL << 24);    // AF2
 	
-	TIM_TimeBaseStructure.TIM_Period=MOTORS_PWM_PERIOD;			//自动重装载值
-	TIM_TimeBaseStructure.TIM_Prescaler=MOTORS_PWM_PRESCALE;	//定时器分频
-	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up;	//向上计数模式	
-	TIM_TimeBaseStructure.TIM_ClockDivision=0; 					//时钟分频
-	TIM_TimeBaseStructure.TIM_RepetitionCounter=0;				//重复计数次数
+	// 配置PB10为TIM2 CH3 (MOTOR3)
+	GPIOB->MODER &= ~GPIO_MODER_MODER10;
+	GPIOB->MODER |= GPIO_MODER_MODER10_1; // 设置为复用功能
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_10;  // 推挽输出
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR10; // 100MHz
+	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR10;
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR10_0; // 上拉
+	GPIOB->AFR[1] &= ~(0xFUL << 8);  // 清除位8-11 (对应PB10)
+	GPIOB->AFR[1] |= (1UL << 8);     // AF1
 	
-	TIM_TimeBaseInit(TIM4,&TIM_TimeBaseStructure);				//初始化TIM4
-	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseStructure);				//初始化TIM2
+	// 配置PA5为TIM2 CH1 (MOTOR4)
+	GPIOA->MODER &= ~GPIO_MODER_MODER5;
+	GPIOA->MODER |= GPIO_MODER_MODER5_1;  // 设置为复用功能
+	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_5;   // 推挽输出
+	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5; // 100MHz
+	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR5;
+	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR5_0;  // 上拉
+	GPIOA->AFR[0] &= ~(0xFUL << 20); // 清除位20-23
+	GPIOA->AFR[0] |= (1UL << 20);    // AF1
 	
-	TIM_OCInitStructure.TIM_OCMode=TIM_OCMode_PWM1;				//PWM模式1
-	TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Enable;	//使能输出
-	TIM_OCInitStructure.TIM_Pulse=0;							//CCRx
-	TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_High;		//高电平有效
-	TIM_OCInitStructure.TIM_OCIdleState=TIM_OCIdleState_Set;	//空闲高电平	
-	TIM_OC2Init(TIM4, &TIM_OCInitStructure);  	//初始化TIM4 CH2输出比较
-	TIM_OC1Init(TIM4, &TIM_OCInitStructure);  	//初始化TIM4 CH1输出比较
-	TIM_OC3Init(TIM2, &TIM_OCInitStructure);  	//初始化TIM2 CH3输出比较
-	TIM_OC1Init(TIM2, &TIM_OCInitStructure);  	//初始化TIM2 CH1输出比较
+	// 配置定时器基础参数
+	TIM4->PSC = MOTORS_PWM_PRESCALE;     // 预分频器
+	TIM4->ARR = MOTORS_PWM_PERIOD;       // 自动重装载值
+	TIM2->PSC = MOTORS_PWM_PRESCALE;     // 预分频器
+	TIM2->ARR = MOTORS_PWM_PERIOD;       // 自动重装载值
 	
-	TIM_OC2PreloadConfig(TIM4, TIM_OCPreload_Enable);  //使能TIM4在CCR2上的预装载寄存器
-	TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);  //使能TIM4在CCR1上的预装载寄存器
-	TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable);  //使能TIM2在CCR3上的预装载寄存器
-	TIM_OC1PreloadConfig(TIM2, TIM_OCPreload_Enable);  //使能TIM2在CCR1上的预装载寄存器
- 
-	TIM_ARRPreloadConfig(TIM4,ENABLE);	//TIM4	ARPE使能 
-	TIM_ARRPreloadConfig(TIM2,ENABLE);	//TIM2	ARPE使能 
+	// 配置TIM4 CH1(PB6, MOTOR2)
+	TIM4->CCMR1 &= ~TIM_CCMR1_OC1M;
+	TIM4->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); // PWM模式1
+	TIM4->CCMR1 |= TIM_CCMR1_OC1PE;      // 预装载使能
+	TIM4->CCER |= TIM_CCER_CC1E;         // 输出使能
+	TIM4->CCR1 = 0;                      // 初始占空比为0
 	
-	TIM_Cmd(TIM4, ENABLE);  //使能TIM4
-	TIM_Cmd(TIM2, ENABLE);  //使能TIM2	
+	// 配置TIM4 CH2(PB7, MOTOR1)
+	TIM4->CCMR1 &= ~TIM_CCMR1_OC2M;
+	TIM4->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2); // PWM模式1
+	TIM4->CCMR1 |= TIM_CCMR1_OC2PE;      // 预装载使能
+	TIM4->CCER |= TIM_CCER_CC2E;         // 输出使能
+	TIM4->CCR2 = 0;                      // 初始占空比为0
+	
+	// 配置TIM2 CH3(PB10, MOTOR3)
+	TIM2->CCMR2 &= ~TIM_CCMR2_OC3M;
+	TIM2->CCMR2 |= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2); // PWM模式1
+	TIM2->CCMR2 |= TIM_CCMR2_OC3PE;      // 预装载使能
+	TIM2->CCER |= TIM_CCER_CC3E;         // 输出使能
+	TIM2->CCR3 = 0;                      // 初始占空比为0
+	
+	// 配置TIM2 CH1(PA5, MOTOR4)
+	TIM2->CCMR1 &= ~TIM_CCMR1_OC1M;
+	TIM2->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); // PWM模式1
+	TIM2->CCMR1 |= TIM_CCMR1_OC1PE;      // 预装载使能
+	TIM2->CCER |= TIM_CCER_CC1E;         // 输出使能
+	TIM2->CCR1 = 0;                      // 初始占空比为0
+	
+	// 启用ARR预装载
+	TIM4->CR1 |= TIM_CR1_ARPE;
+	TIM2->CR1 |= TIM_CR1_ARPE;
+	
+	// 启动定时器
+	TIM4->CR1 |= TIM_CR1_CEN;
+	TIM2->CR1 |= TIM_CR1_CEN;
 
 	isInit = true;
 }
@@ -102,7 +151,6 @@ bool motorsTest(void)
 	return isInit;
 }
 
-
 /*设置电机PWM占空比*/
 void motorsSetRatio(u32 id, u16 ithrust)
 {
@@ -120,19 +168,21 @@ void motorsSetRatio(u32 id, u16 ithrust)
 		motor_ratios[id] = ratio;
 	#endif
 		
+		u16 ccr_value = ratioToCCRx(ratio);
+		
 		switch(id)
 		{
 			case 0:		/*MOTOR_M1*/
-				TIM_SetCompare2(TIM4,ratioToCCRx(ratio));
+				TIM4->CCR2 = ccr_value;
 				break;
 			case 1:		/*MOTOR_M2*/
-				TIM_SetCompare1(TIM4,ratioToCCRx(ratio));
+				TIM4->CCR1 = ccr_value;
 				break;
 			case 2:		/*MOTOR_M3*/
-				TIM_SetCompare3(TIM2,ratioToCCRx(ratio));
+				TIM2->CCR3 = ccr_value;
 				break;
 			case 3:		/*MOTOR_M4*/	
-				TIM_SetCompare1(TIM2,ratioToCCRx(ratio));
+				TIM2->CCR1 = ccr_value;
 				break;
 			default: break;
 		}	

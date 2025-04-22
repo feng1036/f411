@@ -46,50 +46,52 @@ u16 USART_RX_STA=0;       //接收状态标记
 //bound:波特率
 void uart_init(u32 bound)
 {
-	//GPIO端口设置
-	GPIO_InitTypeDef GPIO_InitStructure;
-	USART_InitTypeDef USART_InitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
-
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE); //使能GPIOA时钟
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);//使能USART1时钟
-
-	//串口1对应引脚复用映射
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource9,GPIO_AF_USART1); //GPIOA9复用为USART1
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource10,GPIO_AF_USART1); //GPIOA10复用为USART1
-
-	//USART1端口配置
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10; //GPIOA9与GPIOA10
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;//复用功能
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	//速度50MHz
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽复用输出
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉
-	GPIO_Init(GPIOA,&GPIO_InitStructure); //初始化PA9，PA10
-
-	//USART1 初始化设置
-	USART_InitStructure.USART_BaudRate = bound;//波特率设置
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b;//字长为8位数据格式
-	USART_InitStructure.USART_StopBits = USART_StopBits_1;//一个停止位
-	USART_InitStructure.USART_Parity = USART_Parity_No;//无奇偶校验位
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//无硬件数据流控制
-	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//收发模式
-	USART_Init(USART1, &USART_InitStructure); //初始化串口1
-
-	USART_Cmd(USART1, ENABLE);  //使能串口1 
-
-	//USART_ClearFlag(USART1, USART_FLAG_TC);
-
-#if EN_USART1_RX	
-	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启相关中断
-
-	//Usart1 NVIC 配置
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;//串口1中断通道
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=15;//抢占优先级15
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority =0;		//子优先级0
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
-	NVIC_Init(&NVIC_InitStructure);	//根据指定的参数初始化VIC寄存器、
-
+    u32 temp;
+    
+    // 使能GPIOA时钟和USART1时钟
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;    // 使能GPIOA时钟
+    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;   // 使能USART1时钟
+    
+    // 设置GPIO模式
+    GPIOA->MODER &= ~(GPIO_MODER_MODER9 | GPIO_MODER_MODER10);  // 清除原模式
+    GPIOA->MODER |= (GPIO_MODER_MODER9_1 | GPIO_MODER_MODER10_1); // 设置为复用功能
+    
+    // 设置GPIO速度为50MHz
+    GPIOA->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR9 | GPIO_OSPEEDER_OSPEEDR10);
+    GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR9_1 | GPIO_OSPEEDER_OSPEEDR10_1);
+    
+    // 设置GPIO输出类型为推挽
+    GPIOA->OTYPER &= ~(GPIO_OTYPER_OT_9 | GPIO_OTYPER_OT_10);
+    
+    // 设置GPIO上拉
+    GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPDR9 | GPIO_PUPDR_PUPDR10);
+    GPIOA->PUPDR |= (GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_0);
+    
+    // 设置PA9和PA10的复用功能连接到USART1
+    GPIOA->AFR[1] &= ~(0xF << ((9 - 8) * 4) | 0xF << ((10 - 8) * 4));
+    GPIOA->AFR[1] |= (7 << ((9 - 8) * 4) | 7 << ((10 - 8) * 4)); // AF7: USART1
+    
+    // 设置波特率
+    temp = (u32)(SystemCoreClock / 2) / bound;
+    USART1->BRR = temp;
+    
+    // 配置USART1参数：8位数据，1位停止位，无校验，收发模式
+    USART1->CR1 = 0;  // 先清零
+    USART1->CR1 |= USART_CR1_TE | USART_CR1_RE;  // 使能发送和接收
+    
+    USART1->CR2 = 0;  // 1位停止位
+    USART1->CR3 = 0;  // 无硬件流控制
+    
+#if EN_USART1_RX
+    // 使能接收中断
+    USART1->CR1 |= USART_CR1_RXNEIE;
+    
+    // 配置NVIC
+    NVIC->ISER[USART1_IRQn >> 5] = 1 << (USART1_IRQn & 0x1F); // 使能USART1中断
+    NVIC->IP[USART1_IRQn] = (15 << 4); // 设置优先级为15
 #endif
-	
+    
+    // 使能USART1
+    USART1->CR1 |= USART_CR1_UE;
 }
-#endif	
+#endif

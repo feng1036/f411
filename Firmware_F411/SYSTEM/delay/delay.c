@@ -33,7 +33,8 @@ void delay_init(u8 SYSCLK)
 #if SYSTEM_SUPPORT_OS 						//如果需要支持OS.
 	u32 reload;
 #endif
- 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK); 
+ 	// SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK); 
+	SysTick->CTRL |= ((uint32_t)0x00000004);
 	fac_us=SYSCLK;							//不论是否使用OS,fac_us都需要使用
 #if SYSTEM_SUPPORT_OS 						//如果需要支持OS.
 	reload=SYSCLK;							//每秒钟的计数次数 单位为M	   

@@ -10,6 +10,20 @@
 
 #define I2C_NO_INTERNAL_ADDRESS   0xFFFF
 
+#define RCC_AHB1Periph_GPIOB             ((uint32_t)0x00000002)
+
+#define RCC_APB1Periph_I2C1              ((uint32_t)0x00200000)
+
+#define GPIO_Pin_8                 ((uint16_t)0x0100)  /* Pin 8 selected */
+#define GPIO_Pin_9                 ((uint16_t)0x0200)  /* Pin 9 selected */
+
+//GPIO_Pin_sources 
+#define GPIO_PinSource8            ((uint8_t)0x08)
+#define GPIO_PinSource9            ((uint8_t)0x09)
+
+#define GPIO_AF_I2C1          ((uint8_t)0x04)  /* I2C1 Alternate Function mapping */
+
+
 typedef enum
 {
 	i2cAck,

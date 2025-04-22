@@ -5,23 +5,23 @@
 
 
 #define UARTSLK_TYPE             USART2	
-#define UARTSLK_PERIF            RCC_APB1Periph_USART2
+#define UARTSLK_PERIF            ((uint32_t)0x00020000)
 #define ENABLE_UARTSLK_RCC       RCC_APB1PeriphClockCmd
 #define UARTSLK_IRQ              USART2_IRQn
 
-#define UARTSLK_GPIO_PERIF       RCC_AHB1Periph_GPIOA 
+#define UARTSLK_GPIO_PERIF       ((uint32_t)0x00000001) 
 #define UARTSLK_GPIO_PORT        GPIOA
-#define UARTSLK_GPIO_TX_PIN      GPIO_Pin_2
-#define UARTSLK_GPIO_RX_PIN      GPIO_Pin_3
-#define UARTSLK_GPIO_AF_TX_PIN   GPIO_PinSource2
-#define UARTSLK_GPIO_AF_RX_PIN   GPIO_PinSource3
-#define UARTSLK_GPIO_AF_TX       GPIO_AF_USART2
-#define UARTSLK_GPIO_AF_RX       GPIO_AF_USART2
+#define UARTSLK_GPIO_TX_PIN      ((uint16_t)0x0004)
+#define UARTSLK_GPIO_RX_PIN      ((uint16_t)0x0008)
+#define UARTSLK_GPIO_AF_TX_PIN   ((uint8_t)0x02)
+#define UARTSLK_GPIO_AF_RX_PIN   ((uint8_t)0x03)
+#define UARTSLK_GPIO_AF_TX       ((uint8_t)0x07)
+#define UARTSLK_GPIO_AF_RX       ((uint8_t)0x07)
 
-#define UARTSLK_TXEN_PERIF       RCC_AHB1Periph_GPIOA
+#define UARTSLK_TXEN_PERIF       ((uint32_t)0x00000001)
 #define UARTSLK_TXEN_PORT        GPIOA
-#define UARTSLK_TXEN_PIN         GPIO_Pin_0
-#define UARTSLK_TXEN_EXTI        EXTI_Line0
+#define UARTSLK_TXEN_PIN         ((uint16_t)0x0001)
+#define UARTSLK_TXEN_EXTI        ((uint32_t)0x00001)
 
 
 void uartslkInit(void);		/*´®¿Ú³õÊ¼»¯*/

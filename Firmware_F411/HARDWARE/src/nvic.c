@@ -11,8 +11,10 @@ static u32 sysTickCnt=0;
 
 void nvicInit(void)
 {
-	NVIC_SetVectorTable(FIRMWARE_START_ADDR,0);
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+	// NVIC_SetVectorTable(FIRMWARE_START_ADDR,0);
+	SCB->VTOR = FIRMWARE_START_ADDR;
+  	SCB->AIRCR = ((uint32_t)0x05FA0000) | ((uint32_t)0x300);
+//   NVIC_PriorityGroupConfig(((uint32_t)0x300));
 }
 
 extern void xPortSysTickHandler(void);
@@ -43,8 +45,6 @@ u32 getSysTickCnt(void)
 	else
 		return sysTickCnt;
 }
-
-
 
 //This function handles Hard Fault exception 
 __asm void HardFault_Handler(void)

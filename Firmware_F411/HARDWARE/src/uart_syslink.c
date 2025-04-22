@@ -3,7 +3,7 @@
 #include "config.h"
 #include "uart_syslink.h"
 #include "debug_assert.h"
-#include "config.h"
+// #include "stm32f4xx.h"
 
 /*FreeRtos includes*/
 #include "FreeRTOS.h"
@@ -11,11 +11,18 @@
 #include "semphr.h"
 #include "queue.h"
 
-
-
 #define UARTSLK_DATA_TIMEOUT_MS 	1000
 #define UARTSLK_DATA_TIMEOUT_TICKS (UARTSLK_DATA_TIMEOUT_MS / portTICK_RATE_MS)
 #define CCR_ENABLE_SET  ((u32)0x00000001)
+
+// USART2相关宏定义(使用标准寄存器定义更为安全)
+#define UARTSLK_SR_RXNE        USART_SR_RXNE
+#define UARTSLK_SR_TXE         USART_SR_TXE 
+
+// EXTI配置用的端口源定义
+// 这里需要根据UARTSLK_TXEN_PORT实际使用的端口来设置
+// GPIOA=0, GPIOB=1, GPIOC=2, 依此类推
+#define UARTSLK_TXEN_PORT_SOURCE    0  // 假设TXEN引脚在GPIOA上，根据实际情况调整
 
 static bool isInit = false;
 
@@ -36,72 +43,87 @@ void uartslkInit(void)	/*串口初始化*/
 	uartslkDataDelivery = xQueueCreate(1024, sizeof(u8));	/*队列 1024个消息*/
 	ASSERT(uartslkDataDelivery);
 
-	USART_InitTypeDef USART_InitStructure;
-	GPIO_InitTypeDef GPIO_InitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
-	EXTI_InitTypeDef EXTI_InitStructure;
+	// 使能GPIO和USART时钟
+	RCC->AHB1ENR |= UARTSLK_GPIO_PERIF;  // 使能GPIO时钟
+	RCC->APB1ENR |= UARTSLK_PERIF;       // 使能USART时钟(假设是APB1上的外设)
 
-	/* 使能GPIO 和 UART 时钟*/
-	RCC_AHB1PeriphClockCmd(UARTSLK_GPIO_PERIF, ENABLE);
-	ENABLE_UARTSLK_RCC(UARTSLK_PERIF, ENABLE);
+	// 配置GPIO管脚
+	// 清除相关位
+	UARTSLK_GPIO_PORT->MODER &= ~(0x3 << (UARTSLK_GPIO_AF_RX_PIN * 2));
+	UARTSLK_GPIO_PORT->MODER |= (0x2 << (UARTSLK_GPIO_AF_RX_PIN * 2));  // 设置为复用功能
+	UARTSLK_GPIO_PORT->PUPDR &= ~(0x3 << (UARTSLK_GPIO_AF_RX_PIN * 2));
+	UARTSLK_GPIO_PORT->PUPDR |= (0x1 << (UARTSLK_GPIO_AF_RX_PIN * 2));  // 上拉
 
-	/* 配置USART Rx为浮空输入*/
-	GPIO_InitStructure.GPIO_Pin   = UARTSLK_GPIO_RX_PIN;
-	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(UARTSLK_GPIO_PORT, &GPIO_InitStructure);
+	// 配置TX引脚
+	UARTSLK_GPIO_PORT->MODER &= ~(0x3 << (UARTSLK_GPIO_AF_TX_PIN * 2));
+	UARTSLK_GPIO_PORT->MODER |= (0x2 << (UARTSLK_GPIO_AF_TX_PIN * 2));  // 设置为复用功能
+	UARTSLK_GPIO_PORT->OSPEEDR &= ~(0x3 << (UARTSLK_GPIO_AF_TX_PIN * 2));
+	UARTSLK_GPIO_PORT->OSPEEDR |= (0x2 << (UARTSLK_GPIO_AF_TX_PIN * 2)); // 25MHz速度
+	UARTSLK_GPIO_PORT->OTYPER &= ~(0x1 << UARTSLK_GPIO_AF_TX_PIN);      // 推挽输出
 
-	/* 配置USART Tx 复用功能输出*/
-	GPIO_InitStructure.GPIO_Pin   = UARTSLK_GPIO_TX_PIN;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
-	GPIO_Init(UARTSLK_GPIO_PORT, &GPIO_InitStructure);
+	// 设置复用功能
+	if (UARTSLK_GPIO_AF_TX_PIN < 8) {
+		UARTSLK_GPIO_PORT->AFR[0] &= ~(0xF << (UARTSLK_GPIO_AF_TX_PIN * 4));
+		UARTSLK_GPIO_PORT->AFR[0] |= (UARTSLK_GPIO_AF_TX << (UARTSLK_GPIO_AF_TX_PIN * 4));
+	} else {
+		UARTSLK_GPIO_PORT->AFR[1] &= ~(0xF << ((UARTSLK_GPIO_AF_TX_PIN - 8) * 4));
+		UARTSLK_GPIO_PORT->AFR[1] |= (UARTSLK_GPIO_AF_TX << ((UARTSLK_GPIO_AF_TX_PIN - 8) * 4));
+	}
 
-	/*端口映射*/
-	GPIO_PinAFConfig(UARTSLK_GPIO_PORT, UARTSLK_GPIO_AF_TX_PIN, UARTSLK_GPIO_AF_TX);
-	GPIO_PinAFConfig(UARTSLK_GPIO_PORT, UARTSLK_GPIO_AF_RX_PIN, UARTSLK_GPIO_AF_RX);
+	if (UARTSLK_GPIO_AF_RX_PIN < 8) {
+		UARTSLK_GPIO_PORT->AFR[0] &= ~(0xF << (UARTSLK_GPIO_AF_RX_PIN * 4));
+		UARTSLK_GPIO_PORT->AFR[0] |= (UARTSLK_GPIO_AF_RX << (UARTSLK_GPIO_AF_RX_PIN * 4));
+	} else {
+		UARTSLK_GPIO_PORT->AFR[1] &= ~(0xF << ((UARTSLK_GPIO_AF_RX_PIN - 8) * 4));
+		UARTSLK_GPIO_PORT->AFR[1] |= (UARTSLK_GPIO_AF_RX << ((UARTSLK_GPIO_AF_RX_PIN - 8) * 4));
+	}
 
+	// 配置USART
+	UARTSLK_TYPE->CR1 = 0;  // 复位CR1
+	UARTSLK_TYPE->CR2 = 0;  // 复位CR2
+	UARTSLK_TYPE->CR3 = 0;  // 复位CR3
 
-	USART_InitStructure.USART_BaudRate            = 1000000;
-	USART_InitStructure.USART_Mode                = USART_Mode_Rx | USART_Mode_Tx;
-	USART_InitStructure.USART_WordLength          = USART_WordLength_8b;
-	USART_InitStructure.USART_StopBits            = USART_StopBits_1;
-	USART_InitStructure.USART_Parity              = USART_Parity_No ;
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-	USART_Init(UARTSLK_TYPE, &USART_InitStructure);
-
-
-	/*配置串口非空中断*/
-	NVIC_InitStructure.NVIC_IRQChannel = UARTSLK_IRQ;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
+	// 设置波特率，获取实际的APB1时钟频率
+	// 这里APB1时钟频率为48MHz，波特率为1Mbps
+	// uint32_t pclk1 = 48000000;
+	// uint32_t baud_rate = 1000000;
+	// uint32_t usart_div = 0;
 	
-	/*串口接收数据寄存器非空中断*/
-	USART_ITConfig(UARTSLK_TYPE, USART_IT_RXNE, ENABLE);	
+	// // 计算USART分频值
+	// usart_div = (48000000 + (1000000/2)) / 1000000;
+	UARTSLK_TYPE->BRR = (48000000 + (1000000/2)) / 1000000;
 
-	/*配置TXEN引脚(NRF流控制)*/
-	RCC_AHB1PeriphClockCmd(UARTSLK_TXEN_PERIF, ENABLE);
+	// 使能发送和接收，使能RXNE中断
+	UARTSLK_TYPE->CR1 |= (USART_CR1_TE | USART_CR1_RE | USART_CR1_RXNEIE);
 
-	memset(&GPIO_InitStructure, 0,sizeof(GPIO_InitStructure));
-	GPIO_InitStructure.GPIO_Pin = UARTSLK_TXEN_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_Init(UARTSLK_TXEN_PORT, &GPIO_InitStructure);
+	// 配置NVIC
+	NVIC_SetPriority(UARTSLK_IRQ, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 5, 0));
+	NVIC_EnableIRQ(UARTSLK_IRQ);
 
-	/*PA0外部中断配置*/
-	EXTI_InitStructure.EXTI_Line = UARTSLK_TXEN_EXTI;
-	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;
-	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-	EXTI_Init(&EXTI_InitStructure);
-	EXTI_ClearITPendingBit(UARTSLK_TXEN_EXTI);
+	// 配置TXEN引脚(NRF流控制)
+	RCC->AHB1ENR |= UARTSLK_TXEN_PERIF;  // 使能GPIO时钟
+
+	// 配置为输入，上拉
+	UARTSLK_TXEN_PORT->MODER &= ~(0x3 << (UARTSLK_TXEN_PIN * 2));      // 输入模式
+	UARTSLK_TXEN_PORT->PUPDR &= ~(0x3 << (UARTSLK_TXEN_PIN * 2));
+	UARTSLK_TXEN_PORT->PUPDR |= (0x1 << (UARTSLK_TXEN_PIN * 2));       // 上拉
+
+	// 配置EXTI
+	RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN; // 重要：需要先使能SYSCFG时钟，否则无法配置EXTI
+	SYSCFG->EXTICR[UARTSLK_TXEN_PIN / 4] &= ~(0xF << ((UARTSLK_TXEN_PIN % 4) * 4));
+	SYSCFG->EXTICR[UARTSLK_TXEN_PIN / 4] |= (UARTSLK_TXEN_PORT_SOURCE << ((UARTSLK_TXEN_PIN % 4) * 4));
+
+	// 配置EXTI线
+	EXTI->IMR |= (1 << UARTSLK_TXEN_PIN);  // 使能中断
+	EXTI->RTSR |= (1 << UARTSLK_TXEN_PIN); // 上升沿触发
+	EXTI->FTSR |= (1 << UARTSLK_TXEN_PIN); // 下降沿触发
+	EXTI->PR = (1 << UARTSLK_TXEN_PIN);    // 清除挂起标志
 
 	NVIC_EnableIRQ(EXTI0_IRQn);
 
-	USART_Cmd(UARTSLK_TYPE, ENABLE);	/*使能定时器*/
+	// 使能USART
+	UARTSLK_TYPE->CR1 |= USART_CR1_UE;
+	
 	isInit = true;
 }
 
@@ -109,6 +131,7 @@ bool uartslkTest(void)
 {
 	return isInit;
 }
+
 /*从接收队列读取数据(带超时处理)*/
 bool uartslkGetDataWithTimout(u8 *c)
 {
@@ -120,6 +143,7 @@ bool uartslkGetDataWithTimout(u8 *c)
 	*c = 0;
 	return false;
 }
+
 /*发送原始数据*/
 void uartslkSendData(u32 size, u8* data)
 {
@@ -130,13 +154,14 @@ void uartslkSendData(u32 size, u8* data)
 	for(i = 0; i < size; i++)
 	{
 	#ifdef UARTSLK_SPINLOOP_FLOWCTRL
-		while(GPIO_ReadInputDataBit(UARTSLK_TXEN_PORT, UARTSLK_TXEN_PIN) == Bit_SET);
+		// 修正位检测逻辑
+		while((UARTSLK_TXEN_PORT->IDR & (1 << UARTSLK_TXEN_PIN)) != 0);
 	#endif
-		while (!(UARTSLK_TYPE->SR & USART_FLAG_TXE))
-		{};
+		while (!(UARTSLK_TYPE->SR & USART_SR_TXE));
 		UARTSLK_TYPE->DR = (data[i] & 0x00FF);
 	}
 }
+
 /*中断方式发送原始数据*/
 void uartslkSendDataIsrBlocking(u32 size, u8* data)
 {
@@ -145,11 +170,12 @@ void uartslkSendDataIsrBlocking(u32 size, u8* data)
 	dataSizeIsr = size;
 	dataIndexIsr = 1;
 	uartslkSendData(1, &data[0]);
-	USART_ITConfig(UARTSLK_TYPE, USART_IT_TXE, ENABLE);	/*串口发送数据寄存器为空中断*/
+	UARTSLK_TYPE->CR1 |= USART_CR1_TXEIE;  // 使能TXE中断
 	xSemaphoreTake(waitUntilSendDone, portMAX_DELAY);
 	outDataIsr = 0;
 	xSemaphoreGive(uartBusy);
 }
+
 /*发送一个字符到串口*/
 int uartslkPutchar(int ch)
 {
@@ -162,52 +188,33 @@ void uartslkIsr(void)
 {
 	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
-	if ((UARTSLK_TYPE->SR & (1<<5)) != 0) /*接收非空中断*/
+	// 读取SR后读取DR，避免overrun错误
+	uint32_t sr = UARTSLK_TYPE->SR;
+	
+	if ((sr & USART_SR_RXNE) != 0) /*接收非空中断*/
 	{
 		u8 rxDataInterrupt = (u8)(UARTSLK_TYPE->DR & 0xFF);
 		xQueueSendFromISR(uartslkDataDelivery, &rxDataInterrupt, &xHigherPriorityTaskWoken);
 	}
-	else if (USART_GetITStatus(UARTSLK_TYPE, USART_IT_TXE) == SET)
+	else if ((sr & USART_SR_TXE) && (UARTSLK_TYPE->CR1 & USART_CR1_TXEIE))
 	{
 		if (outDataIsr && (dataIndexIsr < dataSizeIsr))
 		{
-			USART_SendData(UARTSLK_TYPE, outDataIsr[dataIndexIsr] & 0x00FF);
+			UARTSLK_TYPE->DR = outDataIsr[dataIndexIsr] & 0x00FF;
 			dataIndexIsr++;
 		} else
 		{
-			USART_ITConfig(UARTSLK_TYPE, USART_IT_TXE, DISABLE);
+			UARTSLK_TYPE->CR1 &= ~USART_CR1_TXEIE;  // 禁用TXE中断
 			xSemaphoreGiveFromISR(waitUntilSendDone, &xHigherPriorityTaskWoken);
 		}
 	}
+	
+	// 确保任务切换
+	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
-
-// void uartslkTxenFlowctrlIsr()
-// {
-// 	EXTI_ClearFlag(UARTSLK_TXEN_EXTI);
-// 	if (GPIO_ReadInputDataBit(UARTSLK_TXEN_PORT, UARTSLK_TXEN_PIN) == Bit_SET)
-// 	{
-// 		uartslkPauseDma();
-// 		//ledSet(LED_GREEN_R, 1);
-// 	}
-// 	else
-// 	{
-// 		uartslkResumeDma();
-// 		//ledSet(LED_GREEN_R, 0);
-// 	}
-// }
-
-// void __attribute__((used)) EXTI0_Callback(void)
-// {
-// 	uartslkTxenFlowctrlIsr();
-// }
 
 void __attribute__((used)) USART2_IRQHandler(void)	
 {
 	uartslkIsr();
 }
-
-// void __attribute__((used)) DMA1_Stream6_IRQHandler(void)	
-// {
-// 	uartslkDmaIsr();
-// }
 

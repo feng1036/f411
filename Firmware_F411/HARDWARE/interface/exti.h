@@ -1,6 +1,7 @@
 #ifndef __EXTI_H__
 #define __EXTI_H__
 #include <stdbool.h>
+#include "stm32f4xx.h"
 
 
 void NVIC_ConfigureIRQ(IRQn_Type IRQn, uint8_t preempt_prio);

@@ -12,17 +12,17 @@ static bool isInit = false;
 typedef struct
 {
     GPIO_TypeDef* port;
-    u16 pin;
+    uint16_t pin;
     int polarity;
 } led_t;
 
 static led_t leds[LED_NUM] =
 {
-    [LED_BLUE_L]	= {GPIOB, GPIO_Pin_12, LED_POL_POS},
-    [LED_GREEN_L]	= {GPIOA, GPIO_Pin_6,  LED_POL_NEG},
-    [LED_RED_L] 	= {GPIOA, GPIO_Pin_7,  LED_POL_NEG},
-    [LED_GREEN_R]	= {GPIOC, GPIO_Pin_13, LED_POL_NEG},
-    [LED_RED_R] 	= {GPIOC, GPIO_Pin_14, LED_POL_NEG},
+    [LED_BLUE_L]	= {GPIOB, (1<<12), LED_POL_POS},
+    [LED_GREEN_L]	= {GPIOA, (1<<6),  LED_POL_NEG},
+    [LED_RED_L] 	= {GPIOA, (1<<7),  LED_POL_NEG},
+    [LED_GREEN_R]	= {GPIOC, (1<<13), LED_POL_NEG},
+    [LED_RED_R] 	= {GPIOC, (1<<14), LED_POL_NEG},
 };
 
 /* LED初始化 */
@@ -30,32 +30,44 @@ void ledInit(void)
 {
     if(isInit)	return;
 
-    GPIO_InitTypeDef GPIO_InitStructure;
-
     /*使能led时钟*/
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // GPIOA时钟使能
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN; // GPIOB时钟使能
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN; // GPIOC时钟使能
 
     /*LED_GREEN_L PA6	LED_RED_L PA7*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    // 设置为输出模式
+    GPIOA->MODER &= ~(GPIO_MODER_MODER6 | GPIO_MODER_MODER7);
+    GPIOA->MODER |= (GPIO_MODER_MODER6_0 | GPIO_MODER_MODER7_0); // 输出模式(01)
+    // 设置为推挽输出
+    GPIOA->OTYPER &= ~(GPIO_OTYPER_OT_6 | GPIO_OTYPER_OT_7);
+    // 设置速度
+    GPIOA->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR6 | GPIO_OSPEEDER_OSPEEDR7);
+    GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR6_0 | GPIO_OSPEEDER_OSPEEDR7_0); // 中速(01)
 
     /*LED_BLUE_L PB12*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    // 设置为输出模式
+    GPIOB->MODER &= ~GPIO_MODER_MODER12;
+    GPIOB->MODER |= GPIO_MODER_MODER12_0; // 输出模式(01)
+    // 设置为推挽输出
+    GPIOB->OTYPER &= ~GPIO_OTYPER_OT_12;
+    // 设置速度
+    GPIOB->OSPEEDR &= ~GPIO_OSPEEDER_OSPEEDR12;
+    GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR12_0; // 中速(01)
 
     /*LED_GREEN_R PC13	LED_RED_R PC14*/
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14;
-    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    // 设置为输出模式
+    GPIOC->MODER &= ~(GPIO_MODER_MODER13 | GPIO_MODER_MODER14);
+    GPIOC->MODER |= (GPIO_MODER_MODER13_0 | GPIO_MODER_MODER14_0); // 输出模式(01)
+    // 设置为推挽输出
+    GPIOC->OTYPER &= ~(GPIO_OTYPER_OT_13 | GPIO_OTYPER_OT_14);
+    // 设置速度
+    GPIOC->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR13 | GPIO_OSPEEDER_OSPEEDR14);
+    GPIOC->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR13_0 | GPIO_OSPEEDER_OSPEEDR14_0); // 中速(01)
 
     ledClearAll();
 
     isInit = true;
-
 }
 
 /* LED测试 */
@@ -116,9 +128,9 @@ void ledSet(led_e led, bool value)
         value = !value;
 
     if(value)
-        GPIO_SetBits(leds[led].port, leds[led].pin);
+        leds[led].port->BSRRL = leds[led].pin; // 置位
     else
-        GPIO_ResetBits(leds[led].port, leds[led].pin);
+        leds[led].port->BSRRH = leds[led].pin; // 复位
 }
 
 

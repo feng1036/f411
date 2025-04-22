@@ -3,6 +3,7 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "task.h"
+#include <stdbool.h>
 
 #if defined(__CC_ARM) 
 	#pragma anon_unions

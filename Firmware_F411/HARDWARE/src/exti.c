@@ -2,9 +2,7 @@
 #include "sys.h"
 #include "exti.h"
 
-
 static bool isInit;
-
 
 #define NVIC_PRIORITY_GROUP_POS   (8U)
 #define NVIC_PRIORITY_GROUP_MASK  (0x700U)
