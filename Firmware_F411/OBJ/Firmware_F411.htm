@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\OBJ\Firmware_F411.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Firmware_F411.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Apr 22 23:47:48 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Apr 23 21:33:55 2025
 <BR><P>
-<H3>Maximum Stack Usage =        464 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        432 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 sensorsTask &rArr; sensorsInit &rArr; sensorsDeviceInit &rArr; mpu6500SetFullScaleGyroRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 <P>
@@ -1088,7 +1088,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c5]"></a>bmp280Init</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, bmp280.o(i.bmp280Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = bmp280Init &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1231,7 +1231,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e1]"></a>i2cdevInit</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, i2cdev.o(i.i2cdevInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 240 + Unknown Stack Size
 <LI>Call Chain = i2cdevInit &rArr; i2cdrvInit &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvInit
@@ -1240,7 +1240,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c8]"></a>i2cdevRead</STRONG> (Thumb, 50 bytes, Stack size 56 bytes, i2cdev.o(i.i2cdevRead))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
 <LI>Call Chain = i2cdevRead &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvMessageTransfer
@@ -1252,7 +1252,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c7]"></a>i2cdevReadByte</STRONG> (Thumb, 26 bytes, Stack size 24 bytes, i2cdev.o(i.i2cdevReadByte))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
 <LI>Call Chain = i2cdevReadByte &rArr; i2cdevRead &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevRead
@@ -1263,7 +1263,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e5]"></a>i2cdevWrite</STRONG> (Thumb, 50 bytes, Stack size 56 bytes, i2cdev.o(i.i2cdevWrite))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
 <LI>Call Chain = i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvMessageTransfer
@@ -1273,7 +1273,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e6]"></a>i2cdevWriteBit</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, i2cdev.o(i.i2cdevWriteBit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 384 + Unknown Stack Size
 <LI>Call Chain = i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1296,7 +1296,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e7]"></a>i2cdevWriteBits</STRONG> (Thumb, 100 bytes, Stack size 40 bytes, i2cdev.o(i.i2cdevWriteBits))
-<BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 392 + Unknown Stack Size
 <LI>Call Chain = i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1313,7 +1313,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[c9]"></a>i2cdevWriteByte</STRONG> (Thumb, 30 bytes, Stack size 40 bytes, i2cdev.o(i.i2cdevWriteByte))
-<BR><BR>[Stack]<UL><LI>Max Depth = 384 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
 <LI>Call Chain = i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWrite
@@ -1335,7 +1335,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e2]"></a>i2cdrvInit</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, i2c_drv.o(i.i2cdrvInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = i2cdrvInit &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvInitBus
@@ -1344,7 +1344,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e4]"></a>i2cdrvMessageTransfer</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, i2c_drv.o(i.i2cdrvMessageTransfer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
@@ -1517,7 +1517,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ff]"></a>mpu6500Reset</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, mpu6500.o(i.mpu6500Reset))
-<BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 392 + Unknown Stack Size
 <LI>Call Chain = mpu6500Reset &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1526,7 +1526,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[100]"></a>mpu6500SetAccelDLPF</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetAccelDLPF))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetAccelDLPF &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1535,7 +1535,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[101]"></a>mpu6500SetClockSource</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetClockSource))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetClockSource &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1544,7 +1544,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[102]"></a>mpu6500SetDLPFMode</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetDLPFMode))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetDLPFMode &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1553,7 +1553,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[103]"></a>mpu6500SetFullScaleAccelRange</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetFullScaleAccelRange))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetFullScaleAccelRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1562,7 +1562,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[104]"></a>mpu6500SetFullScaleGyroRange</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetFullScaleGyroRange))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetFullScaleGyroRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1571,7 +1571,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[105]"></a>mpu6500SetI2CBypassEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetI2CBypassEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetI2CBypassEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1581,7 +1581,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[106]"></a>mpu6500SetI2CMasterModeEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetI2CMasterModeEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetI2CMasterModeEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1590,7 +1590,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[107]"></a>mpu6500SetIntDataReadyEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetIntDataReadyEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetIntDataReadyEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1599,7 +1599,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[108]"></a>mpu6500SetIntEnabled</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mpu6500.o(i.mpu6500SetIntEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 392 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetIntEnabled &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1608,7 +1608,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[109]"></a>mpu6500SetInterruptDrive</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetInterruptDrive))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetInterruptDrive &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1617,7 +1617,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10a]"></a>mpu6500SetInterruptLatch</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetInterruptLatch))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetInterruptLatch &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1626,7 +1626,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10b]"></a>mpu6500SetInterruptLatchClear</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetInterruptLatchClear))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetInterruptLatchClear &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1635,7 +1635,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10c]"></a>mpu6500SetInterruptMode</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetInterruptMode))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetInterruptMode &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1644,7 +1644,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10d]"></a>mpu6500SetMasterClockSpeed</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetMasterClockSpeed))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetMasterClockSpeed &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1653,7 +1653,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10e]"></a>mpu6500SetRate</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mpu6500.o(i.mpu6500SetRate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 392 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetRate &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1662,7 +1662,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10f]"></a>mpu6500SetSlave4MasterDelay</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlave4MasterDelay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlave4MasterDelay &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1671,7 +1671,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[110]"></a>mpu6500SetSlaveAddress</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlaveAddress))
-<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveAddress &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1680,7 +1680,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[111]"></a>mpu6500SetSlaveDataLength</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, mpu6500.o(i.mpu6500SetSlaveDataLength))
-<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveDataLength &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBits
@@ -1689,7 +1689,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[112]"></a>mpu6500SetSlaveDelayEnabled</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlaveDelayEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveDelayEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1698,7 +1698,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[113]"></a>mpu6500SetSlaveEnabled</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlaveEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1707,7 +1707,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[114]"></a>mpu6500SetSlaveReadWriteTransitionEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlaveReadWriteTransitionEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveReadWriteTransitionEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1716,7 +1716,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[115]"></a>mpu6500SetSlaveRegister</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSlaveRegister))
-<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSlaveRegister &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteByte
@@ -1725,7 +1725,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[116]"></a>mpu6500SetSleepEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetSleepEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetSleepEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1734,7 +1734,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[117]"></a>mpu6500SetTempSensorEnabled</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetTempSensorEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetTempSensorEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1743,7 +1743,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[118]"></a>mpu6500SetWaitForExternalSensorEnabled</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, mpu6500.o(i.mpu6500SetWaitForExternalSensorEnabled))
-<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 400 + Unknown Stack Size
 <LI>Call Chain = mpu6500SetWaitForExternalSensorEnabled &rArr; i2cdevWriteBit &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevWriteBit
@@ -1973,7 +1973,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[16c]"></a>sensorsDeviceInit</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, sensors.o(i.sensorsDeviceInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
 <LI>Call Chain = sensorsDeviceInit &rArr; mpu6500SetFullScaleGyroRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevInit
@@ -1997,7 +1997,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[16f]"></a>sensorsInit</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, sensors.o(i.sensorsInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
 <LI>Call Chain = sensorsInit &rArr; sensorsDeviceInit &rArr; mpu6500SetFullScaleGyroRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
@@ -2010,7 +2010,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[4f]"></a>sensorsTask</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, sensors.o(i.sensorsTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 464 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 432 + Unknown Stack Size
 <LI>Call Chain = sensorsTask &rArr; sensorsInit &rArr; sensorsDeviceInit &rArr; mpu6500SetFullScaleGyroRange &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdevRead
@@ -2849,8 +2849,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvMessageTransfer
 </UL>
 
-<P><STRONG><a name="[e8]"></a>i2cdrvInitBus</STRONG> (Thumb, 876 bytes, Stack size 48 bytes, i2c_drv.o(i.i2cdrvInitBus))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
+<P><STRONG><a name="[e8]"></a>i2cdrvInitBus</STRONG> (Thumb, 668 bytes, Stack size 16 bytes, i2c_drv.o(i.i2cdrvInitBus))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
@@ -2869,7 +2869,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[ee]"></a>i2cdrvTryToRestartBus</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, i2c_drv.o(i.i2cdrvTryToRestartBus))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cdrvInitBus
@@ -3362,7 +3362,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[172]"></a>sensorsSetupSlaveRead</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, sensors.o(i.sensorsSetupSlaveRead))
-<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
 <LI>Call Chain = sensorsSetupSlaveRead &rArr; mpu6500SetSlaveDataLength &rArr; i2cdevWriteBits &rArr; i2cdevWriteByte &rArr; i2cdevWrite &rArr; i2cdrvMessageTransfer &rArr; i2cdrvTryToRestartBus &rArr; i2cdrvInitBus &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu6500SetWaitForExternalSensorEnabled

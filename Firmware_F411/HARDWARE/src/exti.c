@@ -25,37 +25,19 @@ void extiInit()
 	
 	//RCC_AHB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE); 
 	RCC->AHB2ENR |=  (uint32_t)0x00004000;
-	// NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	// NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI0_IRQn,5);
 
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
 	NVIC_ConfigureIRQ(EXTI1_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI2_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI3_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI4_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI9_5_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
+	
 	NVIC_ConfigureIRQ(EXTI15_10_IRQn,10);
 	isInit = true;
 }
