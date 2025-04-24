@@ -35,5 +35,5 @@
 ..\obj\commander.o: ..\FLIGHT\interface\remoter_ctrl.h
 ..\obj\commander.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\commander.o: ..\FLIGHT\interface\state_estimator.h
-..\obj\commander.o: ..\FLIGHT\interface\position_pid.h
+..\obj\commander.o: ..\FLIGHT\interface\state_control.h
 ..\obj\commander.o: ..\FLIGHT\interface\pid.h

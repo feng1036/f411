@@ -53,6 +53,5 @@
 ..\obj\stabilizer.o: ..\FLIGHT\interface\pid.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\state_estimator.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\power_control.h
-..\obj\stabilizer.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\stabilizer.o: ..\COMMON\interface\maths.h
 ..\obj\stabilizer.o: ..\FLIGHT\interface\remoter_ctrl.h

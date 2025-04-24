@@ -34,7 +34,6 @@
 "..\obj\communicate.o"
 "..\obj\anomal_detec.o"
 "..\obj\pid.o"
-"..\obj\position_pid.o"
 "..\obj\power_control.o"
 "..\obj\sensfusion6.o"
 "..\obj\stabilizer.o"

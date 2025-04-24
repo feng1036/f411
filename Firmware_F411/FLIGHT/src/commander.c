@@ -8,7 +8,7 @@
 #include "remoter_ctrl.h"
 #include "stabilizer.h"
 #include "state_estimator.h"
-#include "position_pid.h"
+#include "state_control.h"
 
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"
@@ -124,7 +124,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk)
 {
 	remoteCache.tarVal = pk;
 	remoteCache.timestamp = getSysTickCnt();
-}
+}//remoter_ctrl
 
 
 /********************************************************
@@ -276,28 +276,28 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 	{
 		yawMode = XMODE;
 	}		
-}
+}//stabilizer.c
 
 /* 读取并更新微调值 */
-void getAndUpdateTrim(float* pitch, float* roll)
-{
-	*pitch = remoteCache.tarVal.trimPitch;
-	*roll = remoteCache.tarVal.trimRoll;
-}
+// void getAndUpdateTrim(float* pitch, float* roll)
+// {
+// 	*pitch = remoteCache.tarVal.trimPitch;
+// 	*roll = remoteCache.tarVal.trimRoll;
+// }
 
 void setCommanderCtrlMode(u8 set)
 {
 	commander.ctrlMode = (set & 0x03);
-}
+}//remoter_ctrl.c
 u8 getCommanderCtrlMode(void)
 {
 	return (commander.ctrlMode & 0x03);
-}
+}//anomal_detec.c
 
-u8 getCommanderFlightMode(void)
-{
-	return (yawMode & 0x01);
-}
+// u8 getCommanderFlightMode(void)
+// {
+// 	return (yawMode & 0x01);
+// }
 
 void setCommanderKeyFlight(bool set)
 {
@@ -307,27 +307,27 @@ void setCommanderKeyFlight(bool set)
 		minAccZ = 0.f;
 		maxAccZ = 0.f;
 	}
-}
+}//remoter_ctrl.c + anomal_detec.c
 bool getCommanderKeyFlight(void)
 {
 	return commander.keyFlight;
-}
+}//anomal_detec.c + remoter_ctrl.c + state_control.c
 
 void setCommanderKeyland(bool set)
 {
 	commander.keyLand = set;
-}
+}//remoter_ctrl.c + anomal_detec.c
 bool getCommanderKeyland(void)
 {
 	return commander.keyLand;
-}
+}//state_control.c + state_estimat.c
 
 void setCommanderFlightmode(bool set)
 {
 	commander.flightMode = set;
-}
+}//remoter_ctrl.c
 
-void setCommanderEmerStop(bool set)
-{
-	commander.emerStop = set;
-}
+// void setCommanderEmerStop(bool set)
+// {
+// 	commander.emerStop = set;
+// }

@@ -57,7 +57,7 @@ void flightCtrldataCache(ctrlSrc_e ctrlSrc, ctrlVal_t pk);
 void commanderGetSetpoint(setpoint_t *setpoint, state_t *state);
 void flyerAutoLand(setpoint_t *setpoint,const state_t *state);
 
-void getAndUpdateTrim(float* pitch, float* roll);
+//void getAndUpdateTrim(float* pitch, float* roll);
 
 void setCommanderCtrlMode(u8 set);
 u8 getCommanderCtrlMode(void);
@@ -69,6 +69,6 @@ void setCommanderKeyland(bool set);
 bool getCommanderKeyland(void);
 
 void setCommanderFlightmode(bool set);
-void setCommanderEmerStop(bool set);
+//void setCommanderEmerStop(bool set);
 
 #endif /* __COMMANDER_H */

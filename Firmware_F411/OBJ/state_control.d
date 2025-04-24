@@ -32,7 +32,6 @@
 ..\obj\state_control.o: ..\FLIGHT\interface\pid.h
 ..\obj\state_control.o: ..\CONFIG\interface\config_param.h
 ..\obj\state_control.o: ..\FLIGHT\interface\stabilizer.h
-..\obj\state_control.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\state_control.o: ..\SENSOR\interface\sensors.h
 ..\obj\state_control.o: ..\SYSTEM\delay\delay.h
 ..\obj\state_control.o: ..\SENSOR\interface\mpu6500.h
@@ -41,3 +40,5 @@
 ..\obj\state_control.o: ..\FreeRTOS\include\semphr.h
 ..\obj\state_control.o: ..\SENSOR\interface\bmp280.h
 ..\obj\state_control.o: ..\SENSOR\interface\filter.h
+..\obj\state_control.o: ..\FLIGHT\interface\remoter_ctrl.h
+..\obj\state_control.o: ..\COMMON\interface\maths.h

@@ -31,7 +31,6 @@
 ..\obj\state_estimator.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\pid.h
 ..\obj\state_estimator.o: ..\CONFIG\interface\config_param.h
-..\obj\state_estimator.o: ..\FLIGHT\interface\position_pid.h
 ..\obj\state_estimator.o: ..\COMMON\interface\maths.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\state_estimator.o: ..\FLIGHT\interface\sensfusion6.h

@@ -620,11 +620,6 @@
               <FilePath>..\FLIGHT\src\pid.c</FilePath>
             </File>
             <File>
-              <FileName>position_pid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FLIGHT\src\position_pid.c</FilePath>
-            </File>
-            <File>
               <FileName>power_control.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\power_control.c</FilePath>

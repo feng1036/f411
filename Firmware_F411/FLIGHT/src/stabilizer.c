@@ -6,7 +6,6 @@
 #include "state_control.h"
 #include "state_estimator.h"
 #include "power_control.h"
-#include "position_pid.h"
 #include "maths.h"
 #include "com_queue.h"
 #include "remoter_ctrl.h"
