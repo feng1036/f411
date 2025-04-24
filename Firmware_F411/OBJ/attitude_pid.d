@@ -1,12 +1,12 @@
 ..\obj\attitude_pid.o: ..\FLIGHT\src\attitude_pid.c
 ..\obj\attitude_pid.o: stm32f4xx_conf.h
-..\obj\attitude_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\attitude_pid.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdbool.h
 ..\obj\attitude_pid.o: ..\FLIGHT\interface\pid.h
 ..\obj\attitude_pid.o: ..\CONFIG\interface\config_param.h
 ..\obj\attitude_pid.o: ..\SYSTEM\sys\sys.h
 ..\obj\attitude_pid.o: ..\USER\stm32f4xx.h
 ..\obj\attitude_pid.o: ..\CORE\core_cm4.h
-..\obj\attitude_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\attitude_pid.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\attitude_pid.o: ..\CORE\core_cmInstr.h
 ..\obj\attitude_pid.o: ..\CORE\core_cmFunc.h
 ..\obj\attitude_pid.o: ..\CORE\core_cm4_simd.h
@@ -17,10 +17,10 @@
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\attitude_pid.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\attitude_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\attitude_pid.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stddef.h
 ..\obj\attitude_pid.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\attitude_pid.o: ..\CONFIG\interface\config.h
-..\obj\attitude_pid.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\attitude_pid.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdio.h
 ..\obj\attitude_pid.o: ..\COMMON\interface\debug_assert.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\attitude_pid.o: ..\FreeRTOS\include\portable.h

@@ -3,10 +3,10 @@
 ..\obj\arm_const_structs.o: ..\CORE\arm_const_structs.h
 ..\obj\arm_const_structs.o: ..\CORE\arm_math.h
 ..\obj\arm_const_structs.o: ..\CORE\core_cm4.h
-..\obj\arm_const_structs.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\arm_const_structs.o: ..\CORE\core_cmInstr.h
 ..\obj\arm_const_structs.o: ..\CORE\core_cmFunc.h
 ..\obj\arm_const_structs.o: ..\CORE\core_cm4_simd.h
-..\obj\arm_const_structs.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\arm_const_structs.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\string.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\math.h
 ..\obj\arm_const_structs.o: ..\CORE\arm_common_tables.h

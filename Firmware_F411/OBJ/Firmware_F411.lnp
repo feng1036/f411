@@ -33,7 +33,6 @@
 "..\obj\com_queue.o"
 "..\obj\communicate.o"
 "..\obj\anomal_detec.o"
-"..\obj\attitude_pid.o"
 "..\obj\pid.o"
 "..\obj\position_pid.o"
 "..\obj\power_control.o"

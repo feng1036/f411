@@ -1,12 +1,12 @@
 ..\obj\timers.o: ..\FreeRTOS\timers.c
 ..\obj\timers.o: stm32f4xx_conf.h
-..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdlib.h
 ..\obj\timers.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stddef.h
+..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\timers.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\timers.o: ..\CONFIG\interface\config.h
-..\obj\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\timers.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdio.h
 ..\obj\timers.o: ..\COMMON\interface\debug_assert.h
 ..\obj\timers.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\timers.o: ..\FreeRTOS\include\portable.h

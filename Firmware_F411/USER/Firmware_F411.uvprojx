@@ -10,7 +10,7 @@
       <TargetName>Firmware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler5.06</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -613,11 +613,6 @@
               <FileName>anomal_detec.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FLIGHT\src\anomal_detec.c</FilePath>
-            </File>
-            <File>
-              <FileName>attitude_pid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FLIGHT\src\attitude_pid.c</FilePath>
             </File>
             <File>
               <FileName>pid.c</FileName>

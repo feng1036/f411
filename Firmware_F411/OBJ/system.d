@@ -2,12 +2,12 @@
 ..\obj\system.o: stm32f4xx_conf.h
 ..\obj\system.o: ..\HARDWARE\interface\system.h
 ..\obj\system.o: ..\CONFIG\interface\FreeRTOSConfig.h
-..\obj\system.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\system.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\system.o: ..\CONFIG\interface\config.h
-..\obj\system.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\system.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdio.h
 ..\obj\system.o: ..\COMMON\interface\debug_assert.h
 ..\obj\system.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\system.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\system.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stddef.h
 ..\obj\system.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\system.o: ..\FreeRTOS\include\portable.h
 ..\obj\system.o: ..\FreeRTOS\include\deprecated_definitions.h
@@ -27,7 +27,7 @@
 ..\obj\system.o: ..\CORE\core_cm4_simd.h
 ..\obj\system.o: ..\USER\system_stm32f4xx.h
 ..\obj\system.o: ..\HARDWARE\interface\exti.h
-..\obj\system.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\system.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdbool.h
 ..\obj\system.o: ..\SYSTEM\delay\delay.h
 ..\obj\system.o: ..\HARDWARE\interface\led.h
 ..\obj\system.o: ..\COMMUNICATE\interface\ledseq.h

@@ -1,13 +1,13 @@
 ..\obj\anomal_detec.o: ..\FLIGHT\src\anomal_detec.c
 ..\obj\anomal_detec.o: stm32f4xx_conf.h
-..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\math.h
 ..\obj\anomal_detec.o: ..\COMMON\interface\maths.h
-..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\anomal_detec.o: ..\FLIGHT\interface\commander.h
 ..\obj\anomal_detec.o: ..\COMMUNICATE\interface\atkp.h
-..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdbool.h
 ..\obj\anomal_detec.o: ..\CONFIG\interface\config.h
-..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdio.h
 ..\obj\anomal_detec.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\anomal_detec.o: ..\SYSTEM\sys\sys.h
 ..\obj\anomal_detec.o: ..\USER\stm32f4xx.h
@@ -18,7 +18,7 @@
 ..\obj\anomal_detec.o: ..\USER\system_stm32f4xx.h
 ..\obj\anomal_detec.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\anomal_detec.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\anomal_detec.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\anomal_detec.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stddef.h
 ..\obj\anomal_detec.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\anomal_detec.o: ..\COMMON\interface\debug_assert.h
 ..\obj\anomal_detec.o: ..\FreeRTOS\include\projdefs.h

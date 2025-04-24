@@ -1,11 +1,11 @@
 ..\obj\port.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\port.c
 ..\obj\port.o: stm32f4xx_conf.h
 ..\obj\port.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-..\obj\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\port.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stddef.h
+..\obj\port.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdint.h
 ..\obj\port.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\port.o: ..\CONFIG\interface\config.h
-..\obj\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\port.o: C:\Keil_v5\ARM\ARM_Compiler5.06\Bin\..\include\stdio.h
 ..\obj\port.o: ..\COMMON\interface\debug_assert.h
 ..\obj\port.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\port.o: ..\FreeRTOS\include\portable.h
