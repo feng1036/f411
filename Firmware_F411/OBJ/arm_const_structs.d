@@ -1,0 +1,12 @@
+..\obj\arm_const_structs.o: ..\DSP_Lib\arm_const_structs.c
+..\obj\arm_const_structs.o: stm32f4xx_conf.h
+..\obj\arm_const_structs.o: ..\CORE\arm_const_structs.h
+..\obj\arm_const_structs.o: ..\CORE\arm_math.h
+..\obj\arm_const_structs.o: ..\CORE\core_cm4.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\arm_const_structs.o: ..\CORE\core_cmInstr.h
+..\obj\arm_const_structs.o: ..\CORE\core_cmFunc.h
+..\obj\arm_const_structs.o: ..\CORE\core_cm4_simd.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\arm_const_structs.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
+..\obj\arm_const_structs.o: ..\CORE\arm_common_tables.h

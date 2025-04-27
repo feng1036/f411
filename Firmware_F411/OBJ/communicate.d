@@ -1,0 +1,16 @@
+..\obj\communicate.o: ..\COMMUNICATE\src\communicate.c
+..\obj\communicate.o: stm32f4xx_conf.h
+..\obj\communicate.o: ..\COMMUNICATE\interface\communicate.h
+..\obj\communicate.o: ..\FreeRTOS\include\FreeRTOS.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\communicate.o: ..\CONFIG\interface\FreeRTOSConfig.h
+..\obj\communicate.o: ..\COMMON\interface\debug_assert.h
+..\obj\communicate.o: ..\FreeRTOS\include\projdefs.h
+..\obj\communicate.o: ..\FreeRTOS\include\portable.h
+..\obj\communicate.o: ..\FreeRTOS\include\deprecated_definitions.h
+..\obj\communicate.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
+..\obj\communicate.o: ..\FreeRTOS\include\mpu_wrappers.h
+..\obj\communicate.o: ..\FreeRTOS\include\queue.h
+..\obj\communicate.o: ..\COMMUNICATE\interface\atkp.h
+..\obj\communicate.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
