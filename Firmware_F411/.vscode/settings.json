@@ -1,23 +1,5 @@
 {
     "files.associations": {
-        "stm32f4xx.h": "c",
-        "sys.h": "c",
-        "exti.h": "c",
-        "stdbool.h": "c",
-        "system.h": "c",
-        "compare": "cpp",
-        "config.h": "c",
-        "task.h": "c",
-        "queue.h": "c",
-        "sensors.h": "c",
-        "propkeydef.h": "c",
-        "delay.h": "c",
-        "bmp280.h": "c",
-        "filter.h": "c",
-        "com_queue.h": "c",
-        "stm32f4xx_conf.h": "c",
-        "i2c_drv.h": "c",
-        "freertos.h": "c",
-        "stddef.h": "c"
+        "config_param.h": "c"
     }
 }

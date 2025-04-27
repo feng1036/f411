@@ -1,11 +1,11 @@
 ..\obj\button.o: ..\GUI_DRV\src\button.c
 ..\obj\button.o: ..\GUI_DRV\interface\button.h
-..\obj\button.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\button.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\button.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\button.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\button.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\button.o: ..\GUI_DRV\interface\gui_basic.h
 ..\obj\button.o: ..\GUI_DRV\interface\lcmdrv.h
-..\obj\button.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\button.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\button.o: ..\SYSTEM\delay\delay.h
 ..\obj\button.o: ..\SYSTEM\sys\sys.h
 ..\obj\button.o: ..\USER\stm32f10x.h

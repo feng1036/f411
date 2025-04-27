@@ -11,10 +11,8 @@ static u32 sysTickCnt=0;
 
 void nvicInit(void)
 {
-	// NVIC_SetVectorTable(FIRMWARE_START_ADDR,0);
-	SCB->VTOR = FIRMWARE_START_ADDR;
+	SCB->VTOR = 0x08000000;
   	SCB->AIRCR = ((uint32_t)0x05FA0000) | ((uint32_t)0x300);
-//   NVIC_PriorityGroupConfig(((uint32_t)0x300));
 }
 
 extern void xPortSysTickHandler(void);
@@ -93,33 +91,27 @@ void  printHardFault(u32* hardfaultArgs)
 	// printf("HFSR = %x\n", (*((volatile unsigned int *)(0xE000ED2C))));
 	// printf("DFSR = %x\n", (*((volatile unsigned int *)(0xE000ED30))));
 	// printf("AFSR = %x\n", (*((volatile unsigned int *)(0xE000ED3C))));
-
 	motorsSetRatio(MOTOR_M1, 0);
 	motorsSetRatio(MOTOR_M2, 0);
 	motorsSetRatio(MOTOR_M3, 0);
 	motorsSetRatio(MOTOR_M4, 0);
-
 	ledClearAll();
 	ledSet(ERR_LED1, 1);	/*´íÎó¼ì²â*/
 	ledSet(ERR_LED2, 1);
-
 	storeAssertSnapshotData(__FILE__, __LINE__);
 	while (1)
 	{}
 }
-/**
- * @brief  This function handles Memory Manage exception.
- */
+
 void  MemManage_Handler(void)
 {
-	/* Go to infinite loop when Memory Manage exception occurs */
 	motorsSetRatio(MOTOR_M1, 0);
 	motorsSetRatio(MOTOR_M2, 0);
 	motorsSetRatio(MOTOR_M3, 0);
 	motorsSetRatio(MOTOR_M4, 0);
 
 	ledClearAll();
-	ledSet(ERR_LED1, 1);/*´íÎó¼ì²â*/
+	ledSet(ERR_LED1, 1);
 	ledSet(ERR_LED2, 1);
 
 	storeAssertSnapshotData(__FILE__, __LINE__);

@@ -101,7 +101,7 @@ u32 bmp280CompensateP(s32 adcP)
 /**
  * Converts pressure to altitude above sea level (ASL) in meters
  */
-float bmp280PressureToAltitude(float* pressure/*, float* groundPressure, float* groundTemp*/)
+float bmp280PressureToAltitude(float* pressure)
 {	
     if(*pressure > 0)
     {

@@ -1,5 +1,5 @@
 ..\obj\debug_assert.o: ..\COMMON\src\debug_assert.c
-..\obj\debug_assert.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\debug_assert.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\debug_assert.o: ..\COMMON\interface\debug_assert.h
 ..\obj\debug_assert.o: ..\HARDWARE\interface\led.h
 ..\obj\debug_assert.o: ..\SYSTEM\sys\sys.h
@@ -32,4 +32,4 @@
 ..\obj\debug_assert.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\debug_assert.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\debug_assert.o: ..\SYSTEM\usart\usart.h
-..\obj\debug_assert.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\debug_assert.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h

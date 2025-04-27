@@ -1,5 +1,4 @@
 #include <string.h>
-#include "config.h"
 #include "radiolink.h"
 #include "config_param.h"
 #include "led.h"

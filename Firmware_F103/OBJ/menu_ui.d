@@ -1,9 +1,9 @@
 ..\obj\menu_ui.o: ..\GUI_APP\src\menu_ui.c
 ..\obj\menu_ui.o: ..\GUI_APP\interface\menu_ui.h
-..\obj\menu_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\menu_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\menu_ui.o: ..\GUI_DRV\interface\gui_basic.h
 ..\obj\menu_ui.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\menu_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\menu_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\menu_ui.o: ..\GUI_DRV\interface\lcmdrv.h
 ..\obj\menu_ui.o: ..\GUI_DRV\interface\gui_menu.h
 ..\obj\menu_ui.o: ..\GUI_DRV\interface\windows.h

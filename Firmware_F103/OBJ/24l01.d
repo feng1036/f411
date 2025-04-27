@@ -1,6 +1,6 @@
 ..\obj\24l01.o: ..\HARDWARE\src\24l01.c
 ..\obj\24l01.o: ..\HARDWARE\interface\24l01.h
-..\obj\24l01.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\24l01.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\24l01.o: ..\SYSTEM\sys\sys.h
 ..\obj\24l01.o: ..\USER\stm32f10x.h
 ..\obj\24l01.o: ..\CORE\core_cm3.h

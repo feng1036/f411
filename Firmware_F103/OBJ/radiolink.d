@@ -1,10 +1,10 @@
 ..\obj\radiolink.o: ..\COMMUNICATE\src\radiolink.c
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\radiolink.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\radiolink.o: ..\SYSTEM\sys\sys.h
 ..\obj\radiolink.o: ..\USER\stm32f10x.h
 ..\obj\radiolink.o: ..\CORE\core_cm3.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\radiolink.o: ..\USER\system_stm32f10x.h
 ..\obj\radiolink.o: ..\USER\stm32f10x_conf.h
 ..\obj\radiolink.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -33,7 +33,7 @@
 ..\obj\radiolink.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\radiolink.o: ..\COMMON\interface\debug_assert.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\projdefs.h

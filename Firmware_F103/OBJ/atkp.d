@@ -1,10 +1,10 @@
 ..\obj\atkp.o: ..\COMMUNICATE\src\atkp.c
-..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\atkp.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\atkp.o: ..\SYSTEM\sys\sys.h
 ..\obj\atkp.o: ..\USER\stm32f10x.h
 ..\obj\atkp.o: ..\CORE\core_cm3.h
-..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\atkp.o: ..\USER\system_stm32f10x.h
 ..\obj\atkp.o: ..\USER\stm32f10x_conf.h
 ..\obj\atkp.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -31,10 +31,10 @@
 ..\obj\atkp.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\atkp.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\atkp.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\atkp.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\atkp.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\atkp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\atkp.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\atkp.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\atkp.o: ..\COMMON\interface\debug_assert.h
 ..\obj\atkp.o: ..\FreeRTOS\include\projdefs.h

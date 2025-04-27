@@ -11,16 +11,13 @@
 #define BMP280_CTRL_MEAS_REG			(0xF4)  /* Ctrl Measure Register */
 #define BMP280_CONFIG_REG				(0xF5)  /* Configuration Register */
 #define BMP280_PRESSURE_MSB_REG			(0xF7)  /* Pressure MSB Register */
-
 #define BMP280_NORMAL_MODE				(0x03)
-
 #define BMP280_TEMPERATURE_CALIB_DIG_T1_LSB_REG             (0x88)
 #define BMP280_PRESSURE_TEMPERATURE_CALIB_DATA_LENGTH       (24)
-
 #define BMP280_OVERSAMP_8X				(0x04)
 
 bool bmp280Init(I2C_Dev *i2cPort);
 u32 bmp280CompensateT(s32 adcT);
 u32 bmp280CompensateP(s32 adcP);
-float bmp280PressureToAltitude(float* pressure/*, float* groundPressure, float* groundTemp*/);
+float bmp280PressureToAltitude(float* pressure);
 #endif

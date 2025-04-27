@@ -1,9 +1,9 @@
 ..\obj\reset_ui.o: ..\GUI_APP\src\reset_ui.c
 ..\obj\reset_ui.o: ..\GUI_APP\interface\reset_ui.h
-..\obj\reset_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\reset_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\reset_ui.o: ..\GUI_DRV\interface\windows.h
 ..\obj\reset_ui.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\reset_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\reset_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\reset_ui.o: ..\GUI_DRV\interface\scrollbar.h
 ..\obj\reset_ui.o: ..\COMMUNICATE\interface\joystick.h
 ..\obj\reset_ui.o: ..\SYSTEM\sys\sys.h

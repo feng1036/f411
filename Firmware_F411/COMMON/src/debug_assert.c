@@ -57,6 +57,3 @@ void printAssertSnapshotData()
 		//printf("No assert information found\n");
 	}
 }
-
-
-

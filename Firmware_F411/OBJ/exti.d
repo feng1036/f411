@@ -1,10 +1,10 @@
 ..\obj\exti.o: ..\HARDWARE\src\exti.c
 ..\obj\exti.o: stm32f4xx_conf.h
-..\obj\exti.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\exti.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\exti.o: ..\SYSTEM\sys\sys.h
 ..\obj\exti.o: ..\USER\stm32f4xx.h
 ..\obj\exti.o: ..\CORE\core_cm4.h
-..\obj\exti.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\exti.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\exti.o: ..\CORE\core_cmInstr.h
 ..\obj\exti.o: ..\CORE\core_cmFunc.h
 ..\obj\exti.o: ..\CORE\core_cm4_simd.h

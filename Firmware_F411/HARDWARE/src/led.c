@@ -132,5 +132,3 @@ void ledSet(led_e led, bool value)
     else
         leds[led].port->BSRRH = leds[led].pin; // ¸´Î»
 }
-
-

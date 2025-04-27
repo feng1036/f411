@@ -1,11 +1,9 @@
 ..\obj\radiolink.o: ..\COMMUNICATE\src\radiolink.c
 ..\obj\radiolink.o: stm32f4xx_conf.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\radiolink.o: ..\CONFIG\interface\config.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\radiolink.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\radiolink.o: ..\CONFIG\interface\config_param.h
 ..\obj\radiolink.o: ..\SYSTEM\sys\sys.h
@@ -19,7 +17,7 @@
 ..\obj\radiolink.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\radiolink.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\radiolink.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\radiolink.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\radiolink.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\radiolink.o: ..\COMMON\interface\debug_assert.h
 ..\obj\radiolink.o: ..\FreeRTOS\include\projdefs.h

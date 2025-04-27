@@ -1,8 +1,8 @@
 ..\obj\main_ui.o: ..\GUI_APP\src\main_ui.c
-..\obj\main_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\main_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\main_ui.o: ..\GUI_APP\interface\main_ui.h
-..\obj\main_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-..\obj\main_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\main_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\main_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\main_ui.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\main_ui.o: ..\SYSTEM\sys\sys.h
 ..\obj\main_ui.o: ..\USER\stm32f10x.h
@@ -45,7 +45,7 @@
 ..\obj\main_ui.o: ..\HARDWARE\interface\oled.h
 ..\obj\main_ui.o: ..\COMMUNICATE\interface\radiolink.h
 ..\obj\main_ui.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\main_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\main_ui.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\main_ui.o: ..\FreeRTOS\include\FreeRTOSConfig.h
 ..\obj\main_ui.o: ..\COMMON\interface\debug_assert.h
 ..\obj\main_ui.o: ..\FreeRTOS\include\projdefs.h

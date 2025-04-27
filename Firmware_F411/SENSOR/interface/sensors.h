@@ -22,7 +22,6 @@
 
 // MPU9250主机模式读取数据 缓冲区长度
 #define SENSORS_MPU6500_BUFF_LEN    14
-#define SENSORS_MAG_BUFF_LEN       	8
 #define SENSORS_BARO_STATUS_LEN		1
 #define SENSORS_BARO_DATA_LEN		6
 #define SENSORS_BARO_BUFF_LEN       (SENSORS_BARO_STATUS_LEN + SENSORS_BARO_DATA_LEN)
@@ -47,7 +46,7 @@ static lpf2pData accLpf[3];
 static lpf2pData gyroLpf[3];
 
 static xSemaphoreHandle sensorsDataReady;
-static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_MAG_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
+static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
 void sensorsTask(void *param);
 void sensorsInit(void);			/*传感器初始化*/
 static void applyAxis3fLpf(lpf2pData *data, Axis3f* in);
@@ -55,4 +54,4 @@ static void sensorsBiasObjInit(BiasObj* bias);
 static void sensorsCalculateVarianceAndMean(BiasObj* bias, Axis3f* varOut, Axis3f* meanOut);
 static bool sensorsFindBiasValue(BiasObj* bias);
 static void sensorsAddBiasValue(BiasObj* bias, int16_t x, int16_t y, int16_t z);
-#endif //__SENSORS_H
+#endif //__SENSORS_H 

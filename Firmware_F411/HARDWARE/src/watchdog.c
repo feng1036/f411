@@ -1,4 +1,3 @@
-#include "config.h"
 #include "watchdog.h"
 #include "debug_assert.h"
 

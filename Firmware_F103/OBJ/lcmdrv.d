@@ -1,8 +1,8 @@
 ..\obj\lcmdrv.o: ..\GUI_DRV\src\lcmdrv.c
 ..\obj\lcmdrv.o: ..\GUI_DRV\interface\lcmdrv.h
 ..\obj\lcmdrv.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\lcmdrv.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-..\obj\lcmdrv.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\lcmdrv.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\lcmdrv.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\lcmdrv.o: ..\HARDWARE\interface\oled.h
 ..\obj\lcmdrv.o: ..\SYSTEM\sys\sys.h
 ..\obj\lcmdrv.o: ..\USER\stm32f10x.h

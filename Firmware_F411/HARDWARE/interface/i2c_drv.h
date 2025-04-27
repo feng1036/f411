@@ -8,21 +8,34 @@
 #include "stdbool.h"
 
 
-#define I2C_NO_INTERNAL_ADDRESS   0xFFFF
-
-#define RCC_AHB1Periph_GPIOB             ((uint32_t)0x00000002)
-
-#define RCC_APB1Periph_I2C1              ((uint32_t)0x00200000)
-
-#define GPIO_Pin_8                 ((uint16_t)0x0100)  /* Pin 8 selected */
-#define GPIO_Pin_9                 ((uint16_t)0x0200)  /* Pin 9 selected */
-
-//GPIO_Pin_sources 
-#define GPIO_PinSource8            ((uint8_t)0x08)
-#define GPIO_PinSource9            ((uint8_t)0x09)
-
-#define GPIO_AF_I2C1          ((uint8_t)0x04)  /* I2C1 Alternate Function mapping */
-
+#define I2C_NO_INTERNAL_ADDRESS   		0xFFFF
+#define RCC_AHB1Periph_GPIOB            ((uint32_t)0x00000002)
+#define RCC_APB1Periph_I2C1             ((uint32_t)0x00200000)
+#define GPIO_Pin_8                      ((uint16_t)0x0100)  /* Pin 8 selected */
+#define GPIO_Pin_9                 		((uint16_t)0x0200)  /* Pin 9 selected */
+#define GPIO_PinSource8            		((uint8_t)0x08)
+#define GPIO_PinSource9            		((uint8_t)0x09)
+#define GPIO_AF_I2C1          			((uint8_t)0x04)  /* I2C1 Alternate Function mapping */
+//传感器IIC总线速度
+#define I2C_SENSORS_CLOCK_SPEED	400000
+#define I2C_DECK_CLOCK_SPEED	400000
+#define I2C_NO_BLOCK			0
+#define I2C_SLAVE_ADDRESS7      0x30
+#define I2C_MAX_RETRIES         2
+#define I2C_MESSAGE_TIMEOUT     (1000)
+#define I2CDEV_LOOPS_PER_US  	(10)
+#define I2CDEV_LOOPS_PER_MS  	(100000)	
+#define I2CDEV_CLK_TS (10 * I2CDEV_LOOPS_PER_US)
+#define GPIO_WAIT_FOR_HIGH(gpio, pin, timeoutcycles)\
+{\
+	int i = timeoutcycles;\
+	while(((gpio->IDR & pin) == 0) && i--);\
+}
+#define GPIO_WAIT_FOR_LOW(gpio, pin, timeoutcycles) \
+{\
+	int i = timeoutcycles;\
+	while(((gpio->IDR & pin) != 0) && i--);\
+}
 
 typedef enum
 {
@@ -69,7 +82,6 @@ typedef struct
 	uint32_t            gpioSDAPin;
 	uint32_t            gpioSDAPinSource;
 	uint32_t            gpioAF;
-
 } I2cDef;
 
 typedef struct
@@ -84,7 +96,6 @@ typedef struct
 
 // Definitions of i2c busses found in c file.
 extern I2cDrv sensorsBus;
-extern I2cDrv deckBus;
 /**
  * Initialize i2c peripheral as defined by static I2cDef structs.
  */

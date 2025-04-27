@@ -1,8 +1,8 @@
 ..\obj\menul3_item.o: ..\GUI_APP\src\menuL3_item.c
 ..\obj\menul3_item.o: ..\GUI_APP\interface\menuL3_item.h
-..\obj\menul3_item.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\menul3_item.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\menul3_item.o: ..\GUI_DRV\interface\gui_menu.h
-..\obj\menul3_item.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\menul3_item.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\menul3_item.o: ..\GUI_DRV\interface\gui_config.h
 ..\obj\menul3_item.o: ..\GUI_APP\interface\menuL2_item.h
 ..\obj\menul3_item.o: ..\SYSTEM\sys\sys.h

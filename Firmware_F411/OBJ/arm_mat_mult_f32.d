@@ -2,9 +2,9 @@
 ..\obj\arm_mat_mult_f32.o: stm32f4xx_conf.h
 ..\obj\arm_mat_mult_f32.o: ..\CORE\arm_math.h
 ..\obj\arm_mat_mult_f32.o: ..\CORE\core_cm4.h
-..\obj\arm_mat_mult_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\arm_mat_mult_f32.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\arm_mat_mult_f32.o: ..\CORE\core_cmInstr.h
 ..\obj\arm_mat_mult_f32.o: ..\CORE\core_cmFunc.h
 ..\obj\arm_mat_mult_f32.o: ..\CORE\core_cm4_simd.h
-..\obj\arm_mat_mult_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\arm_mat_mult_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\arm_mat_mult_f32.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\arm_mat_mult_f32.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h

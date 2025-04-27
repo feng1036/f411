@@ -3,7 +3,7 @@
 ..\obj\menul2_item.o: ..\SYSTEM\sys\sys.h
 ..\obj\menul2_item.o: ..\USER\stm32f10x.h
 ..\obj\menul2_item.o: ..\CORE\core_cm3.h
-..\obj\menul2_item.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\menul2_item.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\menul2_item.o: ..\USER\system_stm32f10x.h
 ..\obj\menul2_item.o: ..\USER\stm32f10x_conf.h
 ..\obj\menul2_item.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -31,7 +31,7 @@
 ..\obj\menul2_item.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\menul2_item.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\menul2_item.o: ..\GUI_DRV\interface\gui_menu.h
-..\obj\menul2_item.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\menul2_item.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\menul2_item.o: ..\GUI_DRV\interface\gui_config.h
 ..\obj\menul2_item.o: ..\GUI_APP\interface\menuL3_item.h
 ..\obj\menul2_item.o: ..\GUI_APP\interface\menu_ui.h

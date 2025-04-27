@@ -1,8 +1,8 @@
 ..\obj\scrollbar.o: ..\GUI_DRV\src\scrollbar.c
 ..\obj\scrollbar.o: ..\GUI_DRV\interface\scrollbar.h
 ..\obj\scrollbar.o: ..\GUI_DRV\interface\gui_config.h
-..\obj\scrollbar.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-..\obj\scrollbar.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\scrollbar.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\scrollbar.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\scrollbar.o: ..\GUI_DRV\interface\gui_basic.h
 ..\obj\scrollbar.o: ..\GUI_DRV\interface\lcmdrv.h
 ..\obj\scrollbar.o: ..\SYSTEM\delay\delay.h

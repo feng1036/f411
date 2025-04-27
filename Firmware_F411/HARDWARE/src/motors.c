@@ -2,19 +2,6 @@
 #include "delay.h"
 #include "motors.h"
 
-/********************************************************************************	 
- * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
- * ALIENTEK MiniFly
- * 电机驱动代码	
- * 正点原子@ALIENTEK
- * 技术论坛:www.openedv.com
- * 创建日期:2017/5/12
- * 版本：V1.3
- * 版权所有，盗版必究。
- * Copyright(C) 广州市星翼电子科技有限公司 2014-2024
- * All rights reserved
-********************************************************************************/
-
 static bool isInit = false;
 u32 motor_ratios[] = {0, 0, 0, 0};
 static const u32 MOTORS[] = { MOTOR_M1, MOTOR_M2, MOTOR_M3, MOTOR_M4 };
@@ -57,8 +44,8 @@ void motorsInit(void)	/*电机初始化*/
 	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR7; // 100MHz
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR7;
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR7_0;  // 上拉
-	GPIOB->AFR[0] &= ~(0xFUL << 28); // 清除位28-31
-	GPIOB->AFR[0] |= (2UL << 28);    // AF2
+	GPIOB->AFR[0] &= ~(0xF << 28);
+	GPIOB->AFR[0] |= (2 << 28);           // AF2
 	
 	// 配置PB6为TIM4 CH1 (MOTOR2)
 	GPIOB->MODER &= ~GPIO_MODER_MODER6;
@@ -67,8 +54,8 @@ void motorsInit(void)	/*电机初始化*/
 	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR6; // 100MHz
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR6;
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR6_0;  // 上拉
-	GPIOB->AFR[0] &= ~(0xFUL << 24); // 清除位24-27
-	GPIOB->AFR[0] |= (2UL << 24);    // AF2
+	GPIOB->AFR[0] &= ~(0xF << 24);
+	GPIOB->AFR[0] |= (2 << 24);           // AF2
 	
 	// 配置PB10为TIM2 CH3 (MOTOR3)
 	GPIOB->MODER &= ~GPIO_MODER_MODER10;
@@ -77,8 +64,8 @@ void motorsInit(void)	/*电机初始化*/
 	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR10; // 100MHz
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR10;
 	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR10_0; // 上拉
-	GPIOB->AFR[1] &= ~(0xFUL << 8);  // 清除位8-11 (对应PB10)
-	GPIOB->AFR[1] |= (1UL << 8);     // AF1
+	GPIOB->AFR[1] &= ~(0xF << 8);
+	GPIOB->AFR[1] |= (1 << 8);            // AF1
 	
 	// 配置PA5为TIM2 CH1 (MOTOR4)
 	GPIOA->MODER &= ~GPIO_MODER_MODER5;
@@ -87,8 +74,8 @@ void motorsInit(void)	/*电机初始化*/
 	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5; // 100MHz
 	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR5;
 	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR5_0;  // 上拉
-	GPIOA->AFR[0] &= ~(0xFUL << 20); // 清除位20-23
-	GPIOA->AFR[0] |= (1UL << 20);    // AF1
+	GPIOA->AFR[0] &= ~(0xF << 20);
+	GPIOA->AFR[0] |= (1 << 20);           // AF1
 	
 	// 配置定时器基础参数
 	TIM4->PSC = MOTORS_PWM_PRESCALE;     // 预分频器
@@ -169,7 +156,6 @@ void motorsSetRatio(u32 id, u16 ithrust)
 	#endif
 		
 		u16 ccr_value = ratioToCCRx(ratio);
-		
 		switch(id)
 		{
 			case 0:		/*MOTOR_M1*/

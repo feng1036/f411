@@ -4,59 +4,25 @@
 
 static bool isInit;
 
-#define NVIC_PRIORITY_GROUP_POS   (8U)
-#define NVIC_PRIORITY_GROUP_MASK  (0x700U)
-#define NVIC_PRIORITY_GROUP       ((SCB->AIRCR & NVIC_PRIORITY_GROUP_MASK) >> NVIC_PRIORITY_GROUP_POS)
-void NVIC_ConfigureIRQ(IRQn_Type IRQn, uint8_t preempt_prio)
-{
-	uint32_t prigroup = NVIC_PRIORITY_GROUP;
-    //uint8_t pre_bits = 4, sub_bits = 0;
-	uint8_t priority = (preempt_prio & 0x0F);
-    NVIC->IP[IRQn] = priority << 4;
-    NVIC->ISER[IRQn >> 0x05] = ((uint32_t)1U << (IRQn & (uint8_t)0x1F));
-}
-
 /* Interruption initialisation */
 void extiInit()
 {
-	//static NVIC_InitTypeDef NVIC_InitStructure;
-
 	if (isInit)	return;
-	
-	//RCC_AHB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE); 
-	RCC->AHB2ENR |=  (uint32_t)0x00004000;
-	// NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	// NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI0_IRQn,5);
-
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI1_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI2_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI3_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI4_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 12;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI9_5_IRQn,12);
-	// NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
-	// NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
-	// NVIC_Init(&NVIC_InitStructure);
-	NVIC_ConfigureIRQ(EXTI15_10_IRQn,10);
+	RCC->AHB2ENR|=(uint32_t)0x00004000;
+	NVIC->IP[EXTI0_IRQn] =0x50;
+	NVIC->ISER[EXTI0_IRQn>>0x05] = ((uint32_t)1U << (EXTI0_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI1_IRQn] =0xC0;
+	NVIC->ISER[EXTI1_IRQn>>0x05] = ((uint32_t)1U << (EXTI1_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI2_IRQn] =0xC0;
+	NVIC->ISER[EXTI2_IRQn>>0x05] = ((uint32_t)1U << (EXTI2_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI3_IRQn] =0xC0;
+	NVIC->ISER[EXTI3_IRQn>>0x05] = ((uint32_t)1U << (EXTI3_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI4_IRQn] =0xC0;
+	NVIC->ISER[EXTI4_IRQn>>0x05] = ((uint32_t)1U << (EXTI4_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI9_5_IRQn] =0xC0;
+	NVIC->ISER[EXTI9_5_IRQn>>0x05] = ((uint32_t)1U << (EXTI9_5_IRQn&(uint8_t)0x1F));
+	NVIC->IP[EXTI15_10_IRQn] =0xA0;
+	NVIC->ISER[EXTI15_10_IRQn>>0x05] = ((uint32_t)1U << (EXTI15_10_IRQn&(uint8_t)0x1F));
 	isInit = true;
 }
 

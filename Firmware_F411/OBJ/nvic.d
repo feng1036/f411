@@ -1,10 +1,10 @@
 ..\obj\nvic.o: ..\HARDWARE\src\nvic.c
 ..\obj\nvic.o: stm32f4xx_conf.h
 ..\obj\nvic.o: ..\HARDWARE\interface\exti.h
-..\obj\nvic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\nvic.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
 ..\obj\nvic.o: ..\USER\stm32f4xx.h
 ..\obj\nvic.o: ..\CORE\core_cm4.h
-..\obj\nvic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\nvic.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\nvic.o: ..\CORE\core_cmInstr.h
 ..\obj\nvic.o: ..\CORE\core_cmFunc.h
 ..\obj\nvic.o: ..\CORE\core_cm4_simd.h
@@ -12,11 +12,9 @@
 ..\obj\nvic.o: ..\HARDWARE\interface\led.h
 ..\obj\nvic.o: ..\SYSTEM\sys\sys.h
 ..\obj\nvic.o: ..\HARDWARE\interface\motors.h
-..\obj\nvic.o: ..\CONFIG\interface\config.h
-..\obj\nvic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\nvic.o: ..\COMMON\interface\debug_assert.h
 ..\obj\nvic.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\nvic.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\nvic.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\nvic.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\nvic.o: ..\FreeRTOS\include\projdefs.h
 ..\obj\nvic.o: ..\FreeRTOS\include\portable.h
