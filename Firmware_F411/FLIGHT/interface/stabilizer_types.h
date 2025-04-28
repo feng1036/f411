@@ -2,7 +2,7 @@
 #define __STABILIZER_TYPES_H
 #include "sys.h"
 #include <stdbool.h>
-#include "com_queue.h"
+#include "communicate.h"
 
 #if defined(__CC_ARM) 
 	#pragma anon_unions

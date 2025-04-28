@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "config_param.h": "c"
+        "config_param.h": "c",
+        "uart_syslink.h": "c"
     }
 }

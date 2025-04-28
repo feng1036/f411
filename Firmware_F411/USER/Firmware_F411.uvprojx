@@ -10,7 +10,7 @@
       <TargetName>Firmware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5</pCCUsed>
+      <pCCUsed>5060528::V5.06 update 5 (build 528)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -583,16 +583,6 @@
               <FileName>ledseq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\ledseq.c</FilePath>
-            </File>
-            <File>
-              <FileName>radiolink.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\radiolink.c</FilePath>
-            </File>
-            <File>
-              <FileName>com_queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\com_queue.c</FilePath>
             </File>
             <File>
               <FileName>communicate.c</FileName>

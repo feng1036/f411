@@ -1,7 +1,7 @@
 ..\obj\i2cdev.o: ..\HARDWARE\src\i2cdev.c
 ..\obj\i2cdev.o: stm32f4xx_conf.h
-..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
-..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\i2cdev.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\i2cdev.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ..\obj\i2cdev.o: ..\HARDWARE\interface\i2cdev.h
 ..\obj\i2cdev.o: ..\HARDWARE\interface\i2c_drv.h
 ..\obj\i2cdev.o: ..\USER\stm32f4xx.h
@@ -11,7 +11,7 @@
 ..\obj\i2cdev.o: ..\CORE\core_cm4_simd.h
 ..\obj\i2cdev.o: ..\USER\system_stm32f4xx.h
 ..\obj\i2cdev.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\i2cdev.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\i2cdev.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\i2cdev.o: ..\COMMON\interface\debug_assert.h
 ..\obj\i2cdev.o: ..\FreeRTOS\include\projdefs.h

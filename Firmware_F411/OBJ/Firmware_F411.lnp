@@ -29,8 +29,6 @@
 "..\obj\port.o"
 "..\obj\heap_4.o"
 "..\obj\ledseq.o"
-"..\obj\radiolink.o"
-"..\obj\com_queue.o"
 "..\obj\communicate.o"
 "..\obj\stabilizer.o"
 "..\obj\debug_assert.o"
