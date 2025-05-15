@@ -19,9 +19,9 @@
 ..\obj\mpu6500.o: ..\FreeRTOS\include\mpu_wrappers.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\task.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\list.h
-..\obj\mpu6500.o: ..\HARDWARE\interface\i2cdev.h
+..\obj\mpu6500.o: ..\SENSOR\interface\i2cdev.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\mpu6500.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\mpu6500.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\semphr.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\queue.h
 ..\obj\mpu6500.o: ..\SENSOR\interface\mpu6500.h

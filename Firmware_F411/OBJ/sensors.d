@@ -13,9 +13,9 @@
 ..\obj\sensors.o: ..\CORE\core_cm4_simd.h
 ..\obj\sensors.o: ..\USER\system_stm32f4xx.h
 ..\obj\sensors.o: ..\SENSOR\interface\mpu6500.h
-..\obj\sensors.o: ..\HARDWARE\interface\i2cdev.h
+..\obj\sensors.o: ..\SENSOR\interface\i2cdev.h
 ..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\sensors.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\sensors.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\sensors.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\sensors.o: ..\CONFIG\interface\FreeRTOSConfig.h

@@ -1,9 +1,9 @@
-..\obj\i2cdev.o: ..\HARDWARE\src\i2cdev.c
+..\obj\i2cdev.o: ..\SENSOR\src\i2cdev.c
 ..\obj\i2cdev.o: stm32f4xx_conf.h
 ..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
 ..\obj\i2cdev.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\i2cdev.o: ..\HARDWARE\interface\i2cdev.h
-..\obj\i2cdev.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\i2cdev.o: ..\SENSOR\interface\i2cdev.h
+..\obj\i2cdev.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\i2cdev.o: ..\USER\stm32f4xx.h
 ..\obj\i2cdev.o: ..\CORE\core_cm4.h
 ..\obj\i2cdev.o: ..\CORE\core_cmInstr.h

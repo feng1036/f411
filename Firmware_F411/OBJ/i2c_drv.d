@@ -1,4 +1,4 @@
-..\obj\i2c_drv.o: ..\HARDWARE\src\i2c_drv.c
+..\obj\i2c_drv.o: ..\SENSOR\src\i2c_drv.c
 ..\obj\i2c_drv.o: stm32f4xx_conf.h
 ..\obj\i2c_drv.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
 ..\obj\i2c_drv.o: ..\USER\stm32f4xx.h
@@ -8,7 +8,7 @@
 ..\obj\i2c_drv.o: ..\CORE\core_cmFunc.h
 ..\obj\i2c_drv.o: ..\CORE\core_cm4_simd.h
 ..\obj\i2c_drv.o: ..\USER\system_stm32f4xx.h
-..\obj\i2c_drv.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\i2c_drv.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\i2c_drv.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\i2c_drv.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\i2c_drv.o: ..\CONFIG\interface\FreeRTOSConfig.h

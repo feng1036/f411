@@ -12,8 +12,8 @@
 ..\obj\bmp280.o: ..\CORE\core_cm4_simd.h
 ..\obj\bmp280.o: ..\USER\system_stm32f4xx.h
 ..\obj\bmp280.o: ..\SENSOR\interface\bmp280.h
-..\obj\bmp280.o: ..\HARDWARE\interface\i2cdev.h
-..\obj\bmp280.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\bmp280.o: ..\SENSOR\interface\i2cdev.h
+..\obj\bmp280.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\bmp280.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\bmp280.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\bmp280.o: ..\CONFIG\interface\FreeRTOSConfig.h

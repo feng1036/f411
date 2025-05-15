@@ -10,7 +10,6 @@
 int i2cdevInit(I2C_Dev *dev)
 {
 	i2cdrvInit(dev);
-
 	return true;
 }
 

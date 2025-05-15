@@ -445,16 +445,6 @@
               <FilePath>..\HARDWARE\src\exti.c</FilePath>
             </File>
             <File>
-              <FileName>i2cdev.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\i2cdev.c</FilePath>
-            </File>
-            <File>
-              <FileName>i2c_drv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\i2c_drv.c</FilePath>
-            </File>
-            <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\led.c</FilePath>
@@ -653,6 +643,16 @@
               <FileName>mpu6500.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\SENSOR\src\mpu6500.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SENSOR\src\i2c_drv.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2cdev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SENSOR\src\i2cdev.c</FilePath>
             </File>
           </Files>
         </Group>

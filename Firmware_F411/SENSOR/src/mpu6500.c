@@ -21,10 +21,6 @@ void mpu6500Init(I2C_Dev *i2cPort)
 }
 
 /** Set gyroscope sample rate divider.
- * @param rate New sample rate divider
- * @see getRate()
- * @see MPU6500_RA_SMPLRT_DIV
- */
 void mpu6500SetRate(uint8_t rate)
 {
   i2cdevWriteByte(I2Cx, devAddr, MPU6500_RA_SMPLRT_DIV, rate);
@@ -81,13 +77,6 @@ void mpu6500SetRate(uint8_t rate)
  * 6        | 5Hz       | 19.0ms | 5Hz       | 18.6ms | 1kHz
  * 7        |   -- Reserved --   |   -- Reserved --   | Reserved
  * </pre>
-** Set digital low-pass filter configuration.
- * @param mode New DLFP configuration setting
- * @see getDLPFBandwidth()
- * @see MPU6500_DLPF_BW_256
- * @see MPU6500_RA_CONFIG
- * @see MPU6500_CFG_DLPF_CFG_BIT
- * @see MPU6500_CFG_DLPF_CFG_LENGTH
  */
 void mpu6500SetDLPFMode(uint8_t mode)
 {

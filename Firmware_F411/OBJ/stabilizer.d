@@ -36,8 +36,8 @@
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\sensors.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\mpu6500.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\i2cdev.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\stabilizer.o: ..\SENSOR\interface\i2cdev.h
+..\obj\stabilizer.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\bmp280.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\filter.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\com_queue.h

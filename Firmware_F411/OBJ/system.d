@@ -36,8 +36,8 @@
 ..\obj\system.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\system.o: ..\SENSOR\interface\sensors.h
 ..\obj\system.o: ..\SENSOR\interface\mpu6500.h
-..\obj\system.o: ..\HARDWARE\interface\i2cdev.h
-..\obj\system.o: ..\HARDWARE\interface\i2c_drv.h
+..\obj\system.o: ..\SENSOR\interface\i2cdev.h
+..\obj\system.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\system.o: ..\SENSOR\interface\bmp280.h
 ..\obj\system.o: ..\SENSOR\interface\filter.h
 ..\obj\system.o: ..\COMMUNICATE\interface\com_queue.h

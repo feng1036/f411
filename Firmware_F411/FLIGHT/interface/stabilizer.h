@@ -10,14 +10,14 @@
 #define DEFAULT_PID_INTEGRATION_LIMIT 		500.0 //默认pid的积分限幅
 #define DEFAULT_PID_OUTPUT_LIMIT      		0.0	  //默认pid输出限幅，0为不限幅
 #define DETEC_ENABLED
-#define DETEC_FF_THRESHOLD 	0.05f	/* accZ接近-1.0程度 表示Free Fall */
-#define DETEC_FF_COUNT 		50  	/* 自由落体检测计数 1000Hz测试条件 */
-#define DETEC_TU_THRESHOLD 	60		/* 碰撞检测阈值60°*/
-#define DETEC_TU_COUNT 		100  	/* 碰撞检测计数 1000Hz测试条件 */
-#define  CMD_GET_CANFLY		0x02	/*获取四轴是否能飞*/
-#define  CMD_FLIGHT_LAND	0x03	/*起飞、降落*/
-#define  CMD_EMER_STOP		0x04	/*紧急停机*/
-#define  ACK_MSG			0x01
+#define DETEC_FF_THRESHOLD 					0.05f	/* accZ接近-1.0程度 表示Free Fall */
+#define DETEC_FF_COUNT 						50  	/* 自由落体检测计数 1000Hz测试条件 */
+#define DETEC_TU_THRESHOLD 					60		/* 碰撞检测阈值60°*/
+#define DETEC_TU_COUNT 						100  	/* 碰撞检测计数 1000Hz测试条件 */
+#define CMD_GET_CANFLY						0x02	/*获取四轴是否能飞*/
+#define CMD_FLIGHT_LAND						0x03	/*起飞、降落*/
+#define CMD_EMER_STOP						0x04	/*紧急停机*/
+#define ACK_MSG								0x01
 #define RATE_DO_EXECUTE(RATE_HZ, TICK) ((TICK % (MAIN_LOOP_RATE / RATE_HZ)) == 0)
 
 #define RATE_5_HZ		5
@@ -171,21 +171,6 @@ typedef struct
 	float out;			//< out
 } PidObject;
 
-extern PidObject pidAngleRoll;
-extern PidObject pidAnglePitch;
-extern PidObject pidAngleYaw;
-
-extern PidObject pidRateRoll;
-extern PidObject pidRatePitch;
-extern PidObject pidRateYaw;
-
-extern PidObject pidVX;
-extern PidObject pidVY;
-extern PidObject pidVZ;
-
-extern PidObject pidX;
-extern PidObject pidY;
-extern PidObject pidZ;
 
 /*pid结构体初始化*/
 void pidInit(PidObject* pid, const float desired, const pidInit_t pidParam, const float dt);
@@ -240,5 +225,4 @@ bool getCommanderKeyFlight(void);
 void setCommanderKeyland(bool set);
 bool getCommanderKeyland(void);
 void setCommanderFlightmode(bool set);
-
 #endif /* __STABALIZER_H */

@@ -6,8 +6,6 @@
 "..\obj\usart.o"
 "..\obj\config_param.o"
 "..\obj\exti.o"
-"..\obj\i2cdev.o"
-"..\obj\i2c_drv.o"
 "..\obj\led.o"
 "..\obj\motors.o"
 "..\obj\nvic.o"
@@ -40,6 +38,8 @@
 "..\obj\bmp280.o"
 "..\obj\filter.o"
 "..\obj\mpu6500.o"
+"..\obj\i2c_drv.o"
+"..\obj\i2cdev.o"
 --strict --scatter "..\OBJ\Firmware_F411.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
