@@ -29,8 +29,6 @@
 ..\obj\main.o: ..\SYSTEM\delay\delay.h
 ..\obj\main.o: ..\HARDWARE\interface\led.h
 ..\obj\main.o: ..\COMMUNICATE\interface\ledseq.h
-..\obj\main.o: ..\COMMUNICATE\interface\radiolink.h
-..\obj\main.o: ..\COMMUNICATE\interface\atkp.h
 ..\obj\main.o: ..\CONFIG\interface\config_param.h
 ..\obj\main.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\main.o: ..\COMMUNICATE\interface\communicate.h
@@ -40,7 +38,6 @@
 ..\obj\main.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\main.o: ..\SENSOR\interface\bmp280.h
 ..\obj\main.o: ..\SENSOR\interface\filter.h
-..\obj\main.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer.h
 ..\obj\main.o: ..\FLIGHT\interface\stabilizer_types.h
 ..\obj\main.o: ..\HARDWARE\interface\watchdog.h

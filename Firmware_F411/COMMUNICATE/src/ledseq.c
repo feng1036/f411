@@ -129,20 +129,20 @@ void ledseqRun(led_e led, const ledseq_t *sequence)
 		runLedseq(timer[led]);
 }
 
-/*停止led的sequence序列*/
-void ledseqStop(led_e led, const ledseq_t *sequence)
-{
-	int prio = getPrio(sequence);
+// /*停止led的sequence序列*/
+// void ledseqStop(led_e led, const ledseq_t *sequence)
+// {
+// 	int prio = getPrio(sequence);
 
-	if(prio<0) return;
+// 	if(prio<0) return;
 
-	xSemaphoreTake(ledseqSem, portMAX_DELAY);
-	state[led][prio] = LEDSEQ_STOP;  
-	updateActive(led);
-	xSemaphoreGive(ledseqSem);
+// 	xSemaphoreTake(ledseqSem, portMAX_DELAY);
+// 	state[led][prio] = LEDSEQ_STOP;  
+// 	updateActive(led);
+// 	xSemaphoreGive(ledseqSem);
 
-	runLedseq(timer[led]);
-}
+// 	runLedseq(timer[led]);
+// }
 
 /*FreeRTOS 定时器回调函数*/
 static void runLedseq( xTimerHandle xTimer )

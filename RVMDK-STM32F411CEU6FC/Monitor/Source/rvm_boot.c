@@ -1,0 +1,250 @@
+/******************************************************************************
+Filename    : rvm_boot.c
+Author      : The RVM project generator.
+Date        : 21/05/2025 22:33:52
+License     : Unlicense; see COPYING for details.
+Description : The boot-time initialization file.
+******************************************************************************/
+
+/* Include *******************************************************************/
+#include "rvm_boot.h"
+
+#define __HDR_DEF__
+#include "Platform/A7M/rvm_platform_a7m.h"
+#include "Syslib/rvm_syslib.h"
+#include "Monitor/rvm_monitor.h"
+#undef __HDR_DEF__
+
+#define __HDR_STRUCT__
+#include "Platform/A7M/rvm_platform_a7m.h"
+#include "Syslib/rvm_syslib.h"
+#include "Monitor/rvm_monitor.h"
+#undef __HDR_STRUCT__
+
+#define __HDR_PUBLIC__
+#include "Platform/A7M/rvm_platform_a7m.h"
+#include "Syslib/rvm_syslib.h"
+#include "Monitor/rvm_monitor.h"
+#undef __HDR_PUBLIC__
+/* End Include ***************************************************************/
+
+/* Public Variable ***********************************************************/
+/* Virtual machine management metadata */
+struct RVM_Virt_Struct RVM_Virt[RVM_VIRT_NUM];
+const struct RVM_Vmap_Struct RVM_Vmap[RVM_VIRT_NUM]=
+{
+{(rvm_s8_t*)"Flight", 10U, 100U, 1U, 0U, 2U, 
+ (struct RVM_Thd_Reg*)0x2000F950U, (struct RVM_State*)0x2000F9C0U,
+ 0x40U, 0x8030000U, RVM_CID(RVM_MAIN_VEP_0, 0U),
+ RVM_THD_VCT_PRC_FLIGHT, 0x2000FC00U, 0x400U,
+ RVM_THD_USR_PRC_FLIGHT, 0x2000FA00U, 0x200U},
+{(rvm_s8_t*)"Sensor", 10U, 100U, 1U, 0U, 3U, 
+ (struct RVM_Thd_Reg*)0x20013950U, (struct RVM_State*)0x200139C0U,
+ 0x40U, 0x8040000U, RVM_CID(RVM_MAIN_VEP_0, 1U),
+ RVM_THD_VCT_PRC_SENSOR, 0x20013C00U, 0x400U,
+ RVM_THD_USR_PRC_SENSOR, 0x20013A00U, 0x200U},
+{(rvm_s8_t*)"Remote", 10U, 100U, 10U, 0U, 1U, 
+ (struct RVM_Thd_Reg*)0x20017950U, (struct RVM_State*)0x200179C0U,
+ 0x40U, 0x8050000U, RVM_CID(RVM_MAIN_VEP_0, 2U),
+ RVM_THD_VCT_PRC_REMOTE, 0x20017C00U, 0x400U,
+ RVM_THD_USR_PRC_REMOTE, 0x20017A00U, 0x200U},
+};
+
+/* Virtual endpoint metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Vep_Main[RVM_BOOT_VEP_MAIN_NUM]=
+{
+{RVM_MAIN_VEP_0, 3U},
+};
+const struct RVM_Meta_Rcv_Crt_Struct RVM_Meta_Vep_Crt[RVM_BOOT_VEP_CRT_NUM]=
+{
+{RVM_MAIN_VEP_0, 0U},
+{RVM_MAIN_VEP_0, 1U},
+{RVM_MAIN_VEP_0, 2U},
+};
+const struct RVM_Meta_Vcap_Init_Struct RVM_Meta_Vcap_Init[RVM_BOOT_VCAP_INIT_NUM]=
+{
+{RVM_CPT_FLIGHT, RVM_MAIN_VEP_0, 0U},
+{RVM_CPT_SENSOR, RVM_MAIN_VEP_0, 1U},
+{RVM_CPT_REMOTE, RVM_MAIN_VEP_0, 2U},
+};
+
+/* Capability table metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Cpt_Main[RVM_BOOT_INIT_CPT_MAIN_NUM]=
+{
+{RVM_MAIN_CPT_0, 4U},
+};
+const struct RVM_Meta_Cpt_Crt_Struct RVM_Meta_Cpt_Crt[RVM_BOOT_INIT_CPT_CRT_NUM]=
+{
+{RVM_MAIN_CPT_0, 0, 3U},
+{RVM_MAIN_CPT_0, 1, 2U},
+{RVM_MAIN_CPT_0, 2, 2U},
+{RVM_MAIN_CPT_0, 3, 2U},
+};
+const struct RVM_Meta_Cpt_Init_Struct RVM_Meta_Cpt_Init[RVM_BOOT_INIT_CPT_INIT_NUM]=
+{
+{RVM_CPT_REALTIME, 1U, RVM_MAIN_RCV_0, 0U, RVM_SIG_FLAG_SND|RVM_SIG_FLAG_RCV},
+};
+const struct RVM_Meta_Cpt_Kfn_Struct RVM_Meta_Cpt_Kfn[RVM_BOOT_INIT_CPT_KFN_NUM]=
+{
+{RVM_CPT_REALTIME, 0U, RVM_KFN_EVT_LOCAL_TRIG, RVM_KFN_EVT_LOCAL_TRIG},
+{RVM_CPT_REALTIME, 2U, 0xF100U, 0xF100U},
+};
+
+/* Page table metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Pgt_Main[RVM_BOOT_INIT_PGT_MAIN_NUM]=
+{
+{RVM_MAIN_PGT_0, 16U},
+};
+const struct RVM_Meta_Pgt_Crt_Struct RVM_Meta_Pgt_Crt[RVM_BOOT_INIT_PGT_CRT_NUM]=
+{
+{RVM_MAIN_PGT_0, 0, 0x0U, 1U, 28U, 3U},
+{RVM_MAIN_PGT_0, 1, 0x8020000U, 0U, 16U, 0U},
+{RVM_MAIN_PGT_0, 2, 0x20000000U, 0U, 14U, 3U},
+{RVM_MAIN_PGT_0, 3, 0x20018000U, 0U, 11U, 0U},
+{RVM_MAIN_PGT_0, 4, 0x0U, 1U, 28U, 3U},
+{RVM_MAIN_PGT_0, 5, 0x8030000U, 0U, 16U, 0U},
+{RVM_MAIN_PGT_0, 6, 0x20000000U, 0U, 14U, 3U},
+{RVM_MAIN_PGT_0, 7, 0x20018000U, 0U, 11U, 0U},
+{RVM_MAIN_PGT_0, 8, 0x0U, 1U, 28U, 3U},
+{RVM_MAIN_PGT_0, 9, 0x8040000U, 0U, 16U, 0U},
+{RVM_MAIN_PGT_0, 10, 0x20010000U, 0U, 14U, 2U},
+{RVM_MAIN_PGT_0, 11, 0x20018000U, 0U, 10U, 0U},
+{RVM_MAIN_PGT_0, 12, 0x0U, 1U, 28U, 3U},
+{RVM_MAIN_PGT_0, 13, 0x8050000U, 0U, 16U, 0U},
+{RVM_MAIN_PGT_0, 14, 0x20010000U, 0U, 14U, 2U},
+{RVM_MAIN_PGT_0, 15, 0x20018400U, 0U, 10U, 0U},
+};
+const struct RVM_Meta_Pgt_Con_Struct RVM_Meta_Pgt_Con[RVM_BOOT_INIT_PGT_CON_NUM]=
+{
+{RVM_PGT_REALTIME_0, RVM_PGT_REALTIME_1, 0x0U},
+{RVM_PGT_REALTIME_0, RVM_PGT_REALTIME_2, 0x2U},
+{RVM_PGT_REALTIME_2, RVM_PGT_REALTIME_3, 0x6U},
+{RVM_PGT_FLIGHT_0, RVM_PGT_FLIGHT_1, 0x0U},
+{RVM_PGT_FLIGHT_0, RVM_PGT_FLIGHT_2, 0x2U},
+{RVM_PGT_FLIGHT_2, RVM_PGT_FLIGHT_3, 0x6U},
+{RVM_PGT_SENSOR_0, RVM_PGT_SENSOR_1, 0x0U},
+{RVM_PGT_SENSOR_0, RVM_PGT_SENSOR_2, 0x2U},
+{RVM_PGT_SENSOR_2, RVM_PGT_SENSOR_3, 0x2U},
+{RVM_PGT_REMOTE_0, RVM_PGT_REMOTE_1, 0x0U},
+{RVM_PGT_REMOTE_0, RVM_PGT_REMOTE_2, 0x2U},
+{RVM_PGT_REMOTE_2, RVM_PGT_REMOTE_3, 0x2U},
+};
+const struct RVM_Meta_Pgt_Add_Struct RVM_Meta_Pgt_Add[RVM_BOOT_INIT_PGT_ADD_NUM]=
+{
+{RVM_PGT_REALTIME_0, 0x4U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x4U},
+{RVM_PGT_REALTIME_0, 0x5U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x5U},
+{RVM_PGT_REALTIME_1, 0x0U,
+ RVM_PGT_READ|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x802U},
+{RVM_PGT_REALTIME_2, 0x2U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x8002U},
+{RVM_PGT_REALTIME_3, 0x0U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x40030U},
+{RVM_PGT_FLIGHT_0, 0x4U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x4U},
+{RVM_PGT_FLIGHT_0, 0x5U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x5U},
+{RVM_PGT_FLIGHT_1, 0x0U,
+ RVM_PGT_READ|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x803U},
+{RVM_PGT_FLIGHT_2, 0x3U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x8003U},
+{RVM_PGT_FLIGHT_3, 0x0U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x40030U},
+{RVM_PGT_SENSOR_0, 0x4U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x4U},
+{RVM_PGT_SENSOR_0, 0x5U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x5U},
+{RVM_PGT_SENSOR_1, 0x0U,
+ RVM_PGT_READ|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x804U},
+{RVM_PGT_SENSOR_2, 0x0U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x8004U},
+{RVM_PGT_SENSOR_3, 0x0U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x80060U},
+{RVM_PGT_REMOTE_0, 0x4U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x4U},
+{RVM_PGT_REMOTE_0, 0x5U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_STATIC,
+ 0x0U, 0x5U},
+{RVM_PGT_REMOTE_1, 0x0U,
+ RVM_PGT_READ|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x805U},
+{RVM_PGT_REMOTE_2, 0x1U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_EXECUTE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x8005U},
+{RVM_PGT_REMOTE_3, 0x0U,
+ RVM_PGT_READ|RVM_PGT_WRITE|RVM_PGT_CACHE|RVM_PGT_BUFFER|RVM_PGT_STATIC,
+ 0x0U, 0x80061U},
+};
+
+/* Process metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Prc_Main[RVM_BOOT_PRC_MAIN_NUM]=
+{
+{RVM_MAIN_PRC_0, 4U},
+};
+const struct RVM_Meta_Prc_Crt_Struct RVM_Meta_Prc_Crt[RVM_BOOT_PRC_CRT_NUM]=
+{
+{RVM_MAIN_PRC_0, 0, RVM_CPT_REALTIME, RVM_PGT_REALTIME_0},
+{RVM_MAIN_PRC_0, 1, RVM_CPT_FLIGHT, RVM_PGT_FLIGHT_0},
+{RVM_MAIN_PRC_0, 2, RVM_CPT_SENSOR, RVM_PGT_SENSOR_0},
+{RVM_MAIN_PRC_0, 3, RVM_CPT_REMOTE, RVM_PGT_REMOTE_0},
+};
+
+/* Thread metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Thd_Main[RVM_BOOT_THD_MAIN_NUM]=
+{
+{RVM_MAIN_THD_0, 7U},
+};
+const struct RVM_Meta_Thd_Crt_Struct RVM_Meta_Thd_Crt[RVM_BOOT_THD_CRT_NUM]=
+{
+{RVM_MAIN_THD_0, 0, RVM_PRC_REALTIME, 17U, RVM_A7M_ATTR_FPV4_SP, 0U},
+{RVM_MAIN_THD_0, 1, RVM_PRC_FLIGHT, 3U, RVM_A7M_ATTR_FPV4_SP, 0U},
+{RVM_MAIN_THD_0, 2, RVM_PRC_FLIGHT, 2U, RVM_A7M_ATTR_FPV4_SP, 1U},
+{RVM_MAIN_THD_0, 3, RVM_PRC_SENSOR, 3U, RVM_A7M_ATTR_FPV4_SP, 0U},
+{RVM_MAIN_THD_0, 4, RVM_PRC_SENSOR, 2U, RVM_A7M_ATTR_FPV4_SP, 1U},
+{RVM_MAIN_THD_0, 5, RVM_PRC_REMOTE, 3U, RVM_A7M_ATTR_FPV4_SP, 0U},
+{RVM_MAIN_THD_0, 6, RVM_PRC_REMOTE, 2U, RVM_A7M_ATTR_FPV4_SP, 1U},
+};
+const struct RVM_Meta_Thd_Init_Struct RVM_Meta_Thd_Init[RVM_BOOT_THD_INIT_NUM]=
+{
+{RVM_THD_STARTUP_PRC_REALTIME, 0U, 0x8020000U, 0U, 0x2000B000U, 0x1000U, 0x1234U, 17U, 0U},
+{RVM_THD_VCT_PRC_FLIGHT, RVM_VIRT_TID_FLAG, 0x8030000U, 0U, 0x2000FC00U, 0x400U, 0x0U, 3U, 0U},
+{RVM_THD_USR_PRC_FLIGHT, RVM_VIRT_TID_FLAG, 0x8030000U, 1U, 0x2000FA00U, 0x200U, 0x0U, 2U, 0x2000F950U},
+{RVM_THD_VCT_PRC_SENSOR, RVM_VIRT_TID_FLAG, 0x8040000U, 0U, 0x20013C00U, 0x400U, 0x0U, 3U, 0U},
+{RVM_THD_USR_PRC_SENSOR, RVM_VIRT_TID_FLAG, 0x8040000U, 1U, 0x20013A00U, 0x200U, 0x0U, 2U, 0x20013950U},
+{RVM_THD_VCT_PRC_REMOTE, RVM_VIRT_TID_FLAG, 0x8050000U, 0U, 0x20017C00U, 0x400U, 0x0U, 3U, 0U},
+{RVM_THD_USR_PRC_REMOTE, RVM_VIRT_TID_FLAG, 0x8050000U, 1U, 0x20017A00U, 0x200U, 0x0U, 2U, 0x20017950U},
+};
+
+/* Receive endpoint metadata */
+const struct RVM_Meta_Main_Struct RVM_Meta_Rcv_Main[RVM_BOOT_RCV_MAIN_NUM]=
+{
+{RVM_MAIN_RCV_0, 1U},
+};
+const struct RVM_Meta_Rcv_Crt_Struct RVM_Meta_Rcv_Crt[RVM_BOOT_RCV_CRT_NUM]=
+{
+{RVM_MAIN_RCV_0, 0},
+};
+
+/* End Public Variable *******************************************************/
+
+/* End Of File ***************************************************************/
+
+/* Copyright (C) Evo-Devo Instrum. All rights reserved ***********************/
+

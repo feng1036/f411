@@ -575,16 +575,6 @@
               <FilePath>..\COMMUNICATE\src\ledseq.c</FilePath>
             </File>
             <File>
-              <FileName>radiolink.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\radiolink.c</FilePath>
-            </File>
-            <File>
-              <FileName>com_queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\com_queue.c</FilePath>
-            </File>
-            <File>
               <FileName>communicate.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\communicate.c</FilePath>

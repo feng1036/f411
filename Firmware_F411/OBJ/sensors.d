@@ -29,6 +29,4 @@
 ..\obj\sensors.o: ..\FreeRTOS\include\queue.h
 ..\obj\sensors.o: ..\SENSOR\interface\bmp280.h
 ..\obj\sensors.o: ..\SENSOR\interface\filter.h
-..\obj\sensors.o: ..\COMMUNICATE\interface\com_queue.h
-..\obj\sensors.o: ..\FreeRTOS\include\task.h
-..\obj\sensors.o: ..\FreeRTOS\include\list.h
+..\obj\sensors.o: ..\COMMUNICATE\interface\communicate.h

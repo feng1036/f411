@@ -1,0 +1,57 @@
+# 忽略构建输出文件
+**/OBJ/
+**/Debug/
+**/Release/
+**/build/
+**/*.o
+**/*.d
+**/*.axf
+**/*.elf
+**/*.bin
+**/*.hex
+**/*.map
+**/*.lst
+
+# 忽略日志文件
+*.log
+
+# 忽略用户特定的 IDE 配置和缓存文件
+
+# Keil MDK
+*.uvoptx
+*.uvguix.*
+*.bak
+*.dep
+*.plg
+*.tid
+*.iex
+*.uvgui.*
+
+# STM32CubeIDE
+/.settings/
+/.metadata/
+*.launch
+*.cproject
+*.project
+
+# TrueSTUDIO
+*.suo
+*.user
+*.aps
+*.opt
+*.oif
+
+# VSCode
+.vscode/
+
+# 其他通用忽略
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# 不上传生成的库文件
+*.a
+
+# 不上传 backup
+/backup/

@@ -131,7 +131,6 @@ static bool sensorsFindBiasValue(BiasObj* bias)
 void sensorsInit(void)
 {
 	if(isInit) return;
-	queue_init(1);
 	sensorsDataReady = xSemaphoreCreateBinary();/*创建传感器数据就绪二值信号量*/
 	sensorsBiasObjInit(&gyroBiasRunning);
 	sensorsDeviceInit();	/*传感器器件初始化*/

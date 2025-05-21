@@ -20,7 +20,6 @@
 #include "delay.h"
 #include "led.h"
 #include "ledseq.h"
-#include "radiolink.h"
 #include "config_param.h"
 #include "uart_syslink.h"
 #include "communicate.h"

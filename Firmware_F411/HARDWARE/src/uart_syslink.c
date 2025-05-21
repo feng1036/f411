@@ -173,3 +173,36 @@ void __attribute__((used)) USART2_IRQHandler(void)
 {
 	uartslkIsr();
 }
+
+
+
+
+
+
+//指向共享内存的指针
+sensorData_t* SensorData = (sensorData_t*)DATA_SHARED_SENSOR_BASE;
+remoteData_t* RemoteData = (remoteData_t*)DATA_SHARED_REMOTE_BASE;
+
+//注册内存池
+struct Message_Sensor
+{
+	struct RMP_List Head;
+	sensorData_t sensor_data;
+};
+
+struct Message_Remote
+{
+	struct RMP_List Head;
+	remoteData_t remote_data;
+};
+
+//注册消息队列
+volatile struct RMP_Msgq* Queue_Sensor;
+volatile struct RMP_Msgq* Queue_Remote;
+
+
+struct RMP_List Pool_Sensor;
+struct Message_Seneor msgarray_sensor[3];
+struct RMP_List Pool_Remote;
+struct Message_Remote msgarray_remote[3]; 
+

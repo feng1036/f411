@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "stabilizer_types.h"
-#include "atkp.h"
 #include "config_param.h"
 #include "sys.h"
 

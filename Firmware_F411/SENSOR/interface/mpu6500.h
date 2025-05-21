@@ -107,4 +107,3 @@ void mpu6500SetFullScaleGyroRange(uint8_t range);
 void mpu6500SetFullScaleAccelRange(uint8_t range);
 
 #endif /* __MPU6500_H */
-
