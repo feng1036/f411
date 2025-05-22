@@ -16,6 +16,149 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+
+
+
+
+
+//OS相关头文件
+#include "rvm.h"
+#include "rmp.h"
+
+#define SHARED_SENSOR  		((volatile struct sensorData_t*)DATA_SHARED_SENSOR_BASE)
+#define SHARED_REMOTE  		((volatile struct sensorData_t*)DATA_SHARED_REMOTE_BASE)
+
+//注册内存池
+struct Message_Sensor
+{
+    struct RMP_List Head;
+	sensorData_t data;
+};
+
+struct Message_Remote
+{
+    struct RMP_List Head;
+	remoteData_t data;
+};
+
+struct RMP_List Pool_Sensor;
+struct Message_Seneor msgarray_sensor[3];
+struct RMP_List Pool_Remote;
+struct Message_Remote msgarray_remote[3]; 
+
+//注册消息队列
+volatile struct RMP_Msgq Queue_Sensor;
+volatile struct RMP_Msgq Queue_Remote;
+
+/* Function:sensor_data_Read **************************************************
+Description : Receive data from Sensor.
+Input       : Pointer to data.
+Output      : None.
+Return      : None.
+******************************************************************************/
+void sensor_data_Read(sensorData_t* sensordata)
+{
+	volatile struct Message_Sensor* msg_S; 
+	if(RMP_Msgq_Rcv(&Queue_Sensor,(struct RMP_List**)(&msg_S),0)!=0)
+		return;
+	*sensordata=msg_S->sensor_data;
+	RMP_INT_MASK();
+	RMP_List_Ins((struct RMP_List*)(&msg_S),Pool_Sensor.Prev,Pool_Sensor.Next);
+	RMP_INT_UNMASK();
+}
+
+/* Function:remote_data_Read **************************************************
+Description : Receive data from Remote.
+Input       : Pointer to data.
+Output      : None.
+Return      : None.
+******************************************************************************/
+bool remote_data_Read(remoteData_t *p)
+{
+    volatile struct Message_Remote* msg_R;
+	if(RMP_Msgq_Rcv(&Queue_Remote,(struct RMP_List**)(&msg_R),0)!=0)
+		return;
+	*p = msg_R->remote_data;
+	RMP_INT_MASK();
+	RMP_List_Ins((struct RMP_List*)(&msg_R),&Pool_Remote.Prev,&Pool_Remote.Next);
+	RMP_INT_UNMASK();
+	return true;
+}
+
+/* Function:Contact_Sensor ****************************************************
+Description : Interrupt handling program with Sensor.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
+void Contact_Sensor(void)
+{
+	volatile struct Message_Sensor* msg_s;
+	
+	if(Pool_Sensor.Next==&Pool_Sensor) return;
+	msg_s=(volatile struct Message_Sensor*)(Pool_Sensor.Next);
+	RMP_List_Del(msg_s->Head.Prev,msg_s->Head.Next);
+	msg_s->data=(sensorData_t*)SHARED_SENSOR;
+	RMP_Msgq_Snd_ISR(&Queue_Sensor,msg_s);
+}
+
+/* Function:Contact_Communicate ***********************************************
+Description : Interrupt handling program with Communicate.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
+void Contact_Remote(void)
+{
+	volatile struct Message_Remote* msg_r;
+
+	if(Pool_Remote.Next==&Pool_Remote) return;	
+	msg_r=(volatile struct Message_Remote*)(Pool_Remote.Next);
+	RMP_List_Del(msg_r.Head.Prev,msg_r.Head.Next);
+	msg_r->data=(remoteData_t*)SHARED_REMOTE;
+	RMP_Msgq_Snd_ISR(&Queue_Remote,msg_r);
+}
+
+/* Function:RMP_Init **********************************************************
+Description : The init thread hook functions.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
+
+void Int_Init(void)
+{
+    /* Interrupt generation is initialized too, here we only register our handler */
+    RVM_Virt_Vct_Reg(11U,Contact_Sensor);//FengBin
+    RVM_Virt_Vct_Reg(22U,Contact_Remote);//ZhaoXinYu
+    
+    /* Connect the virtual interrupt to our machine */
+    RVM_Hyp_Vct_Evt(11U,11U);//F_F
+    RVM_Hyp_Vct_Evt(22U,22U);//F_Z
+
+	//初始化内存池
+	RMP_List_Crt(&Pool_Sensor);
+	for(int i=0;i<3;i++){
+		RMP_List_Ins(&msgarray_sensor[i].Head,&Pool_Sensor.Prev,&Pool_Sensor.Next);
+	}
+	RMP_List_Crt(&Pool_Remote);
+	for(int i=0;i<3;i++){
+		RMP_List_Ins(&msgarray_remote[i].Head,&Pool_Remote.Prev,&Pool_Remote.Next);
+	}
+
+	//初始化消息队列
+	RMP_Msgq_Crt(&Queue_Sensor);
+	RMP_Msgq_Crt(&Queue_Remote);
+
+    RVM_Hyp_Vct_Lck(void);
+}
+
+
+
+
+
+
+
 #define DEG2RAD		0.017453293f	
 #define RAD2DEG		57.29578f
 
@@ -255,7 +398,7 @@ void stabilizerTask(void* param)
 		// 获取通信模块发送的遥控数据,pid数据,电源数据,目标姿态和飞行模式设定（250Hz）	
 		if (RATE_DO_EXECUTE(RATE_250_HZ, tick))
 		{
-			if(atkp_read(&pk))	/*接收数据*/
+			if(remote_data_Read(&pk))	/*接收数据*/
 			{
 				stabilizerDataprocess(&pk);	/*遥控数据,pid数据,电源数据处理*/
 			}	

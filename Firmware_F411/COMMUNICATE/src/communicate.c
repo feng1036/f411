@@ -44,7 +44,7 @@ void atkp_write(atkp_t *p)
     xQueueSend(atkp_stabilizer_queue, p, 0);	/*发送遥控数据到stablilizer通信的队列*/
 }
 
-BaseType_t atkp_read(atkp_t *p)
+BaseType_t remote_data_Read(atkp_t *p)
 {
     return xQueueReceive(atkp_stabilizer_queue, p, 0);	/*接收数据从stablilizer通信的队列*/
 }

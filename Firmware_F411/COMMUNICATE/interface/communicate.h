@@ -145,7 +145,7 @@ void communicateInit(void);
 
 
 void atkp_write(atkp_t *p);
-BaseType_t atkp_read(atkp_t *p);
+BaseType_t remote_data_Read(atkp_t *p);
 
 BaseType_t sensor_data_Read(sensorData_t* sensordata);
 void sensor_data_Write(sensorData_t* sensordata);

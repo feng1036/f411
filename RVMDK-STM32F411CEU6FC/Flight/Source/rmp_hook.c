@@ -19,7 +19,11 @@ Return      : None.
 ******************************************************************************/
 void RMP_Init_Hook(void)
 {
+/* Clean up the structures */
+    RMP_Clear(&Thd_F,sizeof(struct RMP_Thd));
 
+    /* Create kernel objects */
+    RMP_Thd_Crt(&Thd_F,stabilizerTask,0x6666U,sizeof(Stack_F),1U,100U);
 }
 
 void RMP_Init_Idle(void)
