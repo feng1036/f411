@@ -2,216 +2,208 @@
 #include "led.h"
 #include "ledseq.h"
 
-/*FreeRTOS相关头文件*/
-#include "FreeRTOS.h"
-#include "timers.h"
-#include "semphr.h"
-
-/* LED序列优先级 */
-static ledseq_t const * sequences[] = 
+/* LED序列定义 */
+const led_t seq_calibrated[] = /*传感器校准完成序列*/
 {
-	seq_lowbat,
-	seq_charged,
-	seq_charging,
-	seq_calibrated,
-	seq_alive,
-	seq_linkup,
+    { true,  LEDSEQ_WAITMS(50) },
+    { false, LEDSEQ_WAITMS(450) },
+    { 0,     LEDSEQ_LOOP }
 };
 
-/*Led 序列*/
-ledseq_t const seq_lowbat[] = 	/*电池低电压序列*/
+const led_t seq_alive[] = /*开机序列*/
 {
-	{ true, LEDSEQ_WAITMS(1000)},
-	{    0, LEDSEQ_LOOP},
+    { true,  LEDSEQ_WAITMS(50) },
+    { false, LEDSEQ_WAITMS(1950) },
+    { 0,     LEDSEQ_LOOP }
 };
-const ledseq_t seq_calibrated[] = /*传感器校准完成序列*/
+
+const led_t seq_linkup[] = /*通信连接序列*/
 {
-	{ true, LEDSEQ_WAITMS(50)},
-	{false, LEDSEQ_WAITMS(450)},
-	{    0, LEDSEQ_LOOP},
+    { true,  LEDSEQ_WAITMS(1) },
+    { false, LEDSEQ_WAITMS(0) },
+    { 0,     LEDSEQ_STOP }
 };
-const ledseq_t seq_alive[] = 	/*开机序列*/
+
+/* LED序列优先级表 */
+static led_t const * sequences[] = 
 {
-	{ true, LEDSEQ_WAITMS(50)},
-	{false, LEDSEQ_WAITMS(1950)},
-	{    0, LEDSEQ_LOOP},
-};
-const ledseq_t seq_linkup[] = 	/*通信连接序列*/
-{
-	{ true, LEDSEQ_WAITMS(1)},
-	{false, LEDSEQ_WAITMS(0)},
-	{    0, LEDSEQ_STOP},
-};
-const ledseq_t seq_charged[] = 	/*电池充电完成序列*/
-{
-	{ true, LEDSEQ_WAITMS(1000)},
-	{    0, LEDSEQ_LOOP},
-};
-ledseq_t const seq_charging[] = /*电池充电进行中序列*/
-{
-	{ true, LEDSEQ_WAITMS(200)},
-	{false, LEDSEQ_WAITMS(800)},
-	{    0, LEDSEQ_LOOP},
+    seq_calibrated,
+    seq_alive,
+    seq_linkup
 };
 
 #define SEQ_NUM (sizeof(sequences)/sizeof(sequences[0]))
-	
-static void updateActive(led_e led);		/*更新led的最高优先级序列*/
-static int getPrio(const ledseq_t *seq);	/*获取led优先级*/
+
+/* 函数声明 */
+static void updateActive(led_e led);
+static int getPrio(const led_t *seq);
 static void runLedseq(xTimerHandle xTimer);
 
+/* 全局变量 */
 static bool isInit = false;
 static bool ledseqEnabled = true;
-static int activeSeq[LED_NUM];		/*每个LED对应的活动优先级序列*/
-static int state[LED_NUM][SEQ_NUM];	/*每个LED对应的序列的当前位置*/
+static int activeSeq[LED_NUM];          /* 每个LED当前激活的序列 */
+static int state[LED_NUM][SEQ_NUM];     /* 每个LED各序列的当前状态 */
+static xTimerHandle timer[LED_NUM];     /* 每个LED的定时器 */
+static xSemaphoreHandle ledseqSem;      /* 访问控制信号量 */
 
-static xTimerHandle timer[LED_NUM];	/*定时器句柄*/
-static xSemaphoreHandle ledseqSem;	/*信号量*/
-
-
+/**
+ * @brief 初始化LED序列控制模块
+ */
 void ledseqInit()
 {
-	int i,j;
-	if(isInit) return;
+    int i, j;
+    
+    if (isInit) return;
 
-	ledInit();
-	
-	/*初始化各个序列状态*/
-	for(i=0; i<LED_NUM; i++) 
-	{
-		activeSeq[i] = LEDSEQ_STOP;
-		for(j=0; j<SEQ_NUM; j++)
-			state[i][j] = LEDSEQ_STOP;
-	}
-	
-	/*创建软件定时器*/
-	for(i=0; i<LED_NUM; i++)
-		timer[i] = xTimerCreate("ledseqTimer", 1000, pdFALSE, (void*)i, runLedseq);
+    ledInit();
+    
+    /* 初始化状态数组 */
+    for (i = 0; i < LED_NUM; i++) 
+    {
+        activeSeq[i] = LEDSEQ_STOP;
+        for (j = 0; j < SEQ_NUM; j++)
+            state[i][j] = LEDSEQ_STOP;
+    }
+    
+    /* 创建每个LED的软件定时器 */
+    for (i = 0; i < LED_NUM; i++)
+        timer[i] = xTimerCreate("ledseqTimer", 1000, pdFALSE, (void*)i, runLedseq);
 
-	vSemaphoreCreateBinary(ledseqSem);	/*创建一个2值信号量*/
+    vSemaphoreCreateBinary(ledseqSem);  /* 创建二值信号量 */
 
-	isInit = true;
+    isInit = true;
 }
 
+/**
+ * @brief 测试LED序列模块是否正常
+ * @return 测试结果
+ */
 bool ledseqTest(void)
 {
-	bool status;
-
-	status = isInit & ledTest();
-	ledseqEnable(true);
-	return status;
+    bool status = isInit & ledTest();
+    ledseqEnable(true);
+    return status;
 }
 
+/**
+ * @brief 启用或禁用LED序列控制
+ * @param enable 是否启用
+ */
 void ledseqEnable(bool enable)
 {
-	ledseqEnabled = enable;
+    ledseqEnabled = enable;
 }
 
-void ledseqSetTimes(ledseq_t *sequence, int onTime, int offTime)
+/**
+ * @brief 设置序列的闪烁时间
+ * @param sequence 要修改的序列
+ * @param onTime 点亮时间
+ * @param offTime 熄灭时间
+ */
+void ledseqSetTimes(led_t *sequence, int onTime, int offTime)
 {
-	sequence[0].action = onTime;
-	sequence[1].action = offTime;
+    sequence[0].action = onTime;
+    sequence[1].action = offTime;
 }
 
-/*运行led的sequence序列*/
-void ledseqRun(led_e led, const ledseq_t *sequence)
+/**
+ * @brief 运行指定LED的序列
+ * @param led LED编号
+ * @param sequence 要运行的序列
+ */
+void ledseqRun(led_e led, const led_t *sequence)
 {
-	int prio = getPrio(sequence);	/*获取led优先级序列*/
+    int prio = getPrio(sequence);
+    
+    if (prio < 0) return;
 
-	if(prio<0) return;
+    xSemaphoreTake(ledseqSem, portMAX_DELAY);
+    state[led][prio] = 0; 
+    updateActive(led);
+    xSemaphoreGive(ledseqSem);
 
-	xSemaphoreTake(ledseqSem, portMAX_DELAY);
-	state[led][prio] = 0; 
-	updateActive(led);
-	xSemaphoreGive(ledseqSem);
-
-	if(activeSeq[led] == prio)	/*当前序列优先级等于活动序列优先级*/
-		runLedseq(timer[led]);
+    if (activeSeq[led] == prio)
+        runLedseq(timer[led]);
 }
 
-// /*停止led的sequence序列*/
-// void ledseqStop(led_e led, const ledseq_t *sequence)
-// {
-// 	int prio = getPrio(sequence);
-
-// 	if(prio<0) return;
-
-// 	xSemaphoreTake(ledseqSem, portMAX_DELAY);
-// 	state[led][prio] = LEDSEQ_STOP;  
-// 	updateActive(led);
-// 	xSemaphoreGive(ledseqSem);
-
-// 	runLedseq(timer[led]);
-// }
-
-/*FreeRTOS 定时器回调函数*/
-static void runLedseq( xTimerHandle xTimer )
+/**
+ * @brief 定时器回调函数，执行LED序列的下一步
+ * @param xTimer 被触发的定时器
+ */
+static void runLedseq(xTimerHandle xTimer)
 {
-	bool leave = false;
-	const ledseq_t *step;
-	led_e led = (led_e)pvTimerGetTimerID(xTimer);
+    bool leave = false;
+    const led_t *step;
+    led_e led = (led_e)pvTimerGetTimerID(xTimer);
 
-	if (!ledseqEnabled) return;
+    if (!ledseqEnabled) return;
 
-	while(!leave) 
-	{
-		int prio = activeSeq[led];
+    while (!leave) 
+    {
+        int prio = activeSeq[led];
 
-		if (prio == LEDSEQ_STOP)
-			return;
+        if (prio == LEDSEQ_STOP)
+            return;
 
-		step = &sequences[prio][state[led][prio]];
+        step = &sequences[prio][state[led][prio]];
+        state[led][prio]++;
 
-		state[led][prio]++;
-
-		xSemaphoreTake(ledseqSem, portMAX_DELAY);
-		switch(step->action)
-		{
-			case LEDSEQ_LOOP:
-				state[led][prio] = 0;
-				break;
-			case LEDSEQ_STOP:
-				state[led][prio] = LEDSEQ_STOP;
-				updateActive(led);
-				break;
-			default:  /*LED定时*/
-				ledSet(led, step->value);	/*定时step->value*/
-				if (step->action == 0)
-					break;
-				xTimerChangePeriod(xTimer, step->action, 0);
-				xTimerStart(xTimer, 0);
-				leave=true;
-				break;
-		}
-		xSemaphoreGive(ledseqSem);
-	}
+        xSemaphoreTake(ledseqSem, portMAX_DELAY);
+        switch (step->action)
+        {
+            case LEDSEQ_LOOP:
+                state[led][prio] = 0;
+                break;
+                
+            case LEDSEQ_STOP:
+                state[led][prio] = LEDSEQ_STOP;
+                updateActive(led);
+                break;
+                
+            default:  /* LED定时操作 */
+                ledSet(led, step->value);
+                
+                if (step->action != 0) {
+                    xTimerChangePeriod(xTimer, step->action, 0);
+                    xTimerStart(xTimer, 0);
+                    leave = true;
+                }
+                break;
+        }
+        xSemaphoreGive(ledseqSem);
+    }
 }
 
-/*获取led序列优先级*/
-static int getPrio(const ledseq_t *seq)
+/**
+ * @brief 获取序列在优先级表中的位置
+ * @param sequence 要查找的序列
+ * @return 序列的优先级索引，-1表示未找到
+ */
+static int getPrio(const led_t *sequence)
 {
-	int prio;
+    for (int i = 0; i < SEQ_NUM; i++)
+        if (sequences[i] == sequence) 
+            return i;
 
-	for(prio=0; prio<SEQ_NUM; prio++)
-		if(sequences[prio]==seq) return prio;
-
-	return -1; /*无效序列*/
+    return -1; /* 未找到序列 */
 }
 
-/*更新led的最高优先级序列*/
-static void updateActive(led_e led)
+/**
+ * @brief 更新LED的活动序列为最高优先级的序列
+ * @param ledIndex LED编号
+ */
+static void updateActive(led_e ledIndex)
 {
-	int prio;
-
-	ledSet(led, false);
-	activeSeq[led]=LEDSEQ_STOP;
-	
-	for(prio=0;prio<SEQ_NUM;prio++)
-	{
-		if (state[led][prio] != LEDSEQ_STOP)
-		{
-			activeSeq[led]=prio;
-			break;
-		}
-	}
+    ledSet(ledIndex, false);
+    activeSeq[ledIndex] = LEDSEQ_STOP;
+    
+    for (int i = 0; i < SEQ_NUM; i++)
+    {
+        if (state[ledIndex][i] != LEDSEQ_STOP)
+        {
+            activeSeq[ledIndex] = i;
+            break;
+        }
+    }
 }
