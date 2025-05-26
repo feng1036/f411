@@ -4,13 +4,13 @@
 ..\obj\delay.o: ..\SYSTEM\sys\sys.h
 ..\obj\delay.o: ..\USER\stm32f4xx.h
 ..\obj\delay.o: ..\CORE\core_cm4.h
-..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\delay.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\delay.o: ..\CORE\core_cmInstr.h
 ..\obj\delay.o: ..\CORE\core_cmFunc.h
 ..\obj\delay.o: ..\CORE\core_cm4_simd.h
 ..\obj\delay.o: ..\USER\system_stm32f4xx.h
 ..\obj\delay.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\delay.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
+..\obj\delay.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stddef.h
 ..\obj\delay.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\delay.o: ..\COMMON\interface\debug_assert.h
 ..\obj\delay.o: ..\FreeRTOS\include\projdefs.h

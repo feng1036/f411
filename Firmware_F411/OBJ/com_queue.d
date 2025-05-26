@@ -2,8 +2,8 @@
 ..\obj\com_queue.o: stm32f4xx_conf.h
 ..\obj\com_queue.o: ..\COMMUNICATE\interface\com_queue.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\com_queue.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stddef.h
+..\obj\com_queue.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\com_queue.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\com_queue.o: ..\COMMON\interface\debug_assert.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\projdefs.h
@@ -14,4 +14,4 @@
 ..\obj\com_queue.o: ..\FreeRTOS\include\queue.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\task.h
 ..\obj\com_queue.o: ..\FreeRTOS\include\list.h
-..\obj\com_queue.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\com_queue.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdbool.h

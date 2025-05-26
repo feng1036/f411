@@ -1,10 +1,10 @@
 ..\obj\led.o: ..\HARDWARE\src\led.c
 ..\obj\led.o: stm32f4xx_conf.h
-..\obj\led.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\led.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdbool.h
 ..\obj\led.o: ..\SYSTEM\sys\sys.h
 ..\obj\led.o: ..\USER\stm32f4xx.h
 ..\obj\led.o: ..\CORE\core_cm4.h
-..\obj\led.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\led.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\led.o: ..\CORE\core_cmInstr.h
 ..\obj\led.o: ..\CORE\core_cmFunc.h
 ..\obj\led.o: ..\CORE\core_cm4_simd.h

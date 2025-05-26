@@ -10,7 +10,7 @@
       <TargetName>Firmware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCOMPLIER506</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -460,11 +460,6 @@
               <FilePath>..\HARDWARE\src\nvic.c</FilePath>
             </File>
             <File>
-              <FileName>uart_syslink.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\src\uart_syslink.c</FilePath>
-            </File>
-            <File>
               <FileName>system.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\src\system.c</FilePath>
@@ -573,11 +568,6 @@
               <FileName>ledseq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\COMMUNICATE\src\ledseq.c</FilePath>
-            </File>
-            <File>
-              <FileName>radiolink.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\COMMUNICATE\src\radiolink.c</FilePath>
             </File>
             <File>
               <FileName>com_queue.c</FileName>

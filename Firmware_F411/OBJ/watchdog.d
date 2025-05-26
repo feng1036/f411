@@ -4,10 +4,10 @@
 ..\obj\watchdog.o: ..\SYSTEM\sys\sys.h
 ..\obj\watchdog.o: ..\USER\stm32f4xx.h
 ..\obj\watchdog.o: ..\CORE\core_cm4.h
-..\obj\watchdog.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\watchdog.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\watchdog.o: ..\CORE\core_cmInstr.h
 ..\obj\watchdog.o: ..\CORE\core_cmFunc.h
 ..\obj\watchdog.o: ..\CORE\core_cm4_simd.h
 ..\obj\watchdog.o: ..\USER\system_stm32f4xx.h
-..\obj\watchdog.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\watchdog.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdbool.h
 ..\obj\watchdog.o: ..\COMMON\interface\debug_assert.h

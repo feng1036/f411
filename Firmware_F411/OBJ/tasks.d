@@ -1,10 +1,10 @@
 ..\obj\tasks.o: ..\FreeRTOS\tasks.c
 ..\obj\tasks.o: stm32f4xx_conf.h
-..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
-..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
+..\obj\tasks.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdlib.h
+..\obj\tasks.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\string.h
 ..\obj\tasks.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
-..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\tasks.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stddef.h
+..\obj\tasks.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\tasks.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\tasks.o: ..\COMMON\interface\debug_assert.h
 ..\obj\tasks.o: ..\FreeRTOS\include\projdefs.h
@@ -16,4 +16,4 @@
 ..\obj\tasks.o: ..\FreeRTOS\include\list.h
 ..\obj\tasks.o: ..\FreeRTOS\include\timers.h
 ..\obj\tasks.o: ..\FreeRTOS\include\StackMacros.h
-..\obj\tasks.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
+..\obj\tasks.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdio.h

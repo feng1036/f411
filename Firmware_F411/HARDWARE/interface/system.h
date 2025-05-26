@@ -20,29 +20,14 @@
 #include "delay.h"
 #include "led.h"
 #include "ledseq.h"
-#include "radiolink.h"
-#include "config_param.h"
-#include "uart_syslink.h"
+// #include "radiolink.h"
+//  #include "config_param.h"
+//  #include "uart_syslink.h"
 #include "communicate.h"
 #include "sensors.h"
 #include "stabilizer.h"
 #include "watchdog.h"
 
-
 void systemInit(void);
 
 #endif /* __SYSTEM_H */
-
-
-
-
-
-
-
-
-
-
-
-
-
-

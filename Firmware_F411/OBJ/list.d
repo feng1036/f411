@@ -1,9 +1,9 @@
 ..\obj\list.o: ..\FreeRTOS\list.c
 ..\obj\list.o: stm32f4xx_conf.h
-..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdlib.h
+..\obj\list.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdlib.h
 ..\obj\list.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
-..\obj\list.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\list.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stddef.h
+..\obj\list.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\list.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\list.o: ..\COMMON\interface\debug_assert.h
 ..\obj\list.o: ..\FreeRTOS\include\projdefs.h

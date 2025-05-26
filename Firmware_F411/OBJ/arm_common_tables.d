@@ -2,10 +2,10 @@
 ..\obj\arm_common_tables.o: stm32f4xx_conf.h
 ..\obj\arm_common_tables.o: ..\CORE\arm_math.h
 ..\obj\arm_common_tables.o: ..\CORE\core_cm4.h
-..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\arm_common_tables.o: ..\CORE\core_cmInstr.h
 ..\obj\arm_common_tables.o: ..\CORE\core_cmFunc.h
 ..\obj\arm_common_tables.o: ..\CORE\core_cm4_simd.h
-..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\string.h
-..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
+..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\string.h
+..\obj\arm_common_tables.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\math.h
 ..\obj\arm_common_tables.o: ..\CORE\arm_common_tables.h

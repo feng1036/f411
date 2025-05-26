@@ -4,9 +4,9 @@
 ..\obj\config_param.o: ..\SYSTEM\sys\sys.h
 ..\obj\config_param.o: ..\USER\stm32f4xx.h
 ..\obj\config_param.o: ..\CORE\core_cm4.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdint.h
+..\obj\config_param.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdint.h
 ..\obj\config_param.o: ..\CORE\core_cmInstr.h
 ..\obj\config_param.o: ..\CORE\core_cmFunc.h
 ..\obj\config_param.o: ..\CORE\core_cm4_simd.h
 ..\obj\config_param.o: ..\USER\system_stm32f4xx.h
-..\obj\config_param.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\config_param.o: C:\Keil_v5\ARM\ARMCOMPLIER506\Bin\..\include\stdbool.h
