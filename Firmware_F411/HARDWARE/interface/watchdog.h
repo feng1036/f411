@@ -3,12 +3,10 @@
 #include "sys.h"
 #include <stdbool.h>
 
-#define WATCHDOG_RESET_MS 	150	/*看门狗复位时间*/
+#define WATCHDOG_RESET_MS 150 /*看门狗复位时间*/
 
 void watchdogInit(u16 xms);
 bool watchdogTest(void);
 void watchdogReset(void);
 
-
-#endif 
-
+#endif
