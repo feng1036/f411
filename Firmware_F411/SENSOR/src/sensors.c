@@ -6,8 +6,10 @@ static bool gyroBiasFound=false;
 static bool isBaroPresent=false;
 static float accScaleSum=0;
 static float accScale=1;
-static enum {IDLE, BMP280, SPL06}baroType = IDLE;
+static enum {IDLE, BMP280}baroType = IDLE;
 static bool isInit=false;
+
+#define SENSOR_MSG ((volatile struct sensorData_t*)DATA_SHARED_SENSOR)
 /*传感器中断初始化*/
 static void sensorsInterruptInit(void)
 {
@@ -25,9 +27,12 @@ static void sensorsInterruptInit(void)
     EXTI->RTSR &= ~(uint32_t)0x00010;
     EXTI->FTSR &= ~(uint32_t)0x00010;
 	EXTI->RTSR |= (uint32_t)0x00010;
-	portDISABLE_INTERRUPTS();
+
+	//portDISABLE_INTERRUPTS();
+	RMP_INT_MASK();
 	EXTI->PR = (uint32_t)0x00010;
-	portENABLE_INTERRUPTS();
+	//portENABLE_INTERRUPTS();
+	RMP_INT_UNMASK();
 }
 
 /* 传感器器件初始化 */
@@ -35,13 +40,18 @@ void sensorsDeviceInit(void)
 {
 	i2cdevInit(I2C1_DEV);
 	mpu6500Init(I2C1_DEV);
-	vTaskDelay(10);
+
+	//vTaskDelay(10);
+	RMP_Thd_Delay(100);
 	mpu6500Reset();	// 复位MPU6500
-	vTaskDelay(20);	// 延时等待寄存器复位	
+	//vTaskDelay(20);	// 延时等待寄存器复位	
+	RMP_Thd_Delay(200);
 	mpu6500SetSleepEnabled(false);	// 唤醒MPU6500
-	vTaskDelay(10);		
+	//vTaskDelay(10);		
+	RMP_Thd_Delay(100);
 	mpu6500SetClockSource(MPU6500_CLOCK_PLL_XGYRO);	// 设置X轴陀螺作为时钟	
-	vTaskDelay(10);		// 延时等待时钟稳定	
+	//vTaskDelay(10);		// 延时等待时钟稳定	
+	RMP_Thd_Delay(100);
 	mpu6500SetTempSensorEnabled(true);	// 使能温度传感器	
 	mpu6500SetIntEnabled(false);		// 关闭中断	
 	mpu6500SetI2CBypassEnabled(true);	// 旁路模式，磁力计和气压连接到主IIC	
@@ -63,7 +73,8 @@ void sensorsDeviceInit(void)
 	{
 		isBaroPresent = true;
 		baroType = BMP280;
-		vTaskDelay(100);
+		//vTaskDelay(100);
+		RMP_Thd_Delay(1000);
 	}
 	else
 	{
@@ -131,7 +142,6 @@ static bool sensorsFindBiasValue(BiasObj* bias)
 void sensorsInit(void)
 {
 	if(isInit) return;
-	sensorsDataReady = xSemaphoreCreateBinary();/*创建传感器数据就绪二值信号量*/
 	sensorsBiasObjInit(&gyroBiasRunning);
 	sensorsDeviceInit();	/*传感器器件初始化*/
 	sensorsInterruptInit();	/*传感器中断初始化*/
@@ -282,44 +292,31 @@ void processAccGyroMeasurements(const uint8_t *buffer)
 void sensorsTask(void *param)
 {
 	sensorsInit();	/*传感器初始化*/
-	vTaskDelay(150);
+	//vTaskDelay(150);
+	RMP_Thd_Delay(1500);
 	sensorsSetupSlaveRead();/*设置传感器从模式读取*/
 
 	while (1)
 	{
 		/*确定数据长度*/
-		u8 dataLen = (u8) (SENSORS_MPU6500_BUFF_LEN +
-			(isBaroPresent ? SENSORS_BARO_BUFF_LEN : 0));
+		u8 dataLen = (u8)(SENSORS_MPU6500_BUFF_LEN +SENSORS_BARO_BUFF_LEN);
 
 		i2cdevRead(I2C1_DEV, MPU6500_ADDRESS_AD0_HIGH, MPU6500_RA_ACCEL_XOUT_H, dataLen, buffer);
 		
 		/*处理原始数据，并放入数据队列中*/
 		processAccGyroMeasurements(&(buffer[0]));
-		if (isBaroPresent)
-		{
-			processBarometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
-		}
-		
-		vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
-		
-		sensor_data_Write(&sensors);
-		xTaskResumeAll();
-		
+		processBarometerMeasurements(&(buffer[SENSORS_MPU6500_BUFF_LEN]));
+
+		//sensor_data_Write(&sensors);
+		*SENSOR_MSG=sensors;
+		RVM_Hyp_Evt_Snd(11);
 		//每1ms更新一次数据
-		vTaskDelay(1);
+		//vTaskDelay(1);
+		RMP_Thd_Delay(10);
 	}	
 }
 
-void __attribute__((used)) EXTI4_Callback(void)
-{
-	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
-	xSemaphoreGiveFromISR(sensorsDataReady, &xHigherPriorityTaskWoken);
 
-	if (xHigherPriorityTaskWoken)
-	{
-		portYIELD();
-	}
-}
 /*二阶低通滤波*/
 static void applyAxis3fLpf(lpf2pData *data, Axis3f* in)
 {

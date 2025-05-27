@@ -1,10 +1,9 @@
 #include <math.h>
 #include "stm32f4xx.h"
-#include "FreeRTOS.h"
-#include "task.h"
 #include "i2cdev.h"
 #include "mpu6500.h"
-
+#include "FreeRTOS.h"
+#include "task.h"
 static uint8_t devAddr;
 static I2C_Dev *I2Cx;
 static bool isInit;

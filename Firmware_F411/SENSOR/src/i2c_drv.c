@@ -3,7 +3,6 @@
 #include "i2c_drv.h"
 #include "delay.h"
 
-/*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -67,55 +66,55 @@ static void i2cdrvInitBus(I2cDrv* i2c)
     
     RCC->APB1ENR |= ((uint32_t)0x00200000);
 
-    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (8 * 2));
-    GPIOB->MODER |= (((uint32_t)(0x01)) << (8 * 2));
-    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (8 * 2));
-    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (8 * 2));
+    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (16U));
+    GPIOB->MODER |= (((uint32_t)(0x01)) << (16U));
+    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (16U));
+    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (16U));
     /* Output mode configuration*/
-    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)(8)));
-    GPIOB->OTYPER |= (((uint16_t)(0x01)) << ((uint16_t)(8)));
+    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << (8U));
+    GPIOB->OTYPER |= (((uint16_t)(0x01)) << (8U));
     /* Pull-up Pull down resistor configuration*/
-    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)(8) * 2));
-    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (8 * 2));
+    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << (16U));
+    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (16U));
 
-    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (9 * 2));
-    GPIOB->MODER |= (((uint32_t)(0x01)) << (9 * 2));
-    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (9 * 2));
-    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (9 * 2));
+    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (18U));
+    GPIOB->MODER |= (((uint32_t)(0x01)) << (18U));
+    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (18U));
+    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (18U));
     /* Output mode configuration*/
-    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)(9)));
-    GPIOB->OTYPER |= (((uint16_t)(0x01)) << ((uint16_t)(9)));
+    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << (9U));
+    GPIOB->OTYPER |= (((uint16_t)(0x01)) << (9U));
     /* Pull-up Pull down resistor configuration*/
-    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)(9) * 2));
-    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (9 * 2));
+    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << (18U));
+    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (18U));
 
 	i2cdrvdevUnlockBus(i2c->def->gpioSCLPort, i2c->def->gpioSDAPort, i2c->def->gpioSCLPin, i2c->def->gpioSDAPin);
 
-    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (8 * 2));
-    GPIOB->MODER |= (((uint32_t)(0x02)) << (8 * 2));
-    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (8 * 2));
-    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (8 * 2));
+    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (16U));
+    GPIOB->MODER |= (((uint32_t)(0x02)) << (16U));
+    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (16U));
+    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (16U));
     /* Output mode configuration*/
-    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)(8)));
-    GPIOB->OTYPER |= (((uint16_t)(0x01)) << ((uint16_t)(8)));
+    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << (8U));
+    GPIOB->OTYPER |= (((uint16_t)(0x01)) << (8U));
     /* Pull-up Pull down resistor configuration*/
-    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)(8) * 2));
-    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (8 * 2));
+    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << (16U));
+    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (16U));
 
-    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (9 * 2));
-    GPIOB->MODER |= (((uint32_t)(0x02)) << (9 * 2));
-    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (9 * 2));
-    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (9 * 2));
+    GPIOB->MODER  &= ~(GPIO_MODER_MODER0 << (18U));
+    GPIOB->MODER |= (((uint32_t)(0x02)) << (18U));
+    GPIOB->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (18U));
+    GPIOB->OSPEEDR |= ((uint32_t)(0x02) << (18U));
     /* Output mode configuration*/
-    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)(9)));
-    GPIOB->OTYPER |= (((uint16_t)(0x01)) << ((uint16_t)(9)));
+    GPIOB->OTYPER  &= ~((GPIO_OTYPER_OT_0) << (9U));
+    GPIOB->OTYPER |= (((uint16_t)(0x01)) << (9U));
     /* Pull-up Pull down resistor configuration*/
-    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)(9) * 2));
-    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (9 * 2));
+    GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << (18U));
+    GPIOB->PUPDR |= (((uint32_t)(0x00)) << (18U));
 
     // 直接设置GPIO B8为AF4
-    GPIOB->AFR[1] &= ~(0xF << 0); // 清除B8的AF设置
-    GPIOB->AFR[1] |= (0x4 << 0);  // 设置B8为AF4
+    GPIOB->AFR[1] &= ~(0xF); // 清除B8的AF设置
+    GPIOB->AFR[1] |= (0x4);  // 设置B8为AF4
     
     // 直接设置GPIO B9为AF4
     GPIOB->AFR[1] &= ~(0xF << 4); // 清除B9的AF设置
@@ -127,16 +126,16 @@ static void i2cdrvInitBus(I2cDrv* i2c)
 
     // I2C1 CR2配置 - 设置时钟频率
     I2C1->CR2 &= ~I2C_CR2_FREQ;    // 清除频率位
-    I2C1->CR2 |= 8;                // 8MHz
+    I2C1->CR2 |= 8U;                // 8MHz
 
     // I2C1 CCR配置
     I2C1->CR1 &= ~I2C_CR1_PE;      // 禁用I2C
     
     // 设置CCR寄存器 - 400KHz快速模式
-    I2C1->CCR = (uint16_t)(0x0007 | I2C_CCR_FS); // 8MHz/(400KHz*3) + 快速模式
+    I2C1->CCR = (uint16_t)(7U| I2C_CCR_FS); // 8MHz/(400KHz*3) + 快速模式
     
     // 设置上升时间
-    I2C1->TRISE = 3;               // (8*300/1000)+1 = 3.4，取整为3
+    I2C1->TRISE = 3;               
     
     // 使能I2C
     I2C1->CR1 |= I2C_CR1_PE;
@@ -156,8 +155,8 @@ static void i2cdrvInitBus(I2cDrv* i2c)
     NVIC->IP[I2C3_ER_IRQn] = 0x70; // 优先级7
     NVIC->ISER[I2C3_ER_IRQn >> 5] = (1 << (I2C3_ER_IRQn & 0x1F)); // 使能中断
 
-	i2c->isBusFreeSemaphore = xSemaphoreCreateBinary();
-	i2c->isBusFreeMutex = xSemaphoreCreateMutex();
+	//i2c->isBusFreeSemaphore = xSemaphoreCreateBinary();
+	//i2c->isBusFreeMutex = xSemaphoreCreateMutex();
 }
 
 //解锁IIC总线
@@ -382,7 +381,7 @@ bool i2cdrvMessageTransfer(I2cDrv* i2c, I2cMessage* message)
     bool status = false;
     int retries = message->nbrOfRetries;
 
-    xSemaphoreTake(i2c->isBusFreeMutex, portMAX_DELAY); // 保护消息数据
+    //xSemaphoreTake(i2c->isBusFreeMutex, portMAX_DELAY); // 保护消息数据
 
     while (retries >= 0) {
         // 写操作或需要写内部地址
@@ -402,12 +401,12 @@ bool i2cdrvMessageTransfer(I2cDrv* i2c, I2cMessage* message)
             break;
         }
         retries--;
-        i2cdrvRoughLoopDelay(100); // 延时一段时间再重试
+        i2cdrvRoughLoopDelay(100); //延时一段时间再重试
     }
     if (!status) {
-        // 所有重试失败，尝试重启总线
+        //所有重试失败，尝试重启总线
         i2cdrvTryToRestartBus(i2c);
     }
-    xSemaphoreGive(i2c->isBusFreeMutex);
+    //xSemaphoreGive(i2c->isBusFreeMutex);
     return status;
 }
