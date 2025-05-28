@@ -180,19 +180,19 @@ void pidReset(PidObject* pid);			/*pid结构体复位*/
 void stateControlInit(void);
 void stateControl(control_t *control, sensorData_t *sensors, state_t *state, setpoint_t *setpoint, const u32 tick);
 void attitudeControlInit(float rateDt, float angleDt);
-void attitudeDataprocess(atkp_t* anlPacket);
+void attitudeDataprocess(remoterData_t* anlPacket);
 void attitudeRatePID(Axis3f *actualRate,attitude_t *desiredRate,control_t *output);
 void attitudeAnglePID(attitude_t *actualAngle,attitude_t *desiredAngle,attitude_t *outDesiredRate);
 void attitudeControllerResetRollAttitudePID(void);
 void attitudeControllerResetPitchAttitudePID(void);
 void attitudeResetAllPID(void);
 void positionControlInit(float ratePidDt, float posPidDt);
-void positionDataprocess(atkp_t* anlPacket);
+void positionDataprocess(remoterData_t* anlPacket);
 void positionResetAllPID(void);
 void positionController(float* thrust, attitude_t *attitude, setpoint_t *setpoint, const state_t *state, float dt);
 float getAltholdThrust(void);
 void powerControlInit(void);
-void powerDataprocess(atkp_t* anlPacket);
+void powerDataprocess(remoterData_t* anlPacket);
 bool powerControlTest(void);
 void powerControl(control_t *control);
 void setMotorPWM(bool enable, u32 m1_set, u32 m2_set, u32 m3_set, u32 m4_set);
@@ -205,7 +205,7 @@ float getFusedHeight(void);	/*读取融合高度*/
 void estRstHeight(void);	/*复位估测高度*/
 void estRstAll(void);		/*复位所有估测*/
 void anomalDetec(const sensorData_t *sensorData, const state_t *state, const control_t *control);
-void remoterCtrlProcess(atkp_t* pk);
+void remoterCtrlProcess(remoterData_t* pk);
 void stabilizerInit(void);
 void stabilizerTask(void* param);
 bool stabilizerTest(void);

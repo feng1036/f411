@@ -1,6 +1,5 @@
 ..\obj\sensors.o: ..\SENSOR\src\sensors.c
 ..\obj\sensors.o: stm32f4xx_conf.h
-..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\math.h
 ..\obj\sensors.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdio.h
 ..\obj\sensors.o: ..\SENSOR\interface\sensors.h
 ..\obj\sensors.o: ..\SYSTEM\delay\delay.h
@@ -29,4 +28,3 @@
 ..\obj\sensors.o: ..\FreeRTOS\include\queue.h
 ..\obj\sensors.o: ..\SENSOR\interface\bmp280.h
 ..\obj\sensors.o: ..\SENSOR\interface\filter.h
-..\obj\sensors.o: ..\COMMUNICATE\interface\communicate.h

@@ -10,7 +10,7 @@
       <TargetName>Sensor</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>ARMCC</pCCUsed>
+      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -89,7 +89,7 @@
             <nStopA1X>0</nStopA1X>
             <nStopA2X>0</nStopA2X>
           </AfterMake>
-          <SelectedForBatchBuild>0</SelectedForBatchBuild>
+          <SelectedForBatchBuild>1</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
         </TargetCommonOption>
         <CommonProperty>
@@ -260,17 +260,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -280,7 +280,7 @@
                 <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -323,7 +323,7 @@
             <PlainCh>1</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations</MiscControls>
-              <Define></Define>
+              <Define>STM32F411xE,ARM_MATH_CM4,USE_STDPERIPH_DRIVER,USE_USB_OTG_FS,__FPU_PRESENT,__FPU_USED</Define>
               <Undefine></Undefine>
-              <IncludePath>./;../Include/;../../../../Include/;../../../../../M5P01_Prokaron/Include/</IncludePath>
+              <IncludePath>./;../Include/;../../../../Include/;../../../../../M5P01_Prokaron/Include/;..\..\Common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -358,7 +358,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>./;../Include/;../../../../Include/;../../../../../M5P01_Prokaron/Include/;</IncludePath>
+              <IncludePath>./;../Include/;../../../../Include/;../../../../../M5P01_Prokaron/Include/</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -443,6 +443,38 @@
         </Group>
         <Group>
           <GroupName>User</GroupName>
+          <Files>
+            <File>
+              <FileName>bmp280.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\bmp280.c</FilePath>
+            </File>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_drv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\i2c_drv.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2cdev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\i2cdev.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6500.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\mpu6500.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\sensors.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

@@ -19,7 +19,7 @@ void startTask(void *arg)
 {
     taskENTER_CRITICAL();	/*进入临界区*/
 
-    xTaskCreate(radiolinkTask, "RADIOLINK", 150, NULL, 5, NULL);		/*创建无线连接任务*/
+    //xTaskCreate(radiolinkTask, "RADIOLINK", 150, NULL, 5, NULL);		/*创建无线连接任务*/
 
     xTaskCreate(sensorsTask, "SENSORS", 450, NULL, 4, NULL);			/*创建传感器处理任务*/
 

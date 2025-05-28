@@ -81,9 +81,8 @@ static sensorData_t sensors;
 static lpf2pData accLpf[3];
 static lpf2pData gyroLpf[3];
 
-// static xSemaphoreHandle sensorsDataReady;
 static uint8_t buffer[SENSORS_MPU6500_BUFF_LEN + SENSORS_BARO_BUFF_LEN] = {0};
-void sensorsTask(void *param);
+void sensorsTask(void);
 void sensorsInit(void);			/*传感器初始化*/
 static void applyAxis3fLpf(lpf2pData *data, Axis3f* in);
 static void sensorsBiasObjInit(BiasObj* bias);
