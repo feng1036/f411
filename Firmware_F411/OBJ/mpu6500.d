@@ -8,6 +8,9 @@
 ..\obj\mpu6500.o: ..\CORE\core_cmFunc.h
 ..\obj\mpu6500.o: ..\CORE\core_cm4_simd.h
 ..\obj\mpu6500.o: ..\USER\system_stm32f4xx.h
+..\obj\mpu6500.o: ..\SENSOR\interface\i2cdev.h
+..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
+..\obj\mpu6500.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
 ..\obj\mpu6500.o: ..\CONFIG\interface\FreeRTOSConfig.h
@@ -17,11 +20,8 @@
 ..\obj\mpu6500.o: ..\FreeRTOS\include\deprecated_definitions.h
 ..\obj\mpu6500.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\mpu_wrappers.h
-..\obj\mpu6500.o: ..\FreeRTOS\include\task.h
-..\obj\mpu6500.o: ..\FreeRTOS\include\list.h
-..\obj\mpu6500.o: ..\SENSOR\interface\i2cdev.h
-..\obj\mpu6500.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stdbool.h
-..\obj\mpu6500.o: ..\SENSOR\interface\i2c_drv.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\semphr.h
 ..\obj\mpu6500.o: ..\FreeRTOS\include\queue.h
 ..\obj\mpu6500.o: ..\SENSOR\interface\mpu6500.h
+..\obj\mpu6500.o: ..\FreeRTOS\include\task.h
+..\obj\mpu6500.o: ..\FreeRTOS\include\list.h

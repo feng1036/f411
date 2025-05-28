@@ -1,4 +1,3 @@
-#include <math.h>
 #include <stdio.h>
 #include "sensors.h"
 
@@ -9,7 +8,7 @@ static float accScale=1;
 static enum {IDLE, BMP280}baroType = IDLE;
 static bool isInit=false;
 
-#define SENSOR_MSG ((volatile struct sensorData_t*)DATA_SHARED_SENSOR)
+#define SENSOR_MSG ((volatile struct sensorData_t*)DATA_SHARED_SENSOR_BASE)
 /*传感器中断初始化*/
 static void sensorsInterruptInit(void)
 {
@@ -289,7 +288,7 @@ void processAccGyroMeasurements(const uint8_t *buffer)
 	applyAxis3fLpf(accLpf, &sensors.acc);
 }
 /*传感器任务*/
-void sensorsTask(void *param)
+void sensorsTask(void)
 {
 	sensorsInit();	/*传感器初始化*/
 	//vTaskDelay(150);

@@ -1,0 +1,89 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: feng 8618263261027, sdu, LIC=NQQMA-11CFK-SBTEJ-UCZ6Z-2NW0B-L9AED
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.7.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\86182\Desktop\Code_Library\M7M02_Ammonite\Project\RVMDK-STM32F411CEU6FC\Kernel\Project\kernel.uvprojx
+Project File Date:  05/27/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild Project 'kernel' - Target 'Kernel'
+assembling rme_platform_a7m_armcc.s...
+compiling rme_hook.c...
+compiling realtime_image.c...
+compiling sensor_image.c...
+compiling rme_boot.c...
+compiling remote_image.c...
+compiling flight_image.c...
+compiling monitor_image.c...
+compiling rme_platform_a7m.c...
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7019): warning: implicit conversion changes signedness: 'unsigned int' to 'rme_cnt_t' (aka 'int') [-Wsign-conversion]
+                RME_FETCH_ADD(&(Cap_Sig->Sig_Num),Number-1U);
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Include\Platform\A7M\rme_platform_a7m.h(122): note: expanded from macro 'RME_FETCH_ADD'
+#define RME_FETCH_ADD(PTR,ADDEND)               _RME_Fetch_Add_Single(PTR,ADDEND)
+                                                ~~~~~~~~~~~~~~~~~~~~~     ^~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7032): warning: implicit conversion changes signedness: 'rme_ptr_t' (aka 'unsigned int') to 'rme_ret_t' (aka 'int') [-Wsign-conversion]
+            __RME_Svc_Retval_Set(&(Thd_Sig->Ctx.Reg->Reg),Number);
+            ~~~~~~~~~~~~~~~~~~~~                          ^~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7070): warning: implicit conversion changes signedness: 'rme_ptr_t' (aka 'unsigned int') to 'rme_cnt_t' (aka 'int') [-Wsign-conversion]
+        RME_FETCH_ADD(&(Cap_Sig->Sig_Num),Number);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Include\Platform\A7M\rme_platform_a7m.h(122): note: expanded from macro 'RME_FETCH_ADD'
+#define RME_FETCH_ADD(PTR,ADDEND)               _RME_Fetch_Add_Single(PTR,ADDEND)
+                                                ~~~~~~~~~~~~~~~~~~~~~     ^~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7170): warning: implicit conversion changes signedness: 'unsigned int' to 'rme_cnt_t' (aka 'int') [-Wsign-conversion]
+                RME_FETCH_ADD(&(Sig_Root->Sig_Num),Number-1U);
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Include\Platform\A7M\rme_platform_a7m.h(122): note: expanded from macro 'RME_FETCH_ADD'
+#define RME_FETCH_ADD(PTR,ADDEND)               _RME_Fetch_Add_Single(PTR,ADDEND)
+                                                ~~~~~~~~~~~~~~~~~~~~~     ^~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7183): warning: implicit conversion changes signedness: 'rme_ptr_t' (aka 'unsigned int') to 'rme_ret_t' (aka 'int') [-Wsign-conversion]
+            __RME_Svc_Retval_Set(&(Thd_Rcv->Ctx.Reg->Reg),Number);
+            ~~~~~~~~~~~~~~~~~~~~                          ^~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Source\Kernel\rme_kernel.c(7215): warning: implicit conversion changes signedness: 'rme_ptr_t' (aka 'unsigned int') to 'rme_cnt_t' (aka 'int') [-Wsign-conversion]
+        RME_FETCH_ADD(&(Sig_Root->Sig_Num),Number);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+C:\Users\86182\Desktop\Code_Library\M7M01_Eukaron\Include\Platform\A7M\rme_platform_a7m.h(122): note: expanded from macro 'RME_FETCH_ADD'
+#define RME_FETCH_ADD(PTR,ADDEND)               _RME_Fetch_Add_Single(PTR,ADDEND)
+                                                ~~~~~~~~~~~~~~~~~~~~~     ^~~~~~
+6 warnings generated.
+compiling rme_kernel.c...
+linking...
+Program Size: Code=35630 RO-data=40858 RW-data=4 ZI-data=6908  
+FromELF: creating hex file...
+".\Object\Kernel.axf" - 0 Error(s), 6 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.3.0.0.pack
+                Keil.STM32F4xx_DFP.3.0.0
+                STMicroelectronics STM32F4 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

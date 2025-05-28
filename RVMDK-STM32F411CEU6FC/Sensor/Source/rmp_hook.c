@@ -17,27 +17,33 @@ Input       : None.
 Output      : None.
 Return      : None.
 ******************************************************************************/
+volatile struct RMP_Thd Thd_1;
+void Sensor_Task(void);
+rmp_ptr_t Stack[1024];
+
 void RMP_Init_Hook(void)
 {
-	RMP_Clear(&Thd_1,sizeof(struct RMP_Thd));
-	//RMP_Clear(&Fifo_1,sizeof(struct RMP_Fifo));
-	//RMP_Clear(&Msgq_1,sizeof(struct RMP_Msgq));
-	
-	
-	RVM_Hyp_Vct_Phys(31U,0U);
-	RVM_Hyp_Vct_Phys(32U,1U);
-	
-	//send to Flight 
-	RVM_Hyp_Evt_Add(11U);
-	
-	RVM_Virt_Vct_Reg(0U,I2C1_EV_IRQHandler);
-	RVM_Virt_Vct_Reg(1U,I2C1_ER_IRQHandler);
-	
-	RVM_Virt_Vct_Lock();
-	
-	RMP_Thd_Crt(&Thd_1,(void*),(void*)0x1234U,Stack,1U,sizeof(Stack));
+    RMP_Clear(&Thd_1,sizeof(struct RMP_Thd));
+    //RMP_Clear(&Fifo_1,sizeof(struct RMP_Fifo));
+    //RMP_Clear(&Msgq_1,sizeof(struct RMP_Msgq));
+    
+    
+    RVM_Hyp_Vct_Phys(31U,0U);
+    RVM_Hyp_Vct_Phys(32U,1U);
+    
+    //send to Flight 
+    RVM_Hyp_Evt_Add(11U);
+    
+    //RVM_Virt_Vct_Reg(0U,I2C1_EV_IRQHandler);
+    //RVM_Virt_Vct_Reg(1U,I2C1_ER_IRQHandler);
+    
+    RVM_Hyp_Vct_Lck();
+    
+    RMP_Thd_Crt(&Thd_1,(void*)Sensor_Task,(void*)0x1234U,Stack,sizeof(Stack),1U,1000U);
 
 }
+
+
 
 void RMP_Init_Idle(void)
 {

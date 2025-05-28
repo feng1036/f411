@@ -22,95 +22,153 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\86182\Desktop\Code_Library\f411\Firmware_F411\USER\Firmware_F411.uvprojx
-Project File Date:  05/19/2025
+Project File Date:  05/27/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARM_Compiler_5\Bin'
 Rebuild target 'Firmware'
+compiling main.c...
+..\USER\main.c(22): error:  #20: identifier "radiolinkTask" is undefined
+      xTaskCreate(radiolinkTask, "RADIOLINK", 150, NULL, 5, NULL);		/*创建无线连接任务*/
+..\USER\main.c: 0 warnings, 1 error
+compiling uart_syslink.c...
+"no source": Error:  #5: cannot open source input file "..\HARDWARE\src\uart_syslink.c": No such file or directory
+..\HARDWARE\src\uart_syslink.c: 0 warnings, 1 error
 assembling startup_stm32f411xe.s...
-compiling system_stm32f4xx.c...
-compiling watchdog.c...
 compiling delay.c...
-compiling config_param.c...
 compiling sys.c...
+compiling arm_const_structs.c...
+compiling arm_common_tables.c...
 compiling exti.c...
+compiling watchdog.c...
+compiling arm_cos_f32.c...
+compiling usart.c...
+compiling led.c...
 compiling system.c...
+..\HARDWARE\src\system.c(15): warning:  #223-D: function "communicateInit" declared implicitly
+  	communicateInit();	/*和stablilizer通信的初始化*/
+..\HARDWARE\src\system.c: 1 warning, 0 errors
 compiling nvic.c...
+compiling config_param.c...
 compiling motors.c...
 ..\HARDWARE\src\motors.c(47): warning:  #61-D: integer operation result is out of range
   	GPIOB->AFR[0] &= ~(0xF << 28);
 ..\HARDWARE\src\motors.c: 1 warning, 0 errors
-compiling usart.c...
-compiling led.c...
-compiling arm_common_tables.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_common_tables.c: 1 warning, 0 errors
-compiling main.c...
-compiling uart_syslink.c...
-compiling arm_const_structs.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_const_structs.c: 1 warning, 0 errors
-compiling timers.c...
+compiling system_stm32f4xx.c...
+compiling tasks.c...
 compiling queue.c...
 compiling list.c...
-compiling tasks.c...
-compiling heap_4.c...
-compiling maths.c...
-compiling arm_cos_f32.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_cos_f32.c: 1 warning, 0 errors
-compiling filter.c...
-compiling arm_sin_f32.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_sin_f32.c: 1 warning, 0 errors
+compiling timers.c...
 compiling arm_mat_mult_f32.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_mat_mult_f32.c: 1 warning, 0 errors
 compiling arm_mean_f32.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_mean_f32.c: 1 warning, 0 errors
-compiling arm_mat_trans_f32.c...
-..\CORE\core_cm4.h(112): warning:  #1215-D: #warning directive: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-        #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
-..\DSP_Lib\arm_mat_trans_f32.c: 1 warning, 0 errors
-compiling communicate.c...
 compiling ledseq.c...
-compiling debug_assert.c...
-compiling freeRTOSdebug.c...
-compiling port.c...
+..\COMMUNICATE\src\ledseq.c(6): error:  #20: identifier "led_t" is undefined
+  const led_t seq_calibrated[] = /*传感器校准完成序列*/
+..\COMMUNICATE\src\ledseq.c(13): error:  #20: identifier "led_t" is undefined
+  const led_t seq_alive[] = /*开机序列*/
+..\COMMUNICATE\src\ledseq.c(20): error:  #20: identifier "led_t" is undefined
+  const led_t seq_linkup[] = /*通信连接序列*/
+..\COMMUNICATE\src\ledseq.c(28): error:  #260-D: explicit type is missing ("int" assumed)
+  static led_t const * sequences[] = 
+..\COMMUNICATE\src\ledseq.c(28): error:  #65: expected a ";"
+  static led_t const * sequences[] = 
+..\COMMUNICATE\src\ledseq.c(33): warning:  #12-D: parsing restarts here after previous syntax error
+  };
+..\COMMUNICATE\src\ledseq.c(39): error:  #757: variable "led_t"  is not a type name
+  static int getPrio(const led_t *seq);
+..\COMMUNICATE\src\ledseq.c(40): error:  #20: identifier "xTimerHandle" is undefined
+  static void runLedseq(xTimerHandle xTimer);
+..\COMMUNICATE\src\ledseq.c(46): error:  #20: identifier "sequences" is undefined
+  static int state[LED_NUM][SEQ_NUM];     /* 每个LED各序列的当前状态 */
+..\COMMUNICATE\src\ledseq.c(47): error:  #20: identifier "xTimerHandle" is undefined
+  static xTimerHandle timer[LED_NUM];     /* 每个LED的定时器 */
+..\COMMUNICATE\src\ledseq.c(48): error:  #20: identifier "xSemaphoreHandle" is undefined
+  static xSemaphoreHandle ledseqSem;      /* 访问控制信号量 */
+..\COMMUNICATE\src\ledseq.c(71): warning:  #223-D: function "xTimerCreate" declared implicitly
+          timer[i] = xTimerCreate("ledseqTimer", 1000, pdFALSE, (void*)i, runLedseq);
+..\COMMUNICATE\src\ledseq.c(71): error:  #20: identifier "pdFALSE" is undefined
+          timer[i] = xTimerCreate("ledseqTimer", 1000, pdFALSE, (void*)i, runLedseq);
+..\COMMUNICATE\src\ledseq.c(73): warning:  #223-D: function "vSemaphoreCreateBinary" declared implicitly
+      vSemaphoreCreateBinary(ledseqSem);  /* 创建二值信号量 */
+..\COMMUNICATE\src\ledseq.c(104): error:  #757: variable "led_t"  is not a type name
+  void ledseqSetTimes(led_t *sequence, int onTime, int offTime)
+..\COMMUNICATE\src\ledseq.c(115): error:  #757: variable "led_t"  is not a type name
+  void ledseqRun(led_e led, const led_t *sequence)
+..\COMMUNICATE\src\ledseq.c(121): warning:  #223-D: function "xSemaphoreTake" declared implicitly
+      xSemaphoreTake(ledseqSem, portMAX_DELAY);
+..\COMMUNICATE\src\ledseq.c(121): error:  #20: identifier "portMAX_DELAY" is undefined
+      xSemaphoreTake(ledseqSem, portMAX_DELAY);
+..\COMMUNICATE\src\ledseq.c(124): warning:  #223-D: function "xSemaphoreGive" declared implicitly
+      xSemaphoreGive(ledseqSem);
+..\COMMUNICATE\src\ledseq.c(134): error:  #20: identifier "xTimerHandle" is undefined
+  static void runLedseq(xTimerHandle xTimer)
+..\COMMUNICATE\src\ledseq.c(137): error:  #757: variable "led_t"  is not a type name
+      const led_t *step;
+..\COMMUNICATE\src\ledseq.c(138): warning:  #223-D: function "pvTimerGetTimerID" declared implicitly
+      led_e led = (led_e)pvTimerGetTimerID(xTimer);
+..\COMMUNICATE\src\ledseq.c(152): warning:  #223-D: function "xSemaphoreTake" declared implicitly
+          xSemaphoreTake(ledseqSem, portMAX_DELAY);
+..\COMMUNICATE\src\ledseq.c(152): error:  #20: identifier "portMAX_DELAY" is undefined
+          xSemaphoreTake(ledseqSem, portMAX_DELAY);
+..\COMMUNICATE\src\ledseq.c(168): warning:  #223-D: function "xTimerChangePeriod" declared implicitly
+                      xTimerChangePeriod(xTimer, step->action, 0);
+..\COMMUNICATE\src\ledseq.c(169): warning:  #223-D: function "xTimerStart" declared implicitly
+                      xTimerStart(xTimer, 0);
+..\COMMUNICATE\src\ledseq.c(174): warning:  #223-D: function "xSemaphoreGive" declared implicitly
+          xSemaphoreGive(ledseqSem);
+..\COMMUNICATE\src\ledseq.c(183): error:  #757: variable "led_t"  is not a type name
+  static int getPrio(const led_t *sequence)
+..\COMMUNICATE\src\ledseq.c(28): warning:  #177-D: variable "led_t"  was declared but never referenced
+  static led_t const * sequences[] = 
+..\COMMUNICATE\src\ledseq.c: 11 warnings, 18 errors
+compiling heap_4.c...
+compiling communicate.c...
+..\COMMUNICATE\src\communicate.c(12): error:  #5: cannot open source input file "rvm.h": No such file or directory
+  #include "rvm.h"
+..\COMMUNICATE\src\communicate.c: 0 warnings, 1 error
+compiling arm_mat_trans_f32.c...
 compiling stabilizer.c...
-..\FLIGHT\src\stabilizer.c(77): warning:  #550-D: variable "yawMode"  was set but never used
-  static YawModeType yawMode = XMODE;	/* 默认为X飞行模式 */
-..\FLIGHT\src\stabilizer.c: 1 warning, 0 errors
+..\FLIGHT\src\stabilizer.c(25): error:  #5: cannot open source input file "rvm.h": No such file or directory
+  #include "rvm.h"
+..\FLIGHT\src\stabilizer.c: 0 warnings, 1 error
+compiling maths.c...
+compiling filter.c...
 compiling sensors.c...
-..\SENSOR\src\sensors.c(38): warning:  #223-D: function "vTaskDelay" declared implicitly
-  	vTaskDelay(10);
-..\SENSOR\src\sensors.c(285): warning:  #223-D: function "vTaskDelay" declared implicitly
-  	vTaskDelay(150);
-..\SENSOR\src\sensors.c(303): warning:  #223-D: function "vTaskSuspendAll" declared implicitly
-  		vTaskSuspendAll();	/*确保同一时刻把数据放入队列中*/
-..\SENSOR\src\sensors.c(306): warning:  #223-D: function "xTaskResumeAll" declared implicitly
-  		xTaskResumeAll();
-..\SENSOR\src\sensors.c: 4 warnings, 0 errors
+..\SENSOR\interface\sensors.h(40): error:  #3093: anonymous structs are only supported in --gnu mode, or when enabled with #pragma anon_unions
+  	};
+..\SENSOR\interface\sensors.h(51): error:  #3093: anonymous structs are only supported in --gnu mode, or when enabled with #pragma anon_unions
+  	};
+..\SENSOR\src\sensors.c(31): warning:  #223-D: function "RMP_INT_MASK" declared implicitly
+  	RMP_INT_MASK();
+..\SENSOR\src\sensors.c(34): warning:  #223-D: function "RMP_INT_UNMASK" declared implicitly
+  	RMP_INT_UNMASK();
+..\SENSOR\src\sensors.c(44): warning:  #223-D: function "RMP_Thd_Delay" declared implicitly
+  	RMP_Thd_Delay(100);
+..\SENSOR\src\sensors.c(209): warning:  #223-D: function "sqrtf" declared implicitly
+  		accScaleSum += sqrtf(powf(ax * SENSORS_G_PER_LSB_CFG, 2) + powf(ay * SENSORS_G_PER_LSB_CFG, 2) + powf(az * SENSORS_G_PER_LSB_CFG, 2));
+..\SENSOR\src\sensors.c(209): warning:  #223-D: function "powf" declared implicitly
+  		accScaleSum += sqrtf(powf(ax * SENSORS_G_PER_LSB_CFG, 2) + powf(ay * SENSORS_G_PER_LSB_CFG, 2) + powf(az * SENSORS_G_PER_LSB_CFG, 2));
+..\SENSOR\src\sensors.c(295): warning:  #223-D: function "RMP_Thd_Delay" declared implicitly
+  	RMP_Thd_Delay(1500);
+..\SENSOR\src\sensors.c(310): error:  #20: identifier "DATA_SHARED_SENSOR" is undefined
+  		*SENSOR_MSG=sensors;
+..\SENSOR\src\sensors.c(311): warning:  #223-D: function "RVM_Hyp_Evt_Snd" declared implicitly
+  		RVM_Hyp_Evt_Snd(11);
+..\SENSOR\src\sensors.c: 7 warnings, 3 errors
+compiling arm_sin_f32.c...
+compiling freeRTOSdebug.c...
+compiling debug_assert.c...
+compiling port.c...
 compiling bmp280.c...
-compiling i2cdev.c...
 compiling mpu6500.c...
 compiling i2c_drv.c...
-..\SENSOR\src\i2c_drv.c(155): warning:  #61-D: integer operation result is out of range
+..\SENSOR\src\i2c_drv.c(154): warning:  #61-D: integer operation result is out of range
       NVIC->ISER[I2C1_EV_IRQn >> 5] = (1 << (I2C1_EV_IRQn & 0x1F)); // 使能中断
-..\SENSOR\src\i2c_drv.c(155): warning:  #68-D: integer conversion resulted in a change of sign
+..\SENSOR\src\i2c_drv.c(154): warning:  #68-D: integer conversion resulted in a change of sign
       NVIC->ISER[I2C1_EV_IRQn >> 5] = (1 << (I2C1_EV_IRQn & 0x1F)); // 使能中断
 ..\SENSOR\src\i2c_drv.c: 2 warnings, 0 errors
-linking...
-Program Size: Code=37140 RO-data=980 RW-data=780 ZI-data=46988  
-FromELF: creating hex file...
-"..\OBJ\Firmware_F411.axf" - 0 Error(s), 15 Warning(s).
+compiling i2cdev.c...
+"..\OBJ\Firmware_F411.axf" - 25 Error(s), 22 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -122,6 +180,7 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
+Target not created.
 Build Time Elapsed:  00:00:06
 </pre>
 </body>

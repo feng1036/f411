@@ -91,8 +91,6 @@ typedef struct
 	I2cMessage txMessage;                 //< The I2C send message
 	uint32_t messageIndex;                //< Index of bytes sent/received
 	uint32_t nbrOfretries;                //< Retries done
-	// SemaphoreHandle_t isBusFreeSemaphore; //< Semaphore to block during transaction.
-	// SemaphoreHandle_t isBusFreeMutex;     //< Mutex to protect buss
 } I2cDrv;
 
 // Definitions of i2c busses found in c file.

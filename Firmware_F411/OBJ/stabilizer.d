@@ -30,7 +30,6 @@
 ..\obj\stabilizer.o: ..\HARDWARE\interface\led.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\stabilizer.o: ..\CONFIG\interface\config_param.h
-..\obj\stabilizer.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\stabilizer.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\sensors.h
 ..\obj\stabilizer.o: ..\SENSOR\interface\mpu6500.h

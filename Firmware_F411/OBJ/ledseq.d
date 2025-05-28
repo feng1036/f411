@@ -11,17 +11,3 @@
 ..\obj\ledseq.o: ..\CORE\core_cm4_simd.h
 ..\obj\ledseq.o: ..\USER\system_stm32f4xx.h
 ..\obj\ledseq.o: ..\COMMUNICATE\interface\ledseq.h
-..\obj\ledseq.o: ..\FreeRTOS\include\FreeRTOS.h
-..\obj\ledseq.o: C:\Keil_v5\ARM\ARM_Compiler_5\Bin\..\include\stddef.h
-..\obj\ledseq.o: ..\CONFIG\interface\FreeRTOSConfig.h
-..\obj\ledseq.o: ..\COMMON\interface\debug_assert.h
-..\obj\ledseq.o: ..\FreeRTOS\include\projdefs.h
-..\obj\ledseq.o: ..\FreeRTOS\include\portable.h
-..\obj\ledseq.o: ..\FreeRTOS\include\deprecated_definitions.h
-..\obj\ledseq.o: ..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h
-..\obj\ledseq.o: ..\FreeRTOS\include\mpu_wrappers.h
-..\obj\ledseq.o: ..\FreeRTOS\include\timers.h
-..\obj\ledseq.o: ..\FreeRTOS\include\task.h
-..\obj\ledseq.o: ..\FreeRTOS\include\list.h
-..\obj\ledseq.o: ..\FreeRTOS\include\semphr.h
-..\obj\ledseq.o: ..\FreeRTOS\include\queue.h

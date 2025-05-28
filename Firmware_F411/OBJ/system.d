@@ -30,7 +30,6 @@
 ..\obj\system.o: ..\HARDWARE\interface\led.h
 ..\obj\system.o: ..\COMMUNICATE\interface\ledseq.h
 ..\obj\system.o: ..\CONFIG\interface\config_param.h
-..\obj\system.o: ..\HARDWARE\interface\uart_syslink.h
 ..\obj\system.o: ..\COMMUNICATE\interface\communicate.h
 ..\obj\system.o: ..\SENSOR\interface\sensors.h
 ..\obj\system.o: ..\SENSOR\interface\mpu6500.h
