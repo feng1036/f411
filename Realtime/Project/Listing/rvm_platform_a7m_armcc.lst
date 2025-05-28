@@ -1,0 +1,523 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/******************************************************
+                       ***********************
+    2 00000000         ;Filename    : rvm_platform_a7m_asm.s
+    3 00000000         ;Author      : pry
+    4 00000000         ;Date        : 19/01/2017
+    5 00000000         ;Description : The ARMv7-M user-level assembly support o
+                       f RVM.
+    6 00000000         ;*******************************************************
+                       **********************/
+    7 00000000         
+    8 00000000         ;/* Import *********************************************
+                       **********************/
+    9 00000000         ;The ARM C library entry
+   10 00000000                 IMPORT           __main
+   11 00000000         ;/* End Import *****************************************
+                       **********************/
+   12 00000000         
+   13 00000000         ;/* Export *********************************************
+                       **********************/
+   14 00000000         ;Entry point
+   15 00000000                 EXPORT           __RVM_Entry
+   16 00000000         ;User level stub for thread creation and synchronous inv
+                       ocation
+   17 00000000                 EXPORT           __RVM_Stub
+   18 00000000         ;Get the MSB in a word
+   19 00000000                 EXPORT           __RVM_A7M_MSB_Get
+   20 00000000         ;Triggering an invocation
+   21 00000000                 EXPORT           RVM_Inv_Act
+   22 00000000         ;Returning from an invocation
+   23 00000000                 EXPORT           RVM_Inv_Ret
+   24 00000000         ;System call gate
+   25 00000000                 EXPORT           RVM_Svc
+   26 00000000         ;Kernel function system call gate
+   27 00000000                 EXPORT           RVM_A7M_Svc_Kfn
+   28 00000000         ;/* End Export *****************************************
+                       **********************/
+   29 00000000         
+   30 00000000         ;/* Entry **********************************************
+                       **********************/
+   31 00000000                 AREA             RVM_ENTRY,CODE,READONLY,ALIGN=3
+   32 00000000                 THUMB
+   33 00000000                 REQUIRE8
+   34 00000000                 PRESERVE8
+   35 00000000         
+   36 00000000         __RVM_Entry
+                               PROC
+   37 00000000 4800            LDR              R0,=__main  ;Jump to init entry
+                                                             directly
+   38 00000002 4700            BX               R0
+   39 00000004                 ENDP
+   40 00000004         ;/* End Entry ******************************************
+                       **********************/
+   41 00000004         
+   42 00000004         ;/* Function:__RVM_Stub ********************************
+                       ***********************
+   43 00000004         ;Description : The user level stub for thread/invocation
+                        creation.
+   44 00000004         ;Input       : R4 - rvm_ptr_t Entry - The entry address.
+                       
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   45 00000004         ;              R5 - rvm_ptr_t Param - The parameter to b
+                       e passed to it.
+   46 00000004         ;Output      : None.
+   47 00000004         ;Return      : None.
+   48 00000004         ;*******************************************************
+                       **********************/
+   49 00000004 00000000        AREA             __RVM_STUB,CODE,READONLY,ALIGN=
+3
+   50 00000000                 THUMB
+   51 00000000                 REQUIRE8
+   52 00000000                 PRESERVE8
+   53 00000000         
+   54 00000000         __RVM_Stub
+                               PROC
+   55 00000000 B090            SUB              SP,#0x40    ;In order not to de
+                                                            stroy the stack
+   56 00000002 4628            MOV              R0,R5
+   57 00000004 4720            BX               R4          ;Branch to the actu
+                                                            al entry address
+   58 00000006                 ENDP
+   59 00000006         ;/* End Function:__RVM_Stub ****************************
+                       **********************/
+   60 00000006         
+   61 00000006         ;/* Function:__RVM_A7M_MSB_Get *************************
+                       ***********************
+   62 00000006         ;Description : Get the MSB of the word.
+   63 00000006         ;Input       : R0 - rvm_ptr_t Val - The value.
+   64 00000006         ;Output      : None.
+   65 00000006         ;Return      : R0 - rvm_ptr_t - The MSB position.
+   66 00000006         ;*******************************************************
+                       **********************/
+   67 00000006                 AREA             __RVM_A7M_MSB_GET,CODE,READONLY
+,ALIGN=3
+   68 00000000                 THUMB
+   69 00000000                 REQUIRE8
+   70 00000000                 PRESERVE8
+   71 00000000         
+   72 00000000         __RVM_A7M_MSB_Get
+                               PROC
+   73 00000000 FAB0 F180       CLZ              R1,R0
+   74 00000004 F04F 001F       MOV              R0,#31
+   75 00000008 EBA0 0001       SUB              R0,R1
+   76 0000000C 4770            BX               LR
+   77 0000000E                 ENDP
+   78 0000000E         ;/* End Function:__RVM_A7M_MSB_Get *********************
+                       **********************/
+   79 0000000E         
+   80 0000000E         ;/* Function:RVM_Inv_Act *******************************
+                       ***********************
+   81 0000000E         ;Description : Activate an invocation. If the return val
+                       ue is not desired, pass
+   82 0000000E         ;              0 into R2. This is a default implementati
+                       on that saves all general
+   83 0000000E         ;              purpose registers and doesn't save FPU co
+                       ntext. If you need a faster
+   84 0000000E         ;              version, consider inline functions; if yo
+                       u need to save FPU contexts,
+   85 0000000E         ;              please DIY.
+   86 0000000E         ;Input       : R0 - rvm_cid_t Cap_Inv - The capability s
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                       lot to the invocation stub. 2-Level.
+   87 0000000E         ;              R1 - rvm_ptr_t Param - The parameter for 
+                       the call.
+   88 0000000E         ;Output      : R2 - rvm_ptr_t* Retval - The return value
+                        from the call.
+   89 0000000E         ;Return      : R0 - rvm_ptr_t - The return value of the 
+                       system call itself.
+   90 0000000E         ;*******************************************************
+                       **********************/
+   91 0000000E                 AREA             RVM_INV_ACT,CODE,READONLY,ALIGN
+=3
+   92 00000000                 THUMB
+   93 00000000                 REQUIRE8
+   94 00000000                 PRESERVE8
+   95 00000000         
+   96 00000000         RVM_Inv_Act
+                               PROC
+   97 00000000 E92D 0FF0       PUSH             {R4-R11}    ;Save registers
+   98 00000004         
+   99 00000004 F44F 3480       MOV              R4,#0x10000 ;RVM_SVC_INV_ACT
+  100 00000008 4605            MOV              R5,R0
+  101 0000000A 460E            MOV              R6,R1       ;Parameter
+  102 0000000C         
+  103 0000000C DF00            SVC              #0x00       ;System call
+  104 0000000E F3BF 8F6F       ISB
+  105 00000012         
+  106 00000012 4620            MOV              R0,R4       ;System call return
+                                                             value
+  107 00000014 2A00            CMP              R2,#0x00    ;Invocation return 
+                                                            value
+  108 00000016 BF18            IT               NE
+  109 00000018 6015            STRNE            R5,[R2]
+  110 0000001A         
+  111 0000001A E8BD 0FF0       POP              {R4-R11}    ;Restore registers
+  112 0000001E 4770            BX               LR
+  113 00000020                 ENDP
+  114 00000020         ;/* End Function:RVM_Inv_Act ***************************
+                       **********************/
+  115 00000020         
+  116 00000020         ;/* Function:RVM_Inv_Ret *******************************
+                       ***********************
+  117 00000020         ;Description : Manually return from an invocation, and s
+                       et the return value to
+  118 00000020         ;              the old register set. This function does 
+                       not need a capability
+  119 00000020         ;              table to work, and never returns.
+  120 00000020         ;Input       : R0 - The returning result from the invoca
+                       tion.
+  121 00000020         ;Output      : None.
+  122 00000020         ;Return      : None.
+  123 00000020         ;*******************************************************
+                       **********************/
+  124 00000020                 AREA             RVM_INV_RET,CODE,READONLY,ALIGN
+=3
+  125 00000000                 THUMB
+  126 00000000                 REQUIRE8
+  127 00000000                 PRESERVE8
+  128 00000000         
+  129 00000000         RVM_Inv_Ret
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+                               PROC
+  130 00000000 F04F 0400       MOV              R4,#0x00    ;RVM_SVC_INV_RET
+  131 00000004 4605            MOV              R5,R0       ;Set return value
+  132 00000006         
+  133 00000006 DF00            SVC              #0x00       ;System call
+  134 00000008 F3BF 8F6F       ISB
+  135 0000000C         
+  136 0000000C 4620            MOV              R0,R4       ;Return failed if w
+                                                            e reach here
+  137 0000000E 4770            BX               LR
+  138 00000010                 ENDP
+  139 00000010         ;/* End Function:RVM_Inv_Ret ***************************
+                       **********************/
+  140 00000010         
+  141 00000010         ;/* Function:RVM_Svc ***********************************
+                       ***********************
+  142 00000010         ;Description : Trigger a system call.
+  143 00000010         ;Input       : R0 - rvm_ptr_t Num - The system call numb
+                       er/other information.
+  144 00000010         ;              R1 - rvm_ptr_t Param1 - Argument 1.
+  145 00000010         ;              R2 - rvm_ptr_t Param2 - Argument 2.
+  146 00000010         ;              R3 - rvm_ptr_t Param3 - Argument 3.
+  147 00000010         ;Output      : None.
+  148 00000010         ;Return      : R0 - rvm_ret_t - The system call return v
+                       alue.
+  149 00000010         ;*******************************************************
+                       **********************/
+  150 00000010                 AREA             RVM_SVC,CODE,READONLY,ALIGN=3
+  151 00000000                 THUMB
+  152 00000000                 REQUIRE8
+  153 00000000                 PRESERVE8
+  154 00000000         
+  155 00000000         RVM_Svc PROC
+  156 00000000 B4F0            PUSH             {R4-R7}     ;Save registers
+  157 00000002 4604            MOV              R4,R0       ;Pass parameters
+  158 00000004 460D            MOV              R5,R1
+  159 00000006 4616            MOV              R6,R2
+  160 00000008 461F            MOV              R7,R3
+  161 0000000A         
+  162 0000000A DF00            SVC              #0x00       ;System call
+  163 0000000C F3BF 8F6F       ISB
+  164 00000010         
+  165 00000010 4620            MOV              R0,R4       ;Return value
+  166 00000012 BCF0            POP              {R4-R7}     ;Restore registers
+  167 00000014 4770            BX               LR
+  168 00000016                 ENDP
+  169 00000016         ;/* End Function:RVM_Svc *******************************
+                       **********************/
+  170 00000016         
+  171 00000016         ;/* Function:RVM_A7M_Svc_Kfn ***************************
+                       ***********************
+  172 00000016         ;Description : Trigger a system call. This is ARMv7-M sp
+                       ecific, and does not expand
+  173 00000016         ;              to other architectures, and is only used 
+                       for kernel functions.
+  174 00000016         ;              This specially crafted system call allows
+                        up to 8 parameters to
+  175 00000016         ;              be passed and returned.
+  176 00000016         ;Input       : R0 - rvm_ptr_t Num - The system call numb
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+                       er/other information.
+  177 00000016         ;              R1 - rvm_ptr_t ID - The func ID and sub I
+                       D of the kernel function call.
+  178 00000016         ;              R2 - rvm_ptr_t Param[6] - Array of 6 argu
+                       ments.
+  179 00000016         ;Output      : R2 - rvm_ptr_t Param[6] - Array of 6 retu
+                       rn values.
+  180 00000016         ;Return      : R0 - rvm_ret_t - The system call return v
+                       alue.
+  181 00000016         ;*******************************************************
+                       **********************/
+  182 00000016                 AREA             RVM_A7M_SVC_KFN,CODE,READONLY,A
+LIGN=3
+  183 00000000                 THUMB
+  184 00000000                 REQUIRE8
+  185 00000000                 PRESERVE8
+  186 00000000         
+  187 00000000         RVM_A7M_Svc_Kfn
+                               PROC
+  188 00000000 E92D 1FF0       PUSH             {R4-R12}    ;Save registers
+  189 00000004 4604            MOV              R4,R0       ;Pass parameters
+  190 00000006 460D            MOV              R5,R1
+  191 00000008 4694            MOV              R12,R2      ;Pass extra paramet
+                                                            ers
+  192 0000000A F8DC 6000       LDR              R6,[R12,#0x00]
+  193 0000000E F8DC 7004       LDR              R7,[R12,#0x04]
+  194 00000012 F8DC 8008       LDR              R8,[R12,#0x08]
+  195 00000016 F8DC 900C       LDR              R9,[R12,#0x0C]
+  196 0000001A F8DC A010       LDR              R10,[R12,#0x10]
+  197 0000001E F8DC B014       LDR              R11,[R12,#0x14]
+  198 00000022         
+  199 00000022 DF00            SVC              #0x00       ;System call
+  200 00000024 F3BF 8F6F       ISB
+  201 00000028         
+  202 00000028 4620            MOV              R0,R4       ;System call return
+                                                             value
+  203 0000002A F8CC 6000       STR              R6,[R12,#0x00] ;Extra return va
+                                                            lues
+  204 0000002E F8CC 7004       STR              R7,[R12,#0x04]
+  205 00000032 F8CC 8008       STR              R8,[R12,#0x08]
+  206 00000036 F8CC 900C       STR              R9,[R12,#0x0C]
+  207 0000003A F8CC A010       STR              R10,[R12,#0x10]
+  208 0000003E F8CC B014       STR              R11,[R12,#0x14]
+  209 00000042         
+  210 00000042 E8BD 1FF0       POP              {R4-R12}    ;Restore registers
+  211 00000046 4770            BX               LR
+  212 00000048                 ENDP
+  213 00000048         ;/* End Function:RVM_A7M_Svc_Kfn ***********************
+                       **********************/
+  214 00000048                 ALIGN
+  215 00000048                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --depen
+d=.\object\rvm_platform_a7m_armcc.d -o.\object\rvm_platform_a7m_armcc.o -I./ -I
+../Include/ -I../../../M7M02_Ammonite/Include/ --predefine="__MICROLIB SETA 1" 
+--predefine="__UVISION_VERSION SETA 537" --predefine="STM32F411xE SETA 1" --lis
+t=.\listing\rvm_platform_a7m_armcc.lst ../../../M7M02_Ammonite/Source/Platform/
+A7M/rvm_platform_a7m_armcc.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RVM_ENTRY 00000000
+
+Symbol: RVM_ENTRY
+   Definitions
+      At line 31 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      None
+Comment: RVM_ENTRY unused
+__RVM_Entry 00000000
+
+Symbol: __RVM_Entry
+   Definitions
+      At line 36 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      At line 15 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: __RVM_Entry used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__RVM_STUB 00000000
+
+Symbol: __RVM_STUB
+   Definitions
+      At line 49 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      None
+Comment: __RVM_STUB unused
+__RVM_Stub 00000000
+
+Symbol: __RVM_Stub
+   Definitions
+      At line 54 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      At line 17 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: __RVM_Stub used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__RVM_A7M_MSB_GET 00000000
+
+Symbol: __RVM_A7M_MSB_GET
+   Definitions
+      At line 67 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      None
+Comment: __RVM_A7M_MSB_GET unused
+__RVM_A7M_MSB_Get 00000000
+
+Symbol: __RVM_A7M_MSB_Get
+   Definitions
+      At line 72 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      At line 19 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: __RVM_A7M_MSB_Get used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RVM_INV_ACT 00000000
+
+Symbol: RVM_INV_ACT
+   Definitions
+      At line 91 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      None
+Comment: RVM_INV_ACT unused
+RVM_Inv_Act 00000000
+
+Symbol: RVM_Inv_Act
+   Definitions
+      At line 96 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      At line 21 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: RVM_Inv_Act used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RVM_INV_RET 00000000
+
+Symbol: RVM_INV_RET
+   Definitions
+      At line 124 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      None
+Comment: RVM_INV_RET unused
+RVM_Inv_Ret 00000000
+
+Symbol: RVM_Inv_Ret
+   Definitions
+      At line 129 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      At line 23 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: RVM_Inv_Ret used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RVM_SVC 00000000
+
+Symbol: RVM_SVC
+   Definitions
+      At line 150 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      None
+Comment: RVM_SVC unused
+RVM_Svc 00000000
+
+Symbol: RVM_Svc
+   Definitions
+      At line 155 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      At line 25 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: RVM_Svc used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RVM_A7M_SVC_KFN 00000000
+
+Symbol: RVM_A7M_SVC_KFN
+   Definitions
+      At line 182 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      None
+Comment: RVM_A7M_SVC_KFN unused
+RVM_A7M_Svc_Kfn 00000000
+
+Symbol: RVM_A7M_Svc_Kfn
+   Definitions
+      At line 187 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platf
+orm_a7m_armcc.s
+   Uses
+      At line 27 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: RVM_A7M_Svc_Kfn used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 10 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+   Uses
+      At line 37 in file ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platfo
+rm_a7m_armcc.s
+Comment: __main used once
+1 symbol
+351 symbols in table

@@ -1,0 +1,381 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [.\Object\Sensor.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image .\Object\Sensor.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Wed May 28 22:34:35 2025
+<BR><P>
+<H3>Maximum Stack Usage =        144 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+RMP_PendSV_Handler &rArr; _RMP_Run_High &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+<P>
+<H3>
+Functions with no stack information
+</H3><UL>
+ <LI><a href="#[8]">_RMP_A7M_Skip</a>
+</UL>
+</UL>
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[1b]">RVM_Hyp_Reboot</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b]">RVM_Hyp_Reboot</a><BR>
+ <LI><a href="#[1a]">RVM_Log</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[16]">RVM_Putchar</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[7]">RMP_Init</a> from rmp_kernel.o(.text.RMP_Init) referenced 2 times from rmp_kernel.o(.text.main)
+ <LI><a href="#[6]">RMP_PendSV_Handler</a> from rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler) referenced 2 times from rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+ <LI><a href="#[5]">RMP_SysTick_Handler</a> from rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler) referenced 2 times from rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+ <LI><a href="#[0]">Thd_Vct</a> from prc_sensor.o(.text.Thd_Vct) referenced from prc_sensor_desc.o(.rodata.RVM_Desc)
+ <LI><a href="#[8]">_RMP_A7M_Skip</a> from rmp_platform_a7m_rvm_armcc.o(FASTYIELD) referenced from rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+ <LI><a href="#[1]">__RVM_Entry</a> from rvm_platform_a7m_armcc.o(RVM_ENTRY) referenced from prc_sensor_desc.o(.rodata.RVM_Desc)
+ <LI><a href="#[2]">__RVM_Stub</a> from rvm_platform_a7m_armcc.o(__RVM_STUB) referenced from prc_sensor_desc.o(.rodata.RVM_Desc)
+ <LI><a href="#[3]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from rvm_platform_a7m_armcc.o(RVM_ENTRY)
+ <LI><a href="#[4]">main</a> from rmp_kernel.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[1]"></a>__RVM_Entry</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rvm_platform_a7m_armcc.o(RVM_ENTRY))
+<BR>[Address Reference Count : 1]<UL><LI> prc_sensor_desc.o(.rodata.RVM_Desc)
+</UL>
+<P><STRONG><a name="[3]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
+<BR>[Address Reference Count : 1]<UL><LI> rvm_platform_a7m_armcc.o(RVM_ENTRY)
+</UL>
+<P><STRONG><a name="[28]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
+
+<P><STRONG><a name="[9]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[b]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[29]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+
+<P><STRONG><a name="[2a]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+
+<P><STRONG><a name="[2b]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+
+<P><STRONG><a name="[2c]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+
+<P><STRONG><a name="[2d]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+
+<P><STRONG><a name="[a]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
+</UL>
+
+<P><STRONG><a name="[2e]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+
+<P><STRONG><a name="[7]"></a>RMP_Init</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, rmp_kernel.o(.text.RMP_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = RMP_Init &rArr; _RMP_A7M_RVM_Yield &rArr; _RMP_Run_High &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Log
+<LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Plat_Hook
+<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_A7M_RVM_Yield
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Unmask
+<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Mask
+<LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init_Idle
+<LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init_Hook
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> rmp_kernel.o(.text.main)
+</UL>
+<P><STRONG><a name="[e]"></a>RMP_Init_Hook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, rmp_hook.o(.text.RMP_Init_Hook))
+<BR><BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+</UL>
+
+<P><STRONG><a name="[11]"></a>RMP_Init_Idle</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rmp_hook.o(.text.RMP_Init_Idle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RMP_Init_Idle &rArr; RVM_Hyp_Vct_Wait &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Vct_Wait
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+</UL>
+
+<P><STRONG><a name="[12]"></a>RMP_Log</STRONG> (Thumb, 612 bytes, Stack size 40 bytes, rmp_kernel.o(.text.RMP_Log))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+<LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Tim_Handler
+<LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Run_High
+</UL>
+
+<P><STRONG><a name="[14]"></a>RMP_Putchar</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm.o(.text.RMP_Putchar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Log
+</UL>
+
+<P><STRONG><a name="[21]"></a>RVM_Clear</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, rvm_syslib.o(.text.RVM_Clear))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = RVM_Clear
+</UL>
+<BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Init
+</UL>
+
+<P><STRONG><a name="[18]"></a>RVM_Hyp_Int_Ena</STRONG> (Thumb, 242 bytes, Stack size 24 bytes, rvm_virtlib.o(.text.RVM_Hyp_Int_Ena))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = RVM_Hyp_Int_Ena &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Plat_Hook
+</UL>
+
+<P><STRONG><a name="[1c]"></a>RVM_Hyp_Putchar</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, rvm_virtlib.o(.text.RVM_Hyp_Putchar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Putchar
+</UL>
+
+<P><STRONG><a name="[1b]"></a>RVM_Hyp_Reboot</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, rvm_virtlib.o(.text.RVM_Hyp_Reboot))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56 + In Cycle
+<LI>Call Chain = RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Plat_Hook
+<LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Int_Ena
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Yield
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Unmask
+<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Putchar
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Vct_Loop
+<LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thd_Vct
+<LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Vct_Wait
+</UL>
+
+<P><STRONG><a name="[13]"></a>RVM_Hyp_Vct_Wait</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RVM_Hyp_Vct_Wait &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init_Idle
+</UL>
+
+<P><STRONG><a name="[1a]"></a>RVM_Log</STRONG> (Thumb, 616 bytes, Stack size 40 bytes, rvm_syslib.o(.text.RVM_Log))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40 + In Cycle
+<LI>Call Chain = RVM_Log &rArr;  RVM_Putchar (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Plat_Hook
+<LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Int_Ena
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Yield
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Unmask
+<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Putchar
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Vct_Loop
+<LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thd_Vct
+<LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Vct_Wait
+</UL>
+
+<P><STRONG><a name="[16]"></a>RVM_Putchar</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, prc_sensor.o(.text.RVM_Putchar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Putchar
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+
+<P><STRONG><a name="[1d]"></a>RVM_Sig_Rcv</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, rvm_syslib.o(.text.RVM_Sig_Rcv))
+<BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Svc
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Vct_Loop
+</UL>
+
+<P><STRONG><a name="[19]"></a>RVM_Sig_Snd</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, rvm_syslib.o(.text.RVM_Sig_Snd))
+<BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Svc
+</UL>
+<BR>[Called By]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Int_Ena
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Yield
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Unmask
+<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Putchar
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Vct_Wait
+</UL>
+
+<P><STRONG><a name="[1f]"></a>RVM_Vct_Loop</STRONG> (Thumb, 350 bytes, Stack size 0 bytes, rvm_virtlib.o(.text.RVM_Vct_Loop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = RVM_Vct_Loop &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Rcv
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thd_Vct
+</UL>
+
+<P><STRONG><a name="[25]"></a>RVM_Virt_Ctx_Reg</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg))
+<BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Lowlvl_Init
+</UL>
+
+<P><STRONG><a name="[20]"></a>RVM_Virt_Init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, rvm_virtlib.o(.text.RVM_Virt_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = RVM_Virt_Init &rArr; RVM_Clear
+</UL>
+<BR>[Calls]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Clear
+</UL>
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thd_Vct
+</UL>
+
+<P><STRONG><a name="[c]"></a>RVM_Virt_Int_Mask</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, rvm_virtlib.o(.text.RVM_Virt_Int_Mask))
+<BR><BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_A7M_RVM_Yield
+</UL>
+
+<P><STRONG><a name="[10]"></a>RVM_Virt_Int_Unmask</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, rvm_virtlib.o(.text.RVM_Virt_Int_Unmask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = RVM_Virt_Int_Unmask &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_A7M_RVM_Yield
+</UL>
+
+<P><STRONG><a name="[24]"></a>RVM_Virt_Tim_Reg</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, rvm_virtlib.o(.text.RVM_Virt_Tim_Reg))
+<BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Lowlvl_Init
+</UL>
+
+<P><STRONG><a name="[22]"></a>RVM_Virt_Yield</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, rvm_virtlib.o(.text.RVM_Virt_Yield))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = RVM_Virt_Yield &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Tim_Handler
+</UL>
+
+<P><STRONG><a name="[0]"></a>Thd_Vct</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, prc_sensor.o(.text.Thd_Vct))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Thd_Vct &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+<LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Vct_Loop
+<LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Init
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> prc_sensor_desc.o(.rodata.RVM_Desc)
+</UL>
+<P><STRONG><a name="[23]"></a>_RMP_Lowlvl_Init</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _RMP_Lowlvl_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Ctx_Reg
+<LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Tim_Reg
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[d]"></a>_RMP_Plat_Hook</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = _RMP_Plat_Hook &rArr; RVM_Hyp_Int_Ena &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Int_Ena
+<LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Hyp_Reboot
+<LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Log
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+</UL>
+
+<P><STRONG><a name="[15]"></a>_RMP_Run_High</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, rmp_kernel.o(.text._RMP_Run_High))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = _RMP_Run_High &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Log
+<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_A7M_RVM_MSB_Get
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_PendSV_Handler
+<LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_A7M_RVM_Yield
+</UL>
+
+<P><STRONG><a name="[17]"></a>_RMP_Tim_Handler</STRONG> (Thumb, 294 bytes, Stack size 16 bytes, rmp_kernel.o(.text._RMP_Tim_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = _RMP_Tim_Handler &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Log
+<LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Yield
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_SysTick_Handler
+</UL>
+
+<P><STRONG><a name="[4]"></a>main</STRONG> (Thumb, 626 bytes, Stack size 8 bytes, rmp_kernel.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = main &rArr; _RMP_Lowlvl_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Lowlvl_Init
+<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Start
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
+</UL>
+<P><STRONG><a name="[27]"></a>_RMP_Start</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm_armcc.o(ARCH))
+<BR><BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[26]"></a>_RMP_A7M_RVM_MSB_Get</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm_armcc.o(ARCH))
+<BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Run_High
+</UL>
+
+<P><STRONG><a name="[2f]"></a>_RMP_A7M_RVM_LSB_Get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm_armcc.o(ARCH), UNUSED)
+
+<P><STRONG><a name="[f]"></a>_RMP_A7M_RVM_Yield</STRONG> (Thumb, 420 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm_armcc.o(FASTYIELD))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = _RMP_A7M_RVM_Yield &rArr; _RMP_Run_High &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Run_High
+<LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Unmask
+<LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Virt_Int_Mask
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RMP_Init
+</UL>
+
+<P><STRONG><a name="[1e]"></a>RVM_Svc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, rvm_platform_a7m_armcc.o(RVM_SVC))
+<BR><BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Rcv
+<LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RVM_Sig_Snd
+</UL>
+
+<P><STRONG><a name="[2]"></a>__RVM_Stub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rvm_platform_a7m_armcc.o(__RVM_STUB))
+<BR>[Address Reference Count : 1]<UL><LI> prc_sensor_desc.o(.rodata.RVM_Desc)
+</UL>
+<P><STRONG><a name="[30]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+
+<P><STRONG><a name="[31]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+
+<P><STRONG><a name="[32]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[8]"></a>_RMP_A7M_Skip</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rmp_platform_a7m_rvm_armcc.o(FASTYIELD))
+<BR>[Address Reference Count : 1]<UL><LI> rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+</UL>
+<P><STRONG><a name="[5]"></a>RMP_SysTick_Handler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = RMP_SysTick_Handler &rArr; _RMP_Tim_Handler &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Tim_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+</UL>
+<P><STRONG><a name="[6]"></a>RMP_PendSV_Handler</STRONG> (Thumb, 392 bytes, Stack size 16 bytes, rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = RMP_PendSV_Handler &rArr; _RMP_Run_High &rArr; RMP_Log &rArr; RMP_Putchar &rArr; RVM_Putchar &rArr; RVM_Hyp_Putchar &rArr; RVM_Hyp_Reboot &rArr;  RVM_Hyp_Reboot (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_RMP_Run_High
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+</UL><P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>

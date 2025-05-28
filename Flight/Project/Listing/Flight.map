@@ -1,0 +1,1476 @@
+Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
+
+==============================================================================
+
+Section Cross References
+
+    rmp_hook.o(.ARM.exidx.text.RMP_Init_Hook) refers to rmp_hook.o(.text.RMP_Init_Hook) for [Anonymous Symbol]
+    rmp_hook.o(.text.RMP_Init_Idle) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) for RVM_Hyp_Vct_Wait
+    rmp_hook.o(.ARM.exidx.text.RMP_Init_Idle) refers to rmp_hook.o(.text.RMP_Init_Idle) for [Anonymous Symbol]
+    prc_flight_desc.o(.rodata.RVM_Desc) refers to prc_flight.o(.text.Thd_Vct) for Thd_Vct
+    prc_flight_desc.o(.rodata.RVM_Desc) refers to rvm_platform_a7m_armcc.o(RVM_ENTRY) for __RVM_Entry
+    prc_flight_desc.o(.rodata.RVM_Desc) refers to rvm_platform_a7m_armcc.o(__RVM_STUB) for __RVM_Stub
+    prc_flight.o(.text.Thd_Vct) refers to prc_flight_desc.o(.rodata.RVM_Desc) for RVM_Desc
+    prc_flight.o(.text.Thd_Vct) refers to rvm_virtlib.o(.text.RVM_Virt_Init) for RVM_Virt_Init
+    prc_flight.o(.text.Thd_Vct) refers to rvm_virtlib.o(.text.RVM_Vct_Loop) for RVM_Vct_Loop
+    prc_flight.o(.text.Thd_Vct) refers to prc_flight.o(.rodata.str1.1) for .L.str
+    prc_flight.o(.text.Thd_Vct) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    prc_flight.o(.text.Thd_Vct) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    prc_flight.o(.ARM.exidx.text.Thd_Vct) refers to prc_flight.o(.text.Thd_Vct) for [Anonymous Symbol]
+    prc_flight.o(.text.RVM_Putchar) refers to rvm_virtlib.o(.text.RVM_Hyp_Putchar) for RVM_Hyp_Putchar
+    prc_flight.o(.ARM.exidx.text.RVM_Putchar) refers to prc_flight.o(.text.RVM_Putchar) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Init) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Virt_Init) refers to rvm_syslib.o(.text.RVM_Clear) for RVM_Clear
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Init) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Reg) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Vct_Reg) refers to rvm_virtlib.o(.text.RVM_Virt_Vct_Reg) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Vct_Trig) refers to rvm_virtlib.o(.text.RVM_Virt_Vct_Trig) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Reboot) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Reboot) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Reboot) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Reboot) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Tim_Reg) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Tim_Reg) refers to rvm_virtlib.o(.text.RVM_Virt_Tim_Reg) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Ctx_Reg) refers to rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Int_Mask) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Int_Mask) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Int_Unmask) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Virt_Yield) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Virt_Yield) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Virt_Yield) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Virt_Yield) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Virt_Yield) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Yield) refers to rvm_virtlib.o(.text.RVM_Virt_Yield) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp) refers to rvm_virtlib.o(.text.RVM_Hyp) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Putchar) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Putchar) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Putchar) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Putchar) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Putchar) refers to rvm_virtlib.o(.text.RVM_Hyp_Putchar) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Int_Ena) refers to rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Int_Dis) refers to rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Phys) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Evt) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Del) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Del) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Del) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Del) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Del) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Del) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Add) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Add) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Add) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Add) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Add) refers to rvm_virtlib.o(.text.RVM_Hyp_Evt_Add) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Del) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Del) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Del) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Del) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Del) refers to rvm_virtlib.o(.text.RVM_Hyp_Evt_Del) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Lck) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Wait) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Snd) refers to rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for RVM_Sig_Snd
+    rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Wdg_Clr) refers to rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Vct_Get) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Vct_Get) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Vct_Get) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Vct_Get) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Vct_Get) refers to rvm_virtlib.o(.text.RVM_Vct_Get) for [Anonymous Symbol]
+    rvm_virtlib.o(.text.RVM_Vct_Loop) refers to rvm_syslib.o(.text.RVM_Sig_Rcv) for RVM_Sig_Rcv
+    rvm_virtlib.o(.text.RVM_Vct_Loop) refers to rvm_virtlib.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rvm_virtlib.o(.text.RVM_Vct_Loop) refers to rvm_virtlib.o(.rodata.str1.1) for .L.str
+    rvm_virtlib.o(.text.RVM_Vct_Loop) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rvm_virtlib.o(.text.RVM_Vct_Loop) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rvm_virtlib.o(.ARM.exidx.text.RVM_Vct_Loop) refers to rvm_virtlib.o(.text.RVM_Vct_Loop) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Int_Print) refers to prc_flight.o(.text.RVM_Putchar) for RVM_Putchar
+    rvm_syslib.o(.ARM.exidx.text.RVM_Int_Print) refers to rvm_syslib.o(.text.RVM_Int_Print) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Hex_Print) refers to prc_flight.o(.text.RVM_Putchar) for RVM_Putchar
+    rvm_syslib.o(.ARM.exidx.text.RVM_Hex_Print) refers to rvm_syslib.o(.text.RVM_Hex_Print) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Str_Print) refers to prc_flight.o(.text.RVM_Putchar) for RVM_Putchar
+    rvm_syslib.o(.ARM.exidx.text.RVM_Str_Print) refers to rvm_syslib.o(.text.RVM_Str_Print) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Log) refers to prc_flight.o(.text.RVM_Putchar) for RVM_Putchar
+    rvm_syslib.o(.ARM.exidx.text.RVM_Log) refers to rvm_syslib.o(.text.RVM_Log) for [Anonymous Symbol]
+    rvm_syslib.o(.ARM.exidx.text.RVM_Clear) refers to rvm_syslib.o(.text.RVM_Clear) for [Anonymous Symbol]
+    rvm_syslib.o(.ARM.exidx.text.RVM_List_Crt) refers to rvm_syslib.o(.text.RVM_List_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.ARM.exidx.text.RVM_List_Del) refers to rvm_syslib.o(.text.RVM_List_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.ARM.exidx.text.RVM_List_Ins) refers to rvm_syslib.o(.text.RVM_List_Ins) for [Anonymous Symbol]
+    rvm_syslib.o(.text._RVM_MSB_Generic) refers to rvm_syslib.o(.rodata._RVM_MSB_Generic.Table) for _RVM_MSB_Generic.Table
+    rvm_syslib.o(.ARM.exidx.text._RVM_MSB_Generic) refers to rvm_syslib.o(.text._RVM_MSB_Generic) for [Anonymous Symbol]
+    rvm_syslib.o(.text._RVM_LSB_Generic) refers to rvm_syslib.o(.rodata._RVM_LSB_Generic.Table) for _RVM_LSB_Generic.Table
+    rvm_syslib.o(.ARM.exidx.text._RVM_LSB_Generic) refers to rvm_syslib.o(.text._RVM_LSB_Generic) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Crt) refers to rvm_syslib.o(.text.RVM_Cpt_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Del) refers to rvm_syslib.o(.text.RVM_Cpt_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Frz) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Frz) refers to rvm_syslib.o(.text.RVM_Cpt_Frz) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Add) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Add) refers to rvm_syslib.o(.text.RVM_Cpt_Add) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Pgt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Pgt) refers to rvm_syslib.o(.text.RVM_Cpt_Pgt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Kfn) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Kfn) refers to rvm_syslib.o(.text.RVM_Cpt_Kfn) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Kom) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Kom) refers to rvm_syslib.o(.text.RVM_Cpt_Kom) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Cpt_Rem) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Rem) refers to rvm_syslib.o(.text.RVM_Cpt_Rem) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Crt) refers to rvm_syslib.o(.text.RVM_Pgt_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Del) refers to rvm_syslib.o(.text.RVM_Pgt_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Add) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Add) refers to rvm_syslib.o(.text.RVM_Pgt_Add) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Rem) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Rem) refers to rvm_syslib.o(.text.RVM_Pgt_Rem) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Con) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Con) refers to rvm_syslib.o(.text.RVM_Pgt_Con) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Pgt_Des) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Des) refers to rvm_syslib.o(.text.RVM_Pgt_Des) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Prc_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Crt) refers to rvm_syslib.o(.text.RVM_Prc_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Prc_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Del) refers to rvm_syslib.o(.text.RVM_Prc_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Prc_Cpt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Cpt) refers to rvm_syslib.o(.text.RVM_Prc_Cpt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Prc_Pgt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Pgt) refers to rvm_syslib.o(.text.RVM_Prc_Pgt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Crt) refers to rvm_syslib.o(.text.RVM_Thd_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Hyp_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Hyp_Crt) refers to rvm_syslib.o(.text.RVM_Hyp_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Del) refers to rvm_syslib.o(.text.RVM_Thd_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Exec_Set) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Exec_Set) refers to rvm_syslib.o(.text.RVM_Thd_Exec_Set) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Bind) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Bind) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Bind) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Hyp_Sched_Bind) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Hyp_Sched_Bind) refers to rvm_syslib.o(.text.RVM_Hyp_Sched_Bind) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Prio) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Prio) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Prio2) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio2) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Prio2) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Prio3) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio3) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Prio3) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Prio4) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio4) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Prio4) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Free) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Free) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Free) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Sched_Rcv) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Rcv) refers to rvm_syslib.o(.text.RVM_Thd_Sched_Rcv) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Time_Xfer) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Time_Xfer) refers to rvm_syslib.o(.text.RVM_Thd_Time_Xfer) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Thd_Swt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Swt) refers to rvm_syslib.o(.text.RVM_Thd_Swt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Sig_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Crt) refers to rvm_syslib.o(.text.RVM_Sig_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Sig_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Del) refers to rvm_syslib.o(.text.RVM_Sig_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Sig_Snd) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Snd) refers to rvm_syslib.o(.text.RVM_Sig_Snd) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Sig_Rcv) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Rcv) refers to rvm_syslib.o(.text.RVM_Sig_Rcv) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Inv_Crt) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Crt) refers to rvm_syslib.o(.text.RVM_Inv_Crt) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Inv_Del) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Del) refers to rvm_syslib.o(.text.RVM_Inv_Del) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Inv_Set) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Set) refers to rvm_syslib.o(.text.RVM_Inv_Set) for [Anonymous Symbol]
+    rvm_syslib.o(.text.RVM_Kfn_Act) refers to rvm_platform_a7m_armcc.o(RVM_SVC) for RVM_Svc
+    rvm_syslib.o(.ARM.exidx.text.RVM_Kfn_Act) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for [Anonymous Symbol]
+    rvm_platform_a7m_armcc.o(RVM_ENTRY) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_Stack_Init) refers to rvm_platform_a7m.o(.text.RVM_Stack_Init) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_Thd_Cop_Size) refers to rvm_platform_a7m.o(.text.RVM_Thd_Cop_Size) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Kfn_Act) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Kfn_Act) refers to rvm_platform_a7m.o(.text.RVM_A7M_Kfn_Act) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Pgt_Entry_Mod) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Pgt_Entry_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Pgt_Entry_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Mod) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Int_Local_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Trig) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Int_Local_Trig) refers to rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Trig) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Cache_Mod) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Cache_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Cache_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Cache_Maint) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Cache_Maint) refers to rvm_platform_a7m.o(.text.RVM_A7M_Cache_Maint) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Prfth_Mod) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Prfth_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Prfth_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Perf_CPU_Func) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_CPU_Func) refers to rvm_platform_a7m.o(.text.RVM_A7M_Perf_CPU_Func) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Perf_Mon_Mod) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_Mon_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Perf_Mon_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Perf_Cycle_Mod) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_Cycle_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Perf_Cycle_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Debug_Print) refers to rvm_syslib.o(.text.RVM_Kfn_Act) for RVM_Kfn_Act
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Print) refers to rvm_platform_a7m.o(.text.RVM_A7M_Debug_Print) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Debug_Reg_Mod) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Reg_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Debug_Reg_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Debug_Inv_Mod) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Inv_Mod) refers to rvm_platform_a7m.o(.text.RVM_A7M_Debug_Inv_Mod) for [Anonymous Symbol]
+    rvm_platform_a7m.o(.text.RVM_A7M_Debug_Exc_Get) refers to rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN) for RVM_A7M_Svc_Kfn
+    rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Exc_Get) refers to rvm_platform_a7m.o(.text.RVM_A7M_Debug_Exc_Get) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm_armcc.o(FASTYIELD) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_platform_a7m_rvm_armcc.o(FASTYIELD) refers to rmp_kernel.o(.text._RMP_Run_High) for _RMP_Run_High
+    rmp_platform_a7m_rvm_armcc.o(FASTYIELD) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_platform_a7m_rvm_armcc.o(FASTYIELD) refers to rvm_virtlib.o(.rodata.RVM_Usr_Param) for RVM_Usr_Param
+    rmp_platform_a7m_rvm_armcc.o(FASTYIELD) refers to rmp_kernel.o(.bss..L_MergedGlobals) for RMP_SP_Cur
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Stack_Init) refers to rmp_platform_a7m_rvm.o(.text._RMP_Stack_Init) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) refers to rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler) for RMP_SysTick_Handler
+    rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Tim_Reg) for RVM_Virt_Tim_Reg
+    rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) refers to rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler) for RMP_PendSV_Handler
+    rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg) for RVM_Virt_Ctx_Reg
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Lowlvl_Init) refers to rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler) refers to rmp_kernel.o(.text._RMP_Tim_Handler) for _RMP_Tim_Handler
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_SysTick_Handler) refers to rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler) refers to rmp_kernel.o(.bss..L_MergedGlobals) for RMP_SP_Cur
+    rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler) refers to rmp_kernel.o(.text._RMP_Run_High) for _RMP_Run_High
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_PendSV_Handler) refers to rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) refers to prc_flight_desc.o(.rodata.RVM_Desc) for RVM_Desc
+    rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) refers to rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) for RVM_Hyp_Int_Ena
+    rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) refers to rmp_platform_a7m_rvm.o(.rodata.str1.1) for .L.str
+    rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) refers to rvm_syslib.o(.text.RVM_Log) for RVM_Log
+    rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) refers to rvm_virtlib.o(.text.RVM_Hyp_Reboot) for RVM_Hyp_Reboot
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Plat_Hook) refers to rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text.RMP_Putchar) refers to prc_flight.o(.text.RVM_Putchar) for RVM_Putchar
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Putchar) refers to rmp_platform_a7m_rvm.o(.text.RMP_Putchar) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text.RMP_Int_Enable) refers to rvm_virtlib.o(.text.RVM_Hyp_Int_Ena) for RVM_Hyp_Int_Ena
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Int_Enable) refers to rmp_platform_a7m_rvm.o(.text.RMP_Int_Enable) for [Anonymous Symbol]
+    rmp_platform_a7m_rvm.o(.text.RMP_Int_Disable) refers to rvm_virtlib.o(.text.RVM_Hyp_Int_Dis) for RVM_Hyp_Int_Dis
+    rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Int_Disable) refers to rmp_platform_a7m_rvm.o(.text.RMP_Int_Disable) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Int_Print) refers to rmp_platform_a7m_rvm.o(.text.RMP_Putchar) for RMP_Putchar
+    rmp_kernel.o(.ARM.exidx.text.RMP_Int_Print) refers to rmp_kernel.o(.text.RMP_Int_Print) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Hex_Print) refers to rmp_platform_a7m_rvm.o(.text.RMP_Putchar) for RMP_Putchar
+    rmp_kernel.o(.ARM.exidx.text.RMP_Hex_Print) refers to rmp_kernel.o(.text.RMP_Hex_Print) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Str_Print) refers to rmp_platform_a7m_rvm.o(.text.RMP_Putchar) for RMP_Putchar
+    rmp_kernel.o(.ARM.exidx.text.RMP_Str_Print) refers to rmp_kernel.o(.text.RMP_Str_Print) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Log) refers to rmp_platform_a7m_rvm.o(.text.RMP_Putchar) for RMP_Putchar
+    rmp_kernel.o(.ARM.exidx.text.RMP_Log) refers to rmp_kernel.o(.text.RMP_Log) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_Clear) refers to rmp_kernel.o(.text.RMP_Clear) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_MSB_Generic) refers to rmp_kernel.o(.rodata.RMP_MSB_Generic.Table) for RMP_MSB_Generic.Table
+    rmp_kernel.o(.ARM.exidx.text.RMP_MSB_Generic) refers to rmp_kernel.o(.text.RMP_MSB_Generic) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_LSB_Generic) refers to rmp_kernel.o(.rodata.RMP_LSB_Generic.Table) for RMP_LSB_Generic.Table
+    rmp_kernel.o(.ARM.exidx.text.RMP_LSB_Generic) refers to rmp_kernel.o(.text.RMP_LSB_Generic) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_List_Crt) refers to rmp_kernel.o(.text.RMP_List_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_List_Del) refers to rmp_kernel.o(.text.RMP_List_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_List_Ins) refers to rmp_kernel.o(.text.RMP_List_Ins) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sched_Lock) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sched_Lock) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sched_Lock) refers to rmp_kernel.o(.text.RMP_Sched_Lock) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sched_Unlock) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sched_Unlock) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sched_Unlock) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sched_Unlock) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sched_Unlock) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sched_Unlock) refers to rmp_kernel.o(.text.RMP_Sched_Unlock) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Run_High) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Run_High) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.text._RMP_Run_High) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text._RMP_Run_High) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Run_High) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text._RMP_Run_High) refers to rmp_kernel.o(.text._RMP_Run_High) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Tim_Handler) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Tim_Handler) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Tim_Handler) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text._RMP_Tim_Handler) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text._RMP_Tim_Handler) refers to rvm_virtlib.o(.text.RVM_Virt_Yield) for RVM_Virt_Yield
+    rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Handler) refers to rmp_kernel.o(.text._RMP_Tim_Handler) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Run_Ins) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text._RMP_Run_Ins) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.ARM.exidx.text._RMP_Run_Ins) refers to rmp_kernel.o(.text._RMP_Run_Ins) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Tim_Elapse) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Tim_Elapse) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Tim_Elapse) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Elapse) refers to rmp_kernel.o(.text._RMP_Tim_Elapse) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Tim_Future) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Future) refers to rmp_kernel.o(.text._RMP_Tim_Future) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Tim_Idle) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text._RMP_Tim_Idle) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Idle) refers to rmp_kernel.o(.text._RMP_Tim_Idle) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_platform_a7m_rvm.o(.text._RMP_Stack_Init) for _RMP_Stack_Init
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Crt) refers to rmp_kernel.o(.text.RMP_Thd_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Del) refers to rmp_kernel.o(.text.RMP_Thd_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Run_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.ARM.exidx.text._RMP_Run_Del) refers to rmp_kernel.o(.text._RMP_Run_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_kernel.o(.text._RMP_Run_Del) for _RMP_Run_Del
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_kernel.o(.text._RMP_Run_Ins) for _RMP_Run_Ins
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Set) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Set) refers to rmp_kernel.o(.text.RMP_Thd_Set) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Yield) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Yield) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Yield) refers to rmp_kernel.o(.text.RMP_Thd_Yield) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Suspend) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Suspend) refers to rmp_kernel.o(.text.RMP_Thd_Suspend) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Resume) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Resume) refers to rmp_kernel.o(.text.RMP_Thd_Resume) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Delay) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Delay) refers to rmp_kernel.o(.text.RMP_Thd_Delay) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Cancel) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Cancel) refers to rmp_kernel.o(.text.RMP_Thd_Cancel) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Loop) refers to rmp_kernel.o(.text.RMP_Thd_Loop) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Snd) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Snd) refers to rmp_kernel.o(.text.RMP_Thd_Snd) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Snd_ISR) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Snd_ISR) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Snd_ISR) refers to rvm_virtlib.o(.text.RVM_Virt_Yield) for RVM_Virt_Yield
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Thd_Snd_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Thd_Rcv) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Rcv) refers to rmp_kernel.o(.text.RMP_Thd_Rcv) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Crt) refers to rmp_kernel.o(.text.RMP_Sem_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Del) refers to rmp_kernel.o(.text.RMP_Sem_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Post) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Post) refers to rmp_kernel.o(.text.RMP_Sem_Post) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Post_ISR) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Post_ISR) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Post_ISR) refers to rvm_virtlib.o(.text.RVM_Virt_Yield) for RVM_Virt_Yield
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Post_ISR) refers to rmp_kernel.o(.text.RMP_Sem_Post_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Bcst) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Bcst) refers to rmp_kernel.o(.text.RMP_Sem_Bcst) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Bcst_ISR) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Bcst_ISR) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Bcst_ISR) refers to rvm_virtlib.o(.text.RVM_Virt_Yield) for RVM_Virt_Yield
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Bcst_ISR) refers to rmp_kernel.o(.text.RMP_Sem_Bcst_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Pend) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Pend) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Pend) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Pend) refers to rmp_kernel.o(.text.RMP_Sem_Pend) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Sem_Pend_Core) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Sem_Pend_Core) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text._RMP_Sem_Pend_Core) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text._RMP_Sem_Pend_Core) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Sem_Pend_Core) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text._RMP_Sem_Pend_Core) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Pend_Unlock) refers to rmp_kernel.o(.text.RMP_Sem_Pend_Unlock) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Abort) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Abort) refers to rmp_kernel.o(.text.RMP_Sem_Abort) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Sem_Cnt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Cnt) refers to rmp_kernel.o(.text.RMP_Sem_Cnt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook) for _RMP_Plat_Hook
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_hook.o(.text.RMP_Init_Hook) for RMP_Init_Hook
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_hook.o(.text.RMP_Init_Idle) for RMP_Init_Idle
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Init) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Init) refers to rmp_kernel.o(.text.RMP_Init) for [Anonymous Symbol]
+    rmp_kernel.o(.text.main) refers to rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init) for _RMP_Lowlvl_Init
+    rmp_kernel.o(.text.main) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.main) refers to rmp_kernel.o(.bss.RMP_Run) for RMP_Run
+    rmp_kernel.o(.text.main) refers to rmp_kernel.o(.bss.RMP_Init_Stack) for RMP_Init_Stack
+    rmp_kernel.o(.text.main) refers to rmp_kernel.o(.text.RMP_Init) for RMP_Init
+    rmp_kernel.o(.text.main) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_Start
+    rmp_kernel.o(.ARM.exidx.text.main) refers to rmp_kernel.o(.text.main) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Mem_Init) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.ARM.exidx.text.RMP_Mem_Init) refers to rmp_kernel.o(.text.RMP_Mem_Init) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Mem_Ins) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.ARM.exidx.text._RMP_Mem_Ins) refers to rmp_kernel.o(.text._RMP_Mem_Ins) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Malloc) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.ARM.exidx.text.RMP_Malloc) refers to rmp_kernel.o(.text.RMP_Malloc) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Mem_Del) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.ARM.exidx.text._RMP_Mem_Del) refers to rmp_kernel.o(.text._RMP_Mem_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Free) refers to rmp_kernel.o(.text._RMP_Mem_Del) for _RMP_Mem_Del
+    rmp_kernel.o(.text.RMP_Free) refers to rmp_platform_a7m_rvm_armcc.o(ARCH) for _RMP_A7M_RVM_MSB_Get
+    rmp_kernel.o(.text.RMP_Free) refers to rmp_kernel.o(.text._RMP_Mem_Ins) for _RMP_Mem_Ins
+    rmp_kernel.o(.ARM.exidx.text.RMP_Free) refers to rmp_kernel.o(.text.RMP_Free) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Realloc) refers to rmp_kernel.o(.text.RMP_Malloc) for RMP_Malloc
+    rmp_kernel.o(.text.RMP_Realloc) refers to rmp_kernel.o(.text.RMP_Free) for RMP_Free
+    rmp_kernel.o(.text.RMP_Realloc) refers to rmp_kernel.o(.text._RMP_Mem_Del) for _RMP_Mem_Del
+    rmp_kernel.o(.text.RMP_Realloc) refers to rmp_kernel.o(.text._RMP_Mem_Ins) for _RMP_Mem_Ins
+    rmp_kernel.o(.ARM.exidx.text.RMP_Realloc) refers to rmp_kernel.o(.text.RMP_Realloc) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Fifo_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Crt) refers to rmp_kernel.o(.text.RMP_Fifo_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Fifo_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Del) refers to rmp_kernel.o(.text.RMP_Fifo_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Fifo_Read) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Read) refers to rmp_kernel.o(.text.RMP_Fifo_Read) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Fifo_Write) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Write) refers to rmp_kernel.o(.text.RMP_Fifo_Write) for [Anonymous Symbol]
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Write_ISR) refers to rmp_kernel.o(.text.RMP_Fifo_Write_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Fifo_Cnt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Cnt) refers to rmp_kernel.o(.text.RMP_Fifo_Cnt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.text.RMP_Sem_Crt) for RMP_Sem_Crt
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.text.RMP_Fifo_Crt) for RMP_Fifo_Crt
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Crt) refers to rmp_kernel.o(.text.RMP_Msgq_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_kernel.o(.text.RMP_Fifo_Del) for RMP_Fifo_Del
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_kernel.o(.text.RMP_Sem_Del) for RMP_Sem_Del
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Msgq_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Del) refers to rmp_kernel.o(.text.RMP_Msgq_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.text.RMP_Fifo_Write) for RMP_Fifo_Write
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Msgq_Snd) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Snd) refers to rmp_kernel.o(.text.RMP_Msgq_Snd) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Sem_Post_ISR) for RMP_Sem_Post_ISR
+    rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.text.RMP_Fifo_Read) for RMP_Fifo_Read
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Rcv) refers to rmp_kernel.o(.text.RMP_Msgq_Rcv) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rmp_kernel.o(.text.RMP_Fifo_Cnt) for RMP_Fifo_Cnt
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Msgq_Cnt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Cnt) refers to rmp_kernel.o(.text.RMP_Msgq_Cnt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.text.RMP_Sem_Crt) for RMP_Sem_Crt
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.text.RMP_Msgq_Crt) for RMP_Msgq_Crt
+    rmp_kernel.o(.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.text.RMP_Sched_Unlock) for RMP_Sched_Unlock
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Crt) refers to rmp_kernel.o(.text.RMP_Bmq_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_kernel.o(.text.RMP_Msgq_Del) for RMP_Msgq_Del
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_kernel.o(.text.RMP_Sem_Del) for RMP_Sem_Del
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Bmq_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Del) refers to rmp_kernel.o(.text.RMP_Bmq_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Snd) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Bmq_Snd) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Bmq_Snd) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Bmq_Snd) refers to rmp_kernel.o(.text.RMP_Msgq_Snd) for RMP_Msgq_Snd
+    rmp_kernel.o(.text.RMP_Bmq_Snd) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Snd) refers to rmp_kernel.o(.text.RMP_Bmq_Snd) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Sem_Post_ISR) for RMP_Sem_Post_ISR
+    rmp_kernel.o(.text.RMP_Bmq_Snd_ISR) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Bmq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Snd_ISR) refers to rmp_kernel.o(.text.RMP_Bmq_Snd_ISR) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Rcv) refers to rmp_kernel.o(.text.RMP_Msgq_Rcv) for RMP_Msgq_Rcv
+    rmp_kernel.o(.text.RMP_Bmq_Rcv) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Rcv) refers to rmp_kernel.o(.text.RMP_Bmq_Rcv) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rmp_kernel.o(.text.RMP_Msgq_Cnt) for RMP_Msgq_Cnt
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Bmq_Cnt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Cnt) refers to rmp_kernel.o(.text.RMP_Bmq_Cnt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rmp_kernel.o(.text.RMP_Sem_Crt) for RMP_Sem_Crt
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Amgr_Crt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Crt) refers to rmp_kernel.o(.text.RMP_Amgr_Crt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rmp_kernel.o(.text.RMP_Sem_Del) for RMP_Sem_Del
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Amgr_Del) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Del) refers to rmp_kernel.o(.text.RMP_Amgr_Del) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Amgr_Pop) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Pop) refers to rmp_kernel.o(.text.RMP_Amgr_Pop) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Amgr_Proc) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Amgr_Proc) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Amgr_Proc) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Amgr_Proc) refers to rmp_kernel.o(.text._RMP_Amgr_Expire) for _RMP_Amgr_Expire
+    rmp_kernel.o(.text.RMP_Amgr_Proc) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Proc) refers to rmp_kernel.o(.text.RMP_Amgr_Proc) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rmp_kernel.o(.text._RMP_Amgr_Ins) for _RMP_Amgr_Ins
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Amgr_Expire) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text._RMP_Amgr_Expire) refers to rmp_kernel.o(.text._RMP_Amgr_Expire) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Amgr_Cnt) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Cnt) refers to rmp_kernel.o(.text.RMP_Amgr_Cnt) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Alrm_Init) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Init) refers to rmp_kernel.o(.text.RMP_Alrm_Init) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.text._RMP_Amgr_Ins) for _RMP_Amgr_Ins
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Alrm_Set) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Set) refers to rmp_kernel.o(.text.RMP_Alrm_Set) for [Anonymous Symbol]
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text._RMP_Amgr_Ins) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text._RMP_Amgr_Ins) refers to rmp_kernel.o(.text._RMP_Amgr_Ins) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_platform_a7m_rvm_armcc.o(FASTYIELD) for _RMP_A7M_RVM_Yield
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.rodata.str1.1) for .L.str.4
+    rmp_kernel.o(.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.text.RMP_Log) for RMP_Log
+    rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Clr) refers to rmp_kernel.o(.text.RMP_Alrm_Clr) for [Anonymous Symbol]
+    rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.bss..L_MergedGlobals) for .L_MergedGlobals
+    rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text._RMP_Sem_Pend_Core) for _RMP_Sem_Pend_Core
+    rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text._RMP_Amgr_Expire) for _RMP_Amgr_Expire
+    rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
+    rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text.RMP_Alrm_Trg) for [Anonymous Symbol]
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry4.o(.ARM.Collect$$$$00000003) for _main_stk
+    entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
+    entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to rmp_kernel.o(.text.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to rmp_kernel.o(.text.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing rmp_hook.o(.text), (0 bytes).
+    Removing rmp_hook.o(.ARM.exidx.text.RMP_Init_Hook), (8 bytes).
+    Removing rmp_hook.o(.ARM.exidx.text.RMP_Init_Idle), (8 bytes).
+    Removing prc_flight_desc.o(.text), (0 bytes).
+    Removing prc_flight.o(.text), (0 bytes).
+    Removing prc_flight.o(.ARM.exidx.text.Thd_Vct), (8 bytes).
+    Removing prc_flight.o(.ARM.exidx.text.RVM_Putchar), (8 bytes).
+    Removing rvm_virtlib.o(.text), (0 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Init), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Virt_Vct_Reg), (28 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Vct_Reg), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Virt_Vct_Trig), (106 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Vct_Trig), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Reboot), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Tim_Reg), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Ctx_Reg), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Int_Mask), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Int_Unmask), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Virt_Yield), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp), (166 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Putchar), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Int_Ena), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Int_Dis), (184 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Int_Dis), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Vct_Phys), (168 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Phys), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt), (168 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Evt), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Vct_Del), (164 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Del), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Evt_Add), (164 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Add), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Evt_Del), (164 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Del), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck), (168 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Lck), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Vct_Wait), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Evt_Snd), (168 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Evt_Snd), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Hyp_Wdg_Clr), (172 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Hyp_Wdg_Clr), (8 bytes).
+    Removing rvm_virtlib.o(.text.RVM_Vct_Get), (130 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Vct_Get), (8 bytes).
+    Removing rvm_virtlib.o(.ARM.exidx.text.RVM_Vct_Loop), (8 bytes).
+    Removing rvm_syslib.o(.text), (0 bytes).
+    Removing rvm_syslib.o(.text.RVM_Int_Print), (262 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Int_Print), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Hex_Print), (168 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Hex_Print), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Str_Print), (30 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Str_Print), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Log), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Clear), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_List_Crt), (6 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_List_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_List_Del), (6 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_List_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_List_Ins), (10 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_List_Ins), (8 bytes).
+    Removing rvm_syslib.o(.text._RVM_MSB_Generic), (46 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text._RVM_MSB_Generic), (8 bytes).
+    Removing rvm_syslib.o(.text._RVM_LSB_Generic), (44 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text._RVM_LSB_Generic), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Crt), (18 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Frz), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Frz), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Add), (22 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Add), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Pgt), (40 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Pgt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Kfn), (30 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Kfn), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Kom), (56 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Kom), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Cpt_Rem), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Cpt_Rem), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Crt), (44 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Add), (36 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Add), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Rem), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Rem), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Con), (16 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Con), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Pgt_Des), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Pgt_Des), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Prc_Crt), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Prc_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Prc_Cpt), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Cpt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Prc_Pgt), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Prc_Pgt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Crt), (36 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Hyp_Crt), (36 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Hyp_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Exec_Set), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Exec_Set), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Bind), (22 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Bind), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Hyp_Sched_Bind), (32 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Hyp_Sched_Bind), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Prio), (18 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Prio2), (28 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio2), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Prio3), (42 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio3), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Prio4), (58 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Prio4), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Free), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Free), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Sched_Rcv), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Sched_Rcv), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Time_Xfer), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Time_Xfer), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Thd_Swt), (14 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Thd_Swt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Sig_Crt), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Sig_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Del), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Snd), (8 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Sig_Rcv), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Inv_Crt), (18 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Crt), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Inv_Del), (12 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Del), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Inv_Set), (18 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Inv_Set), (8 bytes).
+    Removing rvm_syslib.o(.text.RVM_Kfn_Act), (18 bytes).
+    Removing rvm_syslib.o(.ARM.exidx.text.RVM_Kfn_Act), (8 bytes).
+    Removing rvm_syslib.o(.rodata._RVM_MSB_Generic.Table), (256 bytes).
+    Removing rvm_syslib.o(.rodata._RVM_LSB_Generic.Table), (256 bytes).
+    Removing rvm_platform_a7m_armcc.o(__RVM_A7M_MSB_GET), (14 bytes).
+    Removing rvm_platform_a7m_armcc.o(RVM_INV_ACT), (32 bytes).
+    Removing rvm_platform_a7m_armcc.o(RVM_INV_RET), (16 bytes).
+    Removing rvm_platform_a7m_armcc.o(RVM_A7M_SVC_KFN), (72 bytes).
+    Removing rvm_platform_a7m.o(.text), (0 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_Stack_Init), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_Stack_Init), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_Thd_Cop_Size), (10 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_Thd_Cop_Size), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Kfn_Act), (14 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Kfn_Act), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Pgt_Entry_Mod), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Pgt_Entry_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Mod), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Int_Local_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Int_Local_Trig), (28 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Int_Local_Trig), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Cache_Mod), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Cache_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Cache_Maint), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Cache_Maint), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Prfth_Mod), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Prfth_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Perf_CPU_Func), (36 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_CPU_Func), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Perf_Mon_Mod), (26 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_Mon_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Perf_Cycle_Mod), (42 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Perf_Cycle_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Debug_Print), (28 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Print), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Debug_Reg_Mod), (42 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Reg_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Debug_Inv_Mod), (48 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Inv_Mod), (8 bytes).
+    Removing rvm_platform_a7m.o(.text.RVM_A7M_Debug_Exc_Get), (42 bytes).
+    Removing rvm_platform_a7m.o(.ARM.exidx.text.RVM_A7M_Debug_Exc_Get), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.text), (0 bytes).
+    Removing rmp_platform_a7m_rvm.o(.text._RMP_Stack_Init), (112 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Stack_Init), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Lowlvl_Init), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_SysTick_Handler), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_PendSV_Handler), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text._RMP_Plat_Hook), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Putchar), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.text.RMP_Int_Enable), (4 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Int_Enable), (8 bytes).
+    Removing rmp_platform_a7m_rvm.o(.text.RMP_Int_Disable), (4 bytes).
+    Removing rmp_platform_a7m_rvm.o(.ARM.exidx.text.RMP_Int_Disable), (8 bytes).
+    Removing rmp_kernel.o(.text), (0 bytes).
+    Removing rmp_kernel.o(.text.RMP_Int_Print), (262 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Int_Print), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Hex_Print), (168 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Hex_Print), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Str_Print), (30 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Str_Print), (8 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Log), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Clear), (88 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Clear), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_MSB_Generic), (46 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_MSB_Generic), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_LSB_Generic), (44 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_LSB_Generic), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_List_Crt), (6 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_List_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_List_Del), (6 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_List_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_List_Ins), (10 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_List_Ins), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sched_Lock), (22 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sched_Lock), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sched_Unlock), (90 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sched_Unlock), (8 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Run_High), (8 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Handler), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Run_Ins), (80 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Run_Ins), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Tim_Elapse), (58 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Elapse), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Tim_Future), (48 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Future), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Tim_Idle), (54 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Tim_Idle), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Crt), (406 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Del), (690 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Del), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Run_Del), (72 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Run_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Set), (334 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Set), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Yield), (24 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Yield), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Suspend), (414 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Suspend), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Resume), (366 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Resume), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Delay), (306 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Delay), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Cancel), (374 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Cancel), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Loop), (64 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Loop), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Snd), (802 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Snd), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Snd_ISR), (158 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Snd_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Thd_Rcv), (982 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Thd_Rcv), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Crt), (298 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Del), (338 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Post), (518 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Post), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Post_ISR), (248 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Post_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Bcst), (366 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Bcst), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Bcst_ISR), (180 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Bcst_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Pend), (46 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Pend), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Sem_Pend_Core), (586 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Sem_Pend_Core), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Pend_Unlock), (198 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Pend_Unlock), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Abort), (438 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Abort), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Sem_Cnt), (206 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Sem_Cnt), (8 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Init), (8 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.main), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Mem_Init), (434 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Mem_Init), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Mem_Ins), (88 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Mem_Ins), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Malloc), (450 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Malloc), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Mem_Del), (90 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Mem_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Free), (214 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Free), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Realloc), (482 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Realloc), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Crt), (206 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Del), (298 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Read), (370 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Read), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Write), (234 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Write), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Write_ISR), (52 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Write_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Fifo_Cnt), (206 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Fifo_Cnt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Crt), (294 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Del), (358 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Snd), (370 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Snd), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Snd_ISR), (114 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Snd_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Rcv), (262 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Rcv), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Msgq_Cnt), (214 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Msgq_Cnt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Crt), (240 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Del), (358 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Snd), (114 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Snd), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Snd_ISR), (138 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Snd_ISR), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Rcv), (58 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Rcv), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Bmq_Cnt), (214 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Bmq_Cnt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Amgr_Crt), (258 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Crt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Amgr_Del), (354 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Del), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Amgr_Pop), (326 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Pop), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Amgr_Proc), (134 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Proc), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Amgr_Expire), (158 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Amgr_Expire), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Amgr_Cnt), (206 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Amgr_Cnt), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Alrm_Init), (238 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Init), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Alrm_Set), (214 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Set), (8 bytes).
+    Removing rmp_kernel.o(.text._RMP_Amgr_Ins), (218 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text._RMP_Amgr_Ins), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Alrm_Clr), (202 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Clr), (8 bytes).
+    Removing rmp_kernel.o(.text.RMP_Alrm_Trg), (118 bytes).
+    Removing rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Trg), (8 bytes).
+    Removing rmp_kernel.o(.rodata.RMP_MSB_Generic.Table), (256 bytes).
+    Removing rmp_kernel.o(.rodata.RMP_LSB_Generic.Table), (256 bytes).
+    Removing rmp_kernel.o(.ARM.use_no_argv), (4 bytes).
+
+350 unused section(s) (total 24258 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm_armcc.s 0x00000000   Number         0  rmp_platform_a7m_rvm_armcc.o ABSOLUTE
+    ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m_armcc.s 0x00000000   Number         0  rvm_platform_a7m_armcc.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    prc_flight.c                             0x00000000   Number         0  prc_flight.o ABSOLUTE
+    prc_flight_desc.c                        0x00000000   Number         0  prc_flight_desc.o ABSOLUTE
+    rmp_hook.c                               0x00000000   Number         0  rmp_hook.o ABSOLUTE
+    rmp_kernel.c                             0x00000000   Number         0  rmp_kernel.o ABSOLUTE
+    rmp_platform_a7m_rvm.c                   0x00000000   Number         0  rmp_platform_a7m_rvm.o ABSOLUTE
+    rvm_platform_a7m.c                       0x00000000   Number         0  rvm_platform_a7m.o ABSOLUTE
+    rvm_syslib.c                             0x00000000   Number         0  rvm_syslib.o ABSOLUTE
+    rvm_virtlib.c                            0x00000000   Number         0  rvm_virtlib.o ABSOLUTE
+    $v0                                      0x08030020   Number         0  rvm_platform_a7m_armcc.o(RVM_ENTRY)
+    RVM_ENTRY                                0x08030020   Section        8  rvm_platform_a7m_armcc.o(RVM_ENTRY)
+    .ARM.Collect$$$$00000000                 0x08030028   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000003                 0x08030028   Section        4  entry4.o(.ARM.Collect$$$$00000003)
+    .ARM.Collect$$$$00000004                 0x0803002c   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x08030030   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x08030030   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x08030030   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x08030038   Data           4  entry4.o(.ARM.Collect$$$$00002714)
+    .ARM.Collect$$$$0000000D                 0x08030038   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x08030038   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002714                 0x08030038   Section        4  entry4.o(.ARM.Collect$$$$00002714)
+    .text                                    0x0803003c   Section       36  init.o(.text)
+    [Anonymous Symbol]                       0x08030060   Section        0  rmp_kernel.o(.text.RMP_Init)
+    [Anonymous Symbol]                       0x080300cc   Section        0  rmp_hook.o(.text.RMP_Init_Hook)
+    [Anonymous Symbol]                       0x080300d0   Section        0  rmp_hook.o(.text.RMP_Init_Idle)
+    [Anonymous Symbol]                       0x080300d4   Section        0  rmp_kernel.o(.text.RMP_Log)
+    RMP_PendSV_Handler                       0x08030339   Thumb Code   392  rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler)
+    [Anonymous Symbol]                       0x08030338   Section        0  rmp_platform_a7m_rvm.o(.text.RMP_PendSV_Handler)
+    [Anonymous Symbol]                       0x080304c0   Section        0  rmp_platform_a7m_rvm.o(.text.RMP_Putchar)
+    RMP_SysTick_Handler                      0x080304c5   Thumb Code     6  rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler)
+    [Anonymous Symbol]                       0x080304c4   Section        0  rmp_platform_a7m_rvm.o(.text.RMP_SysTick_Handler)
+    [Anonymous Symbol]                       0x080304cc   Section        0  rvm_syslib.o(.text.RVM_Clear)
+    [Anonymous Symbol]                       0x08030524   Section        0  rvm_virtlib.o(.text.RVM_Hyp_Int_Ena)
+    [Anonymous Symbol]                       0x08030618   Section        0  rvm_virtlib.o(.text.RVM_Hyp_Putchar)
+    [Anonymous Symbol]                       0x080306bc   Section        0  rvm_virtlib.o(.text.RVM_Hyp_Reboot)
+    [Anonymous Symbol]                       0x08030768   Section        0  rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait)
+    [Anonymous Symbol]                       0x08030814   Section        0  rvm_syslib.o(.text.RVM_Log)
+    [Anonymous Symbol]                       0x08030a7c   Section        0  prc_flight.o(.text.RVM_Putchar)
+    [Anonymous Symbol]                       0x08030a80   Section        0  rvm_syslib.o(.text.RVM_Sig_Rcv)
+    [Anonymous Symbol]                       0x08030a90   Section        0  rvm_syslib.o(.text.RVM_Sig_Snd)
+    [Anonymous Symbol]                       0x08030aa0   Section        0  rvm_virtlib.o(.text.RVM_Vct_Loop)
+    [Anonymous Symbol]                       0x08030c00   Section        0  rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg)
+    [Anonymous Symbol]                       0x08030c0c   Section        0  rvm_virtlib.o(.text.RVM_Virt_Init)
+    [Anonymous Symbol]                       0x08030c3c   Section        0  rvm_virtlib.o(.text.RVM_Virt_Int_Mask)
+    [Anonymous Symbol]                       0x08030c4c   Section        0  rvm_virtlib.o(.text.RVM_Virt_Int_Unmask)
+    [Anonymous Symbol]                       0x08030c9c   Section        0  rvm_virtlib.o(.text.RVM_Virt_Tim_Reg)
+    [Anonymous Symbol]                       0x08030ca8   Section        0  rvm_virtlib.o(.text.RVM_Virt_Yield)
+    [Anonymous Symbol]                       0x08030d08   Section        0  prc_flight.o(.text.Thd_Vct)
+    [Anonymous Symbol]                       0x08030d84   Section        0  rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+    [Anonymous Symbol]                       0x08030da4   Section        0  rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook)
+    [Anonymous Symbol]                       0x08030e1c   Section        0  rmp_kernel.o(.text._RMP_Run_High)
+    [Anonymous Symbol]                       0x08030ebc   Section        0  rmp_kernel.o(.text._RMP_Tim_Handler)
+    [Anonymous Symbol]                       0x08030fe4   Section        0  rmp_kernel.o(.text.main)
+    $v0                                      0x08031258   Number         0  rmp_platform_a7m_rvm_armcc.o(ARCH)
+    ARCH                                     0x08031258   Section       32  rmp_platform_a7m_rvm_armcc.o(ARCH)
+    $v0                                      0x08031278   Number         0  rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+    FASTYIELD                                0x08031278   Section      448  rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+    _RMP_A7M_Skip                            0x0803141b   Thumb Code     0  rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+    $v0                                      0x08031438   Number         0  rvm_platform_a7m_armcc.o(RVM_SVC)
+    RVM_SVC                                  0x08031438   Section       22  rvm_platform_a7m_armcc.o(RVM_SVC)
+    $v0                                      0x08031450   Number         0  rvm_platform_a7m_armcc.o(__RVM_STUB)
+    __RVM_STUB                               0x08031450   Section        6  rvm_platform_a7m_armcc.o(__RVM_STUB)
+    i.__scatterload_copy                     0x08031456   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08031464   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08031466   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .L.str.1                                 0x08031478   Data          12  prc_flight.o(.rodata.str1.1)
+    .L.str.1                                 0x08031478   Data          12  prc_flight.o(.rodata.str1.1)
+    .L.str.1                                 0x08031478   Data          12  prc_flight.o(.rodata.str1.1)
+    .L.str.5                                 0x08031478   Data          12  prc_flight.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08031478   Section        0  prc_flight.o(.rodata.str1.1)
+    .L.str.2                                 0x08031484   Data           9  prc_flight.o(.rodata.str1.1)
+    .L.str.2                                 0x08031484   Data           9  prc_flight.o(.rodata.str1.1)
+    .L.str.2                                 0x08031484   Data           9  prc_flight.o(.rodata.str1.1)
+    .L.str.6                                 0x08031484   Data           9  prc_flight.o(.rodata.str1.1)
+    .L.str                                   0x0803148d   Data          23  prc_flight.o(.rodata.str1.1)
+    .L.str                                   0x080314a4   Data          53  rvm_virtlib.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080314a4   Section        0  rvm_virtlib.o(.rodata.str1.1)
+    .L.str                                   0x080314d9   Data          71  rmp_platform_a7m_rvm.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080314d9   Section        0  rmp_platform_a7m_rvm.o(.rodata.str1.1)
+    .L.str.4                                 0x08031520   Data          51  rmp_kernel.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08031520   Section        0  rmp_kernel.o(.rodata.str1.1)
+    .L_MergedGlobals                         0x2000c000   Data          28  rvm_virtlib.o(.bss..L_MergedGlobals)
+    RVM_Int_Mask                             0x2000c000   Data           4  rvm_virtlib.o(.bss..L_MergedGlobals)
+    [Anonymous Symbol]                       0x2000c000   Section        0  rvm_virtlib.o(.bss..L_MergedGlobals)
+    RVM_Int_Disable                          0x2000c004   Data           4  rvm_virtlib.o(.bss..L_MergedGlobals)
+    RVM_Vct_Pend                             0x2000c008   Data           4  rvm_virtlib.o(.bss..L_MergedGlobals)
+    RVM_Handler                              0x2000c00c   Data          16  rvm_virtlib.o(.bss..L_MergedGlobals)
+    .L_MergedGlobals                         0x2000c01c   Data          92  rmp_kernel.o(.bss..L_MergedGlobals)
+    [Anonymous Symbol]                       0x2000c01c   Section        0  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Bitmap                               0x2000c02c   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Delay                                0x2000c034   Data           8  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Init_Thd                             0x2000c03c   Data          60  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Init_Stack                           0x2000c078   Data        1024  rmp_kernel.o(.bss.RMP_Init_Stack)
+    [Anonymous Symbol]                       0x2000c078   Section        0  rmp_kernel.o(.bss.RMP_Init_Stack)
+    RMP_Run                                  0x2000c478   Data         256  rmp_kernel.o(.bss.RMP_Run)
+    [Anonymous Symbol]                       0x2000c478   Section        0  rmp_kernel.o(.bss.RMP_Run)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    RVM_Desc                                 0x08030000   Data          20  prc_flight_desc.o(.rodata.RVM_Desc)
+    __RVM_Entry                              0x08030021   Thumb Code     4  rvm_platform_a7m_armcc.o(RVM_ENTRY)
+    __main                                   0x08030029   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x08030029   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
+    _main_scatterload                        0x0803002d   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x08030031   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x08030031   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x08030031   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x08030031   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x08030039   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x08030039   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    __scatterload                            0x0803003d   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x0803003d   Thumb Code     0  init.o(.text)
+    RMP_Init                                 0x08030061   Thumb Code   106  rmp_kernel.o(.text.RMP_Init)
+    RMP_Init_Hook                            0x080300cd   Thumb Code     2  rmp_hook.o(.text.RMP_Init_Hook)
+    RMP_Init_Idle                            0x080300d1   Thumb Code     4  rmp_hook.o(.text.RMP_Init_Idle)
+    RMP_Log                                  0x080300d5   Thumb Code   612  rmp_kernel.o(.text.RMP_Log)
+    RMP_Putchar                              0x080304c1   Thumb Code     4  rmp_platform_a7m_rvm.o(.text.RMP_Putchar)
+    RVM_Clear                                0x080304cd   Thumb Code    88  rvm_syslib.o(.text.RVM_Clear)
+    RVM_Hyp_Int_Ena                          0x08030525   Thumb Code   242  rvm_virtlib.o(.text.RVM_Hyp_Int_Ena)
+    RVM_Hyp_Putchar                          0x08030619   Thumb Code   164  rvm_virtlib.o(.text.RVM_Hyp_Putchar)
+    RVM_Hyp_Reboot                           0x080306bd   Thumb Code   172  rvm_virtlib.o(.text.RVM_Hyp_Reboot)
+    RVM_Hyp_Vct_Wait                         0x08030769   Thumb Code   172  rvm_virtlib.o(.text.RVM_Hyp_Vct_Wait)
+    RVM_Log                                  0x08030815   Thumb Code   616  rvm_syslib.o(.text.RVM_Log)
+    RVM_Putchar                              0x08030a7d   Thumb Code     4  prc_flight.o(.text.RVM_Putchar)
+    RVM_Sig_Rcv                              0x08030a81   Thumb Code    14  rvm_syslib.o(.text.RVM_Sig_Rcv)
+    RVM_Sig_Snd                              0x08030a91   Thumb Code    14  rvm_syslib.o(.text.RVM_Sig_Snd)
+    RVM_Vct_Loop                             0x08030aa1   Thumb Code   350  rvm_virtlib.o(.text.RVM_Vct_Loop)
+    RVM_Virt_Ctx_Reg                         0x08030c01   Thumb Code    12  rvm_virtlib.o(.text.RVM_Virt_Ctx_Reg)
+    RVM_Virt_Init                            0x08030c0d   Thumb Code    48  rvm_virtlib.o(.text.RVM_Virt_Init)
+    RVM_Virt_Int_Mask                        0x08030c3d   Thumb Code    14  rvm_virtlib.o(.text.RVM_Virt_Int_Mask)
+    RVM_Virt_Int_Unmask                      0x08030c4d   Thumb Code    78  rvm_virtlib.o(.text.RVM_Virt_Int_Unmask)
+    RVM_Virt_Tim_Reg                         0x08030c9d   Thumb Code    12  rvm_virtlib.o(.text.RVM_Virt_Tim_Reg)
+    RVM_Virt_Yield                           0x08030ca9   Thumb Code    94  rvm_virtlib.o(.text.RVM_Virt_Yield)
+    Thd_Vct                                  0x08030d09   Thumb Code   122  prc_flight.o(.text.Thd_Vct)
+    _RMP_Lowlvl_Init                         0x08030d85   Thumb Code    30  rmp_platform_a7m_rvm.o(.text._RMP_Lowlvl_Init)
+    _RMP_Plat_Hook                           0x08030da5   Thumb Code   118  rmp_platform_a7m_rvm.o(.text._RMP_Plat_Hook)
+    _RMP_Run_High                            0x08030e1d   Thumb Code   158  rmp_kernel.o(.text._RMP_Run_High)
+    _RMP_Tim_Handler                         0x08030ebd   Thumb Code   294  rmp_kernel.o(.text._RMP_Tim_Handler)
+    main                                     0x08030fe5   Thumb Code   626  rmp_kernel.o(.text.main)
+    _RMP_Start                               0x08031259   Thumb Code     8  rmp_platform_a7m_rvm_armcc.o(ARCH)
+    _RMP_A7M_RVM_MSB_Get                     0x08031261   Thumb Code    14  rmp_platform_a7m_rvm_armcc.o(ARCH)
+    _RMP_A7M_RVM_LSB_Get                     0x0803126f   Thumb Code    10  rmp_platform_a7m_rvm_armcc.o(ARCH)
+    _RMP_A7M_RVM_Yield                       0x08031279   Thumb Code   420  rmp_platform_a7m_rvm_armcc.o(FASTYIELD)
+    RVM_Svc                                  0x08031439   Thumb Code    22  rvm_platform_a7m_armcc.o(RVM_SVC)
+    __RVM_Stub                               0x08031451   Thumb Code     6  rvm_platform_a7m_armcc.o(__RVM_STUB)
+    __scatterload_copy                       0x08031457   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08031465   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08031467   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    RVM_Usr_Param                            0x08031474   Data           4  rvm_virtlib.o(.rodata.RVM_Usr_Param)
+    Region$$Table$$Base                      0x08031554   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08031564   Number         0  anon$$obj.o(Region$$Table)
+    RMP_Sched_Lock_Cnt                       0x2000c01c   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Sched_Pend                           0x2000c020   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Thd_Cur                              0x2000c024   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_SP_Cur                               0x2000c028   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    RMP_Timestamp                            0x2000c030   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x2000fc00   Number         0  anon$$obj.o ABSOLUTE
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x08030029
+
+  Load Region DESC (Base: 0x08030000, Size: 0x00000014, Max: 0x00000020, ABSOLUTE)
+
+    Execution Region PROCESS_DESC (Exec base: 0x08030000, Load base: 0x08030000, Size: 0x00000014, Max: 0x00000020, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08030000   0x08030000   0x00000014   Data   RO           14    .rodata.RVM_Desc    prc_flight_desc.o
+
+
+
+  Load Region PROCESS (Base: 0x08030020, Size: 0x00001544, Max: 0x0000ffe0, ABSOLUTE)
+
+    Execution Region PROCESS_CODE (Exec base: 0x08030020, Load base: 0x08030020, Size: 0x00001544, Max: 0x0000ffe0, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08030020   0x08030020   0x00000008   Code   RO          201    RVM_ENTRY           rvm_platform_a7m_armcc.o
+    0x08030028   0x08030028   0x00000000   Code   RO          477  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08030028   0x08030028   0x00000004   Code   RO          480    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x0803002c   0x0803002c   0x00000004   Code   RO          483    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08030030   0x08030030   0x00000000   Code   RO          485    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08030030   0x08030030   0x00000000   Code   RO          487    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08030030   0x08030030   0x00000008   Code   RO          488    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08030038   0x08030038   0x00000000   Code   RO          490    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08030038   0x08030038   0x00000000   Code   RO          492    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08030038   0x08030038   0x00000004   Code   RO          481    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x0803003c   0x0803003c   0x00000024   Code   RO          494    .text               mc_w.l(init.o)
+    0x08030060   0x08030060   0x0000006a   Code   RO          389    .text.RMP_Init      rmp_kernel.o
+    0x080300ca   0x080300ca   0x00000002   PAD
+    0x080300cc   0x080300cc   0x00000002   Code   RO            3    .text.RMP_Init_Hook  rmp_hook.o
+    0x080300ce   0x080300ce   0x00000002   PAD
+    0x080300d0   0x080300d0   0x00000004   Code   RO            5    .text.RMP_Init_Idle  rmp_hook.o
+    0x080300d4   0x080300d4   0x00000264   Code   RO          311    .text.RMP_Log       rmp_kernel.o
+    0x08030338   0x08030338   0x00000188   Code   RO          286    .text.RMP_PendSV_Handler  rmp_platform_a7m_rvm.o
+    0x080304c0   0x080304c0   0x00000004   Code   RO          290    .text.RMP_Putchar   rmp_platform_a7m_rvm.o
+    0x080304c4   0x080304c4   0x00000006   Code   RO          284    .text.RMP_SysTick_Handler  rmp_platform_a7m_rvm.o
+    0x080304ca   0x080304ca   0x00000002   PAD
+    0x080304cc   0x080304cc   0x00000058   Code   RO          100    .text.RVM_Clear     rvm_syslib.o
+    0x08030524   0x08030524   0x000000f2   Code   RO           55    .text.RVM_Hyp_Int_Ena  rvm_virtlib.o
+    0x08030616   0x08030616   0x00000002   PAD
+    0x08030618   0x08030618   0x000000a4   Code   RO           53    .text.RVM_Hyp_Putchar  rvm_virtlib.o
+    0x080306bc   0x080306bc   0x000000ac   Code   RO           39    .text.RVM_Hyp_Reboot  rvm_virtlib.o
+    0x08030768   0x08030768   0x000000ac   Code   RO           71    .text.RVM_Hyp_Vct_Wait  rvm_virtlib.o
+    0x08030814   0x08030814   0x00000268   Code   RO           98    .text.RVM_Log       rvm_syslib.o
+    0x08030a7c   0x08030a7c   0x00000004   Code   RO           22    .text.RVM_Putchar   prc_flight.o
+    0x08030a80   0x08030a80   0x0000000e   Code   RO          182    .text.RVM_Sig_Rcv   rvm_syslib.o
+    0x08030a8e   0x08030a8e   0x00000002   PAD
+    0x08030a90   0x08030a90   0x0000000e   Code   RO          180    .text.RVM_Sig_Snd   rvm_syslib.o
+    0x08030a9e   0x08030a9e   0x00000002   PAD
+    0x08030aa0   0x08030aa0   0x0000015e   Code   RO           79    .text.RVM_Vct_Loop  rvm_virtlib.o
+    0x08030bfe   0x08030bfe   0x00000002   PAD
+    0x08030c00   0x08030c00   0x0000000c   Code   RO           43    .text.RVM_Virt_Ctx_Reg  rvm_virtlib.o
+    0x08030c0c   0x08030c0c   0x00000030   Code   RO           33    .text.RVM_Virt_Init  rvm_virtlib.o
+    0x08030c3c   0x08030c3c   0x0000000e   Code   RO           45    .text.RVM_Virt_Int_Mask  rvm_virtlib.o
+    0x08030c4a   0x08030c4a   0x00000002   PAD
+    0x08030c4c   0x08030c4c   0x0000004e   Code   RO           47    .text.RVM_Virt_Int_Unmask  rvm_virtlib.o
+    0x08030c9a   0x08030c9a   0x00000002   PAD
+    0x08030c9c   0x08030c9c   0x0000000c   Code   RO           41    .text.RVM_Virt_Tim_Reg  rvm_virtlib.o
+    0x08030ca8   0x08030ca8   0x0000005e   Code   RO           49    .text.RVM_Virt_Yield  rvm_virtlib.o
+    0x08030d06   0x08030d06   0x00000002   PAD
+    0x08030d08   0x08030d08   0x0000007a   Code   RO           20    .text.Thd_Vct       prc_flight.o
+    0x08030d82   0x08030d82   0x00000002   PAD
+    0x08030d84   0x08030d84   0x0000001e   Code   RO          282    .text._RMP_Lowlvl_Init  rmp_platform_a7m_rvm.o
+    0x08030da2   0x08030da2   0x00000002   PAD
+    0x08030da4   0x08030da4   0x00000076   Code   RO          288    .text._RMP_Plat_Hook  rmp_platform_a7m_rvm.o
+    0x08030e1a   0x08030e1a   0x00000002   PAD
+    0x08030e1c   0x08030e1c   0x0000009e   Code   RO          329    .text._RMP_Run_High  rmp_kernel.o
+    0x08030eba   0x08030eba   0x00000002   PAD
+    0x08030ebc   0x08030ebc   0x00000126   Code   RO          331    .text._RMP_Tim_Handler  rmp_kernel.o
+    0x08030fe2   0x08030fe2   0x00000002   PAD
+    0x08030fe4   0x08030fe4   0x00000272   Code   RO          391    .text.main          rmp_kernel.o
+    0x08031256   0x08031256   0x00000002   PAD
+    0x08031258   0x08031258   0x00000020   Code   RO          271    ARCH                rmp_platform_a7m_rvm_armcc.o
+    0x08031278   0x08031278   0x000001c0   Code   RO          272    FASTYIELD           rmp_platform_a7m_rvm_armcc.o
+    0x08031438   0x08031438   0x00000016   Code   RO          206    RVM_SVC             rvm_platform_a7m_armcc.o
+    0x0803144e   0x0803144e   0x00000002   PAD
+    0x08031450   0x08031450   0x00000006   Code   RO          202    __RVM_STUB          rvm_platform_a7m_armcc.o
+    0x08031456   0x08031456   0x0000000e   Code   RO          498    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08031464   0x08031464   0x00000002   Code   RO          499    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08031466   0x08031466   0x0000000e   Code   RO          500    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08031474   0x08031474   0x00000004   Data   RO           81    .rodata.RVM_Usr_Param  rvm_virtlib.o
+    0x08031478   0x08031478   0x0000002c   Data   RO           24    .rodata.str1.1      prc_flight.o
+    0x080314a4   0x080314a4   0x00000035   Data   RO           82    .rodata.str1.1      rvm_virtlib.o
+    0x080314d9   0x080314d9   0x00000047   Data   RO          296    .rodata.str1.1      rmp_platform_a7m_rvm.o
+    0x08031520   0x08031520   0x00000033   Data   RO          465    .rodata.str1.1      rmp_kernel.o
+    0x08031553   0x08031553   0x00000001   PAD
+    0x08031554   0x08031554   0x00000010   Data   RO          497    Region$$Table       anon$$obj.o
+
+
+    Execution Region PROCESS_DATA (Exec base: 0x2000c000, Load base: 0x08031564, Size: 0x00000578, Max: 0x00003950, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x2000c000        -       0x0000001c   Zero   RW           83    .bss..L_MergedGlobals  rvm_virtlib.o
+    0x2000c01c        -       0x0000005c   Zero   RW          469    .bss..L_MergedGlobals  rmp_kernel.o
+    0x2000c078        -       0x00000400   Zero   RW          467    .bss.RMP_Init_Stack  rmp_kernel.o
+    0x2000c478        -       0x00000100   Zero   RW          466    .bss.RMP_Run        rmp_kernel.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x2000fa00, Load base: 0x08031564, Size: 0x00000200, Max: 0x00000200, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x2000fa00        -       0x00000200   Zero   RW            1    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       126          0         44          0          0        916   prc_flight.o
+         0          0         20          0          0        540   prc_flight_desc.o
+         6          0          0          0          0        760   rmp_hook.o
+      1796          6         51          0       1372      63745   rmp_kernel.o
+       550          0         71          0          0       5061   rmp_platform_a7m_rvm.o
+       480         28          0          0          0       1160   rmp_platform_a7m_rvm_armcc.o
+        36          4          0          0          0       1476   rvm_platform_a7m_armcc.o
+       732          0          0          0          0      17875   rvm_syslib.o
+      1358          0         57          0         28       8237   rvm_virtlib.o
+
+    ----------------------------------------------------------------------
+      5118         38        260          0       1912      99770   Object Totals
+         0          0         16          0        512          0   (incl. Generated)
+        34          0          1          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry4.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+
+    ----------------------------------------------------------------------
+        86         16          0          0          0         68   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+        86         16          0          0          0         68   mc_w.l
+
+    ----------------------------------------------------------------------
+        86         16          0          0          0         68   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      5204         54        260          0       1912      99542   Grand Totals
+      5204         54        260          0       1912      99542   ELF Image Totals
+      5204         54        260          0          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 5464 (   5.34kB)
+    Total RW  Size (RW Data + ZI Data)              1912 (   1.87kB)
+    Total ROM Size (Code + RO Data + RW Data)       5464 (   5.34kB)
+
+==============================================================================
+
