@@ -150,46 +150,57 @@ void Int_Init(void)
 /* End ***********************************************************************/
 
 
+/* 电机相关 ******************************************************************/
 
-/* 96M主频下 8位精度输出375K PWM */
-#define TIM_CLOCK_HZ 				96000000
+/* PWM的分辨率为8位 */
 #define MOTORS_PWM_BITS           	8
-#define MOTORS_PWM_PERIOD         	((1<<MOTORS_PWM_BITS) - 1)
+
+/* PWM的最大计数值 */
+#define MOTORS_PWM_MAX         	255
+
+/* 分频系数 */
 #define MOTORS_PWM_PRESCALE       	0
+									
+/* 电机编号 */
+#define MOTOR_M1  									0
+#define MOTOR_M2  									1
+#define MOTOR_M3  									2
+#define MOTOR_M4  									3
 
+/* 电机测试 */
+#define MOTORS_TEST_PWM         		(uint16_t)(0.2*(1<<16))	
+#define MOTORS_TEST_TIME_MS_ON    	50
+#define MOTORS_TEST_TIME_MS_DELAY 	150
 
-#define ENABLE_THRUST_BAT_COMPENSATED	/*使能电池油门补偿*/
-
-#define NBR_OF_MOTORS 	4
-#define MOTOR_M1  		0
-#define MOTOR_M2  		1
-#define MOTOR_M3  		2
-#define MOTOR_M4  		3
-
-#define MOTORS_TEST_RATIO         (uint16_t)(0.2*(1<<16))	//20%
-#define MOTORS_TEST_ON_TIME_MS    50
-#define MOTORS_TEST_DELAY_TIME_MS 150
-static bool isInit;
-/* 记录当前电机推力（只是记录） */
-uint32_t motor_ratios[] = {0, 0, 0, 0};
 /* 保存四个电机的编号 */
-static const u32 MOTORS[] = { MOTOR_M1, MOTOR_M2, MOTOR_M3, MOTOR_M4 };
+static const uint32_t MOTORS[] = { MOTOR_M1, MOTOR_M2, MOTOR_M3, MOTOR_M4 };
 
-/* 将16位的占空比（推力值）转换为定时器实际需要设置的比较寄存器（CCR）值，以适配不同位宽的PWM输出 */
-static u16 ratioToCCRx(u16 val)
+/* 电机初始化检查 */
+static bool motors_IsInit = false;
+
+/* Function:Motors_Convert ****************************************************
+Description : Convert duty cycle to CCR value to adapt to PWM outputs with different bit widths.
+Output      : None.
+Return      : CCR value.
+******************************************************************************/
+static uint16_t Motors_Convert(uint16_t val)
 {
 	return ((val) >> (16 - MOTORS_PWM_BITS) & ((1 << MOTORS_PWM_BITS) - 1));
 }
 
-static bool isInit_motors = false;
-
-void motorsInit(void)	/*?????*/
+/* Motors_Init ****************************************************************
+Description : Configure GPIO and timer to enable four-way motors to be controlled through PWM signals.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
+void Motors_Init(void)	
 {
-	// ??GPIO??????
+	/* 使能GPIO和定时器 */
 	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOBEN;
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM4EN;
 	
-	// ?????
+	/* 复位定时器 */
 	TIM4->CR1 = 0;
 	TIM4->CCER = 0;
 	TIM4->CCMR1 = 0;
@@ -206,10 +217,7 @@ void motorsInit(void)	/*?????*/
 	TIM2->ARR = 0;
 	TIM2->PSC = 0;
 	
-	// ????????
-	// PB7->TIM4 CH2, PB6->TIM4 CH1, PB10->TIM2 CH3, PA5->TIM2 CH1
-	
-	// ??PB7?TIM4 CH2 (MOTOR1)
+	/* 配置PB7为TIM4 CH2 (MOTOR1) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER7;
 	GPIOB->MODER |= GPIO_MODER_MODER7_1;  // ???????
 	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_7;   // ????
@@ -219,7 +227,7 @@ void motorsInit(void)	/*?????*/
 	GPIOB->AFR[0] &= ~(0xF << 28);
 	GPIOB->AFR[0] |= (2 << 28);           // AF2
 	
-	// ??PB6?TIM4 CH1 (MOTOR2)
+	/* 配置PB6为TIM4 CH1 (MOTOR2) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER6;
 	GPIOB->MODER |= GPIO_MODER_MODER6_1;  // ???????
 	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_6;   // ????
@@ -229,7 +237,7 @@ void motorsInit(void)	/*?????*/
 	GPIOB->AFR[0] &= ~(0xF << 24);
 	GPIOB->AFR[0] |= (2 << 24);           // AF2
 	
-	// ??PB10?TIM2 CH3 (MOTOR3)
+	/* 配置PB10为TIM2 CH3 (MOTOR3) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER10;
 	GPIOB->MODER |= GPIO_MODER_MODER10_1; // ???????
 	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_10;  // ????
@@ -239,7 +247,7 @@ void motorsInit(void)	/*?????*/
 	GPIOB->AFR[1] &= ~(0xF << 8);
 	GPIOB->AFR[1] |= (1 << 8);            // AF1
 	
-	// ??PA5?TIM2 CH1 (MOTOR4)
+	/* 配置PA5为TIM2 CH1 (MOTOR4) */
 	GPIOA->MODER &= ~GPIO_MODER_MODER5;
 	GPIOA->MODER |= GPIO_MODER_MODER5_1;  // ???????
 	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_5;   // ????
@@ -251,9 +259,9 @@ void motorsInit(void)	/*?????*/
 	
 	// ?????????
 	TIM4->PSC = MOTORS_PWM_PRESCALE;     // ????
-	TIM4->ARR = MOTORS_PWM_PERIOD;       // ??????
+	TIM4->ARR = MOTORS_PWM_MAX;       // ??????
 	TIM2->PSC = MOTORS_PWM_PRESCALE;     // ????
-	TIM2->ARR = MOTORS_PWM_PERIOD;       // ??????
+	TIM2->ARR = MOTORS_PWM_MAX;       // ??????
 	
 	// ??TIM4 CH1(PB6, MOTOR2)
 	TIM4->CCMR1 &= ~TIM_CCMR1_OC1M;
@@ -291,7 +299,7 @@ void motorsInit(void)	/*?????*/
 	TIM4->CR1 |= TIM_CR1_CEN;
 	TIM2->CR1 |= TIM_CR1_CEN;
 
-	isInit_motors = true;
+	motors_IsInit = true;
 }
 
 /*????*/
@@ -301,33 +309,30 @@ bool motorsTest(void)
 	
 	for (i = 0; i < sizeof(MOTORS) / sizeof(*MOTORS); i++)
 	{	
-		motorsSetRatio(MOTORS[i], MOTORS_TEST_RATIO);
-		//*************delay_xms(MOTORS_TEST_ON_TIME_MS);
+		motorsSetRatio(MOTORS[i], MOTORS_TEST_PWM);
+		//*************delay_xms(MOTORS_TEST_TIME_MS_ON);
 		motorsSetRatio(MOTORS[i], 0);
-		//****************delay_xms(MOTORS_TEST_DELAY_TIME_MS);
+		//****************delay_xms(MOTORS_TEST_TIME_MS_DELAY);
 	}
 
-	return isInit_motors;
+	return motors_IsInit;
 }
 
 /*????PWM???*/
 void motorsSetRatio(u32 id, u16 ithrust)
 {
-	if (isInit_motors) 
+	if (motors_IsInit) 
 	{
 		u16 ratio=ithrust;
-
-	#ifdef ENABLE_THRUST_BAT_COMPENSATED		
+	
 		float thrust = ((float)ithrust / 65536.0f) * 60;
 		float volts = -0.0006239f * thrust * thrust + 0.088f * thrust;
 		float supply_voltage = 3.7f;
 		float percentage = volts / supply_voltage;
 		percentage = percentage > 1.0f ? 1.0f : percentage;
 		ratio = percentage * UINT16_MAX;
-		motor_ratios[id] = ratio;
-	#endif
 		
-		u16 ccr_value = ratioToCCRx(ratio);
+		u16 ccr_value = Motors_Convert(ratio);
 		switch(id)
 		{
 			case 0:		/*MOTOR_M1*/
@@ -350,7 +355,7 @@ void motorsSetRatio(u32 id, u16 ithrust)
 
 
 
-
+static bool isInit;
 
 
 #define DEG2RAD		0.017453293f	
@@ -1135,7 +1140,7 @@ bool getIsCalibrated(void)
 
 void powerControlInit(void)
 {
-	motorsInit();
+	Motors_Init();
 }//stabilizer.c
 
 void powerDataprocess(struct remoteData_t* anlPacket)

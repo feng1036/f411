@@ -17,13 +17,35 @@ Input       : None.
 Output      : None.
 Return      : None.
 ******************************************************************************/
+volatile struct RMP_Thd Thd_F;
+void stabilizerTask(void);
+rmp_ptr_t Stack_F[1024];
+
+void Contact_Sensor(void);
+void Contact_Remote(void);
+
+/* Function:RMP_Init **********************************************************
+Description : The init thread hook functions.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
 void RMP_Init_Hook(void)
 {
-/* Clean up the structures */
+		/* Clean up the structures */
     RMP_Clear(&Thd_F,sizeof(struct RMP_Thd));
-
+	
+		RVM_Hyp_Evt_Add(11U);
+		RVM_Hyp_Evt_Add(22U);
+	
+		RVM_Hyp_Vct_Evt(11U,0U);
+		RVM_Hyp_Vct_Evt(22U,1U);
+	
+		RVM_Virt_Vct_Reg(0U,Contact_Sensor);
+    RVM_Virt_Vct_Reg(1U,Contact_Remote);
+	
     /* Create kernel objects */
-    RMP_Thd_Crt(&Thd_F,stabilizerTask,0x6666U,sizeof(Stack_F),1U,100U);
+    RMP_Thd_Crt(&Thd_F,(void*)stabilizerTask,(void*)0x6666U,Stack_F,sizeof(Stack_F),1U,100U);
 }
 
 void RMP_Init_Idle(void)

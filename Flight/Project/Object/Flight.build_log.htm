@@ -27,14 +27,22 @@ Project File Date:  05/29/2025
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'prc_flight' - Target 'Flight'
+C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Source\rmp_hook.c(23): error: use of undeclared identifier 'Thd_F'
+    RMP_Clear(&Thd_F,sizeof(struct RMP_Thd));
+               ^
+C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Source\rmp_hook.c(26): error: use of undeclared identifier 'Stack_F'
+    RMP_Thd_Crt(&Thd_F,stabilizerTask,0x6666U,sizeof(Stack_F),1U,100U);
+                                                     ^
+C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Source\rmp_hook.c(26): error: use of undeclared identifier 'Thd_F'
+    RMP_Thd_Crt(&Thd_F,stabilizerTask,0x6666U,sizeof(Stack_F),1U,100U);
+                 ^
+C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Source\rmp_hook.c(26): error: use of undeclared identifier 'stabilizerTask'
+    RMP_Thd_Crt(&Thd_F,stabilizerTask,0x6666U,sizeof(Stack_F),1U,100U);
+                       ^
+4 errors generated.
+compiling rmp_hook.c...
 compiling stabilizer.c...
-linking...
-Program Size: Code=5204 RO-data=260 RW-data=0 ZI-data=1912  
-FromELF: creating hex file...
-After Build - User command #1: fromelf.exe --binCombined -o "C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Project\Object\Flight.bin" "C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Project\Object\Flight.axf"
-After Build - User command #2: ../../../M7M02_Ammonite/Utility/M7M02_Final/bincopy.exe -i C:\Users\admin\Desktop\code_fc\RVM_F411\Flight\Project\Object\Flight.bin -o ./flight_image.c
-Size of image source file: 5476 bytes.
-".\Object\Flight.axf" - 0 Error(s), 0 Warning(s).
+".\Object\Flight.axf" - 4 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -46,7 +54,8 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
