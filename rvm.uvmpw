@@ -9,6 +9,7 @@
 
   <project>
     <PathAndName>.\Sensor\Project\prc_sensor.uvprojx</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
     <NodeIsExpanded>1</NodeIsExpanded>
     <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
   </project>
@@ -39,8 +40,6 @@
 
   <project>
     <PathAndName>.\Kernel\Project\kernel.uvprojx</PathAndName>
-    <NodeIsActive>1</NodeIsActive>
-    <NodeIsExpanded>1</NodeIsExpanded>
     <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
   </project>
 

@@ -363,9 +363,9 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080202c0   Section        0  prc_realtime.o(.text.main)
     $v0                                      0x08020330   Number         0  rvm_platform_a7m_armcc.o(__RVM_STUB)
     __RVM_STUB                               0x08020330   Section        6  rvm_platform_a7m_armcc.o(__RVM_STUB)
-    .L.str.2                                 0x08020336   Data           9  prc_realtime.o(.rodata.str1.1)
+    .L.str.1                                 0x08020336   Data          12  prc_realtime.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x08020336   Section        0  prc_realtime.o(.rodata.str1.1)
-    .L.str.1                                 0x0802033f   Data          12  prc_realtime.o(.rodata.str1.1)
+    .L.str.2                                 0x08020342   Data           9  prc_realtime.o(.rodata.str1.1)
     .L.str                                   0x0802034b   Data          25  prc_realtime.o(.rodata.str1.1)
 
     Global Symbols

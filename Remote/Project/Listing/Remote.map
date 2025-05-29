@@ -1197,15 +1197,15 @@ Image Symbol Table
     [Anonymous Symbol]                       0x08051478   Section        0  prc_remote.o(.rodata.str1.1)
     .L.str.2                                 0x08051484   Data           9  prc_remote.o(.rodata.str1.1)
     .L.str.2                                 0x08051484   Data           9  prc_remote.o(.rodata.str1.1)
+    .L.str.2                                 0x08051484   Data           9  prc_remote.o(.rodata.str1.1)
     .L.str.6                                 0x08051484   Data           9  prc_remote.o(.rodata.str1.1)
     .L.str                                   0x0805148d   Data          23  prc_remote.o(.rodata.str1.1)
-    .L.str.2                                 0x080514a4   Data           9  rvm_virtlib.o(.rodata.str1.1)
+    .L.str                                   0x080514a4   Data          53  rvm_virtlib.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x080514a4   Section        0  rvm_virtlib.o(.rodata.str1.1)
-    .L.str                                   0x080514ad   Data          53  rvm_virtlib.o(.rodata.str1.1)
-    .L.str                                   0x080514e2   Data          71  rmp_platform_a7m_rvm.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080514e2   Section        0  rmp_platform_a7m_rvm.o(.rodata.str1.1)
-    .L.str.4                                 0x08051529   Data          51  rmp_kernel.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08051529   Section        0  rmp_kernel.o(.rodata.str1.1)
+    .L.str                                   0x080514d9   Data          71  rmp_platform_a7m_rvm.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080514d9   Section        0  rmp_platform_a7m_rvm.o(.rodata.str1.1)
+    .L.str.4                                 0x08051520   Data          51  rmp_kernel.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08051520   Section        0  rmp_kernel.o(.rodata.str1.1)
     .L_MergedGlobals                         0x20014000   Data          24  rvm_virtlib.o(.bss..L_MergedGlobals)
     RVM_Int_Mask                             0x20014000   Data           4  rvm_virtlib.o(.bss..L_MergedGlobals)
     [Anonymous Symbol]                       0x20014000   Section        0  rvm_virtlib.o(.bss..L_MergedGlobals)
@@ -1282,8 +1282,8 @@ Image Symbol Table
     __scatterload_null                       0x08051465   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x08051467   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     RVM_Usr_Param                            0x08051474   Data           4  rvm_virtlib.o(.rodata.RVM_Usr_Param)
-    Region$$Table$$Base                      0x0805155c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0805156c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Base                      0x08051554   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08051564   Number         0  anon$$obj.o(Region$$Table)
     RMP_Sched_Lock_Cnt                       0x20014018   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
     RMP_Sched_Pend                           0x2001401c   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
     RMP_Thd_Cur                              0x20014020   Data           4  rmp_kernel.o(.bss..L_MergedGlobals)
@@ -1309,9 +1309,9 @@ Memory Map of the image
 
 
 
-  Load Region PROCESS (Base: 0x08050020, Size: 0x0000154c, Max: 0x0000ffe0, ABSOLUTE)
+  Load Region PROCESS (Base: 0x08050020, Size: 0x00001544, Max: 0x0000ffe0, ABSOLUTE)
 
-    Execution Region PROCESS_CODE (Exec base: 0x08050020, Load base: 0x08050020, Size: 0x0000154c, Max: 0x0000ffe0, ABSOLUTE)
+    Execution Region PROCESS_CODE (Exec base: 0x08050020, Load base: 0x08050020, Size: 0x00001544, Max: 0x0000ffe0, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1381,13 +1381,14 @@ Memory Map of the image
     0x08051466   0x08051466   0x0000000e   Code   RO          500    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08051474   0x08051474   0x00000004   Data   RO           81    .rodata.RVM_Usr_Param  rvm_virtlib.o
     0x08051478   0x08051478   0x0000002c   Data   RO           24    .rodata.str1.1      prc_remote.o
-    0x080514a4   0x080514a4   0x0000003e   Data   RO           82    .rodata.str1.1      rvm_virtlib.o
-    0x080514e2   0x080514e2   0x00000047   Data   RO          296    .rodata.str1.1      rmp_platform_a7m_rvm.o
-    0x08051529   0x08051529   0x00000033   Data   RO          465    .rodata.str1.1      rmp_kernel.o
-    0x0805155c   0x0805155c   0x00000010   Data   RO          497    Region$$Table       anon$$obj.o
+    0x080514a4   0x080514a4   0x00000035   Data   RO           82    .rodata.str1.1      rvm_virtlib.o
+    0x080514d9   0x080514d9   0x00000047   Data   RO          296    .rodata.str1.1      rmp_platform_a7m_rvm.o
+    0x08051520   0x08051520   0x00000033   Data   RO          465    .rodata.str1.1      rmp_kernel.o
+    0x08051553   0x08051553   0x00000001   PAD
+    0x08051554   0x08051554   0x00000010   Data   RO          497    Region$$Table       anon$$obj.o
 
 
-    Execution Region PROCESS_DATA (Exec base: 0x20014000, Load base: 0x0805156c, Size: 0x00000574, Max: 0x00003950, ABSOLUTE)
+    Execution Region PROCESS_DATA (Exec base: 0x20014000, Load base: 0x08051564, Size: 0x00000574, Max: 0x00003950, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1397,7 +1398,7 @@ Memory Map of the image
     0x20014474        -       0x00000100   Zero   RW          466    .bss.RMP_Run        rmp_kernel.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x20017a00, Load base: 0x0805156c, Size: 0x00000200, Max: 0x00000200, ABSOLUTE)
+    Execution Region ARM_LIB_STACK (Exec base: 0x20017a00, Load base: 0x08051564, Size: 0x00000200, Max: 0x00000200, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1419,12 +1420,12 @@ Image component sizes
        480         28          0          0          0       1160   rmp_platform_a7m_rvm_armcc.o
         36          4          0          0          0       1476   rvm_platform_a7m_armcc.o
        732          0          0          0          0      17875   rvm_syslib.o
-      1358          0         66          0         24       8227   rvm_virtlib.o
+      1358          0         57          0         24       8227   rvm_virtlib.o
 
     ----------------------------------------------------------------------
-      5118         38        268          0       1908      99760   Object Totals
+      5118         38        260          0       1908      99760   Object Totals
          0          0         16          0        512          0   (incl. Generated)
-        34          0          0          0          0          0   (incl. Padding)
+        34          0          1          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1461,15 +1462,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5204         54        268          0       1908      99532   Grand Totals
-      5204         54        268          0       1908      99532   ELF Image Totals
-      5204         54        268          0          0          0   ROM Totals
+      5204         54        260          0       1908      99532   Grand Totals
+      5204         54        260          0       1908      99532   ELF Image Totals
+      5204         54        260          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5472 (   5.34kB)
+    Total RO  Size (Code + RO Data)                 5464 (   5.34kB)
     Total RW  Size (RW Data + ZI Data)              1908 (   1.86kB)
-    Total ROM Size (Code + RO Data + RW Data)       5472 (   5.34kB)
+    Total ROM Size (Code + RO Data + RW Data)       5464 (   5.34kB)
 
 ==============================================================================
 

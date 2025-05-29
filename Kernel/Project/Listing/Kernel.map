@@ -888,13 +888,13 @@ Image Symbol Table
     i.__scatterload_copy                     0x08008b10   Section       14  handlers.o(i.__scatterload_copy)
     i.__scatterload_null                     0x08008b1e   Section        2  handlers.o(i.__scatterload_null)
     i.__scatterload_zeroinit                 0x08008b20   Section       14  handlers.o(i.__scatterload_zeroinit)
-    .L.str.1                                 0x08008b2e   Data          12  rme_boot.o(.rodata.str1.1)
-    .L.str.1                                 0x08008b2e   Data          12  rme_boot.o(.rodata.str1.1)
-    .L.str.5                                 0x08008b2e   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str.2                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
+    .L.str.2                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
+    .L.str.6                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x08008b2e   Section        0  rme_boot.o(.rodata.str1.1)
-    .L.str.2                                 0x08008b3a   Data           9  rme_boot.o(.rodata.str1.1)
-    .L.str.2                                 0x08008b3a   Data           9  rme_boot.o(.rodata.str1.1)
-    .L.str.6                                 0x08008b3a   Data           9  rme_boot.o(.rodata.str1.1)
+    .L.str.1                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str.1                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str.5                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
     .L.str                                   0x08008b43   Data          21  rme_boot.o(.rodata.str1.1)
     .L.str.4                                 0x08008b58   Data           3  rme_platform_a7m.o(.rodata.str1.1)
     [Anonymous Symbol]                       0x08008b58   Section        0  rme_platform_a7m.o(.rodata.str1.1)
@@ -1254,7 +1254,7 @@ Image Symbol Table
     realtime_image                           0x08020000   Data         868  realtime_image.o(.rodata.realtime_image)
     flight_image                             0x08030000   Data        5476  flight_image.o(.rodata.flight_image)
     sensor_image                             0x08040000   Data        5476  sensor_image.o(.rodata.sensor_image)
-    remote_image                             0x08050000   Data        5484  remote_image.o(.rodata.remote_image)
+    remote_image                             0x08050000   Data        5476  remote_image.o(.rodata.remote_image)
     RME_A7M_Kot                              0x20000004   Data          36  rme_platform_a7m.o(.bss.RME_A7M_Kot)
     RME_A7M_Local                            0x20000028   Data         276  rme_platform_a7m.o(.bss.RME_A7M_Local)
     RME_A7M_Timestamp                        0x2000013c   Data           4  rme_platform_a7m.o(.bss.RME_A7M_Timestamp)
@@ -1557,13 +1557,13 @@ Memory Map of the image
 
 
 
-  Load Region REMOTE (Base: 0x08050000, Size: 0x0000156c, Max: 0x00010000, ABSOLUTE)
+  Load Region REMOTE (Base: 0x08050000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region REMOTE_CODE (Exec base: 0x08050000, Load base: 0x08050000, Size: 0x0000156c, Max: 0x00010000, ABSOLUTE)
+    Execution Region REMOTE_CODE (Exec base: 0x08050000, Load base: 0x08050000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08050000   0x08050000   0x0000156c   Data   RO           41    .rodata.remote_image  remote_image.o
+    0x08050000   0x08050000   0x00001564   Data   RO           41    .rodata.remote_image  remote_image.o
 
 
 ==============================================================================
@@ -1576,7 +1576,7 @@ Image component sizes
          0          0       5476          0          0        440   flight_image.o
          0          0      22108          0          0        445   monitor_image.o
          0          0        868          0          0        450   realtime_image.o
-         0          0       5484          0          0        440   remote_image.o
+         0          0       5476          0          0        440   remote_image.o
        112          0         42          0          0       2970   rme_boot.o
         16          0          0          0          0       1421   rme_hook.o
      24130         68         50          0          0      83759   rme_kernel.o
@@ -1585,7 +1585,7 @@ Image component sizes
          0          0       5476          0          0        440   sensor_image.o
 
     ----------------------------------------------------------------------
-     35508       1546      39602          4       6908     135072   Object Totals
+     35508       1546      39594          4       6908     135072   Object Totals
          0          0         32          0       6592          0   (incl. Generated)
        178         16          1          0          0          0   (incl. Padding)
 
@@ -1625,15 +1625,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     35630       1562      39602          4       6908     134560   Grand Totals
-     35630       1562      39602          4       6908     134560   ELF Image Totals
-     35630       1562      39602          4          0          0   ROM Totals
+     35630       1562      39594          4       6908     134560   Grand Totals
+     35630       1562      39594          4       6908     134560   ELF Image Totals
+     35630       1562      39594          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                75232 (  73.47kB)
+    Total RO  Size (Code + RO Data)                75224 (  73.46kB)
     Total RW  Size (RW Data + ZI Data)              6912 (   6.75kB)
-    Total ROM Size (Code + RO Data + RW Data)      75236 (  73.47kB)
+    Total ROM Size (Code + RO Data + RW Data)      75228 (  73.46kB)
 
 ==============================================================================
 

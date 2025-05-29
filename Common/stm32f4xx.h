@@ -512,7 +512,7 @@ typedef __I uint8_t vuc8;   /*!< Read Only */
 typedef enum {FALSE = 0, TRUE = !FALSE} bool;
 #else
 #define FALSE  0
-#define TRUE	!FALSE
+#define TRUE    !FALSE
 #endif
 #endif
 
