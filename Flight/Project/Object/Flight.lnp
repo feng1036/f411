@@ -9,6 +9,7 @@
 ".\object\rmp_platform_a7m_rvm_armcc.o"
 ".\object\rmp_platform_a7m_rvm.o"
 ".\object\rmp_kernel.o"
+".\object\stabilizer.o"
 --library_type=microlib --diag_suppress 6314,6329 --strict --scatter "prc_flight_stm32f411ce.sct"
 --keep=*_desc --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

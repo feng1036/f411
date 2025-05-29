@@ -728,6 +728,310 @@ Section Cross References
     rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text._RMP_Amgr_Expire) for _RMP_Amgr_Expire
     rmp_kernel.o(.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text.RMP_Sem_Post) for RMP_Sem_Post
     rmp_kernel.o(.ARM.exidx.text.RMP_Alrm_Trg) refers to rmp_kernel.o(.text.RMP_Alrm_Trg) for [Anonymous Symbol]
+    stabilizer.o(.text.Sensor_Data_Read) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.Sensor_Data_Read) refers to rmp_kernel.o(.text.RMP_Msgq_Rcv) for RMP_Msgq_Rcv
+    stabilizer.o(.text.Sensor_Data_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    stabilizer.o(.text.Sensor_Data_Read) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.Sensor_Data_Read) refers to rmp_kernel.o(.text.RMP_List_Ins) for RMP_List_Ins
+    stabilizer.o(.text.Sensor_Data_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    stabilizer.o(.ARM.exidx.text.Sensor_Data_Read) refers to stabilizer.o(.text.Sensor_Data_Read) for [Anonymous Symbol]
+    stabilizer.o(.text.Remote_Data_Read) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.Remote_Data_Read) refers to rmp_kernel.o(.text.RMP_Msgq_Rcv) for RMP_Msgq_Rcv
+    stabilizer.o(.text.Remote_Data_Read) refers to memcpya.o(.text) for __aeabi_memcpy
+    stabilizer.o(.text.Remote_Data_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    stabilizer.o(.text.Remote_Data_Read) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.Remote_Data_Read) refers to rmp_kernel.o(.text.RMP_List_Ins) for RMP_List_Ins
+    stabilizer.o(.text.Remote_Data_Read) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    stabilizer.o(.ARM.exidx.text.Remote_Data_Read) refers to stabilizer.o(.text.Remote_Data_Read) for [Anonymous Symbol]
+    stabilizer.o(.text.Contact_Sensor) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.Contact_Sensor) refers to rmp_kernel.o(.text.RMP_List_Del) for RMP_List_Del
+    stabilizer.o(.text.Contact_Sensor) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.Contact_Sensor) refers to rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) for RMP_Msgq_Snd_ISR
+    stabilizer.o(.ARM.exidx.text.Contact_Sensor) refers to stabilizer.o(.text.Contact_Sensor) for [Anonymous Symbol]
+    stabilizer.o(.text.Contact_Remote) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.Contact_Remote) refers to rmp_kernel.o(.text.RMP_List_Del) for RMP_List_Del
+    stabilizer.o(.text.Contact_Remote) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.Contact_Remote) refers to rmp_kernel.o(.text.RMP_Msgq_Snd_ISR) for RMP_Msgq_Snd_ISR
+    stabilizer.o(.ARM.exidx.text.Contact_Remote) refers to stabilizer.o(.text.Contact_Remote) for [Anonymous Symbol]
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.text.Contact_Sensor) for Contact_Sensor
+    stabilizer.o(.text.Int_Init) refers to rvm_virtlib.o(.text.RVM_Virt_Vct_Reg) for RVM_Virt_Vct_Reg
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.text.Contact_Remote) for Contact_Remote
+    stabilizer.o(.text.Int_Init) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Evt) for RVM_Hyp_Vct_Evt
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.Int_Init) refers to rmp_kernel.o(.text.RMP_List_Crt) for RMP_List_Crt
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.bss.msgarray_sensor) for msgarray_sensor
+    stabilizer.o(.text.Int_Init) refers to rmp_kernel.o(.text.RMP_List_Ins) for RMP_List_Ins
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.bss.msgarray_remote) for msgarray_remote
+    stabilizer.o(.text.Int_Init) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.Int_Init) refers to rmp_kernel.o(.text.RMP_Msgq_Crt) for RMP_Msgq_Crt
+    stabilizer.o(.text.Int_Init) refers to rvm_virtlib.o(.text.RVM_Hyp_Vct_Lck) for RVM_Hyp_Vct_Lck
+    stabilizer.o(.ARM.exidx.text.Int_Init) refers to stabilizer.o(.text.Int_Init) for [Anonymous Symbol]
+    stabilizer.o(.text.motorsInit) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.motorsInit) refers to stabilizer.o(.text.motorsInit) for [Anonymous Symbol]
+    stabilizer.o(.text.motorsTest) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.motorsTest) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.motorsTest) refers to stabilizer.o(.text.motorsTest) for [Anonymous Symbol]
+    stabilizer.o(.text.motorsSetRatio) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.motorsSetRatio) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.motorsSetRatio) refers to stabilizer.o(.text.motorsSetRatio) for [Anonymous Symbol]
+    stabilizer.o(.text.stabilizerInit) refers to stabilizer.o(.bss.isInit) for isInit
+    stabilizer.o(.text.stabilizerInit) refers to stabilizer.o(.text.stateControlInit) for stateControlInit
+    stabilizer.o(.text.stabilizerInit) refers to stabilizer.o(.text.motorsInit) for motorsInit
+    stabilizer.o(.ARM.exidx.text.stabilizerInit) refers to stabilizer.o(.text.stabilizerInit) for [Anonymous Symbol]
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.text.stateControlInit) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.ARM.exidx.text.stateControlInit) refers to stabilizer.o(.text.stateControlInit) for [Anonymous Symbol]
+    stabilizer.o(.text.powerControlInit) refers to stabilizer.o(.text.motorsInit) for motorsInit
+    stabilizer.o(.ARM.exidx.text.powerControlInit) refers to stabilizer.o(.text.powerControlInit) for [Anonymous Symbol]
+    stabilizer.o(.text.stabilizerTest) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.stabilizerTest) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.stabilizerTest) refers to stabilizer.o(.text.stabilizerTest) for [Anonymous Symbol]
+    stabilizer.o(.text.powerControlTest) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.powerControlTest) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.powerControlTest) refers to stabilizer.o(.text.powerControlTest) for [Anonymous Symbol]
+    stabilizer.o(.text.setFastAdjustPosParam) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.setFastAdjustPosParam) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.ARM.exidx.text.setFastAdjustPosParam) refers to stabilizer.o(.text.setFastAdjustPosParam) for [Anonymous Symbol]
+    stabilizer.o(.text.stabilizerDataprocess) refers to stabilizer.o(.text.positionDataprocess) for positionDataprocess
+    stabilizer.o(.text.stabilizerDataprocess) refers to stabilizer.o(.text.remoterCtrlProcess) for remoterCtrlProcess
+    stabilizer.o(.text.stabilizerDataprocess) refers to stabilizer.o(.text.attitudeDataprocess) for attitudeDataprocess
+    stabilizer.o(.text.stabilizerDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.stabilizerDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.ARM.exidx.text.stabilizerDataprocess) refers to stabilizer.o(.text.stabilizerDataprocess) for [Anonymous Symbol]
+    stabilizer.o(.text.remoterCtrlProcess) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.remoterCtrlProcess) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.remoterCtrlProcess) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.ARM.exidx.text.remoterCtrlProcess) refers to stabilizer.o(.text.remoterCtrlProcess) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.text.attitudeDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.attitudeDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.attitudeDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.attitudeDataprocess) refers to dflti.o(.text) for __aeabi_i2d
+    stabilizer.o(.text.attitudeDataprocess) refers to dmul.o(.text) for __aeabi_dmul
+    stabilizer.o(.text.attitudeDataprocess) refers to d2f.o(.text) for __aeabi_d2f
+    stabilizer.o(.ARM.exidx.text.attitudeDataprocess) refers to stabilizer.o(.text.attitudeDataprocess) for [Anonymous Symbol]
+    stabilizer.o(.text.positionDataprocess) refers to dflti.o(.text) for __aeabi_i2d
+    stabilizer.o(.text.positionDataprocess) refers to dmul.o(.text) for __aeabi_dmul
+    stabilizer.o(.text.positionDataprocess) refers to d2f.o(.text) for __aeabi_d2f
+    stabilizer.o(.text.positionDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.positionDataprocess) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.text.positionDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.positionDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.ARM.exidx.text.positionDataprocess) refers to stabilizer.o(.text.positionDataprocess) for [Anonymous Symbol]
+    stabilizer.o(.text.powerDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.powerDataprocess) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.ARM.exidx.text.powerDataprocess) refers to stabilizer.o(.text.powerDataprocess) for [Anonymous Symbol]
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss..L_MergedGlobals.6) for .L_MergedGlobals.6
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.stabilizerTask) refers to rmp_kernel.o(.text.RMP_Msgq_Rcv) for RMP_Msgq_Rcv
+    stabilizer.o(.text.stabilizerTask) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Mask) for RVM_Virt_Int_Mask
+    stabilizer.o(.text.stabilizerTask) refers to rmp_kernel.o(.text.RMP_List_Ins) for RMP_List_Ins
+    stabilizer.o(.text.stabilizerTask) refers to rvm_virtlib.o(.text.RVM_Virt_Int_Unmask) for RVM_Virt_Int_Unmask
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.positionDataprocess) for positionDataprocess
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.attitudeDataprocess) for attitudeDataprocess
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss.state) for state
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.imuUpdate) for imuUpdate
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.positionEstimate) for positionEstimate
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.bss.setpoint) for setpoint
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.commanderGetSetpoint) for commanderGetSetpoint
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.stateControl) for stateControl
+    stabilizer.o(.text.stabilizerTask) refers to stabilizer.o(.text.powerControl) for powerControl
+    stabilizer.o(.ARM.exidx.text.stabilizerTask) refers to stabilizer.o(.text.stabilizerTask) for [Anonymous Symbol]
+    stabilizer.o(.text.imuUpdate) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.imuUpdate) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.text.imuUpdate) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.imuUpdate) refers to asinf.o(i.__hardfp_asinf) for __hardfp_asinf
+    stabilizer.o(.text.imuUpdate) refers to atan2f.o(i.__hardfp_atan2f) for __hardfp_atan2f
+    stabilizer.o(.ARM.exidx.text.imuUpdate) refers to stabilizer.o(.text.imuUpdate) for [Anonymous Symbol]
+    stabilizer.o(.text.positionEstimate) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.positionEstimate) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.positionEstimate) refers to atan2f.o(i.__hardfp_atan2f) for __hardfp_atan2f
+    stabilizer.o(.text.positionEstimate) refers to cosf.o(i.__hardfp_cosf) for __hardfp_cosf
+    stabilizer.o(.text.positionEstimate) refers to sinf.o(i.__hardfp_sinf) for __hardfp_sinf
+    stabilizer.o(.text.positionEstimate) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.ARM.exidx.text.positionEstimate) refers to stabilizer.o(.text.positionEstimate) for [Anonymous Symbol]
+    stabilizer.o(.text.getIsCalibrated) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.getIsCalibrated) refers to stabilizer.o(.text.getIsCalibrated) for [Anonymous Symbol]
+    stabilizer.o(.text.commanderGetSetpoint) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.text.commanderGetSetpoint) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.commanderGetSetpoint) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.commanderGetSetpoint) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.text.commanderGetSetpoint) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.text.commanderGetSetpoint) refers to cosf.o(i.__hardfp_cosf) for __hardfp_cosf
+    stabilizer.o(.text.commanderGetSetpoint) refers to sinf.o(i.__hardfp_sinf) for __hardfp_sinf
+    stabilizer.o(.ARM.exidx.text.commanderGetSetpoint) refers to stabilizer.o(.text.commanderGetSetpoint) for [Anonymous Symbol]
+    stabilizer.o(.text.anomalDetec) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.anomalDetec) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.anomalDetec) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.ARM.exidx.text.anomalDetec) refers to stabilizer.o(.text.anomalDetec) for [Anonymous Symbol]
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.text.positionController) for positionController
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.text.attitudeAnglePID) for attitudeAnglePID
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.text.attitudeRatePID) for attitudeRatePID
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.text.stateControl) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.ARM.exidx.text.stateControl) refers to stabilizer.o(.text.stateControl) for [Anonymous Symbol]
+    stabilizer.o(.text.powerControl) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.text.powerControl) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.powerControl) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.powerControl) refers to stabilizer.o(.text.powerControl) for [Anonymous Symbol]
+    stabilizer.o(.text.getAttitudeData) refers to stabilizer.o(.bss.state) for state
+    stabilizer.o(.ARM.exidx.text.getAttitudeData) refers to stabilizer.o(.text.getAttitudeData) for [Anonymous Symbol]
+    stabilizer.o(.text.getBaroData) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.ARM.exidx.text.getBaroData) refers to stabilizer.o(.text.getBaroData) for [Anonymous Symbol]
+    stabilizer.o(.text.getSensorData) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.ARM.exidx.text.getSensorData) refers to stabilizer.o(.text.getSensorData) for [Anonymous Symbol]
+    stabilizer.o(.text.getStateData) refers to stabilizer.o(.bss.state) for state
+    stabilizer.o(.ARM.exidx.text.getStateData) refers to stabilizer.o(.text.getStateData) for [Anonymous Symbol]
+    stabilizer.o(.text.getCommanderKeyFlight) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.getCommanderKeyFlight) refers to stabilizer.o(.text.getCommanderKeyFlight) for [Anonymous Symbol]
+    stabilizer.o(.text.setCommanderKeyFlight) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.setCommanderKeyFlight) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.setCommanderKeyFlight) refers to stabilizer.o(.text.setCommanderKeyFlight) for [Anonymous Symbol]
+    stabilizer.o(.text.setCommanderKeyland) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.setCommanderKeyland) refers to stabilizer.o(.text.setCommanderKeyland) for [Anonymous Symbol]
+    stabilizer.o(.text.setCommanderCtrlMode) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.setCommanderCtrlMode) refers to stabilizer.o(.text.setCommanderCtrlMode) for [Anonymous Symbol]
+    stabilizer.o(.text.setCommanderFlightmode) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.setCommanderFlightmode) refers to stabilizer.o(.text.setCommanderFlightmode) for [Anonymous Symbol]
+    stabilizer.o(.text.flightCtrldataCache) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.ARM.exidx.text.flightCtrldataCache) refers to stabilizer.o(.text.flightCtrldataCache) for [Anonymous Symbol]
+    stabilizer.o(.text.getCommanderCtrlMode) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.getCommanderCtrlMode) refers to stabilizer.o(.text.getCommanderCtrlMode) for [Anonymous Symbol]
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to atan2f.o(i.__hardfp_atan2f) for __hardfp_atan2f
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to cosf.o(i.__hardfp_cosf) for __hardfp_cosf
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to sinf.o(i.__hardfp_sinf) for __hardfp_sinf
+    stabilizer.o(.text.imuTransformVectorBodyToEarth) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.ARM.exidx.text.imuTransformVectorBodyToEarth) refers to stabilizer.o(.text.imuTransformVectorBodyToEarth) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.applyDeadbandf) refers to stabilizer.o(.text.applyDeadbandf) for [Anonymous Symbol]
+    stabilizer.o(.text.getCommanderKeyland) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.getCommanderKeyland) refers to stabilizer.o(.text.getCommanderKeyland) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.constrainf) refers to stabilizer.o(.text.constrainf) for [Anonymous Symbol]
+    stabilizer.o(.text.imuTransformVectorEarthToBody) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.imuTransformVectorEarthToBody) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.imuTransformVectorEarthToBody) refers to stabilizer.o(.text.imuTransformVectorEarthToBody) for [Anonymous Symbol]
+    stabilizer.o(.text.estRstHeight) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.estRstHeight) refers to stabilizer.o(.text.estRstHeight) for [Anonymous Symbol]
+    stabilizer.o(.text.estRstAll) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.ARM.exidx.text.estRstAll) refers to stabilizer.o(.text.estRstAll) for [Anonymous Symbol]
+    stabilizer.o(.text.imuComputeRotationMatrix) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.imuComputeRotationMatrix) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.text.imuComputeRotationMatrix) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.imuComputeRotationMatrix) refers to stabilizer.o(.text.imuComputeRotationMatrix) for [Anonymous Symbol]
+    stabilizer.o(.text.setMotorPWM) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.setMotorPWM) refers to stabilizer.o(.bss..L_MergedGlobals.5) for .L_MergedGlobals.5
+    stabilizer.o(.ARM.exidx.text.setMotorPWM) refers to stabilizer.o(.text.setMotorPWM) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.limitThrust) refers to stabilizer.o(.text.limitThrust) for [Anonymous Symbol]
+    stabilizer.o(.text.flyerAutoLand) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.text.flyerAutoLand) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.flyerAutoLand) refers to stabilizer.o(.bss..L_MergedGlobals.4) for .L_MergedGlobals.4
+    stabilizer.o(.ARM.exidx.text.flyerAutoLand) refers to stabilizer.o(.text.flyerAutoLand) for [Anonymous Symbol]
+    stabilizer.o(.text.getAltholdThrust) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.ARM.exidx.text.getAltholdThrust) refers to stabilizer.o(.text.getAltholdThrust) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeControlInit) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.text.attitudeControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.attitudeControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.text.attitudeControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.attitudeControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.ARM.exidx.text.attitudeControlInit) refers to stabilizer.o(.text.attitudeControlInit) for [Anonymous Symbol]
+    stabilizer.o(.text.positionControlInit) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.text.positionControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.positionControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.positionControlInit) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.text.positionControlInit) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.ARM.exidx.text.positionControlInit) refers to stabilizer.o(.text.positionControlInit) for [Anonymous Symbol]
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.data..L_MergedGlobals) for .L_MergedGlobals
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.bss..L_MergedGlobals.3) for .L_MergedGlobals.3
+    stabilizer.o(.text.positionController) refers to stabilizer.o(.data.configParam) for configParam
+    stabilizer.o(.ARM.exidx.text.positionController) refers to stabilizer.o(.text.positionController) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeAnglePID) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.attitudeAnglePID) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.ARM.exidx.text.attitudeAnglePID) refers to stabilizer.o(.text.attitudeAnglePID) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeControllerResetRollAttitudePID) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.ARM.exidx.text.attitudeControllerResetRollAttitudePID) refers to stabilizer.o(.text.attitudeControllerResetRollAttitudePID) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeControllerResetPitchAttitudePID) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.ARM.exidx.text.attitudeControllerResetPitchAttitudePID) refers to stabilizer.o(.text.attitudeControllerResetPitchAttitudePID) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeRatePID) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.attitudeRatePID) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.ARM.exidx.text.attitudeRatePID) refers to stabilizer.o(.text.attitudeRatePID) for [Anonymous Symbol]
+    stabilizer.o(.text.attitudeResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.7) for .L_MergedGlobals.7
+    stabilizer.o(.text.attitudeResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.8) for .L_MergedGlobals.8
+    stabilizer.o(.text.attitudeResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.9) for .L_MergedGlobals.9
+    stabilizer.o(.text.attitudeResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.ARM.exidx.text.attitudeResetAllPID) refers to stabilizer.o(.text.attitudeResetAllPID) for [Anonymous Symbol]
+    stabilizer.o(.text.positionResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.10) for .L_MergedGlobals.10
+    stabilizer.o(.text.positionResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.11) for .L_MergedGlobals.11
+    stabilizer.o(.text.positionResetAllPID) refers to stabilizer.o(.bss..L_MergedGlobals.12) for .L_MergedGlobals.12
+    stabilizer.o(.text.positionResetAllPID) refers to stabilizer.o(.bss.pidZ) for pidZ
+    stabilizer.o(.ARM.exidx.text.positionResetAllPID) refers to stabilizer.o(.text.positionResetAllPID) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.pidInit) refers to stabilizer.o(.text.pidInit) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.pidSetIntegralLimit) refers to stabilizer.o(.text.pidSetIntegralLimit) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.pidUpdate) refers to stabilizer.o(.text.pidUpdate) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.pidReset) refers to stabilizer.o(.text.pidReset) for [Anonymous Symbol]
+    stabilizer.o(.ARM.exidx.text.pidSetOutputLimit) refers to stabilizer.o(.text.pidSetOutputLimit) for [Anonymous Symbol]
+    asinf.o(i.__hardfp_asinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    asinf.o(i.__hardfp_asinf) refers to sqrtf.o(i.sqrtf) for sqrtf
+    asinf.o(i.__hardfp_asinf) refers to fpclassifyf.o(i.__ARM_fpclassifyf) for __ARM_fpclassifyf
+    asinf.o(i.__hardfp_asinf) refers to funder.o(i.__mathlib_flt_underflow) for __mathlib_flt_underflow
+    asinf.o(i.__hardfp_asinf) refers to funder.o(i.__mathlib_flt_infnan) for __mathlib_flt_infnan
+    asinf.o(i.__hardfp_asinf) refers to errno.o(i.__set_errno) for __set_errno
+    asinf.o(i.__hardfp_asinf) refers to funder.o(i.__mathlib_flt_invalid) for __mathlib_flt_invalid
+    asinf.o(i.__softfp_asinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    asinf.o(i.__softfp_asinf) refers to asinf.o(i.__hardfp_asinf) for __hardfp_asinf
+    asinf.o(i.asinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    asinf.o(i.asinf) refers to asinf.o(i.__hardfp_asinf) for __hardfp_asinf
+    atan2f.o(i.__hardfp_atan2f) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2f.o(i.__hardfp_atan2f) refers to fpclassifyf.o(i.__ARM_fpclassifyf) for __ARM_fpclassifyf
+    atan2f.o(i.__hardfp_atan2f) refers to funder.o(i.__mathlib_flt_underflow) for __mathlib_flt_underflow
+    atan2f.o(i.__hardfp_atan2f) refers to errno.o(i.__set_errno) for __set_errno
+    atan2f.o(i.__hardfp_atan2f) refers to funder.o(i.__mathlib_flt_infnan2) for __mathlib_flt_infnan2
+    atan2f.o(i.__softfp_atan2f) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2f.o(i.__softfp_atan2f) refers to atan2f.o(i.__hardfp_atan2f) for __hardfp_atan2f
+    atan2f.o(i.atan2f) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2f.o(i.atan2f) refers to atan2f.o(i.__hardfp_atan2f) for __hardfp_atan2f
+    cosf.o(i.__hardfp_cosf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cosf.o(i.__hardfp_cosf) refers to rredf.o(i.__mathlib_rredf2) for __mathlib_rredf2
+    cosf.o(i.__hardfp_cosf) refers to errno.o(i.__set_errno) for __set_errno
+    cosf.o(i.__hardfp_cosf) refers to funder.o(i.__mathlib_flt_invalid) for __mathlib_flt_invalid
+    cosf.o(i.__hardfp_cosf) refers to funder.o(i.__mathlib_flt_infnan) for __mathlib_flt_infnan
+    cosf.o(i.__softfp_cosf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cosf.o(i.__softfp_cosf) refers to cosf.o(i.__hardfp_cosf) for __hardfp_cosf
+    cosf.o(i.cosf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cosf.o(i.cosf) refers to cosf.o(i.__hardfp_cosf) for __hardfp_cosf
+    sinf.o(i.__hardfp_sinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sinf.o(i.__hardfp_sinf) refers to rredf.o(i.__mathlib_rredf2) for __mathlib_rredf2
+    sinf.o(i.__hardfp_sinf) refers to fpclassifyf.o(i.__ARM_fpclassifyf) for __ARM_fpclassifyf
+    sinf.o(i.__hardfp_sinf) refers to funder.o(i.__mathlib_flt_underflow) for __mathlib_flt_underflow
+    sinf.o(i.__hardfp_sinf) refers to errno.o(i.__set_errno) for __set_errno
+    sinf.o(i.__hardfp_sinf) refers to funder.o(i.__mathlib_flt_invalid) for __mathlib_flt_invalid
+    sinf.o(i.__hardfp_sinf) refers to funder.o(i.__mathlib_flt_infnan) for __mathlib_flt_infnan
+    sinf.o(i.__softfp_sinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sinf.o(i.__softfp_sinf) refers to sinf.o(i.__hardfp_sinf) for __hardfp_sinf
+    sinf.o(i.sinf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sinf.o(i.sinf) refers to sinf.o(i.__hardfp_sinf) for __hardfp_sinf
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -735,11 +1039,34 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry4.o(.ARM.Collect$$$$00000003) for _main_stk
+    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dflti.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    d2f.o(.text) refers to fepilogue.o(.text) for _float_round
+    fpclassifyf.o(i.__ARM_fpclassifyf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rredf.o(i.__mathlib_rredf2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rredf.o(i.__mathlib_rredf2) refers to rredf.o(.constdata) for .constdata
+    rredf.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sqrtf.o(i.__hardfp_sqrtf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sqrtf.o(i.__hardfp_sqrtf) refers to errno.o(i.__set_errno) for __set_errno
+    sqrtf.o(i.__softfp_sqrtf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sqrtf.o(i.__softfp_sqrtf) refers to errno.o(i.__set_errno) for __set_errno
+    sqrtf.o(i.sqrtf) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sqrtf.o(i.sqrtf) refers to errno.o(i.__set_errno) for __set_errno
     entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
     entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
     entry9a.o(.ARM.Collect$$$$0000000B) refers to rmp_kernel.o(.text.main) for main
     entry9b.o(.ARM.Collect$$$$0000000C) refers to rmp_kernel.o(.text.main) for main
+    errno.o(i.__aeabi_errno_addr) refers to errno.o(.data) for .data
+    errno.o(i.__read_errno) refers to errno.o(.data) for .data
+    errno.o(i.__set_errno) refers to errno.o(.data) for .data
+    fepilogue.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    depilogue.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
 
 
@@ -1097,8 +1424,161 @@ Removing Unused input sections from the image.
     Removing rmp_kernel.o(.rodata.RMP_MSB_Generic.Table), (256 bytes).
     Removing rmp_kernel.o(.rodata.RMP_LSB_Generic.Table), (256 bytes).
     Removing rmp_kernel.o(.ARM.use_no_argv), (4 bytes).
+    Removing stabilizer.o(.text), (0 bytes).
+    Removing stabilizer.o(.text.Sensor_Data_Read), (108 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.Sensor_Data_Read), (8 bytes).
+    Removing stabilizer.o(.text.Remote_Data_Read), (90 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.Remote_Data_Read), (8 bytes).
+    Removing stabilizer.o(.text.Contact_Sensor), (164 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.Contact_Sensor), (8 bytes).
+    Removing stabilizer.o(.text.Contact_Remote), (152 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.Contact_Remote), (8 bytes).
+    Removing stabilizer.o(.text.Int_Init), (186 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.Int_Init), (8 bytes).
+    Removing stabilizer.o(.text.motorsInit), (712 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.motorsInit), (8 bytes).
+    Removing stabilizer.o(.text.motorsTest), (84 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.motorsTest), (8 bytes).
+    Removing stabilizer.o(.text.motorsSetRatio), (208 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.motorsSetRatio), (8 bytes).
+    Removing stabilizer.o(.text.stabilizerInit), (32 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stabilizerInit), (8 bytes).
+    Removing stabilizer.o(.text.stateControlInit), (510 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stateControlInit), (8 bytes).
+    Removing stabilizer.o(.text.powerControlInit), (4 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.powerControlInit), (8 bytes).
+    Removing stabilizer.o(.text.stabilizerTest), (84 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stabilizerTest), (8 bytes).
+    Removing stabilizer.o(.text.powerControlTest), (84 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.powerControlTest), (8 bytes).
+    Removing stabilizer.o(.text.setFastAdjustPosParam), (54 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setFastAdjustPosParam), (8 bytes).
+    Removing stabilizer.o(.text.stabilizerDataprocess), (120 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stabilizerDataprocess), (8 bytes).
+    Removing stabilizer.o(.text.remoterCtrlProcess), (228 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.remoterCtrlProcess), (8 bytes).
+    Removing stabilizer.o(.text.attitudeDataprocess), (432 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeDataprocess), (8 bytes).
+    Removing stabilizer.o(.text.positionDataprocess), (568 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.positionDataprocess), (8 bytes).
+    Removing stabilizer.o(.text.powerDataprocess), (62 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.powerDataprocess), (8 bytes).
+    Removing stabilizer.o(.text.stabilizerTask), (1246 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stabilizerTask), (8 bytes).
+    Removing stabilizer.o(.text.imuUpdate), (980 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.imuUpdate), (8 bytes).
+    Removing stabilizer.o(.text.positionEstimate), (1184 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.positionEstimate), (8 bytes).
+    Removing stabilizer.o(.text.getIsCalibrated), (12 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getIsCalibrated), (8 bytes).
+    Removing stabilizer.o(.text.commanderGetSetpoint), (956 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.commanderGetSetpoint), (8 bytes).
+    Removing stabilizer.o(.text.anomalDetec), (332 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.anomalDetec), (8 bytes).
+    Removing stabilizer.o(.text.stateControl), (620 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.stateControl), (8 bytes).
+    Removing stabilizer.o(.text.powerControl), (620 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.powerControl), (8 bytes).
+    Removing stabilizer.o(.text.getAttitudeData), (38 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getAttitudeData), (8 bytes).
+    Removing stabilizer.o(.text.getBaroData), (14 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getBaroData), (8 bytes).
+    Removing stabilizer.o(.text.getSensorData), (48 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getSensorData), (8 bytes).
+    Removing stabilizer.o(.text.getStateData), (68 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getStateData), (8 bytes).
+    Removing stabilizer.o(.text.getCommanderKeyFlight), (16 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getCommanderKeyFlight), (8 bytes).
+    Removing stabilizer.o(.text.setCommanderKeyFlight), (42 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setCommanderKeyFlight), (8 bytes).
+    Removing stabilizer.o(.text.setCommanderKeyland), (22 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setCommanderKeyland), (8 bytes).
+    Removing stabilizer.o(.text.setCommanderCtrlMode), (24 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setCommanderCtrlMode), (8 bytes).
+    Removing stabilizer.o(.text.setCommanderFlightmode), (22 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setCommanderFlightmode), (8 bytes).
+    Removing stabilizer.o(.text.flightCtrldataCache), (34 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.flightCtrldataCache), (8 bytes).
+    Removing stabilizer.o(.text.getCommanderCtrlMode), (16 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getCommanderCtrlMode), (8 bytes).
+    Removing stabilizer.o(.text.imuTransformVectorBodyToEarth), (228 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.imuTransformVectorBodyToEarth), (8 bytes).
+    Removing stabilizer.o(.text.applyDeadbandf), (56 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.applyDeadbandf), (8 bytes).
+    Removing stabilizer.o(.text.getCommanderKeyland), (16 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getCommanderKeyland), (8 bytes).
+    Removing stabilizer.o(.text.constrainf), (30 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.constrainf), (8 bytes).
+    Removing stabilizer.o(.text.imuTransformVectorEarthToBody), (138 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.imuTransformVectorEarthToBody), (8 bytes).
+    Removing stabilizer.o(.text.estRstHeight), (14 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.estRstHeight), (8 bytes).
+    Removing stabilizer.o(.text.estRstAll), (14 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.estRstAll), (8 bytes).
+    Removing stabilizer.o(.text.imuComputeRotationMatrix), (202 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.imuComputeRotationMatrix), (8 bytes).
+    Removing stabilizer.o(.text.setMotorPWM), (34 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.setMotorPWM), (8 bytes).
+    Removing stabilizer.o(.text.limitThrust), (18 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.limitThrust), (8 bytes).
+    Removing stabilizer.o(.text.flyerAutoLand), (240 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.flyerAutoLand), (8 bytes).
+    Removing stabilizer.o(.text.getAltholdThrust), (14 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.getAltholdThrust), (8 bytes).
+    Removing stabilizer.o(.text.attitudeControlInit), (252 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeControlInit), (8 bytes).
+    Removing stabilizer.o(.text.positionControlInit), (270 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.positionControlInit), (8 bytes).
+    Removing stabilizer.o(.text.positionController), (1488 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.positionController), (8 bytes).
+    Removing stabilizer.o(.text.attitudeAnglePID), (668 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeAnglePID), (8 bytes).
+    Removing stabilizer.o(.text.attitudeControllerResetRollAttitudePID), (20 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeControllerResetRollAttitudePID), (8 bytes).
+    Removing stabilizer.o(.text.attitudeControllerResetPitchAttitudePID), (20 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeControllerResetPitchAttitudePID), (8 bytes).
+    Removing stabilizer.o(.text.attitudeRatePID), (744 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeRatePID), (8 bytes).
+    Removing stabilizer.o(.text.attitudeResetAllPID), (84 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.attitudeResetAllPID), (8 bytes).
+    Removing stabilizer.o(.text.positionResetAllPID), (84 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.positionResetAllPID), (8 bytes).
+    Removing stabilizer.o(.text.pidInit), (38 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.pidInit), (8 bytes).
+    Removing stabilizer.o(.text.pidSetIntegralLimit), (6 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.pidSetIntegralLimit), (8 bytes).
+    Removing stabilizer.o(.text.pidUpdate), (196 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.pidUpdate), (8 bytes).
+    Removing stabilizer.o(.text.pidReset), (12 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.pidReset), (8 bytes).
+    Removing stabilizer.o(.text.pidSetOutputLimit), (6 bytes).
+    Removing stabilizer.o(.ARM.exidx.text.pidSetOutputLimit), (8 bytes).
+    Removing stabilizer.o(.data.configParam), (156 bytes).
+    Removing stabilizer.o(.bss.msgarray_sensor), (132 bytes).
+    Removing stabilizer.o(.bss.msgarray_remote), (120 bytes).
+    Removing stabilizer.o(.bss.isInit), (1 bytes).
+    Removing stabilizer.o(.bss.state), (88 bytes).
+    Removing stabilizer.o(.bss.setpoint), (76 bytes).
+    Removing stabilizer.o(.bss.timestamp), (4 bytes).
+    Removing stabilizer.o(.bss.pidZ), (60 bytes).
+    Removing stabilizer.o(.data..L_MergedGlobals), (32 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.3), (124 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.4), (112 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.5), (116 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.6), (104 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.7), (96 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.8), (120 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.9), (120 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.10), (120 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.11), (120 bytes).
+    Removing stabilizer.o(.bss..L_MergedGlobals.12), (120 bytes).
+    Removing dmul.o(.text), (228 bytes).
+    Removing dflti.o(.text), (34 bytes).
+    Removing d2f.o(.text), (56 bytes).
+    Removing fepilogue.o(.text), (110 bytes).
+    Removing depilogue.o(.text), (186 bytes).
 
-350 unused section(s) (total 24258 bytes) removed from the image.
+503 unused section(s) (total 42273 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1110,6 +1590,7 @@ Image Symbol Table
 
     ../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm_armcc.s 0x00000000   Number         0  rmp_platform_a7m_rvm_armcc.o ABSOLUTE
     ../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m_armcc.s 0x00000000   Number         0  rvm_platform_a7m_armcc.o ABSOLUTE
+    ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
@@ -1123,6 +1604,24 @@ Image Symbol Table
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../mathlib/asinf.c                       0x00000000   Number         0  asinf.o ABSOLUTE
+    ../mathlib/atan2f.c                      0x00000000   Number         0  atan2f.o ABSOLUTE
+    ../mathlib/cosf.c                        0x00000000   Number         0  cosf.o ABSOLUTE
+    ../mathlib/fpclassifyf.c                 0x00000000   Number         0  fpclassifyf.o ABSOLUTE
+    ../mathlib/funder.c                      0x00000000   Number         0  funder.o ABSOLUTE
+    ../mathlib/rredf.c                       0x00000000   Number         0  rredf.o ABSOLUTE
+    ../mathlib/sinf.c                        0x00000000   Number         0  sinf.o ABSOLUTE
+    ../mathlib/sqrtf.c                       0x00000000   Number         0  sqrtf.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
@@ -1134,6 +1633,7 @@ Image Symbol Table
     rvm_platform_a7m.c                       0x00000000   Number         0  rvm_platform_a7m.o ABSOLUTE
     rvm_syslib.c                             0x00000000   Number         0  rvm_syslib.o ABSOLUTE
     rvm_virtlib.c                            0x00000000   Number         0  rvm_virtlib.o ABSOLUTE
+    stabilizer.c                             0x00000000   Number         0  stabilizer.o ABSOLUTE
     $v0                                      0x08030020   Number         0  rvm_platform_a7m_armcc.o(RVM_ENTRY)
     RVM_ENTRY                                0x08030020   Section        8  rvm_platform_a7m_armcc.o(RVM_ENTRY)
     .ARM.Collect$$$$00000000                 0x08030028   Section        0  entry.o(.ARM.Collect$$$$00000000)
@@ -1226,7 +1726,7 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$IEEEX$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
     __decompress                              - Undefined Weak Reference
@@ -1316,16 +1816,16 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08030020   0x08030020   0x00000008   Code   RO          201    RVM_ENTRY           rvm_platform_a7m_armcc.o
-    0x08030028   0x08030028   0x00000000   Code   RO          477  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08030028   0x08030028   0x00000004   Code   RO          480    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x0803002c   0x0803002c   0x00000004   Code   RO          483    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08030030   0x08030030   0x00000000   Code   RO          485    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08030030   0x08030030   0x00000000   Code   RO          487    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08030030   0x08030030   0x00000008   Code   RO          488    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08030038   0x08030038   0x00000000   Code   RO          490    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08030038   0x08030038   0x00000000   Code   RO          492    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08030038   0x08030038   0x00000004   Code   RO          481    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
-    0x0803003c   0x0803003c   0x00000024   Code   RO          494    .text               mc_w.l(init.o)
+    0x08030028   0x08030028   0x00000000   Code   RO          656  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08030028   0x08030028   0x00000004   Code   RO          694    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x0803002c   0x0803002c   0x00000004   Code   RO          697    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08030030   0x08030030   0x00000000   Code   RO          699    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08030030   0x08030030   0x00000000   Code   RO          701    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08030030   0x08030030   0x00000008   Code   RO          702    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08030038   0x08030038   0x00000000   Code   RO          704    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08030038   0x08030038   0x00000000   Code   RO          706    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08030038   0x08030038   0x00000004   Code   RO          695    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x0803003c   0x0803003c   0x00000024   Code   RO          720    .text               mc_w.l(init.o)
     0x08030060   0x08030060   0x0000006a   Code   RO          389    .text.RMP_Init      rmp_kernel.o
     0x080300ca   0x080300ca   0x00000002   PAD
     0x080300cc   0x080300cc   0x00000002   Code   RO            3    .text.RMP_Init_Hook  rmp_hook.o
@@ -1376,16 +1876,16 @@ Memory Map of the image
     0x08031438   0x08031438   0x00000016   Code   RO          206    RVM_SVC             rvm_platform_a7m_armcc.o
     0x0803144e   0x0803144e   0x00000002   PAD
     0x08031450   0x08031450   0x00000006   Code   RO          202    __RVM_STUB          rvm_platform_a7m_armcc.o
-    0x08031456   0x08031456   0x0000000e   Code   RO          498    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08031464   0x08031464   0x00000002   Code   RO          499    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08031466   0x08031466   0x0000000e   Code   RO          500    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08031456   0x08031456   0x0000000e   Code   RO          728    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08031464   0x08031464   0x00000002   Code   RO          729    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08031466   0x08031466   0x0000000e   Code   RO          730    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08031474   0x08031474   0x00000004   Data   RO           81    .rodata.RVM_Usr_Param  rvm_virtlib.o
     0x08031478   0x08031478   0x0000002c   Data   RO           24    .rodata.str1.1      prc_flight.o
     0x080314a4   0x080314a4   0x00000035   Data   RO           82    .rodata.str1.1      rvm_virtlib.o
     0x080314d9   0x080314d9   0x00000047   Data   RO          296    .rodata.str1.1      rmp_platform_a7m_rvm.o
     0x08031520   0x08031520   0x00000033   Data   RO          465    .rodata.str1.1      rmp_kernel.o
     0x08031553   0x08031553   0x00000001   PAD
-    0x08031554   0x08031554   0x00000010   Data   RO          497    Region$$Table       anon$$obj.o
+    0x08031554   0x08031554   0x00000010   Data   RO          727    Region$$Table       anon$$obj.o
 
 
     Execution Region PROCESS_DATA (Exec base: 0x2000c000, Load base: 0x08031564, Size: 0x00000578, Max: 0x00003950, ABSOLUTE)

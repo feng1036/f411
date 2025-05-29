@@ -445,29 +445,9 @@
           <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\filter.c</FilePath>
-            </File>
-            <File>
-              <FileName>i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>maths.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\maths.c</FilePath>
-            </File>
-            <File>
               <FileName>sensor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Source\sensor.c</FilePath>
-            </File>
-            <File>
-              <FileName>sensor_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\sensor_task.c</FilePath>
             </File>
           </Files>
         </Group>
