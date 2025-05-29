@@ -466,14 +466,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       108          0         46          0          0        728   prc_realtime.o
-         0          0         16          0          0        546   prc_realtime_desc.o
-         2          0          0          0          0        585   prc_realtime_thd_startup.o
-        14          4          0          0          0       1000   rvm_platform_a7m_armcc.o
-       616          0          0          0          0      17877   rvm_syslib.o
+       108          0         46          0          0        721   prc_realtime.o
+         0          0         16          0          0        539   prc_realtime_desc.o
+         2          0          0          0          0        578   prc_realtime_thd_startup.o
+        14          4          0          0          0        984   rvm_platform_a7m_armcc.o
+       616          0          0          0          0      17870   rvm_syslib.o
 
     ----------------------------------------------------------------------
-       750          4         62          0       4096      20736   Object Totals
+       750          4         62          0       4096      20692   Object Totals
          0          0          0          0       4096          0   (incl. Generated)
         10          0          0          0          0          0   (incl. Padding)
 
@@ -511,8 +511,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       806         20         62          0       4096      20664   Grand Totals
-       806         20         62          0       4096      20664   ELF Image Totals
+       806         20         62          0       4096      20620   Grand Totals
+       806         20         62          0       4096      20620   ELF Image Totals
        806         20         62          0          0          0   ROM Totals
 
 ==============================================================================

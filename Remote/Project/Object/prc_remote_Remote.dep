@@ -1,70 +1,70 @@
 Dependencies for Project 'prc_remote', Target 'Remote': (DO NOT MODIFY !)
 CompilerVersion: 6180000::V6.18::ARMCLANG
-F (../Source/rmp_hook.c)(0x683716E0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_hook.o -MD)
-I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x6823572A)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A23E)
-I (..\..\..\M5P01_Prokaron\Include\rmp.h)(0x67DFFC92)
-I (..\Include\rmp_platform.h)(0x683716E0)
-I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFFC92)
-I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683716E0)
-I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683716E0)
-I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x6837177F)
-F (../Source/prc_remote_desc.c)(0x683716E0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/prc_remote_desc.o -MD)
-I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x6823572A)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A23E)
-F (../Source/prc_remote.c)(0x683716E0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/prc_remote.o -MD)
-I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x6823572A)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A23E)
-F (../../../M7M02_Ammonite/Source/Virtlib/rvm_virtlib.c)(0x6829A23E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_virtlib.o -MD)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A23E)
-F (../../../M7M02_Ammonite/Source/Syslib/rvm_syslib.c)(0x6829A23E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_syslib.o -MD)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-F (../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m_armcc.s)(0x6823572A)(--cpu Cortex-M4.fp.sp -g --pd "__MICROLIB SETA 1" -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/--pd "__UVISION_VERSION SETA 537"--pd "STM32F411xE SETA 1"--list .\listing\rvm_platform_a7m_armcc.lst--xref -o .\object\rvm_platform_a7m_armcc.o--depend .\object\rvm_platform_a7m_armcc.d)
-F (../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m.c)(0x6823572A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_platform_a7m.o -MD)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-F (../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm_armcc.s)(0x67DFFC92)(--cpu Cortex-M4.fp.sp -g --pd "__MICROLIB SETA 1" -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/--pd "__UVISION_VERSION SETA 537"--pd "STM32F411xE SETA 1"--list .\listing\rmp_platform_a7m_rvm_armcc.lst--xref -o .\object\rmp_platform_a7m_rvm_armcc.o--depend .\object\rmp_platform_a7m_rvm_armcc.d)
-F (../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm.c)(0x6829A0FE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_platform_a7m_rvm.o -MD)
-I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x6823572A)
-I (..\Include\rvm_platform.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x6823572A)
-I (..\Include\rvm_platform_a7m_conf.h)(0x683716E0)
-I (..\Include\prc_remote.h)(0x683716E0)
-I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A23E)
-I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A23E)
-I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFFC92)
-I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683716E0)
-I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683716E0)
-I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x6837177F)
-F (../../../M5P01_Prokaron/Source/Kernel/rmp_kernel.c)(0x67DFFC92)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_kernel.o -MD)
-I (..\Include\rmp_platform.h)(0x683716E0)
-I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFFC92)
-I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683716E0)
-I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683716E0)
-I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x6837177F)
+F (../Source/rmp_hook.c)(0x683813F1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_hook.o -MD)
+I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x67DFB107)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A3CD)
+I (..\..\..\M5P01_Prokaron\Include\rmp.h)(0x67DFB071)
+I (..\Include\rmp_platform.h)(0x683813F1)
+I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFB071)
+I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683813F1)
+I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683813F1)
+I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x67DFB071)
+F (../Source/prc_remote_desc.c)(0x683813F1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/prc_remote_desc.o -MD)
+I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x67DFB107)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A3CD)
+F (../Source/prc_remote.c)(0x683813F1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/prc_remote.o -MD)
+I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x67DFB107)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A3CD)
+F (../../../M7M02_Ammonite/Source/Virtlib/rvm_virtlib.c)(0x6829A3CD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_virtlib.o -MD)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A3CD)
+F (../../../M7M02_Ammonite/Source/Syslib/rvm_syslib.c)(0x6829A3CD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_syslib.o -MD)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+F (../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m_armcc.s)(0x67DFB107)(--cpu Cortex-M4.fp.sp -g --pd "__MICROLIB SETA 1" -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/--pd "__UVISION_VERSION SETA 537"--pd "STM32F411xE SETA 1"--list .\listing\rvm_platform_a7m_armcc.lst--xref -o .\object\rvm_platform_a7m_armcc.o--depend .\object\rvm_platform_a7m_armcc.d)
+F (../../../M7M02_Ammonite/Source/Platform/A7M/rvm_platform_a7m.c)(0x67DFB107)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rvm_platform_a7m.o -MD)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+F (../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm_armcc.s)(0x67DFB071)(--cpu Cortex-M4.fp.sp -g --pd "__MICROLIB SETA 1" -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/--pd "__UVISION_VERSION SETA 537"--pd "STM32F411xE SETA 1"--list .\listing\rmp_platform_a7m_rvm_armcc.lst--xref -o .\object\rmp_platform_a7m_rvm_armcc.o--depend .\object\rmp_platform_a7m_rvm_armcc.d)
+F (../../../M5P01_Prokaron/Source/Platform/A7M_RVM/rmp_platform_a7m_rvm.c)(0x6829A416)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_platform_a7m_rvm.o -MD)
+I (..\..\..\M7M02_Ammonite\Include\rvm.h)(0x67DFB107)
+I (..\Include\rvm_platform.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Platform\A7M\rvm_platform_a7m.h)(0x67DFB107)
+I (..\Include\rvm_platform_a7m_conf.h)(0x683813F1)
+I (..\Include\prc_remote.h)(0x683813F1)
+I (..\..\..\M7M02_Ammonite\Include\Syslib\rvm_syslib.h)(0x6829A3CD)
+I (..\..\..\M7M02_Ammonite\Include\Virtlib\rvm_virtlib.h)(0x6829A3CD)
+I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFB071)
+I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683813F1)
+I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683813F1)
+I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x67DFB071)
+F (../../../M5P01_Prokaron/Source/Kernel/rmp_kernel.c)(0x67DFB071)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -fsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O3 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./ -I ../Include/ -I ../../../M7M02_Ammonite/Include/ -I ../../../M5P01_Prokaron/Include/ -Wno-unknown-warning-option -Wno-unsafe-buffer-usage -Wno-date-time -Wno-unused-parameter -Wno-missing-noreturn -Wno-unsafe-buffer-usage -Wno-missing-variable-declarations-D__UVISION_VERSION="537" -DSTM32F411xE-o ./object/rmp_kernel.o -MD)
+I (..\Include\rmp_platform.h)(0x683813F1)
+I (..\..\..\M5P01_Prokaron\Include\Platform\A7M_RVM\rmp_platform_a7m_rvm.h)(0x67DFB071)
+I (..\Include\rmp_platform_a7m_rvm_conf.h)(0x683813F1)
+I (..\Include\rmp_platform_stm32f411ce_rvm.h)(0x683813F1)
+I (..\..\..\M5P01_Prokaron\Include\Kernel\rmp_kernel.h)(0x67DFB071)
