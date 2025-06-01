@@ -156,7 +156,7 @@ void Int_Init(void)
 #define MOTORS_PWM_BITS           	8
 
 /* PWM的最大计数值 */
-#define MOTORS_PWM_MAX         	255
+#define MOTORS_PWM_MAX         			255
 
 /* 分频系数 */
 #define MOTORS_PWM_PRESCALE       	0
@@ -219,91 +219,96 @@ void Motors_Init(void)
 	
 	/* 配置PB7为TIM4 CH2 (MOTOR1) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER7;
-	GPIOB->MODER |= GPIO_MODER_MODER7_1;  // ???????
-	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_7;   // ????
-	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR7; // 100MHz
+	GPIOB->MODER |= GPIO_MODER_MODER7_1; 
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_7;   
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR7; 
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR7;
-	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR7_0;  // ??
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR7_0;  
 	GPIOB->AFR[0] &= ~(0xF << 28);
-	GPIOB->AFR[0] |= (2 << 28);           // AF2
+	GPIOB->AFR[0] |= (2 << 28);           
 	
 	/* 配置PB6为TIM4 CH1 (MOTOR2) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER6;
-	GPIOB->MODER |= GPIO_MODER_MODER6_1;  // ???????
-	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_6;   // ????
-	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR6; // 100MHz
+	GPIOB->MODER |= GPIO_MODER_MODER6_1;  
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_6;   
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR6; 
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR6;
-	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR6_0;  // ??
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR6_0;  
 	GPIOB->AFR[0] &= ~(0xF << 24);
-	GPIOB->AFR[0] |= (2 << 24);           // AF2
+	GPIOB->AFR[0] |= (2 << 24);           
 	
 	/* 配置PB10为TIM2 CH3 (MOTOR3) */
 	GPIOB->MODER &= ~GPIO_MODER_MODER10;
-	GPIOB->MODER |= GPIO_MODER_MODER10_1; // ???????
-	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_10;  // ????
-	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR10; // 100MHz
+	GPIOB->MODER |= GPIO_MODER_MODER10_1; 
+	GPIOB->OTYPER &= ~GPIO_OTYPER_OT_10;  
+	GPIOB->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR10; 
 	GPIOB->PUPDR &= ~GPIO_PUPDR_PUPDR10;
-	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR10_0; // ??
+	GPIOB->PUPDR |= GPIO_PUPDR_PUPDR10_0; 
 	GPIOB->AFR[1] &= ~(0xF << 8);
-	GPIOB->AFR[1] |= (1 << 8);            // AF1
+	GPIOB->AFR[1] |= (1 << 8);            
 	
 	/* 配置PA5为TIM2 CH1 (MOTOR4) */
 	GPIOA->MODER &= ~GPIO_MODER_MODER5;
-	GPIOA->MODER |= GPIO_MODER_MODER5_1;  // ???????
-	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_5;   // ????
-	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5; // 100MHz
+	GPIOA->MODER |= GPIO_MODER_MODER5_1;  
+	GPIOA->OTYPER &= ~GPIO_OTYPER_OT_5;   
+	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5; 
 	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPDR5;
-	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR5_0;  // ??
+	GPIOA->PUPDR |= GPIO_PUPDR_PUPDR5_0;  
 	GPIOA->AFR[0] &= ~(0xF << 20);
-	GPIOA->AFR[0] |= (1 << 20);           // AF1
+	GPIOA->AFR[0] |= (1 << 20);           
 	
-	// ?????????
-	TIM4->PSC = MOTORS_PWM_PRESCALE;     // ????
-	TIM4->ARR = MOTORS_PWM_MAX;       // ??????
-	TIM2->PSC = MOTORS_PWM_PRESCALE;     // ????
-	TIM2->ARR = MOTORS_PWM_MAX;       // ??????
-	
-	// ??TIM4 CH1(PB6, MOTOR2)
+	/* 配置定时器基础参数 */
+	TIM4->PSC = MOTORS_PWM_PRESCALE;    
+	TIM4->ARR = MOTORS_PWM_MAX;       
+	TIM2->PSC = MOTORS_PWM_PRESCALE;    
+	TIM2->ARR = MOTORS_PWM_MAX;       
+
+	/* 配置TIM4 CH1(PB6, MOTOR2) */
 	TIM4->CCMR1 &= ~TIM_CCMR1_OC1M;
-	TIM4->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); // PWM??1
-	TIM4->CCMR1 |= TIM_CCMR1_OC1PE;      // ?????
-	TIM4->CCER |= TIM_CCER_CC1E;         // ????
-	TIM4->CCR1 = 0;                      // ??????0
+	TIM4->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); 
+	TIM4->CCMR1 |= TIM_CCMR1_OC1PE;     
+	TIM4->CCER |= TIM_CCER_CC1E;         
+	TIM4->CCR1 = 0;                      
 	
-	// ??TIM4 CH2(PB7, MOTOR1)
+	/* 配置TIM4 CH2(PB7, MOTOR1) */
 	TIM4->CCMR1 &= ~TIM_CCMR1_OC2M;
-	TIM4->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2); // PWM??1
-	TIM4->CCMR1 |= TIM_CCMR1_OC2PE;      // ?????
-	TIM4->CCER |= TIM_CCER_CC2E;         // ????
-	TIM4->CCR2 = 0;                      // ??????0
+	TIM4->CCMR1 |= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2); 
+	TIM4->CCMR1 |= TIM_CCMR1_OC2PE;     
+	TIM4->CCER |= TIM_CCER_CC2E;         
+	TIM4->CCR2 = 0;                    
 	
-	// ??TIM2 CH3(PB10, MOTOR3)
+	/* 配置TIM2 CH3(PB10, MOTOR3) */
 	TIM2->CCMR2 &= ~TIM_CCMR2_OC3M;
-	TIM2->CCMR2 |= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2); // PWM??1
-	TIM2->CCMR2 |= TIM_CCMR2_OC3PE;      // ?????
-	TIM2->CCER |= TIM_CCER_CC3E;         // ????
-	TIM2->CCR3 = 0;                      // ??????0
+	TIM2->CCMR2 |= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2); 
+	TIM2->CCMR2 |= TIM_CCMR2_OC3PE;     
+	TIM2->CCER |= TIM_CCER_CC3E;       
+	TIM2->CCR3 = 0;                      
 	
-	// ??TIM2 CH1(PA5, MOTOR4)
+	/* 配置TIM2 CH1(PA5, MOTOR4) */
 	TIM2->CCMR1 &= ~TIM_CCMR1_OC1M;
-	TIM2->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); // PWM??1
-	TIM2->CCMR1 |= TIM_CCMR1_OC1PE;      // ?????
-	TIM2->CCER |= TIM_CCER_CC1E;         // ????
-	TIM2->CCR1 = 0;                      // ??????0
+	TIM2->CCMR1 |= (TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2); 
+	TIM2->CCMR1 |= TIM_CCMR1_OC1PE;      
+	TIM2->CCER |= TIM_CCER_CC1E;         
+	TIM2->CCR1 = 0;                     
 	
-	// ??ARR???
+	/* 启用ARR预装载 */
 	TIM4->CR1 |= TIM_CR1_ARPE;
 	TIM2->CR1 |= TIM_CR1_ARPE;
 	
-	// ?????
+	/* 启动定时器 */
 	TIM4->CR1 |= TIM_CR1_CEN;
 	TIM2->CR1 |= TIM_CR1_CEN;
 
 	motors_IsInit = true;
 }
 
-/*????*/
-bool motorsTest(void)
+/* Motors_Test ****************************************************************
+Description : Configure GPIO and timer to enable four-way motors to be controlled through PWM signals.
+Input       : None.
+Output      : None.
+Return      : None.
+******************************************************************************/
+bool Motors_Test(void)
 {
 	int i;
 	
@@ -1157,7 +1162,7 @@ bool powerControlTest(void)
 {
 	bool pass = true;
 
-	pass &= motorsTest();
+	pass &= Motors_Test();
 
 	return pass;
 }//stabilizer.c

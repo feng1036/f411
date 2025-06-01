@@ -9,6 +9,7 @@ Description : The blank project hook file for RMP under RVM hypervisor.
 /* Include *******************************************************************/
 #include "rvm.h"
 #include "rmp.h"
+
 /* End Include ***************************************************************/
 
 /* Function:RMP_Init **********************************************************
@@ -19,6 +20,7 @@ Return      : None.
 ******************************************************************************/
 volatile struct RMP_Thd Thd_F;
 void stabilizerTask(void);
+void Int_Init(void);
 rmp_ptr_t Stack_F[1024];
 
 void Contact_Sensor(void);
@@ -43,6 +45,8 @@ void RMP_Init_Hook(void)
 	
 		RVM_Virt_Vct_Reg(0U,Contact_Sensor);
     RVM_Virt_Vct_Reg(1U,Contact_Remote);
+	
+		Int_Init();
 	
     /* Create kernel objects */
     RMP_Thd_Crt(&Thd_F,(void*)stabilizerTask,(void*)0x6666U,Stack_F,sizeof(Stack_F),1U,100U);
