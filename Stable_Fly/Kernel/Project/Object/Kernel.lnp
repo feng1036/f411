@@ -1,0 +1,15 @@
+--cpu=Cortex-M4 --fpu=SoftVFP
+".\object\rme_hook.o"
+".\object\rme_boot.o"
+".\object\sensor_image.o"
+".\object\remote_image.o"
+".\object\realtime_image.o"
+".\object\monitor_image.o"
+".\object\flight_image.o"
+".\object\rme_platform_a7m_armcc.o"
+".\object\rme_platform_a7m.o"
+".\object\rme_kernel.o"
+--library_type=microlib --diag_suppress 6314,6329 --strict --scatter "rme_platform_stm32f411ce.sct"
+--keep=*_image --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listing\Kernel.map" -o .\Object\Kernel.axf

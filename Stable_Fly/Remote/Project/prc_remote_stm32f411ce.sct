@@ -1,0 +1,53 @@
+;******************************************************************************
+;Filename    : proc_remote_stm32f411ce.sct
+;Author      : The RVM project generator.
+;Date        : 28/05/2025 22:00:00
+;Licence     : Unlicense; see COPYING for details.
+;Description : The scatter file for ARMv7-M layout. This file is intended
+;              to be used with STM32F411CE.
+;******************************************************************************
+
+;Descriptor *******************************************************************
+DESC 0x8050000 0x20
+{
+    ;Process header segment
+    PROCESS_DESC 0x8050000 0x20
+    {
+        ;Process header
+        prc_remote_desc.o         (+RO)
+    }
+}
+;End Descriptor ***************************************************************
+
+;Process **********************************************************************
+PROCESS 0x8050020 0xFFE0
+{
+    ;Process code segment
+    PROCESS_CODE 0x8050020 0xFFE0
+    {
+        ;Entry point, just after the header
+        *.o                    (RVM_ENTRY, +First)
+        ;The lib code copying code
+        *                      (InRoot$$Sections)
+        ;The other code sections
+        .ANY                   (+RO)
+    }
+
+    ;Process data segment
+    PROCESS_DATA 0x20014000 0x3950
+    {
+        .ANY                   (+RW +ZI)
+    }
+
+    ;Process stack segment - required by armlib; reusing the booting thread's
+    ARM_LIB_STACK 0x20017A00 EMPTY 0x200
+    {
+
+    }
+}
+;End Process ******************************************************************
+
+;End Of File ******************************************************************
+
+;Copyright (C) Evo-Devo Instrum. All rights reserved **************************
+

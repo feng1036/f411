@@ -1,0 +1,41 @@
+;******************************************************************************
+;Filename    : rvm_platform_stm32f411ce.sct
+;Author      : The RVM project generator.
+;Date        : 28/05/2025 22:00:00
+;Licence     : Unlicense; see COPYING for details.
+;Description : The scatter file for ARMv7-M layout. This file is intended
+;              to be used with STM32F411CE.
+;******************************************************************************
+
+;Monitor **********************************************************************
+MONITOR 0x8010000 0x10000
+{
+    ;Monitor code segment
+    MONITOR_CODE 0x8010000 0x10000
+    {
+        ;The entry will be the first instruction
+        *.o                    (RVM_ENTRY, +First)
+        ;The lib code copying code
+        *                      (InRoot$$Sections)
+        ;The monitor code section
+        .ANY                   (+RO)
+    }
+
+    ;Monitor data segment
+    MONITOR_DATA 0x20004000 0x2E00
+    {
+        .ANY                   (+RW +ZI)
+    }
+
+    ;Monitor stack segment - required by armlib; reusing the init thread's
+    ARM_LIB_STACK 0x20007E00 EMPTY 0x200
+    {
+
+    }
+}
+;End Monitor ******************************************************************
+
+;End Of File ******************************************************************
+
+;Copyright (C) Evo-Devo Instrum. All rights reserved **************************
+

@@ -1,0 +1,12 @@
+--cpu=Cortex-M4.fp.sp
+".\object\prc_realtime_thd_startup.o"
+".\object\prc_realtime_desc.o"
+".\object\prc_realtime.o"
+".\object\rvm_virtlib.o"
+".\object\rvm_syslib.o"
+".\object\rvm_platform_a7m_armcc.o"
+".\object\rvm_platform_a7m.o"
+--library_type=microlib --diag_suppress 6314,6329 --strict --scatter "prc_realtime_stm32f411ce.sct"
+--keep=*_desc --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listing\Realtime.map" -o .\Object\Realtime.axf

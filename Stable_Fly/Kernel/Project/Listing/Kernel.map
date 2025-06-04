@@ -1,0 +1,1639 @@
+Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
+
+==============================================================================
+
+Section Cross References
+
+    rme_hook.o(.ARM.exidx.text.RME_Boot_Pre_Init) refers to rme_hook.o(.text.RME_Boot_Pre_Init) for [Anonymous Symbol]
+    rme_hook.o(.ARM.exidx.text.RME_Boot_Post_Init) refers to rme_hook.o(.text.RME_Boot_Post_Init) for [Anonymous Symbol]
+    rme_hook.o(.ARM.exidx.text.RME_Reboot_Failsafe) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for [Anonymous Symbol]
+    rme_hook.o(.ARM.exidx.text.RME_Spurious_Handler) refers to rme_hook.o(.text.RME_Spurious_Handler) for [Anonymous Symbol]
+    rme_hook.o(.ARM.exidx.text.RME_Hook_Kfn_Handler) refers to rme_hook.o(.text.RME_Hook_Kfn_Handler) for [Anonymous Symbol]
+    rme_boot.o(.text.RME_Boot_Vct_Init) refers to rme_boot.o(.rodata.str1.1) for .L.str
+    rme_boot.o(.text.RME_Boot_Vct_Init) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_boot.o(.text.RME_Boot_Vct_Init) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_boot.o(.ARM.exidx.text.RME_Boot_Vct_Init) refers to rme_boot.o(.text.RME_Boot_Vct_Init) for [Anonymous Symbol]
+    rme_boot.o(.text.RME_Boot_Vct_Handler) refers to rme_hook.o(.text.RME_Spurious_Handler) for RME_Spurious_Handler
+    rme_boot.o(.ARM.exidx.text.RME_Boot_Vct_Handler) refers to rme_boot.o(.text.RME_Boot_Vct_Handler) for [Anonymous Symbol]
+    rme_platform_a7m_armcc.o(RME_ENTRY) refers to rme_platform_a7m.o(.text.__RME_A7M_Lowlvl_Preinit) for __RME_A7M_Lowlvl_Preinit
+    rme_platform_a7m_armcc.o(RME_ENTRY) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    rme_platform_a7m_armcc.o(RME_VECTOR) refers to rme_platform_a7m_armcc.o(RME_ENTRY) for Reset_Handler
+    rme_platform_a7m_armcc.o(RME_VECTOR) refers to rme_platform_a7m_armcc.o(SYSTEM_HANDLER) for NMI_Handler
+    rme_platform_a7m_armcc.o(RME_VECTOR) refers to rme_platform_a7m_armcc.o(SVC_HANDLER) for SVC_Handler
+    rme_platform_a7m_armcc.o(RME_VECTOR) refers to rme_platform_a7m_armcc.o(SYSTICK_HANDLER) for SysTick_Handler
+    rme_platform_a7m_armcc.o(RME_VECTOR) refers to rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) for __RME_A7M_Vct_Handler
+    rme_platform_a7m_armcc.o(SYSTICK_HANDLER) refers to rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler) for __RME_A7M_Tim_Handler
+    rme_platform_a7m_armcc.o(SVC_HANDLER) refers to rme_platform_a7m.o(.text.__RME_A7M_Svc_Handler) for __RME_A7M_Svc_Handler
+    rme_platform_a7m_armcc.o(SYSTEM_HANDLER) refers to rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) for __RME_A7M_Exc_Handler
+    rme_platform_a7m.o(.text.main) refers to rme_kernel.o(.text.RME_Kmain) for RME_Kmain
+    rme_platform_a7m.o(.ARM.exidx.text.main) refers to rme_platform_a7m.o(.text.main) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Putchar) refers to rme_platform_a7m.o(.text.__RME_Putchar) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_CPUID_Get) refers to rme_platform_a7m.o(.text.__RME_CPUID_Get) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_kernel.o(.text._RME_Thd_Fatal) for _RME_Thd_Fatal
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_kernel.o(.text._RME_Thd_Pgt) for _RME_Thd_Pgt
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) for ___RME_A7M_MPU_Update
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Exc_Handler) refers to rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Reboot) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_A7M_Reboot) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Reboot) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Walk) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_Pgt_Walk) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.__RME_Pgt_Walk) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_Pgt_Walk) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Walk) refers to rme_platform_a7m.o(.text.__RME_Pgt_Walk) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Clear) for ___RME_A7M_MPU_Clear
+    rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) refers to rme_platform_a7m.o(.data.__RME_A7M_Rand.LFSR) for __RME_A7M_Rand.LFSR
+    rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_MPU_Update) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Set) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Set) refers to rme_platform_a7m.o(.text.__RME_Pgt_Set) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) refers to rme_boot.o(.text.RME_Boot_Vct_Handler) for RME_Boot_Vct_Handler
+    rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Vct_Handler) refers to rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler) refers to rme_kernel.o(.text._RME_Tim_Handler) for _RME_Tim_Handler
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Tim_Handler) refers to rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Svc_Handler) refers to rme_kernel.o(.text._RME_Svc_Handler) for _RME_Svc_Handler
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Svc_Handler) refers to rme_platform_a7m.o(.text.__RME_A7M_Svc_Handler) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m_armcc.o(__RME_A7M_BARRIER) for __RME_A7M_Barrier
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m_armcc.o(__RME_A7M_WAIT_INT) for __RME_A7M_Wait_Int
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_hook.o(.text.RME_Hook_Kfn_Handler) for RME_Hook_Kfn_Handler
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m_armcc.o(__RME_INT_DISABLE) for __RME_Int_Disable
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m_armcc.o(__RME_INT_ENABLE) for __RME_Int_Enable
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_Kfn_Handler) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Kfn_Handler) refers to rme_platform_a7m.o(.text.__RME_Kfn_Handler) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Svc_Retval_Set) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Lowlvl_Preinit) refers to rme_hook.o(.text.RME_Boot_Pre_Init) for RME_Boot_Pre_Init
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Lowlvl_Preinit) refers to rme_platform_a7m.o(.text.__RME_A7M_Lowlvl_Preinit) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_NVIC_Set_Exc_Prio) refers to rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_A7M_Cache_Init) refers to rme_platform_a7m_armcc.o(__RME_A7M_BARRIER) for __RME_A7M_Barrier
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Cache_Init) refers to rme_platform_a7m.o(.text.__RME_A7M_Cache_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_platform_a7m_armcc.o(__RME_A7M_BARRIER) for __RME_A7M_Barrier
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_kernel.o(.text._RME_CPU_Local_Init) for _RME_CPU_Local_Init
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_Lowlvl_Init) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Lowlvl_Init) refers to rme_platform_a7m.o(.text.__RME_Lowlvl_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Cpt_Boot_Init) for _RME_Cpt_Boot_Init
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Pgt_Boot_Crt) for _RME_Pgt_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Pgt_Boot_Add) for _RME_Pgt_Boot_Add
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Prc_Boot_Crt) for _RME_Prc_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Kfn_Boot_Crt) for _RME_Kfn_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Kom_Boot_Crt) for _RME_Kom_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Sig_Boot_Crt) for _RME_Sig_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Clear) for _RME_Clear
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text._RME_Thd_Boot_Crt) for _RME_Thd_Boot_Crt
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_boot.o(.text.RME_Boot_Vct_Init) for RME_Boot_Vct_Init
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_hook.o(.text.RME_Boot_Post_Init) for RME_Boot_Post_Init
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m_armcc.o(__RME_INT_ENABLE) for __RME_Int_Enable
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m_armcc.o(__RME_USER_ENTER) for __RME_User_Enter
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_hook.o(.text.RME_Reboot_Failsafe) for RME_Reboot_Failsafe
+    rme_platform_a7m.o(.text.__RME_Boot) refers to rme_platform_a7m_armcc.o(__RME_A7M_RESET) for __RME_A7M_Reset
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Boot) refers to rme_platform_a7m.o(.text.__RME_Boot) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Size) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Size) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Svc_Param_Get) refers to rme_platform_a7m.o(.text.__RME_Svc_Param_Get) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Init) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Copy) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Copy) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Thd_Reg_Print) refers to rme_kernel.o(.text.RME_Str_Print) for RME_Str_Print
+    rme_platform_a7m.o(.text.__RME_Thd_Reg_Print) refers to rme_kernel.o(.text.RME_Hex_Print) for RME_Hex_Print
+    rme_platform_a7m.o(.text.__RME_Thd_Reg_Print) refers to rme_platform_a7m.o(.rodata.str1.1) for .L.str.4
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Print) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Print) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Reg_Save) refers to rme_platform_a7m.o(.text.__RME_Inv_Reg_Save) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Reg_Restore) refers to rme_platform_a7m.o(.text.__RME_Inv_Reg_Restore) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Retval_Set) refers to rme_platform_a7m.o(.text.__RME_Inv_Retval_Set) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Check) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Check) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Init) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap) refers to rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_SAVE) for ___RME_A7M_Thd_Cop_Save
+    rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap) refers to rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_LOAD) for ___RME_A7M_Thd_Cop_Load
+    rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap) refers to rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_CLEAR) for ___RME_A7M_Thd_Cop_Clear
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Swap) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Kom_Init) refers to rme_platform_a7m.o(.text.__RME_Pgt_Kom_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Init) refers to rme_platform_a7m.o(.text.__RME_Pgt_Init) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Check) refers to rme_platform_a7m.o(.text.__RME_Pgt_Check) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Del_Check) refers to rme_platform_a7m.o(.text.__RME_Pgt_Del_Check) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) for ___RME_A7M_MPU_Update
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) refers to rme_kernel.o(.text._RME_Thd_Pgt) for _RME_Thd_Pgt
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Page_Map) refers to rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh) refers to rme_kernel.o(.text._RME_Thd_Pgt) for _RME_Thd_Pgt
+    rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_Pgt_Refresh) refers to rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) for ___RME_A7M_MPU_Update
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) refers to rme_kernel.o(.text._RME_Thd_Pgt) for _RME_Thd_Pgt
+    rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Page_Unmap) refers to rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Update) for ___RME_A7M_MPU_Update
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map) refers to rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh) for ___RME_A7M_Pgt_Refresh
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Pgdir_Map) refers to rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map) for [Anonymous Symbol]
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Clear) for ___RME_A7M_MPU_Clear
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) refers to rme_kernel.o(.text._RME_Thd_Pgt) for _RME_Thd_Pgt
+    rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) refers to rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8) for ___RME_A7M_MPU_Set8
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Pgdir_Unmap) refers to rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Lookup) refers to rme_platform_a7m.o(.text.__RME_Pgt_Lookup) for [Anonymous Symbol]
+    rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_MPU_Clear) refers to rme_platform_a7m.o(.text.___RME_A7M_MPU_Clear) for [Anonymous Symbol]
+    rme_kernel.o(.text.RME_Int_Print) refers to rme_platform_a7m.o(.text.__RME_Putchar) for __RME_Putchar
+    rme_kernel.o(.ARM.exidx.text.RME_Int_Print) refers to rme_kernel.o(.text.RME_Int_Print) for [Anonymous Symbol]
+    rme_kernel.o(.text.RME_Hex_Print) refers to rme_platform_a7m.o(.text.__RME_Putchar) for __RME_Putchar
+    rme_kernel.o(.ARM.exidx.text.RME_Hex_Print) refers to rme_kernel.o(.text.RME_Hex_Print) for [Anonymous Symbol]
+    rme_kernel.o(.text.RME_Str_Print) refers to rme_platform_a7m.o(.text.__RME_Putchar) for __RME_Putchar
+    rme_kernel.o(.ARM.exidx.text.RME_Str_Print) refers to rme_kernel.o(.text.RME_Str_Print) for [Anonymous Symbol]
+    rme_kernel.o(.text.RME_Log) refers to rme_platform_a7m.o(.text.__RME_Putchar) for __RME_Putchar
+    rme_kernel.o(.ARM.exidx.text.RME_Log) refers to rme_kernel.o(.text.RME_Log) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_MSB_Generic) refers to rme_kernel.o(.rodata._RME_MSB_Generic.Table) for _RME_MSB_Generic.Table
+    rme_kernel.o(.ARM.exidx.text._RME_MSB_Generic) refers to rme_kernel.o(.text._RME_MSB_Generic) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_LSB_Generic) refers to rme_kernel.o(.rodata._RME_LSB_Generic.Table) for _RME_LSB_Generic.Table
+    rme_kernel.o(.ARM.exidx.text._RME_LSB_Generic) refers to rme_kernel.o(.text._RME_LSB_Generic) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Comp_Swap_Single) refers to rme_kernel.o(.text._RME_Comp_Swap_Single) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Fetch_Add_Single) refers to rme_kernel.o(.text._RME_Fetch_Add_Single) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Fetch_And_Single) refers to rme_kernel.o(.text._RME_Fetch_And_Single) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_List_Crt) refers to rme_kernel.o(.text._RME_List_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_List_Del) refers to rme_kernel.o(.text._RME_List_Del) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_List_Ins) refers to rme_kernel.o(.text._RME_List_Ins) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Clear) refers to memseta.o(.text) for __aeabi_memclr
+    rme_kernel.o(.ARM.exidx.text._RME_Clear) refers to rme_kernel.o(.text._RME_Clear) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Memcmp) refers to rme_kernel.o(.text._RME_Memcmp) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Memcpy) refers to rme_kernel.o(.text._RME_Memcpy) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Diff) refers to rme_kernel.o(.text._RME_Diff) for [Anonymous Symbol]
+    rme_kernel.o(.text.RME_Kmain) refers to rme_platform_a7m_armcc.o(__RME_INT_DISABLE) for __RME_Int_Disable
+    rme_kernel.o(.text.RME_Kmain) refers to rme_platform_a7m.o(.text.__RME_Lowlvl_Init) for __RME_Lowlvl_Init
+    rme_kernel.o(.text.RME_Kmain) refers to rme_platform_a7m.o(.text.__RME_Pgt_Kom_Init) for __RME_Pgt_Kom_Init
+    rme_kernel.o(.text.RME_Kmain) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text.RME_Kmain) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.text.RME_Kmain) refers to rme_platform_a7m.o(.text.__RME_Boot) for __RME_Boot
+    rme_kernel.o(.ARM.exidx.text.RME_Kmain) refers to rme_kernel.o(.text.RME_Kmain) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kot_Init) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Kot_Init) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.ARM.exidx.text._RME_Kot_Init) refers to rme_kernel.o(.text._RME_Kot_Init) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_platform_a7m.o(.text.__RME_Svc_Param_Get) for __RME_Svc_Param_Get
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Inv_Ret) for _RME_Inv_Ret
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Inv_Act) for _RME_Inv_Act
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Sig_Snd) for _RME_Sig_Snd
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Sig_Rcv) for _RME_Sig_Rcv
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Kfn_Act) for _RME_Kfn_Act
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Sched_Free) for _RME_Thd_Sched_Free
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Exec_Set) for _RME_Thd_Exec_Set
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Sched_Prio) for _RME_Thd_Sched_Prio
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Time_Xfer) for _RME_Thd_Time_Xfer
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Swt) for _RME_Thd_Swt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Cpt_Crt) for _RME_Cpt_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Cpt_Del) for _RME_Cpt_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Cpt_Frz) for _RME_Cpt_Frz
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Cpt_Add) for _RME_Cpt_Add
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Cpt_Rem) for _RME_Cpt_Rem
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Crt) for _RME_Pgt_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Del) for _RME_Pgt_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Add) for _RME_Pgt_Add
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Rem) for _RME_Pgt_Rem
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Con) for _RME_Pgt_Con
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Pgt_Des) for _RME_Pgt_Des
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Prc_Crt) for _RME_Prc_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Prc_Del) for _RME_Prc_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Prc_Cpt) for _RME_Prc_Cpt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Prc_Pgt) for _RME_Prc_Pgt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Crt) for _RME_Thd_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Del) for _RME_Thd_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Sched_Bind) for _RME_Thd_Sched_Bind
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Thd_Sched_Rcv) for _RME_Thd_Sched_Rcv
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Sig_Crt) for _RME_Sig_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Sig_Del) for _RME_Sig_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Inv_Crt) for _RME_Inv_Crt
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Inv_Del) for _RME_Inv_Del
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Inv_Set) for _RME_Inv_Set
+    rme_kernel.o(.text._RME_Svc_Handler) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.ARM.exidx.text._RME_Svc_Handler) refers to rme_kernel.o(.text._RME_Svc_Handler) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.text.__RME_Inv_Reg_Restore) for __RME_Inv_Reg_Restore
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.text.__RME_Inv_Retval_Set) for __RME_Inv_Retval_Set
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.text._RME_Inv_Ret) refers to rme_platform_a7m.o(.text.__RME_Pgt_Set) for __RME_Pgt_Set
+    rme_kernel.o(.ARM.exidx.text._RME_Inv_Ret) refers to rme_kernel.o(.text._RME_Inv_Ret) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_platform_a7m.o(.text.__RME_Inv_Reg_Save) for __RME_Inv_Reg_Save
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Init) for __RME_Thd_Reg_Init
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_platform_a7m.o(.text.__RME_Pgt_Set) for __RME_Pgt_Set
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Inv_Act) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Inv_Act) refers to rme_kernel.o(.text._RME_Inv_Act) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_kernel.o(.text._RME_Run_Notif) for _RME_Run_Notif
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Sig_Snd) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Sig_Snd) refers to rme_kernel.o(.text._RME_Sig_Snd) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Sig_Rcv) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Sig_Rcv) refers to rme_kernel.o(.text._RME_Sig_Rcv) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kfn_Act) refers to rme_platform_a7m.o(.text.__RME_Kfn_Handler) for __RME_Kfn_Handler
+    rme_kernel.o(.ARM.exidx.text._RME_Kfn_Act) refers to rme_kernel.o(.text._RME_Kfn_Act) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Sched_Free) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Free) refers to rme_kernel.o(.text._RME_Thd_Sched_Free) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Init) for __RME_Thd_Reg_Init
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Init) for __RME_Thd_Cop_Init
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Exec_Set) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Exec_Set) refers to rme_kernel.o(.text._RME_Thd_Exec_Set) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Sched_Prio) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Prio) refers to rme_kernel.o(.text._RME_Thd_Sched_Prio) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Time_Xfer) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Time_Xfer) refers to rme_kernel.o(.text._RME_Thd_Time_Xfer) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_platform_a7m_armcc.o(__RME_A7M_MSB_GET) for __RME_A7M_MSB_Get
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Thd_Swt) refers to rme_kernel.o(.text._RME_Run_Swt) for _RME_Run_Swt
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Swt) refers to rme_kernel.o(.text._RME_Thd_Swt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Cpt_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Crt) refers to rme_kernel.o(.text._RME_Cpt_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Del) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Cpt_Del) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.text._RME_Cpt_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Cpt_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Cpt_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Del) refers to rme_kernel.o(.text._RME_Cpt_Del) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Frz) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Frz) refers to rme_kernel.o(.text._RME_Cpt_Frz) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Add) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Add) refers to rme_kernel.o(.text._RME_Cpt_Add) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Rem) refers to rme_kernel.o(.text._RME_Cpt_Rem) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_platform_a7m.o(.text.__RME_Pgt_Check) for __RME_Pgt_Check
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_platform_a7m.o(.text.__RME_Pgt_Init) for __RME_Pgt_Init
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_kernel.o(.text._RME_Kot_Erase) for _RME_Kot_Erase
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Pgt_Crt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Crt) refers to rme_kernel.o(.text._RME_Pgt_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Del) refers to rme_platform_a7m.o(.text.__RME_Pgt_Del_Check) for __RME_Pgt_Del_Check
+    rme_kernel.o(.text._RME_Pgt_Del) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Pgt_Del) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.text._RME_Pgt_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Pgt_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Pgt_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Del) refers to rme_kernel.o(.text._RME_Pgt_Del) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Add) refers to rme_platform_a7m.o(.text.__RME_Pgt_Lookup) for __RME_Pgt_Lookup
+    rme_kernel.o(.text._RME_Pgt_Add) refers to rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) for __RME_Pgt_Page_Map
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Add) refers to rme_kernel.o(.text._RME_Pgt_Add) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Rem) refers to rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap) for __RME_Pgt_Page_Unmap
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Rem) refers to rme_kernel.o(.text._RME_Pgt_Rem) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Con) refers to rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map) for __RME_Pgt_Pgdir_Map
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Con) refers to rme_kernel.o(.text._RME_Pgt_Con) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Des) refers to rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap) for __RME_Pgt_Pgdir_Unmap
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Des) refers to rme_kernel.o(.text._RME_Pgt_Des) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Prc_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Prc_Crt) refers to rme_kernel.o(.text._RME_Prc_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Prc_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Prc_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Prc_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Prc_Del) refers to rme_kernel.o(.text._RME_Prc_Del) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Prc_Cpt) refers to rme_kernel.o(.text._RME_Prc_Cpt) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Prc_Pgt) refers to rme_kernel.o(.text._RME_Prc_Pgt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Crt) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Size) for __RME_Thd_Cop_Size
+    rme_kernel.o(.text._RME_Thd_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Thd_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Crt) refers to rme_kernel.o(.text._RME_Thd_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Del) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Size) for __RME_Thd_Cop_Size
+    rme_kernel.o(.text._RME_Thd_Del) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Thd_Del) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.text._RME_Thd_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Del) refers to rme_kernel.o(.text._RME_Thd_Del) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Check) for __RME_Thd_Cop_Check
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Size) for __RME_Thd_Cop_Size
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Sched_Bind) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Bind) refers to rme_kernel.o(.text._RME_Thd_Sched_Bind) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Sched_Rcv) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Rcv) refers to rme_kernel.o(.text._RME_Thd_Sched_Rcv) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Sig_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Sig_Crt) refers to rme_kernel.o(.text._RME_Sig_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Sig_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Sig_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Sig_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Sig_Del) refers to rme_kernel.o(.text._RME_Sig_Del) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Inv_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Inv_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.ARM.exidx.text._RME_Inv_Crt) refers to rme_kernel.o(.text._RME_Inv_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Inv_Del) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Inv_Del) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.text._RME_Inv_Del) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Inv_Del) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Inv_Del) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Inv_Del) refers to rme_kernel.o(.text._RME_Inv_Del) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Inv_Set) refers to rme_kernel.o(.text._RME_Inv_Set) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Tim_Handler) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Tim_Handler) refers to rme_kernel.o(.text._RME_Tim_Handler) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Run_Notif) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.ARM.exidx.text._RME_Run_Notif) refers to rme_kernel.o(.text._RME_Run_Notif) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_platform_a7m.o(.text.__RME_Svc_Retval_Set) for __RME_Svc_Retval_Set
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_kernel.o(.text._RME_Run_Notif) for _RME_Run_Notif
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Kern_Snd) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Kern_Snd) refers to rme_kernel.o(.text._RME_Kern_Snd) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kern_High) refers to rme_platform_a7m_armcc.o(__RME_A7M_MSB_GET) for __RME_A7M_MSB_Get
+    rme_kernel.o(.text._RME_Kern_High) refers to rme_kernel.o(.text._RME_Run_Swt) for _RME_Run_Swt
+    rme_kernel.o(.text._RME_Kern_High) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Kern_High) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Kern_High) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Kern_High) refers to rme_kernel.o(.text._RME_Kern_High) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Tim_Elapse) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.ARM.exidx.text._RME_Tim_Elapse) refers to rme_kernel.o(.text._RME_Tim_Elapse) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Tim_Future) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.ARM.exidx.text._RME_Tim_Future) refers to rme_kernel.o(.text._RME_Tim_Future) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Boot_Init) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Boot_Init) refers to rme_kernel.o(.text._RME_Cpt_Boot_Init) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kot_Mark) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Kot_Mark) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.ARM.exidx.text._RME_Kot_Mark) refers to rme_kernel.o(.text._RME_Kot_Mark) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Cpt_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Cpt_Boot_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.ARM.exidx.text._RME_Cpt_Boot_Crt) refers to rme_kernel.o(.text._RME_Cpt_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_Pgt_Check) for __RME_Pgt_Check
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_Pgt_Init) for __RME_Pgt_Init
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_kernel.o(.text._RME_Kot_Erase) for _RME_Kot_Erase
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Pgt_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Crt) refers to rme_kernel.o(.text._RME_Pgt_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kot_Erase) refers to rme_platform_a7m.o(.bss.RME_A7M_Kot) for RME_A7M_Kot
+    rme_kernel.o(.text._RME_Kot_Erase) refers to memseta.o(.text) for __aeabi_memclr4
+    rme_kernel.o(.ARM.exidx.text._RME_Kot_Erase) refers to rme_kernel.o(.text._RME_Kot_Erase) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Boot_Add) refers to rme_platform_a7m.o(.text.__RME_Pgt_Page_Map) for __RME_Pgt_Page_Map
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Add) refers to rme_kernel.o(.text._RME_Pgt_Boot_Add) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Pgt_Boot_Con) refers to rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map) for __RME_Pgt_Pgdir_Map
+    rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Con) refers to rme_kernel.o(.text._RME_Pgt_Boot_Con) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kom_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Kom_Boot_Crt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Kom_Boot_Crt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Kom_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Kom_Boot_Crt) refers to rme_kernel.o(.text._RME_Kom_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_CPU_Local_Init) refers to rme_kernel.o(.text._RME_CPU_Local_Init) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_kernel.o(.text._RME_Inv_Ret) for _RME_Inv_Ret
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_platform_a7m.o(.bss.RME_A7M_Local) for RME_A7M_Local
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_platform_a7m.o(.text.__RME_Putchar) for __RME_Putchar
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Print) for __RME_Thd_Reg_Print
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_kernel.o(.text._RME_Kern_Snd) for _RME_Kern_Snd
+    rme_kernel.o(.text._RME_Thd_Fatal) refers to rme_kernel.o(.text._RME_Kern_High) for _RME_Kern_High
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Fatal) refers to rme_kernel.o(.text._RME_Thd_Fatal) for [Anonymous Symbol]
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Pgt) refers to rme_kernel.o(.text._RME_Thd_Pgt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Prc_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Prc_Boot_Crt) refers to rme_kernel.o(.text._RME_Prc_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Size) for __RME_Thd_Cop_Size
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_kernel.o(.text._RME_Kot_Mark) for _RME_Kot_Mark
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Thd_Boot_Crt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Thd_Boot_Crt) refers to rme_kernel.o(.text._RME_Thd_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Sig_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Sig_Boot_Crt) refers to rme_kernel.o(.text._RME_Sig_Boot_Crt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_platform_a7m.o(.text.__RME_Thd_Reg_Copy) for __RME_Thd_Reg_Copy
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap) for __RME_Thd_Cop_Swap
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_platform_a7m.o(.text.__RME_Pgt_Set) for __RME_Pgt_Set
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_kernel.o(.rodata.str1.1) for .L.str.4
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_kernel.o(.text.RME_Log) for RME_Log
+    rme_kernel.o(.text._RME_Run_Swt) refers to rme_platform_a7m.o(.text.__RME_A7M_Reboot) for __RME_A7M_Reboot
+    rme_kernel.o(.ARM.exidx.text._RME_Run_Swt) refers to rme_kernel.o(.text._RME_Run_Swt) for [Anonymous Symbol]
+    rme_kernel.o(.text._RME_Kfn_Boot_Crt) refers to rme_platform_a7m.o(.bss.RME_A7M_Timestamp) for RME_A7M_Timestamp
+    rme_kernel.o(.ARM.exidx.text._RME_Kfn_Boot_Crt) refers to rme_kernel.o(.text._RME_Kfn_Boot_Crt) for [Anonymous Symbol]
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry4.o(.ARM.Collect$$$$00000003) for _main_stk
+    entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
+    entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to rme_platform_a7m.o(.text.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to rme_platform_a7m.o(.text.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing rme_hook.o(.text), (0 bytes).
+    Removing rme_hook.o(.ARM.exidx.text.RME_Boot_Pre_Init), (8 bytes).
+    Removing rme_hook.o(.ARM.exidx.text.RME_Boot_Post_Init), (8 bytes).
+    Removing rme_hook.o(.ARM.exidx.text.RME_Reboot_Failsafe), (8 bytes).
+    Removing rme_hook.o(.ARM.exidx.text.RME_Spurious_Handler), (8 bytes).
+    Removing rme_hook.o(.ARM.exidx.text.RME_Hook_Kfn_Handler), (8 bytes).
+    Removing rme_boot.o(.text), (0 bytes).
+    Removing rme_boot.o(.ARM.exidx.text.RME_Boot_Vct_Init), (8 bytes).
+    Removing rme_boot.o(.ARM.exidx.text.RME_Boot_Vct_Handler), (8 bytes).
+    Removing sensor_image.o(.text), (0 bytes).
+    Removing remote_image.o(.text), (0 bytes).
+    Removing realtime_image.o(.text), (0 bytes).
+    Removing monitor_image.o(.text), (0 bytes).
+    Removing flight_image.o(.text), (0 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET1), (28 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET2), (28 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET3), (28 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET4), (28 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET5), (36 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET6), (36 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET7), (36 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET9), (44 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET10), (44 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET11), (44 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET12), (44 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET13), (52 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET14), (52 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET15), (52 bytes).
+    Removing rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET16), (52 bytes).
+    Removing rme_platform_a7m.o(.text), (0 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.main), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Putchar), (8 bytes).
+    Removing rme_platform_a7m.o(.text.__RME_CPUID_Get), (4 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_CPUID_Get), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Exc_Handler), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Reboot), (8 bytes).
+    Removing rme_platform_a7m.o(.text.__RME_Pgt_Walk), (302 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Walk), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_MPU_Update), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Set), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Vct_Handler), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Tim_Handler), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Svc_Handler), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Kfn_Handler), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Svc_Retval_Set), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Lowlvl_Preinit), (8 bytes).
+    Removing rme_platform_a7m.o(.text.__RME_A7M_NVIC_Set_Exc_Prio), (66 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_NVIC_Set_Exc_Prio), (8 bytes).
+    Removing rme_platform_a7m.o(.text.__RME_A7M_Cache_Init), (116 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_A7M_Cache_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Lowlvl_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Boot), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Size), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Svc_Param_Get), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Copy), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Reg_Print), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Reg_Save), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Reg_Restore), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Inv_Retval_Set), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Check), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Thd_Cop_Swap), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Kom_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Init), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Check), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Del_Check), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Page_Map), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_Pgt_Refresh), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Page_Unmap), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Pgdir_Map), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Pgdir_Unmap), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.__RME_Pgt_Lookup), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.exidx.text.___RME_A7M_MPU_Clear), (8 bytes).
+    Removing rme_platform_a7m.o(.ARM.use_no_argv), (4 bytes).
+    Removing rme_kernel.o(.text), (0 bytes).
+    Removing rme_kernel.o(.text.RME_Int_Print), (262 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text.RME_Int_Print), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text.RME_Hex_Print), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text.RME_Str_Print), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text.RME_Log), (8 bytes).
+    Removing rme_kernel.o(.text._RME_MSB_Generic), (46 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_MSB_Generic), (8 bytes).
+    Removing rme_kernel.o(.text._RME_LSB_Generic), (44 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_LSB_Generic), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Comp_Swap_Single), (14 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Comp_Swap_Single), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Fetch_Add_Single), (10 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Fetch_Add_Single), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Fetch_And_Single), (10 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Fetch_And_Single), (8 bytes).
+    Removing rme_kernel.o(.text._RME_List_Crt), (6 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_List_Crt), (8 bytes).
+    Removing rme_kernel.o(.text._RME_List_Del), (6 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_List_Del), (8 bytes).
+    Removing rme_kernel.o(.text._RME_List_Ins), (10 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_List_Ins), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Clear), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Memcmp), (98 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Memcmp), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Memcpy), (110 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Memcpy), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Diff), (14 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Diff), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text.RME_Kmain), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Kot_Init), (30 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kot_Init), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Svc_Handler), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Inv_Ret), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Inv_Act), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Sig_Snd), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Sig_Rcv), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kfn_Act), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Free), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Exec_Set), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Prio), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Time_Xfer), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Swt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Frz), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Add), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Rem), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Add), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Rem), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Con), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Des), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Prc_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Prc_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Prc_Cpt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Prc_Pgt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Bind), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Sched_Rcv), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Sig_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Sig_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Inv_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Inv_Del), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Inv_Set), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Tim_Handler), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Run_Notif), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kern_Snd), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kern_High), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Tim_Elapse), (36 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Tim_Elapse), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Tim_Future), (14 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Tim_Future), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Boot_Init), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kot_Mark), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Cpt_Boot_Crt), (348 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Cpt_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kot_Erase), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Add), (8 bytes).
+    Removing rme_kernel.o(.text._RME_Pgt_Boot_Con), (446 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Pgt_Boot_Con), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kom_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_CPU_Local_Init), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Fatal), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Pgt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Prc_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Thd_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Sig_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Run_Swt), (8 bytes).
+    Removing rme_kernel.o(.ARM.exidx.text._RME_Kfn_Boot_Crt), (8 bytes).
+    Removing rme_kernel.o(.rodata._RME_MSB_Generic.Table), (256 bytes).
+    Removing rme_kernel.o(.rodata._RME_LSB_Generic.Table), (256 bytes).
+
+170 unused section(s) (total 4088 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../../../M7M01_Eukaron/Source/Platform/A7M/rme_platform_a7m_armcc.s 0x00000000   Number         0  rme_platform_a7m_armcc.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    flight_image.c                           0x00000000   Number         0  flight_image.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    monitor_image.c                          0x00000000   Number         0  monitor_image.o ABSOLUTE
+    realtime_image.c                         0x00000000   Number         0  realtime_image.o ABSOLUTE
+    remote_image.c                           0x00000000   Number         0  remote_image.o ABSOLUTE
+    rme_boot.c                               0x00000000   Number         0  rme_boot.o ABSOLUTE
+    rme_hook.c                               0x00000000   Number         0  rme_hook.o ABSOLUTE
+    rme_kernel.c                             0x00000000   Number         0  rme_kernel.o ABSOLUTE
+    rme_platform_a7m.c                       0x00000000   Number         0  rme_platform_a7m.o ABSOLUTE
+    sensor_image.c                           0x00000000   Number         0  sensor_image.o ABSOLUTE
+    RME_VECTOR                               0x08000000   Section     1084  rme_platform_a7m_armcc.o(RME_VECTOR)
+    .ARM.Collect$$$$00000000                 0x0800043c   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000003                 0x0800043c   Section        4  entry4.o(.ARM.Collect$$$$00000003)
+    .ARM.Collect$$$$00000004                 0x08000440   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x08000444   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x08000444   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x08000444   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x0800044c   Data           4  entry4.o(.ARM.Collect$$$$00002714)
+    .ARM.Collect$$$$0000000D                 0x0800044c   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x0800044c   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002714                 0x0800044c   Section        4  entry4.o(.ARM.Collect$$$$00002714)
+    .text                                    0x08000450   Section        0  memseta.o(.text)
+    .text                                    0x08000474   Section       36  init.o(.text)
+    [Anonymous Symbol]                       0x08000498   Section        0  rme_hook.o(.text.RME_Boot_Post_Init)
+    [Anonymous Symbol]                       0x0800049c   Section        0  rme_hook.o(.text.RME_Boot_Pre_Init)
+    [Anonymous Symbol]                       0x080004a0   Section        0  rme_boot.o(.text.RME_Boot_Vct_Handler)
+    [Anonymous Symbol]                       0x080004b0   Section        0  rme_boot.o(.text.RME_Boot_Vct_Init)
+    [Anonymous Symbol]                       0x08000514   Section        0  rme_kernel.o(.text.RME_Hex_Print)
+    [Anonymous Symbol]                       0x080005bc   Section        0  rme_hook.o(.text.RME_Hook_Kfn_Handler)
+    [Anonymous Symbol]                       0x080005c4   Section        0  rme_kernel.o(.text.RME_Kmain)
+    [Anonymous Symbol]                       0x080005e8   Section        0  rme_kernel.o(.text.RME_Log)
+    [Anonymous Symbol]                       0x0800084c   Section        0  rme_hook.o(.text.RME_Reboot_Failsafe)
+    [Anonymous Symbol]                       0x08000850   Section        0  rme_hook.o(.text.RME_Spurious_Handler)
+    [Anonymous Symbol]                       0x08000854   Section        0  rme_kernel.o(.text.RME_Str_Print)
+    [Anonymous Symbol]                       0x08000874   Section        0  rme_kernel.o(.text._RME_CPU_Local_Init)
+    [Anonymous Symbol]                       0x08000988   Section        0  rme_kernel.o(.text._RME_Clear)
+    _RME_Cpt_Add                             0x0800099d   Thumb Code   766  rme_kernel.o(.text._RME_Cpt_Add)
+    [Anonymous Symbol]                       0x0800099c   Section        0  rme_kernel.o(.text._RME_Cpt_Add)
+    [Anonymous Symbol]                       0x08000c9c   Section        0  rme_kernel.o(.text._RME_Cpt_Boot_Init)
+    _RME_Cpt_Crt                             0x08000d39   Thumb Code   532  rme_kernel.o(.text._RME_Cpt_Crt)
+    [Anonymous Symbol]                       0x08000d38   Section        0  rme_kernel.o(.text._RME_Cpt_Crt)
+    _RME_Cpt_Del                             0x08000f4d   Thumb Code   700  rme_kernel.o(.text._RME_Cpt_Del)
+    [Anonymous Symbol]                       0x08000f4c   Section        0  rme_kernel.o(.text._RME_Cpt_Del)
+    _RME_Cpt_Frz                             0x08001209   Thumb Code   270  rme_kernel.o(.text._RME_Cpt_Frz)
+    [Anonymous Symbol]                       0x08001208   Section        0  rme_kernel.o(.text._RME_Cpt_Frz)
+    _RME_Cpt_Rem                             0x08001319   Thumb Code   270  rme_kernel.o(.text._RME_Cpt_Rem)
+    [Anonymous Symbol]                       0x08001318   Section        0  rme_kernel.o(.text._RME_Cpt_Rem)
+    _RME_Inv_Act                             0x08001429   Thumb Code   306  rme_kernel.o(.text._RME_Inv_Act)
+    [Anonymous Symbol]                       0x08001428   Section        0  rme_kernel.o(.text._RME_Inv_Act)
+    _RME_Inv_Crt                             0x0800155d   Thumb Code   612  rme_kernel.o(.text._RME_Inv_Crt)
+    [Anonymous Symbol]                       0x0800155c   Section        0  rme_kernel.o(.text._RME_Inv_Crt)
+    _RME_Inv_Del                             0x080017c1   Thumb Code   632  rme_kernel.o(.text._RME_Inv_Del)
+    [Anonymous Symbol]                       0x080017c0   Section        0  rme_kernel.o(.text._RME_Inv_Del)
+    _RME_Inv_Ret                             0x08001a39   Thumb Code   222  rme_kernel.o(.text._RME_Inv_Ret)
+    [Anonymous Symbol]                       0x08001a38   Section        0  rme_kernel.o(.text._RME_Inv_Ret)
+    _RME_Inv_Set                             0x08001b19   Thumb Code   198  rme_kernel.o(.text._RME_Inv_Set)
+    [Anonymous Symbol]                       0x08001b18   Section        0  rme_kernel.o(.text._RME_Inv_Set)
+    [Anonymous Symbol]                       0x08001be0   Section        0  rme_kernel.o(.text._RME_Kern_High)
+    [Anonymous Symbol]                       0x08001c94   Section        0  rme_kernel.o(.text._RME_Kern_Snd)
+    _RME_Kfn_Act                             0x08001d71   Thumb Code   250  rme_kernel.o(.text._RME_Kfn_Act)
+    [Anonymous Symbol]                       0x08001d70   Section        0  rme_kernel.o(.text._RME_Kfn_Act)
+    [Anonymous Symbol]                       0x08001e6c   Section        0  rme_kernel.o(.text._RME_Kfn_Boot_Crt)
+    [Anonymous Symbol]                       0x08001f64   Section        0  rme_kernel.o(.text._RME_Kom_Boot_Crt)
+    [Anonymous Symbol]                       0x080020a8   Section        0  rme_kernel.o(.text._RME_Kot_Erase)
+    [Anonymous Symbol]                       0x08002190   Section        0  rme_kernel.o(.text._RME_Kot_Mark)
+    _RME_Pgt_Add                             0x0800228d   Thumb Code   554  rme_kernel.o(.text._RME_Pgt_Add)
+    [Anonymous Symbol]                       0x0800228c   Section        0  rme_kernel.o(.text._RME_Pgt_Add)
+    [Anonymous Symbol]                       0x080024b8   Section        0  rme_kernel.o(.text._RME_Pgt_Boot_Add)
+    [Anonymous Symbol]                       0x080025d0   Section        0  rme_kernel.o(.text._RME_Pgt_Boot_Crt)
+    _RME_Pgt_Con                             0x080027a1   Thumb Code   490  rme_kernel.o(.text._RME_Pgt_Con)
+    [Anonymous Symbol]                       0x080027a0   Section        0  rme_kernel.o(.text._RME_Pgt_Con)
+    _RME_Pgt_Crt                             0x0800298d   Thumb Code   642  rme_kernel.o(.text._RME_Pgt_Crt)
+    [Anonymous Symbol]                       0x0800298c   Section        0  rme_kernel.o(.text._RME_Pgt_Crt)
+    _RME_Pgt_Del                             0x08002c11   Thumb Code   656  rme_kernel.o(.text._RME_Pgt_Del)
+    [Anonymous Symbol]                       0x08002c10   Section        0  rme_kernel.o(.text._RME_Pgt_Del)
+    _RME_Pgt_Des                             0x08002ea1   Thumb Code   402  rme_kernel.o(.text._RME_Pgt_Des)
+    [Anonymous Symbol]                       0x08002ea0   Section        0  rme_kernel.o(.text._RME_Pgt_Des)
+    _RME_Pgt_Rem                             0x08003035   Thumb Code   230  rme_kernel.o(.text._RME_Pgt_Rem)
+    [Anonymous Symbol]                       0x08003034   Section        0  rme_kernel.o(.text._RME_Pgt_Rem)
+    [Anonymous Symbol]                       0x0800311c   Section        0  rme_kernel.o(.text._RME_Prc_Boot_Crt)
+    _RME_Prc_Cpt                             0x08003355   Thumb Code   362  rme_kernel.o(.text._RME_Prc_Cpt)
+    [Anonymous Symbol]                       0x08003354   Section        0  rme_kernel.o(.text._RME_Prc_Cpt)
+    _RME_Prc_Crt                             0x080034c1   Thumb Code   562  rme_kernel.o(.text._RME_Prc_Crt)
+    [Anonymous Symbol]                       0x080034c0   Section        0  rme_kernel.o(.text._RME_Prc_Crt)
+    _RME_Prc_Del                             0x080036f5   Thumb Code   334  rme_kernel.o(.text._RME_Prc_Del)
+    [Anonymous Symbol]                       0x080036f4   Section        0  rme_kernel.o(.text._RME_Prc_Del)
+    _RME_Prc_Pgt                             0x08003845   Thumb Code   362  rme_kernel.o(.text._RME_Prc_Pgt)
+    [Anonymous Symbol]                       0x08003844   Section        0  rme_kernel.o(.text._RME_Prc_Pgt)
+    _RME_Run_Notif                           0x080039b1   Thumb Code    40  rme_kernel.o(.text._RME_Run_Notif)
+    [Anonymous Symbol]                       0x080039b0   Section        0  rme_kernel.o(.text._RME_Run_Notif)
+    _RME_Run_Swt                             0x080039d9   Thumb Code   242  rme_kernel.o(.text._RME_Run_Swt)
+    [Anonymous Symbol]                       0x080039d8   Section        0  rme_kernel.o(.text._RME_Run_Swt)
+    [Anonymous Symbol]                       0x08003acc   Section        0  rme_kernel.o(.text._RME_Sig_Boot_Crt)
+    _RME_Sig_Crt                             0x08003bc9   Thumb Code   246  rme_kernel.o(.text._RME_Sig_Crt)
+    [Anonymous Symbol]                       0x08003bc8   Section        0  rme_kernel.o(.text._RME_Sig_Crt)
+    _RME_Sig_Del                             0x08003cc1   Thumb Code   350  rme_kernel.o(.text._RME_Sig_Del)
+    [Anonymous Symbol]                       0x08003cc0   Section        0  rme_kernel.o(.text._RME_Sig_Del)
+    _RME_Sig_Rcv                             0x08003e21   Thumb Code   562  rme_kernel.o(.text._RME_Sig_Rcv)
+    [Anonymous Symbol]                       0x08003e20   Section        0  rme_kernel.o(.text._RME_Sig_Rcv)
+    _RME_Sig_Snd                             0x08004055   Thumb Code   454  rme_kernel.o(.text._RME_Sig_Snd)
+    [Anonymous Symbol]                       0x08004054   Section        0  rme_kernel.o(.text._RME_Sig_Snd)
+    [Anonymous Symbol]                       0x0800421c   Section        0  rme_kernel.o(.text._RME_Svc_Handler)
+    [Anonymous Symbol]                       0x0800454c   Section        0  rme_kernel.o(.text._RME_Thd_Boot_Crt)
+    _RME_Thd_Crt                             0x080047bd   Thumb Code   762  rme_kernel.o(.text._RME_Thd_Crt)
+    [Anonymous Symbol]                       0x080047bc   Section        0  rme_kernel.o(.text._RME_Thd_Crt)
+    _RME_Thd_Del                             0x08004ab9   Thumb Code  1030  rme_kernel.o(.text._RME_Thd_Del)
+    [Anonymous Symbol]                       0x08004ab8   Section        0  rme_kernel.o(.text._RME_Thd_Del)
+    _RME_Thd_Exec_Set                        0x08004ec1   Thumb Code   442  rme_kernel.o(.text._RME_Thd_Exec_Set)
+    [Anonymous Symbol]                       0x08004ec0   Section        0  rme_kernel.o(.text._RME_Thd_Exec_Set)
+    [Anonymous Symbol]                       0x0800507c   Section        0  rme_kernel.o(.text._RME_Thd_Fatal)
+    [Anonymous Symbol]                       0x0800524c   Section        0  rme_kernel.o(.text._RME_Thd_Pgt)
+    _RME_Thd_Sched_Bind                      0x08005269   Thumb Code   742  rme_kernel.o(.text._RME_Thd_Sched_Bind)
+    [Anonymous Symbol]                       0x08005268   Section        0  rme_kernel.o(.text._RME_Thd_Sched_Bind)
+    _RME_Thd_Sched_Free                      0x08005551   Thumb Code   442  rme_kernel.o(.text._RME_Thd_Sched_Free)
+    [Anonymous Symbol]                       0x08005550   Section        0  rme_kernel.o(.text._RME_Thd_Sched_Free)
+    _RME_Thd_Sched_Prio                      0x0800570d   Thumb Code   994  rme_kernel.o(.text._RME_Thd_Sched_Prio)
+    [Anonymous Symbol]                       0x0800570c   Section        0  rme_kernel.o(.text._RME_Thd_Sched_Prio)
+    _RME_Thd_Sched_Rcv                       0x08005af1   Thumb Code   266  rme_kernel.o(.text._RME_Thd_Sched_Rcv)
+    [Anonymous Symbol]                       0x08005af0   Section        0  rme_kernel.o(.text._RME_Thd_Sched_Rcv)
+    _RME_Thd_Swt                             0x08005bfd   Thumb Code   982  rme_kernel.o(.text._RME_Thd_Swt)
+    [Anonymous Symbol]                       0x08005bfc   Section        0  rme_kernel.o(.text._RME_Thd_Swt)
+    _RME_Thd_Time_Xfer                       0x08005fd5   Thumb Code   802  rme_kernel.o(.text._RME_Thd_Time_Xfer)
+    [Anonymous Symbol]                       0x08005fd4   Section        0  rme_kernel.o(.text._RME_Thd_Time_Xfer)
+    [Anonymous Symbol]                       0x080062f8   Section        0  rme_kernel.o(.text._RME_Tim_Handler)
+    [Anonymous Symbol]                       0x080063c4   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler)
+    [Anonymous Symbol]                       0x08006790   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Lowlvl_Preinit)
+    [Anonymous Symbol]                       0x080067e8   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Reboot)
+    [Anonymous Symbol]                       0x080067f8   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Svc_Handler)
+    [Anonymous Symbol]                       0x08006810   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler)
+    [Anonymous Symbol]                       0x08006854   Section        0  rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler)
+    [Anonymous Symbol]                       0x080068d4   Section        0  rme_platform_a7m.o(.text.__RME_Boot)
+    [Anonymous Symbol]                       0x08006bd4   Section        0  rme_platform_a7m.o(.text.__RME_Inv_Reg_Restore)
+    [Anonymous Symbol]                       0x08006be0   Section        0  rme_platform_a7m.o(.text.__RME_Inv_Reg_Save)
+    [Anonymous Symbol]                       0x08006bec   Section        0  rme_platform_a7m.o(.text.__RME_Inv_Retval_Set)
+    [Anonymous Symbol]                       0x08006bf0   Section        0  rme_platform_a7m.o(.text.__RME_Kfn_Handler)
+    [Anonymous Symbol]                       0x08007a1c   Section        0  rme_platform_a7m.o(.text.__RME_Lowlvl_Init)
+    [Anonymous Symbol]                       0x08007c68   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Check)
+    [Anonymous Symbol]                       0x08007c98   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Del_Check)
+    [Anonymous Symbol]                       0x08007c9c   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Init)
+    [Anonymous Symbol]                       0x08007d40   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Kom_Init)
+    [Anonymous Symbol]                       0x08007d44   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Lookup)
+    [Anonymous Symbol]                       0x08007d88   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Page_Map)
+    [Anonymous Symbol]                       0x08007eb0   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap)
+    [Anonymous Symbol]                       0x08007f2c   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map)
+    [Anonymous Symbol]                       0x08008000   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap)
+    [Anonymous Symbol]                       0x08008118   Section        0  rme_platform_a7m.o(.text.__RME_Pgt_Set)
+    [Anonymous Symbol]                       0x08008120   Section        0  rme_platform_a7m.o(.text.__RME_Putchar)
+    [Anonymous Symbol]                       0x0800814c   Section        0  rme_platform_a7m.o(.text.__RME_Svc_Param_Get)
+    [Anonymous Symbol]                       0x08008168   Section        0  rme_platform_a7m.o(.text.__RME_Svc_Retval_Set)
+    [Anonymous Symbol]                       0x0800816c   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Cop_Check)
+    [Anonymous Symbol]                       0x08008178   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Cop_Init)
+    [Anonymous Symbol]                       0x080081a4   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Cop_Size)
+    [Anonymous Symbol]                       0x080081b0   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap)
+    [Anonymous Symbol]                       0x0800822c   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Reg_Copy)
+    [Anonymous Symbol]                       0x08008250   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Reg_Init)
+    [Anonymous Symbol]                       0x0800826c   Section        0  rme_platform_a7m.o(.text.__RME_Thd_Reg_Print)
+    ___RME_A7M_MPU_Clear                     0x08008369   Thumb Code   350  rme_platform_a7m.o(.text.___RME_A7M_MPU_Clear)
+    [Anonymous Symbol]                       0x08008368   Section        0  rme_platform_a7m.o(.text.___RME_A7M_MPU_Clear)
+    ___RME_A7M_MPU_Update                    0x080084c9   Thumb Code  1052  rme_platform_a7m.o(.text.___RME_A7M_MPU_Update)
+    [Anonymous Symbol]                       0x080084c8   Section        0  rme_platform_a7m.o(.text.___RME_A7M_MPU_Update)
+    ___RME_A7M_Pgt_Refresh                   0x080088f5   Thumb Code    34  rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh)
+    [Anonymous Symbol]                       0x080088f4   Section        0  rme_platform_a7m.o(.text.___RME_A7M_Pgt_Refresh)
+    [Anonymous Symbol]                       0x08008918   Section        0  rme_platform_a7m.o(.text.main)
+    Reset_Handler                            0x08008929   Thumb Code     0  rme_platform_a7m_armcc.o(RME_ENTRY)
+    RME_ENTRY                                0x08008928   Section       16  rme_platform_a7m_armcc.o(RME_ENTRY)
+    SVC_Handler                              0x08008939   Thumb Code    42  rme_platform_a7m_armcc.o(SVC_HANDLER)
+    SVC_HANDLER                              0x08008938   Section       48  rme_platform_a7m_armcc.o(SVC_HANDLER)
+    NMI_Handler                              0x08008969   Thumb Code    54  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    SYSTEM_HANDLER                           0x08008968   Section       60  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    PendSV_Handler                           0x0800896b   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    DebugMon_Handler                         0x0800896d   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    HardFault_Handler                        0x0800896f   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    MemManage_Handler                        0x08008971   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    BusFault_Handler                         0x08008973   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    UsageFault_Handler                       0x08008975   Thumb Code     0  rme_platform_a7m_armcc.o(SYSTEM_HANDLER)
+    SysTick_Handler                          0x080089a9   Thumb Code    42  rme_platform_a7m_armcc.o(SYSTICK_HANDLER)
+    SYSTICK_HANDLER                          0x080089a8   Section       48  rme_platform_a7m_armcc.o(SYSTICK_HANDLER)
+    __RME_A7M_BARRIER                        0x080089d8   Section       12  rme_platform_a7m_armcc.o(__RME_A7M_BARRIER)
+    __RME_A7M_MSB_GET                        0x080089e8   Section       16  rme_platform_a7m_armcc.o(__RME_A7M_MSB_GET)
+    __RME_A7M_RESET                          0x080089f8   Section       24  rme_platform_a7m_armcc.o(__RME_A7M_RESET)
+    __RME_A7M_WAIT_INT                       0x08008a10   Section        4  rme_platform_a7m_armcc.o(__RME_A7M_WAIT_INT)
+    __RME_INT_DISABLE                        0x08008a18   Section        4  rme_platform_a7m_armcc.o(__RME_INT_DISABLE)
+    __RME_INT_ENABLE                         0x08008a20   Section        4  rme_platform_a7m_armcc.o(__RME_INT_ENABLE)
+    __RME_USER_ENTER                         0x08008a28   Section       24  rme_platform_a7m_armcc.o(__RME_USER_ENTER)
+    ___RME_A7M_MPU_SET8                      0x08008a40   Section       36  rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8)
+    ___RME_A7M_THD_COP_CLEAR                 0x08008a68   Section      148  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_CLEAR)
+    COP_CLEAR                                0x08008a7c   Data           0  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_CLEAR)
+    ___RME_A7M_THD_COP_LOAD                  0x08008b00   Section        8  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_LOAD)
+    ___RME_A7M_THD_COP_SAVE                  0x08008b08   Section        8  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_SAVE)
+    i.__scatterload_copy                     0x08008b10   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x08008b1e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08008b20   Section       14  handlers.o(i.__scatterload_zeroinit)
+    .L.str.2                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
+    .L.str.2                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
+    .L.str.6                                 0x08008b2e   Data           9  rme_boot.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08008b2e   Section        0  rme_boot.o(.rodata.str1.1)
+    .L.str.1                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str.1                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str.5                                 0x08008b37   Data          12  rme_boot.o(.rodata.str1.1)
+    .L.str                                   0x08008b43   Data          21  rme_boot.o(.rodata.str1.1)
+    .L.str.4                                 0x08008b58   Data           3  rme_platform_a7m.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08008b58   Section        0  rme_platform_a7m.o(.rodata.str1.1)
+    .L.str                                   0x08008b5b   Data          62  rme_platform_a7m.o(.rodata.str1.1)
+    .L.str.4                                 0x08008b99   Data          50  rme_kernel.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08008b99   Section        0  rme_kernel.o(.rodata.str1.1)
+    __RME_A7M_Rand.LFSR                      0x20000000   Data           4  rme_platform_a7m.o(.data.__RME_A7M_Rand.LFSR)
+    [Anonymous Symbol]                       0x20000000   Section        0  rme_platform_a7m.o(.data.__RME_A7M_Rand.LFSR)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    IRQ0_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ100_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ101_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ102_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ103_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ104_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ105_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ106_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ107_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ108_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ109_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ10_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ110_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ111_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ112_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ113_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ114_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ115_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ116_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ117_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ118_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ119_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ11_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ120_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ121_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ122_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ123_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ124_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ125_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ126_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ127_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ128_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ129_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ12_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ130_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ131_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ132_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ133_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ134_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ135_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ136_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ137_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ138_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ139_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ13_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ140_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ141_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ142_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ143_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ144_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ145_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ146_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ147_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ148_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ149_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ14_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ150_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ151_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ152_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ153_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ154_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ155_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ156_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ157_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ158_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ159_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ15_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ160_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ161_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ162_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ163_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ164_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ165_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ166_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ167_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ168_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ169_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ16_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ170_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ171_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ172_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ173_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ174_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ175_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ176_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ177_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ178_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ179_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ17_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ180_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ181_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ182_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ183_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ184_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ185_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ186_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ187_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ188_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ189_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ18_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ190_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ191_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ192_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ193_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ194_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ195_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ196_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ197_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ198_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ199_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ19_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ1_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ200_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ201_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ202_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ203_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ204_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ205_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ206_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ207_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ208_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ209_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ20_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ210_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ211_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ212_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ213_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ214_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ215_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ216_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ217_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ218_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ219_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ21_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ220_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ221_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ222_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ223_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ224_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ225_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ226_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ227_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ228_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ229_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ22_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ230_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ231_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ232_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ233_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ234_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ235_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ236_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ237_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ238_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ239_Handler                           0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ23_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ24_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ25_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ26_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ27_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ28_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ29_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ2_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ30_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ31_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ32_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ33_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ34_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ35_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ36_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ37_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ38_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ39_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ3_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ40_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ41_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ42_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ43_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ44_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ45_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ46_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ47_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ48_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ49_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ4_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ50_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ51_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ52_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ53_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ54_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ55_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ56_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ57_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ58_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ59_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ5_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ60_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ61_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ62_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ63_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ64_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ65_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ66_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ67_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ68_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ69_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ6_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ70_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ71_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ72_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ73_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ74_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ75_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ76_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ77_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ78_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ79_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ7_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ80_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ81_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ82_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ83_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ84_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ85_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ86_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ87_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ88_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ89_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ8_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ90_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ91_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ92_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ93_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ94_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ95_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ96_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ97_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ98_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ99_Handler                            0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    IRQ9_Handler                             0x08000401   Thumb Code     0  rme_platform_a7m_armcc.o(RME_VECTOR)
+    __main                                   0x0800043d   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x0800043d   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
+    _main_scatterload                        0x08000441   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x08000445   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x08000445   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x08000445   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x08000445   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x0800044d   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x0800044d   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    __aeabi_memset                           0x08000451   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x08000451   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x08000451   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0800045f   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0800045f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0800045f   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x08000463   Thumb Code    18  memseta.o(.text)
+    __scatterload                            0x08000475   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x08000475   Thumb Code     0  init.o(.text)
+    RME_Boot_Post_Init                       0x08000499   Thumb Code     2  rme_hook.o(.text.RME_Boot_Post_Init)
+    RME_Boot_Pre_Init                        0x0800049d   Thumb Code     2  rme_hook.o(.text.RME_Boot_Pre_Init)
+    RME_Boot_Vct_Handler                     0x080004a1   Thumb Code    14  rme_boot.o(.text.RME_Boot_Vct_Handler)
+    RME_Boot_Vct_Init                        0x080004b1   Thumb Code    98  rme_boot.o(.text.RME_Boot_Vct_Init)
+    RME_Hex_Print                            0x08000515   Thumb Code   168  rme_kernel.o(.text.RME_Hex_Print)
+    RME_Hook_Kfn_Handler                     0x080005bd   Thumb Code     6  rme_hook.o(.text.RME_Hook_Kfn_Handler)
+    RME_Kmain                                0x080005c5   Thumb Code    36  rme_kernel.o(.text.RME_Kmain)
+    RME_Log                                  0x080005e9   Thumb Code   612  rme_kernel.o(.text.RME_Log)
+    RME_Reboot_Failsafe                      0x0800084d   Thumb Code     2  rme_hook.o(.text.RME_Reboot_Failsafe)
+    RME_Spurious_Handler                     0x08000851   Thumb Code     4  rme_hook.o(.text.RME_Spurious_Handler)
+    RME_Str_Print                            0x08000855   Thumb Code    30  rme_kernel.o(.text.RME_Str_Print)
+    _RME_CPU_Local_Init                      0x08000875   Thumb Code   274  rme_kernel.o(.text._RME_CPU_Local_Init)
+    _RME_Clear                               0x08000989   Thumb Code    18  rme_kernel.o(.text._RME_Clear)
+    _RME_Cpt_Boot_Init                       0x08000c9d   Thumb Code   154  rme_kernel.o(.text._RME_Cpt_Boot_Init)
+    _RME_Kern_High                           0x08001be1   Thumb Code   178  rme_kernel.o(.text._RME_Kern_High)
+    _RME_Kern_Snd                            0x08001c95   Thumb Code   218  rme_kernel.o(.text._RME_Kern_Snd)
+    _RME_Kfn_Boot_Crt                        0x08001e6d   Thumb Code   246  rme_kernel.o(.text._RME_Kfn_Boot_Crt)
+    _RME_Kom_Boot_Crt                        0x08001f65   Thumb Code   322  rme_kernel.o(.text._RME_Kom_Boot_Crt)
+    _RME_Kot_Erase                           0x080020a9   Thumb Code   232  rme_kernel.o(.text._RME_Kot_Erase)
+    _RME_Kot_Mark                            0x08002191   Thumb Code   250  rme_kernel.o(.text._RME_Kot_Mark)
+    _RME_Pgt_Boot_Add                        0x080024b9   Thumb Code   278  rme_kernel.o(.text._RME_Pgt_Boot_Add)
+    _RME_Pgt_Boot_Crt                        0x080025d1   Thumb Code   462  rme_kernel.o(.text._RME_Pgt_Boot_Crt)
+    _RME_Prc_Boot_Crt                        0x0800311d   Thumb Code   566  rme_kernel.o(.text._RME_Prc_Boot_Crt)
+    _RME_Sig_Boot_Crt                        0x08003acd   Thumb Code   250  rme_kernel.o(.text._RME_Sig_Boot_Crt)
+    _RME_Svc_Handler                         0x0800421d   Thumb Code   814  rme_kernel.o(.text._RME_Svc_Handler)
+    _RME_Thd_Boot_Crt                        0x0800454d   Thumb Code   622  rme_kernel.o(.text._RME_Thd_Boot_Crt)
+    _RME_Thd_Fatal                           0x0800507d   Thumb Code   462  rme_kernel.o(.text._RME_Thd_Fatal)
+    _RME_Thd_Pgt                             0x0800524d   Thumb Code    28  rme_kernel.o(.text._RME_Thd_Pgt)
+    _RME_Tim_Handler                         0x080062f9   Thumb Code   202  rme_kernel.o(.text._RME_Tim_Handler)
+    __RME_A7M_Exc_Handler                    0x080063c5   Thumb Code   972  rme_platform_a7m.o(.text.__RME_A7M_Exc_Handler)
+    __RME_A7M_Lowlvl_Preinit                 0x08006791   Thumb Code    88  rme_platform_a7m.o(.text.__RME_A7M_Lowlvl_Preinit)
+    __RME_A7M_Reboot                         0x080067e9   Thumb Code    14  rme_platform_a7m.o(.text.__RME_A7M_Reboot)
+    __RME_A7M_Svc_Handler                    0x080067f9   Thumb Code    22  rme_platform_a7m.o(.text.__RME_A7M_Svc_Handler)
+    __RME_A7M_Tim_Handler                    0x08006811   Thumb Code    66  rme_platform_a7m.o(.text.__RME_A7M_Tim_Handler)
+    __RME_A7M_Vct_Handler                    0x08006855   Thumb Code   126  rme_platform_a7m.o(.text.__RME_A7M_Vct_Handler)
+    __RME_Boot                               0x080068d5   Thumb Code   766  rme_platform_a7m.o(.text.__RME_Boot)
+    __RME_Inv_Reg_Restore                    0x08006bd5   Thumb Code    10  rme_platform_a7m.o(.text.__RME_Inv_Reg_Restore)
+    __RME_Inv_Reg_Save                       0x08006be1   Thumb Code    12  rme_platform_a7m.o(.text.__RME_Inv_Reg_Save)
+    __RME_Inv_Retval_Set                     0x08006bed   Thumb Code     4  rme_platform_a7m.o(.text.__RME_Inv_Retval_Set)
+    __RME_Kfn_Handler                        0x08006bf1   Thumb Code  3626  rme_platform_a7m.o(.text.__RME_Kfn_Handler)
+    __RME_Lowlvl_Init                        0x08007a1d   Thumb Code   586  rme_platform_a7m.o(.text.__RME_Lowlvl_Init)
+    __RME_Pgt_Check                          0x08007c69   Thumb Code    46  rme_platform_a7m.o(.text.__RME_Pgt_Check)
+    __RME_Pgt_Del_Check                      0x08007c99   Thumb Code     4  rme_platform_a7m.o(.text.__RME_Pgt_Del_Check)
+    __RME_Pgt_Init                           0x08007c9d   Thumb Code   164  rme_platform_a7m.o(.text.__RME_Pgt_Init)
+    __RME_Pgt_Kom_Init                       0x08007d41   Thumb Code     4  rme_platform_a7m.o(.text.__RME_Pgt_Kom_Init)
+    __RME_Pgt_Lookup                         0x08007d45   Thumb Code    66  rme_platform_a7m.o(.text.__RME_Pgt_Lookup)
+    __RME_Pgt_Page_Map                       0x08007d89   Thumb Code   294  rme_platform_a7m.o(.text.__RME_Pgt_Page_Map)
+    __RME_Pgt_Page_Unmap                     0x08007eb1   Thumb Code   124  rme_platform_a7m.o(.text.__RME_Pgt_Page_Unmap)
+    __RME_Pgt_Pgdir_Map                      0x08007f2d   Thumb Code   210  rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Map)
+    __RME_Pgt_Pgdir_Unmap                    0x08008001   Thumb Code   280  rme_platform_a7m.o(.text.__RME_Pgt_Pgdir_Unmap)
+    __RME_Pgt_Set                            0x08008119   Thumb Code     8  rme_platform_a7m.o(.text.__RME_Pgt_Set)
+    __RME_Putchar                            0x08008121   Thumb Code    42  rme_platform_a7m.o(.text.__RME_Putchar)
+    __RME_Svc_Param_Get                      0x0800814d   Thumb Code    26  rme_platform_a7m.o(.text.__RME_Svc_Param_Get)
+    __RME_Svc_Retval_Set                     0x08008169   Thumb Code     4  rme_platform_a7m.o(.text.__RME_Svc_Retval_Set)
+    __RME_Thd_Cop_Check                      0x0800816d   Thumb Code    12  rme_platform_a7m.o(.text.__RME_Thd_Cop_Check)
+    __RME_Thd_Cop_Init                       0x08008179   Thumb Code    42  rme_platform_a7m.o(.text.__RME_Thd_Cop_Init)
+    __RME_Thd_Cop_Size                       0x080081a5   Thumb Code    10  rme_platform_a7m.o(.text.__RME_Thd_Cop_Size)
+    __RME_Thd_Cop_Swap                       0x080081b1   Thumb Code   124  rme_platform_a7m.o(.text.__RME_Thd_Cop_Swap)
+    __RME_Thd_Reg_Copy                       0x0800822d   Thumb Code    36  rme_platform_a7m.o(.text.__RME_Thd_Reg_Copy)
+    __RME_Thd_Reg_Init                       0x08008251   Thumb Code    26  rme_platform_a7m.o(.text.__RME_Thd_Reg_Init)
+    __RME_Thd_Reg_Print                      0x0800826d   Thumb Code   180  rme_platform_a7m.o(.text.__RME_Thd_Reg_Print)
+    main                                     0x08008919   Thumb Code    10  rme_platform_a7m.o(.text.main)
+    __RME_A7M_Barrier                        0x080089d9   Thumb Code    10  rme_platform_a7m_armcc.o(__RME_A7M_BARRIER)
+    __RME_A7M_MSB_Get                        0x080089e9   Thumb Code    14  rme_platform_a7m_armcc.o(__RME_A7M_MSB_GET)
+    __RME_A7M_Reset                          0x080089f9   Thumb Code    14  rme_platform_a7m_armcc.o(__RME_A7M_RESET)
+    __RME_A7M_Wait_Int                       0x08008a11   Thumb Code     4  rme_platform_a7m_armcc.o(__RME_A7M_WAIT_INT)
+    __RME_Int_Disable                        0x08008a19   Thumb Code     4  rme_platform_a7m_armcc.o(__RME_INT_DISABLE)
+    __RME_Int_Enable                         0x08008a21   Thumb Code     4  rme_platform_a7m_armcc.o(__RME_INT_ENABLE)
+    __RME_User_Enter                         0x08008a29   Thumb Code    22  rme_platform_a7m_armcc.o(__RME_USER_ENTER)
+    ___RME_A7M_MPU_Set8                      0x08008a41   Thumb Code    32  rme_platform_a7m_armcc.o(___RME_A7M_MPU_SET8)
+    ___RME_A7M_Thd_Cop_Clear                 0x08008a69   Thumb Code    16  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_CLEAR)
+    ___RME_A7M_Thd_Cop_Load                  0x08008b01   Thumb Code     6  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_LOAD)
+    ___RME_A7M_Thd_Cop_Save                  0x08008b09   Thumb Code     6  rme_platform_a7m_armcc.o(___RME_A7M_THD_COP_SAVE)
+    __scatterload_copy                       0x08008b11   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x08008b1f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08008b21   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x08008bcc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08008bec   Number         0  anon$$obj.o(Region$$Table)
+    monitor_image                            0x08010000   Data       22108  monitor_image.o(.rodata.monitor_image)
+    realtime_image                           0x08020000   Data         868  realtime_image.o(.rodata.realtime_image)
+    flight_image                             0x08030000   Data        5476  flight_image.o(.rodata.flight_image)
+    sensor_image                             0x08040000   Data        5476  sensor_image.o(.rodata.sensor_image)
+    remote_image                             0x08050000   Data        5484  remote_image.o(.rodata.remote_image)
+    RME_A7M_Kot                              0x20000004   Data          36  rme_platform_a7m.o(.bss.RME_A7M_Kot)
+    RME_A7M_Local                            0x20000028   Data         276  rme_platform_a7m.o(.bss.RME_A7M_Local)
+    RME_A7M_Timestamp                        0x2000013c   Data           4  rme_platform_a7m.o(.bss.RME_A7M_Timestamp)
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x20003fa0   Number         0  anon$$obj.o ABSOLUTE
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0800043d
+
+  Load Region KERNEL (Base: 0x08000000, Size: 0x00008bf0, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region KERNEL_CODE (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00008bec, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x08000000   0x0000043c   Code   RO           65    RME_VECTOR          rme_platform_a7m_armcc.o
+    0x0800043c   0x0800043c   0x00000000   Code   RO          445  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0800043c   0x0800043c   0x00000004   Code   RO          450    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x08000440   0x08000440   0x00000004   Code   RO          453    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000444   0x08000444   0x00000000   Code   RO          455    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000444   0x08000444   0x00000000   Code   RO          457    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000444   0x08000444   0x00000008   Code   RO          458    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0800044c   0x0800044c   0x00000000   Code   RO          460    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x0800044c   0x0800044c   0x00000000   Code   RO          462    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x0800044c   0x0800044c   0x00000004   Code   RO          451    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x08000450   0x08000450   0x00000024   Code   RO          448    .text               mc_w.l(memseta.o)
+    0x08000474   0x08000474   0x00000024   Code   RO          464    .text               mc_w.l(init.o)
+    0x08000498   0x08000498   0x00000002   Code   RO            6    .text.RME_Boot_Post_Init  rme_hook.o
+    0x0800049a   0x0800049a   0x00000002   PAD
+    0x0800049c   0x0800049c   0x00000002   Code   RO            4    .text.RME_Boot_Pre_Init  rme_hook.o
+    0x0800049e   0x0800049e   0x00000002   PAD
+    0x080004a0   0x080004a0   0x0000000e   Code   RO           24    .text.RME_Boot_Vct_Handler  rme_boot.o
+    0x080004ae   0x080004ae   0x00000002   PAD
+    0x080004b0   0x080004b0   0x00000062   Code   RO           22    .text.RME_Boot_Vct_Init  rme_boot.o
+    0x08000512   0x08000512   0x00000002   PAD
+    0x08000514   0x08000514   0x000000a8   Code   RO          287    .text.RME_Hex_Print  rme_kernel.o
+    0x080005bc   0x080005bc   0x00000006   Code   RO           12    .text.RME_Hook_Kfn_Handler  rme_hook.o
+    0x080005c2   0x080005c2   0x00000002   PAD
+    0x080005c4   0x080005c4   0x00000024   Code   RO          317    .text.RME_Kmain     rme_kernel.o
+    0x080005e8   0x080005e8   0x00000264   Code   RO          291    .text.RME_Log       rme_kernel.o
+    0x0800084c   0x0800084c   0x00000002   Code   RO            8    .text.RME_Reboot_Failsafe  rme_hook.o
+    0x0800084e   0x0800084e   0x00000002   PAD
+    0x08000850   0x08000850   0x00000004   Code   RO           10    .text.RME_Spurious_Handler  rme_hook.o
+    0x08000854   0x08000854   0x0000001e   Code   RO          289    .text.RME_Str_Print  rme_kernel.o
+    0x08000872   0x08000872   0x00000002   PAD
+    0x08000874   0x08000874   0x00000112   Code   RO          419    .text._RME_CPU_Local_Init  rme_kernel.o
+    0x08000986   0x08000986   0x00000002   PAD
+    0x08000988   0x08000988   0x00000012   Code   RO          309    .text._RME_Clear    rme_kernel.o
+    0x0800099a   0x0800099a   0x00000002   PAD
+    0x0800099c   0x0800099c   0x000002fe   Code   RO          349    .text._RME_Cpt_Add  rme_kernel.o
+    0x08000c9a   0x08000c9a   0x00000002   PAD
+    0x08000c9c   0x08000c9c   0x0000009a   Code   RO          403    .text._RME_Cpt_Boot_Init  rme_kernel.o
+    0x08000d36   0x08000d36   0x00000002   PAD
+    0x08000d38   0x08000d38   0x00000214   Code   RO          343    .text._RME_Cpt_Crt  rme_kernel.o
+    0x08000f4c   0x08000f4c   0x000002bc   Code   RO          345    .text._RME_Cpt_Del  rme_kernel.o
+    0x08001208   0x08001208   0x0000010e   Code   RO          347    .text._RME_Cpt_Frz  rme_kernel.o
+    0x08001316   0x08001316   0x00000002   PAD
+    0x08001318   0x08001318   0x0000010e   Code   RO          351    .text._RME_Cpt_Rem  rme_kernel.o
+    0x08001426   0x08001426   0x00000002   PAD
+    0x08001428   0x08001428   0x00000132   Code   RO          325    .text._RME_Inv_Act  rme_kernel.o
+    0x0800155a   0x0800155a   0x00000002   PAD
+    0x0800155c   0x0800155c   0x00000264   Code   RO          385    .text._RME_Inv_Crt  rme_kernel.o
+    0x080017c0   0x080017c0   0x00000278   Code   RO          387    .text._RME_Inv_Del  rme_kernel.o
+    0x08001a38   0x08001a38   0x000000de   Code   RO          323    .text._RME_Inv_Ret  rme_kernel.o
+    0x08001b16   0x08001b16   0x00000002   PAD
+    0x08001b18   0x08001b18   0x000000c6   Code   RO          389    .text._RME_Inv_Set  rme_kernel.o
+    0x08001bde   0x08001bde   0x00000002   PAD
+    0x08001be0   0x08001be0   0x000000b2   Code   RO          397    .text._RME_Kern_High  rme_kernel.o
+    0x08001c92   0x08001c92   0x00000002   PAD
+    0x08001c94   0x08001c94   0x000000da   Code   RO          395    .text._RME_Kern_Snd  rme_kernel.o
+    0x08001d6e   0x08001d6e   0x00000002   PAD
+    0x08001d70   0x08001d70   0x000000fa   Code   RO          331    .text._RME_Kfn_Act  rme_kernel.o
+    0x08001e6a   0x08001e6a   0x00000002   PAD
+    0x08001e6c   0x08001e6c   0x000000f6   Code   RO          433    .text._RME_Kfn_Boot_Crt  rme_kernel.o
+    0x08001f62   0x08001f62   0x00000002   PAD
+    0x08001f64   0x08001f64   0x00000142   Code   RO          417    .text._RME_Kom_Boot_Crt  rme_kernel.o
+    0x080020a6   0x080020a6   0x00000002   PAD
+    0x080020a8   0x080020a8   0x000000e8   Code   RO          411    .text._RME_Kot_Erase  rme_kernel.o
+    0x08002190   0x08002190   0x000000fa   Code   RO          405    .text._RME_Kot_Mark  rme_kernel.o
+    0x0800228a   0x0800228a   0x00000002   PAD
+    0x0800228c   0x0800228c   0x0000022a   Code   RO          357    .text._RME_Pgt_Add  rme_kernel.o
+    0x080024b6   0x080024b6   0x00000002   PAD
+    0x080024b8   0x080024b8   0x00000116   Code   RO          413    .text._RME_Pgt_Boot_Add  rme_kernel.o
+    0x080025ce   0x080025ce   0x00000002   PAD
+    0x080025d0   0x080025d0   0x000001ce   Code   RO          409    .text._RME_Pgt_Boot_Crt  rme_kernel.o
+    0x0800279e   0x0800279e   0x00000002   PAD
+    0x080027a0   0x080027a0   0x000001ea   Code   RO          361    .text._RME_Pgt_Con  rme_kernel.o
+    0x0800298a   0x0800298a   0x00000002   PAD
+    0x0800298c   0x0800298c   0x00000282   Code   RO          353    .text._RME_Pgt_Crt  rme_kernel.o
+    0x08002c0e   0x08002c0e   0x00000002   PAD
+    0x08002c10   0x08002c10   0x00000290   Code   RO          355    .text._RME_Pgt_Del  rme_kernel.o
+    0x08002ea0   0x08002ea0   0x00000192   Code   RO          363    .text._RME_Pgt_Des  rme_kernel.o
+    0x08003032   0x08003032   0x00000002   PAD
+    0x08003034   0x08003034   0x000000e6   Code   RO          359    .text._RME_Pgt_Rem  rme_kernel.o
+    0x0800311a   0x0800311a   0x00000002   PAD
+    0x0800311c   0x0800311c   0x00000236   Code   RO          425    .text._RME_Prc_Boot_Crt  rme_kernel.o
+    0x08003352   0x08003352   0x00000002   PAD
+    0x08003354   0x08003354   0x0000016a   Code   RO          369    .text._RME_Prc_Cpt  rme_kernel.o
+    0x080034be   0x080034be   0x00000002   PAD
+    0x080034c0   0x080034c0   0x00000232   Code   RO          365    .text._RME_Prc_Crt  rme_kernel.o
+    0x080036f2   0x080036f2   0x00000002   PAD
+    0x080036f4   0x080036f4   0x0000014e   Code   RO          367    .text._RME_Prc_Del  rme_kernel.o
+    0x08003842   0x08003842   0x00000002   PAD
+    0x08003844   0x08003844   0x0000016a   Code   RO          371    .text._RME_Prc_Pgt  rme_kernel.o
+    0x080039ae   0x080039ae   0x00000002   PAD
+    0x080039b0   0x080039b0   0x00000028   Code   RO          393    .text._RME_Run_Notif  rme_kernel.o
+    0x080039d8   0x080039d8   0x000000f2   Code   RO          431    .text._RME_Run_Swt  rme_kernel.o
+    0x08003aca   0x08003aca   0x00000002   PAD
+    0x08003acc   0x08003acc   0x000000fa   Code   RO          429    .text._RME_Sig_Boot_Crt  rme_kernel.o
+    0x08003bc6   0x08003bc6   0x00000002   PAD
+    0x08003bc8   0x08003bc8   0x000000f6   Code   RO          381    .text._RME_Sig_Crt  rme_kernel.o
+    0x08003cbe   0x08003cbe   0x00000002   PAD
+    0x08003cc0   0x08003cc0   0x0000015e   Code   RO          383    .text._RME_Sig_Del  rme_kernel.o
+    0x08003e1e   0x08003e1e   0x00000002   PAD
+    0x08003e20   0x08003e20   0x00000232   Code   RO          329    .text._RME_Sig_Rcv  rme_kernel.o
+    0x08004052   0x08004052   0x00000002   PAD
+    0x08004054   0x08004054   0x000001c6   Code   RO          327    .text._RME_Sig_Snd  rme_kernel.o
+    0x0800421a   0x0800421a   0x00000002   PAD
+    0x0800421c   0x0800421c   0x0000032e   Code   RO          321    .text._RME_Svc_Handler  rme_kernel.o
+    0x0800454a   0x0800454a   0x00000002   PAD
+    0x0800454c   0x0800454c   0x0000026e   Code   RO          427    .text._RME_Thd_Boot_Crt  rme_kernel.o
+    0x080047ba   0x080047ba   0x00000002   PAD
+    0x080047bc   0x080047bc   0x000002fa   Code   RO          373    .text._RME_Thd_Crt  rme_kernel.o
+    0x08004ab6   0x08004ab6   0x00000002   PAD
+    0x08004ab8   0x08004ab8   0x00000406   Code   RO          375    .text._RME_Thd_Del  rme_kernel.o
+    0x08004ebe   0x08004ebe   0x00000002   PAD
+    0x08004ec0   0x08004ec0   0x000001ba   Code   RO          335    .text._RME_Thd_Exec_Set  rme_kernel.o
+    0x0800507a   0x0800507a   0x00000002   PAD
+    0x0800507c   0x0800507c   0x000001ce   Code   RO          421    .text._RME_Thd_Fatal  rme_kernel.o
+    0x0800524a   0x0800524a   0x00000002   PAD
+    0x0800524c   0x0800524c   0x0000001c   Code   RO          423    .text._RME_Thd_Pgt  rme_kernel.o
+    0x08005268   0x08005268   0x000002e6   Code   RO          377    .text._RME_Thd_Sched_Bind  rme_kernel.o
+    0x0800554e   0x0800554e   0x00000002   PAD
+    0x08005550   0x08005550   0x000001ba   Code   RO          333    .text._RME_Thd_Sched_Free  rme_kernel.o
+    0x0800570a   0x0800570a   0x00000002   PAD
+    0x0800570c   0x0800570c   0x000003e2   Code   RO          337    .text._RME_Thd_Sched_Prio  rme_kernel.o
+    0x08005aee   0x08005aee   0x00000002   PAD
+    0x08005af0   0x08005af0   0x0000010a   Code   RO          379    .text._RME_Thd_Sched_Rcv  rme_kernel.o
+    0x08005bfa   0x08005bfa   0x00000002   PAD
+    0x08005bfc   0x08005bfc   0x000003d6   Code   RO          341    .text._RME_Thd_Swt  rme_kernel.o
+    0x08005fd2   0x08005fd2   0x00000002   PAD
+    0x08005fd4   0x08005fd4   0x00000322   Code   RO          339    .text._RME_Thd_Time_Xfer  rme_kernel.o
+    0x080062f6   0x080062f6   0x00000002   PAD
+    0x080062f8   0x080062f8   0x000000ca   Code   RO          391    .text._RME_Tim_Handler  rme_kernel.o
+    0x080063c2   0x080063c2   0x00000002   PAD
+    0x080063c4   0x080063c4   0x000003cc   Code   RO          197    .text.__RME_A7M_Exc_Handler  rme_platform_a7m.o
+    0x08006790   0x08006790   0x00000058   Code   RO          217    .text.__RME_A7M_Lowlvl_Preinit  rme_platform_a7m.o
+    0x080067e8   0x080067e8   0x0000000e   Code   RO          199    .text.__RME_A7M_Reboot  rme_platform_a7m.o
+    0x080067f6   0x080067f6   0x00000002   PAD
+    0x080067f8   0x080067f8   0x00000016   Code   RO          211    .text.__RME_A7M_Svc_Handler  rme_platform_a7m.o
+    0x0800680e   0x0800680e   0x00000002   PAD
+    0x08006810   0x08006810   0x00000042   Code   RO          209    .text.__RME_A7M_Tim_Handler  rme_platform_a7m.o
+    0x08006852   0x08006852   0x00000002   PAD
+    0x08006854   0x08006854   0x0000007e   Code   RO          207    .text.__RME_A7M_Vct_Handler  rme_platform_a7m.o
+    0x080068d2   0x080068d2   0x00000002   PAD
+    0x080068d4   0x080068d4   0x000002fe   Code   RO          225    .text.__RME_Boot    rme_platform_a7m.o
+    0x08006bd2   0x08006bd2   0x00000002   PAD
+    0x08006bd4   0x08006bd4   0x0000000a   Code   RO          239    .text.__RME_Inv_Reg_Restore  rme_platform_a7m.o
+    0x08006bde   0x08006bde   0x00000002   PAD
+    0x08006be0   0x08006be0   0x0000000c   Code   RO          237    .text.__RME_Inv_Reg_Save  rme_platform_a7m.o
+    0x08006bec   0x08006bec   0x00000004   Code   RO          241    .text.__RME_Inv_Retval_Set  rme_platform_a7m.o
+    0x08006bf0   0x08006bf0   0x00000e2a   Code   RO          213    .text.__RME_Kfn_Handler  rme_platform_a7m.o
+    0x08007a1a   0x08007a1a   0x00000002   PAD
+    0x08007a1c   0x08007a1c   0x0000024a   Code   RO          223    .text.__RME_Lowlvl_Init  rme_platform_a7m.o
+    0x08007c66   0x08007c66   0x00000002   PAD
+    0x08007c68   0x08007c68   0x0000002e   Code   RO          253    .text.__RME_Pgt_Check  rme_platform_a7m.o
+    0x08007c96   0x08007c96   0x00000002   PAD
+    0x08007c98   0x08007c98   0x00000004   Code   RO          255    .text.__RME_Pgt_Del_Check  rme_platform_a7m.o
+    0x08007c9c   0x08007c9c   0x000000a4   Code   RO          251    .text.__RME_Pgt_Init  rme_platform_a7m.o
+    0x08007d40   0x08007d40   0x00000004   Code   RO          249    .text.__RME_Pgt_Kom_Init  rme_platform_a7m.o
+    0x08007d44   0x08007d44   0x00000042   Code   RO          267    .text.__RME_Pgt_Lookup  rme_platform_a7m.o
+    0x08007d86   0x08007d86   0x00000002   PAD
+    0x08007d88   0x08007d88   0x00000126   Code   RO          257    .text.__RME_Pgt_Page_Map  rme_platform_a7m.o
+    0x08007eae   0x08007eae   0x00000002   PAD
+    0x08007eb0   0x08007eb0   0x0000007c   Code   RO          261    .text.__RME_Pgt_Page_Unmap  rme_platform_a7m.o
+    0x08007f2c   0x08007f2c   0x000000d2   Code   RO          263    .text.__RME_Pgt_Pgdir_Map  rme_platform_a7m.o
+    0x08007ffe   0x08007ffe   0x00000002   PAD
+    0x08008000   0x08008000   0x00000118   Code   RO          265    .text.__RME_Pgt_Pgdir_Unmap  rme_platform_a7m.o
+    0x08008118   0x08008118   0x00000008   Code   RO          205    .text.__RME_Pgt_Set  rme_platform_a7m.o
+    0x08008120   0x08008120   0x0000002a   Code   RO          193    .text.__RME_Putchar  rme_platform_a7m.o
+    0x0800814a   0x0800814a   0x00000002   PAD
+    0x0800814c   0x0800814c   0x0000001a   Code   RO          229    .text.__RME_Svc_Param_Get  rme_platform_a7m.o
+    0x08008166   0x08008166   0x00000002   PAD
+    0x08008168   0x08008168   0x00000004   Code   RO          215    .text.__RME_Svc_Retval_Set  rme_platform_a7m.o
+    0x0800816c   0x0800816c   0x0000000c   Code   RO          243    .text.__RME_Thd_Cop_Check  rme_platform_a7m.o
+    0x08008178   0x08008178   0x0000002a   Code   RO          245    .text.__RME_Thd_Cop_Init  rme_platform_a7m.o
+    0x080081a2   0x080081a2   0x00000002   PAD
+    0x080081a4   0x080081a4   0x0000000a   Code   RO          227    .text.__RME_Thd_Cop_Size  rme_platform_a7m.o
+    0x080081ae   0x080081ae   0x00000002   PAD
+    0x080081b0   0x080081b0   0x0000007c   Code   RO          247    .text.__RME_Thd_Cop_Swap  rme_platform_a7m.o
+    0x0800822c   0x0800822c   0x00000024   Code   RO          233    .text.__RME_Thd_Reg_Copy  rme_platform_a7m.o
+    0x08008250   0x08008250   0x0000001a   Code   RO          231    .text.__RME_Thd_Reg_Init  rme_platform_a7m.o
+    0x0800826a   0x0800826a   0x00000002   PAD
+    0x0800826c   0x0800826c   0x000000fc   Code   RO          235    .text.__RME_Thd_Reg_Print  rme_platform_a7m.o
+    0x08008368   0x08008368   0x0000015e   Code   RO          269    .text.___RME_A7M_MPU_Clear  rme_platform_a7m.o
+    0x080084c6   0x080084c6   0x00000002   PAD
+    0x080084c8   0x080084c8   0x0000042c   Code   RO          203    .text.___RME_A7M_MPU_Update  rme_platform_a7m.o
+    0x080088f4   0x080088f4   0x00000022   Code   RO          259    .text.___RME_A7M_Pgt_Refresh  rme_platform_a7m.o
+    0x08008916   0x08008916   0x00000002   PAD
+    0x08008918   0x08008918   0x0000000a   Code   RO          191    .text.main          rme_platform_a7m.o
+    0x08008922   0x08008922   0x00000006   PAD
+    0x08008928   0x08008928   0x00000010   Code   RO           64    RME_ENTRY           rme_platform_a7m_armcc.o
+    0x08008938   0x08008938   0x00000030   Code   RO           74    SVC_HANDLER         rme_platform_a7m_armcc.o
+    0x08008968   0x08008968   0x0000003c   Code   RO           75    SYSTEM_HANDLER      rme_platform_a7m_armcc.o
+    0x080089a4   0x080089a4   0x00000004   PAD
+    0x080089a8   0x080089a8   0x00000030   Code   RO           73    SYSTICK_HANDLER     rme_platform_a7m_armcc.o
+    0x080089d8   0x080089d8   0x0000000c   Code   RO           68    __RME_A7M_BARRIER   rme_platform_a7m_armcc.o
+    0x080089e4   0x080089e4   0x00000004   PAD
+    0x080089e8   0x080089e8   0x00000010   Code   RO           71    __RME_A7M_MSB_GET   rme_platform_a7m_armcc.o
+    0x080089f8   0x080089f8   0x00000018   Code   RO           69    __RME_A7M_RESET     rme_platform_a7m_armcc.o
+    0x08008a10   0x08008a10   0x00000004   Code   RO           70    __RME_A7M_WAIT_INT  rme_platform_a7m_armcc.o
+    0x08008a14   0x08008a14   0x00000004   PAD
+    0x08008a18   0x08008a18   0x00000004   Code   RO           66    __RME_INT_DISABLE   rme_platform_a7m_armcc.o
+    0x08008a1c   0x08008a1c   0x00000004   PAD
+    0x08008a20   0x08008a20   0x00000004   Code   RO           67    __RME_INT_ENABLE    rme_platform_a7m_armcc.o
+    0x08008a24   0x08008a24   0x00000004   PAD
+    0x08008a28   0x08008a28   0x00000018   Code   RO           72    __RME_USER_ENTER    rme_platform_a7m_armcc.o
+    0x08008a40   0x08008a40   0x00000024   Code   RO           86    ___RME_A7M_MPU_SET8  rme_platform_a7m_armcc.o
+    0x08008a64   0x08008a64   0x00000004   PAD
+    0x08008a68   0x08008a68   0x00000094   Code   RO           76    ___RME_A7M_THD_COP_CLEAR  rme_platform_a7m_armcc.o
+    0x08008afc   0x08008afc   0x00000004   PAD
+    0x08008b00   0x08008b00   0x00000008   Code   RO           78    ___RME_A7M_THD_COP_LOAD  rme_platform_a7m_armcc.o
+    0x08008b08   0x08008b08   0x00000008   Code   RO           77    ___RME_A7M_THD_COP_SAVE  rme_platform_a7m_armcc.o
+    0x08008b10   0x08008b10   0x0000000e   Code   RO          468    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08008b1e   0x08008b1e   0x00000002   Code   RO          469    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08008b20   0x08008b20   0x0000000e   Code   RO          470    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08008b2e   0x08008b2e   0x0000002a   Data   RO           26    .rodata.str1.1      rme_boot.o
+    0x08008b58   0x08008b58   0x00000041   Data   RO          271    .rodata.str1.1      rme_platform_a7m.o
+    0x08008b99   0x08008b99   0x00000032   Data   RO          437    .rodata.str1.1      rme_kernel.o
+    0x08008bcb   0x08008bcb   0x00000001   PAD
+    0x08008bcc   0x08008bcc   0x00000020   Data   RO          467    Region$$Table       anon$$obj.o
+
+
+    Execution Region KERNEL_INIT (Exec base: 0x20000000, Load base: 0x08008bec, Size: 0x00000140, Max: 0x000025c0, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x08008bec   0x00000004   Data   RW          275    .data.__RME_A7M_Rand.LFSR  rme_platform_a7m.o
+    0x20000004        -       0x00000024   Zero   RW          274    .bss.RME_A7M_Kot    rme_platform_a7m.o
+    0x20000028        -       0x00000114   Zero   RW          272    .bss.RME_A7M_Local  rme_platform_a7m.o
+    0x2000013c        -       0x00000004   Zero   RW          273    .bss.RME_A7M_Timestamp  rme_platform_a7m.o
+
+
+    Execution Region KERNEL_DATA (Exec base: 0x200025c0, Load base: 0x08008bf0, Size: 0x000011c0, Max: 0x000011c0, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x200025c0        -       0x000011c0   Zero   RW            1    KERNEL_DATA.bss     anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x200037a0, Load base: 0x08008bf0, Size: 0x00000800, Max: 0x00000800, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x200037a0        -       0x00000800   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+
+  Load Region MONITOR (Base: 0x08010000, Size: 0x0000565c, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region MONITOR_CODE (Exec base: 0x08010000, Load base: 0x08010000, Size: 0x0000565c, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08010000   0x08010000   0x0000565c   Data   RO           53    .rodata.monitor_image  monitor_image.o
+
+
+
+  Load Region REALTIME (Base: 0x08020000, Size: 0x00000364, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region REALTIME_CODE (Exec base: 0x08020000, Load base: 0x08020000, Size: 0x00000364, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08020000   0x08020000   0x00000364   Data   RO           47    .rodata.realtime_image  realtime_image.o
+
+
+
+  Load Region FLIGHT (Base: 0x08030000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region FLIGHT_CODE (Exec base: 0x08030000, Load base: 0x08030000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08030000   0x08030000   0x00001564   Data   RO           59    .rodata.flight_image  flight_image.o
+
+
+
+  Load Region SENSOR (Base: 0x08040000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region SENSOR_CODE (Exec base: 0x08040000, Load base: 0x08040000, Size: 0x00001564, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08040000   0x08040000   0x00001564   Data   RO           35    .rodata.sensor_image  sensor_image.o
+
+
+
+  Load Region REMOTE (Base: 0x08050000, Size: 0x0000156c, Max: 0x00010000, ABSOLUTE)
+
+    Execution Region REMOTE_CODE (Exec base: 0x08050000, Load base: 0x08050000, Size: 0x0000156c, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08050000   0x08050000   0x0000156c   Data   RO           41    .rodata.remote_image  remote_image.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+         0          0       5476          0          0        433   flight_image.o
+         0          0      22108          0          0        438   monitor_image.o
+         0          0        868          0          0        443   realtime_image.o
+         0          0       5484          0          0        433   remote_image.o
+       112          0         42          0          0       2963   rme_boot.o
+        16          0          0          0          0       1414   rme_hook.o
+     24130         68         50          0          0      83752   rme_kernel.o
+      9528        250         65          4        316      37636   rme_platform_a7m.o
+      1544       1212          0          0          0       6948   rme_platform_a7m_armcc.o
+         0          0       5476          0          0        433   sensor_image.o
+
+    ----------------------------------------------------------------------
+     35508       1546      39602          4       6908     134893   Object Totals
+         0          0         32          0       6592          0   (incl. Generated)
+       178         16          1          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry4.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+        36          0          0          0          0        108   memseta.o
+
+    ----------------------------------------------------------------------
+       122         16          0          0          0        176   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       122         16          0          0          0        176   mc_w.l
+
+    ----------------------------------------------------------------------
+       122         16          0          0          0        176   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     35630       1562      39602          4       6908     134381   Grand Totals
+     35630       1562      39602          4       6908     134381   ELF Image Totals
+     35630       1562      39602          4          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                75232 (  73.47kB)
+    Total RW  Size (RW Data + ZI Data)              6912 (   6.75kB)
+    Total ROM Size (Code + RO Data + RW Data)      75236 (  73.47kB)
+
+==============================================================================
+
