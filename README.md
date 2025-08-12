@@ -47,7 +47,7 @@
 ```
 Code_Library
 ├─ report.txt
-├─ **rvmdk-stm32f411ceu6fc.rvp**
+├─ ** rvmdk-stm32f411ceu6fc.rvp **
 ├─ **Stable_Fly**
 │  ├─ Kernel
 │  │  ├─ Source
