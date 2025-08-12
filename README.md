@@ -43,13 +43,20 @@
 
 ## 项目文件说明
 
+### 以下重点目录为移植过程中修改相关代码
+- **Stable_Fly**
+- **rvmdk-stm32f411ceu6fc.rvp**
+- **M7M01_Eukaron/Include/Platform/A7M/Chip/STM32F411CE**
+- **M7M02_Ammonite/Include/Platform/A7M/Chip/STM32F411CE**
+
+### 完整项目树
+
 ---
 ```
-<pre>
 Code_Library
 ├─ report.txt
-├─ <b>rvmdk-stm32f411ceu6fc.rvp</b>
-├─ <b>Stable_Fly</b>
+├─ rvmdk-stm32f411ceu6fc.rvp
+├─ Stable_Fly
 │  ├─ Kernel
 │  │  ├─ Source
 │  │  │  ├─ rme_boot.c
@@ -338,7 +345,6 @@ Code_Library
       │     └─ rmp_platform_a7m.h
       └─ Kernel
          └─ rmp_kernel.h
-</pre>
 ```
 
 ## 项目简介
