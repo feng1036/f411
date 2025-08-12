@@ -31,7 +31,7 @@
 -   项目汇报视频(初赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
 
-###决赛提交
+### 决赛阶段
 -   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](Document/.doc)
 -   项目PPT(决赛) ：[](https://pan.baidu.com/s/1ccpIxvr6AX9CqtCojuIUPw?pwd=1234)
 -   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
