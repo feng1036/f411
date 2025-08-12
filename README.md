@@ -25,10 +25,18 @@
 ## 项目说明
 
 ---
--   项目文档(初赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](Document/基于微控制器虚拟化技术的高可信无人机操作系统设计.doc)
+### 初赛阶段
+-   项目文档(初赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计(初赛).doc](https://pan.baidu.com/s/1R3IAmBcJhdIH-pikP2Blxw?pwd=1234)
 -   项目PPT(初赛) ：[基于微控制器虚拟化技术的高可信操作系统设计进度汇报PPT（sduer你要自信队）.pptx](https://pan.baidu.com/s/1ccpIxvr6AX9CqtCojuIUPw?pwd=1234)
 -   项目汇报视频(初赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
+
+###决赛提交
+-   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](Document/.doc)
+-   项目PPT(决赛) ：[](https://pan.baidu.com/s/1ccpIxvr6AX9CqtCojuIUPw?pwd=1234)
+-   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
+-   无人机飞行测试视频(决赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1NADmcFigpwyrFCz9EBL66A?pwd=1234)
+
 
 **注意：本项目的  比赛题目分析和技术调研 、 系统框架设计 、 重要进展 、 系统测试情况 、 遇到的主要问题以及解决方法 、 本项目创新点 等更加详细的说明均在项目文档中。**
 
@@ -41,6 +49,47 @@ Code_Library
 ├─ report.txt
 ├─ rvmdk-stm32f411ceu6fc.rvp
 ├─ Stable_Fly
+│  ├─ Kernel
+│  │  ├─ Source
+│  │  │  ├─ rme_boot.c
+│  │  │  └─ rme_hook.c
+│  │  └─ Include
+│  │     ├─ rme_boot.h
+│  │     ├─ rme_platform.h
+│  │     ├─ rme_platform_a7m_conf.h
+│  │     └─ rme_platform_stm32f411ce.h
+│  ├─ Monitor
+│  │  ├─ Source
+│  │  │  ├─ rvm_boot.c
+│  │  │  └─ rvm_hook.c
+│  │  └─ Include
+│  │     ├─ rvm_boot.h
+│  │     ├─ rvm_platform.h
+│  │     ├─ rvm_platform_a7m_conf.h
+│  │     └─ rvm_platform_stm32f411ce.h
+│  ├─ Realtime
+│  │  ├─ Source
+│  │  │  ├─ prc_realtime.c
+│  │  │  ├─ prc_realtime_desc.c
+│  │  │  └─ prc_realtime_thd_startup.c
+│  │  └─ Include
+│  │     ├─ prc_realtime.h
+│  │     ├─ rvm_platform.h
+│  │     └─ rvm_platform_a7m_conf.h
+│  ├─ Flight
+│  │  ├─ Source
+│  │  │  ├─ flight.c
+│  │  │  ├─ prc_flight.c
+│  │  │  ├─ prc_flight_desc.c
+│  │  │  └─ rmp_hook.c
+│  │  └─ Include
+│  │     ├─ flight.h
+│  │     ├─ prc_flight.h
+│  │     ├─ rmp_platform.h
+│  │     ├─ rmp_platform_a7m_rvm_conf.h
+│  │     ├─ rmp_platform_stm32f411ce_rvm.h
+│  │     ├─ rvm_platform.h
+│  │     └─ rvm_platform_a7m_conf.h
 │  ├─ Sensor
 │  │  ├─ Source
 │  │  │  ├─ i2c.c
@@ -69,15 +118,6 @@ Code_Library
 │  │     ├─ rmp_platform.h
 │  │     ├─ rmp_platform_a7m_rvm_conf.h
 │  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     └─ rvm_platform_a7m_conf.h
-│  ├─ Realtime
-│  │  ├─ Source
-│  │  │  ├─ prc_realtime.c
-│  │  │  ├─ prc_realtime_desc.c
-│  │  │  └─ prc_realtime_thd_startup.c
-│  │  └─ Include
-│  │     ├─ prc_realtime.h
 │  │     ├─ rvm_platform.h
 │  │     └─ rvm_platform_a7m_conf.h
 │  ├─ Opflow
@@ -139,15 +179,6 @@ Code_Library
 │  │     ├─ vl53l1_types.h
 │  │     ├─ vl53l1_wait.h
 │  │     └─ vl53lxx_i2c.h
-│  ├─ Monitor
-│  │  ├─ Source
-│  │  │  ├─ rvm_boot.c
-│  │  │  └─ rvm_hook.c
-│  │  └─ Include
-│  │     ├─ rvm_boot.h
-│  │     ├─ rvm_platform.h
-│  │     ├─ rvm_platform_a7m_conf.h
-│  │     └─ rvm_platform_stm32f411ce.h
 │  ├─ Lua
 │  │  ├─ Source
 │  │  │  ├─ lapi.c
@@ -221,29 +252,6 @@ Code_Library
 │  │     ├─ rmp_platform_stm32f411ce_rvm.h
 │  │     ├─ rvm_platform.h
 │  │     └─ rvm_platform_a7m_conf.h
-│  ├─ Kernel
-│  │  ├─ Source
-│  │  │  ├─ rme_boot.c
-│  │  │  └─ rme_hook.c
-│  │  └─ Include
-│  │     ├─ rme_boot.h
-│  │     ├─ rme_platform.h
-│  │     ├─ rme_platform_a7m_conf.h
-│  │     └─ rme_platform_stm32f411ce.h
-│  ├─ Flight
-│  │  ├─ Source
-│  │  │  ├─ flight.c
-│  │  │  ├─ prc_flight.c
-│  │  │  ├─ prc_flight_desc.c
-│  │  │  └─ rmp_hook.c
-│  │  └─ Include
-│  │     ├─ flight.h
-│  │     ├─ prc_flight.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     └─ rvm_platform_a7m_conf.h
 │  └─ Common
 │     ├─ arm_common_tables.h
 │     ├─ arm_const_structs.h
@@ -255,6 +263,25 @@ Code_Library
 │     ├─ stm32f4xx.h
 │     ├─ stm32f4xx_conf.h
 │     └─ system_stm32f4xx.h
+├─ M7M01_Eukaron
+│  ├─ Source
+│  │  ├─ Platform
+│  │  │  └─ A7M
+│  │  │     ├─ rme_platform_a7m.c
+│  │  │     ├─ rme_platform_a7m_armcc.s
+│  │  │     └─ rme_platform_a7m_gcc.s
+│  │  └─ Kernel
+│  │     └─ rme_kernel.c
+│  └─ Include
+│     ├─ rme.h
+│     ├─ Platform
+│     │  └─ A7M
+│     │     ├─ rme_platform_a7m.h
+│     │     └─ Chip
+│     │        └─ STM32F411CE
+│     │           └─ rme_platform_stm32f411ce.h
+│     └─ Kernel
+│        └─ rme_kernel.h
 ├─ M7M02_Ammonite
 │  ├─ Source
 │  │  ├─ Virtlib
@@ -284,25 +311,6 @@ Code_Library
 │     │           └─ rvm_platform_stm32f411ce.rvc
 │     └─ Monitor
 │        └─ rvm_monitor.h
-├─ M7M01_Eukaron
-│  ├─ Source
-│  │  ├─ Platform
-│  │  │  └─ A7M
-│  │  │     ├─ rme_platform_a7m.c
-│  │  │     ├─ rme_platform_a7m_armcc.s
-│  │  │     └─ rme_platform_a7m_gcc.s
-│  │  └─ Kernel
-│  │     └─ rme_kernel.c
-│  └─ Include
-│     ├─ rme.h
-│     ├─ Platform
-│     │  └─ A7M
-│     │     ├─ rme_platform_a7m.h
-│     │     └─ Chip
-│     │        └─ STM32F411CE
-│     │           └─ rme_platform_stm32f411ce.h
-│     └─ Kernel
-│        └─ rme_kernel.h
 └─ M5P01_Prokaron
    ├─ Source
    │  ├─ Platform
@@ -335,11 +343,12 @@ Code_Library
 
 ---
 
-随着无人机在通信、测绘、物流、安防等领域的广泛应用，其飞控系统面临着日益复杂的功能集成需求。传统飞控系统多运行于资源受限的微控制器上，采用`FreeRTOS、RT-Thread`等轻量级RTOS，并将所有控制与功能模块部署于单一操作系统环境中。然而，缺乏模块隔离机制使得任何单点故障均可能引发系统整体失效，严重威胁无人机运行的稳定性与安全性。
 
-本项目旨在探索一种**基于微控制器虚拟化技术的无人机高可信操作系统架构**。通过在[RME](https://github.com/EDI-Systems/M7M01_Eukaron)(`RTOS-Mutate-Eukaron`)基础上引入[RVM](https://github.com/EDI-Systems/M7M02_Ammonite)（`Real-time Virtual machine Monitor`）进行虚拟化分区，充分利用Cortex-M平台的**内存保护单元（MPU）**能力，将飞控系统中的不同功能模块（如AI识别、避障导航等）划分至多个隔离的保护域中，并为每个保护域分配更简单高效易用的全抢占式实时操作系统——[RMP](https://github.com/EDI-Systems/M5P01_Prokaron)。这一设计使系统在面对个别模块异常、崩溃或被攻击时，仍能维持核心飞控功能的稳定运行，实现容错与抗攻击能力的大幅提升。
+近年来，无人机在通信、测绘、物流、安防等领域的应用规模持续扩大，飞行控制系统所需处理的功能愈发多样且复杂。在新质生产力发展和国家低空经济政策推动的背景下，无人机正逐步成为支撑产业升级与行业创新的重要基础设施，这对低成本 MCU 平台在高可信性与安全可控性方面提出了更高要求。现有飞控系统多基于裸机或单核实时操作系统运行，虽然具备资源占用低、实现简洁等优势，但普遍缺乏硬件级隔离与模块化防护机制，易受单点故障影响而导致系统整体失效，难以满足多任务协同处理和自主决策等高可靠性应用的需求。相比之下，嵌入式虚拟化与微内核架构能够提供更强的安全隔离与容错能力，但在资源受限的 MCU 平台上，其应用仍面临性能开销大、实现复杂度高等问题。目前，主流无人机飞控系统常运行于`FreeRTOS、RT-Thread`等轻量级 RTOS 环境中，将各类控制与功能模块集中部署在单一运行空间内。在缺乏有效隔离的条件下，任一模块发生异常均可能引发系统全局崩溃，对飞行稳定性与任务安全性造成严重威胁。因此，探索面向 MCU 平台的高可信飞控架构，兼顾资源效率与安全隔离，已成为无人机技术发展的关键方向之一。
 
-最终，本项目构建了一个**具有高度安全性、灵活性与可扩展性**的无人机操作系统架构模型，为嵌入式领域探索可信执行环境提供了参考，也为未来无人系统的系统级安全设计提供了可行路径。
+本项目旨在探索一种**基于微控制器虚拟化技术的无人机高可信操作系统架构**。通过在[RME](https://github.com/EDI-Systems/M7M01_Eukaron)(`RTOS-Mutate-Eukaron`)基础上引入[RVM](https://github.com/EDI-Systems/M7M02_Ammonite)（`Real-time Virtual machine Monitor`）进行虚拟化分区，充分利用Cortex-M平台的内存保护单元能力，将飞控系统中的不同功能模块（如光流数据收集、飞行控制等）划分至多个隔离的保护域中，并为每个保护域分配更简单高效易用的全抢占式实时操作系统——[RMP](https://github.com/EDI-Systems/M5P01_Prokaron)。这一设计使系统在面对个别模块异常、崩溃或被攻击时，仍能维持核心飞控功能的稳定运行，实现容错与抗攻击能力的大幅提升。
+
+最终，本项目构建了一个**兼具高可靠性、安全可控性、轻量高效、实时响应能力、生态兼容性及广泛适用性**的无人机操作系统架构模型，为嵌入式领域探索可信执行环境提供了参考，也为未来无人系统的系统级安全设计提供了可行路径。
 
 ### 系统架构
 
@@ -367,6 +376,7 @@ Code_Library
 | 4        | 构建跨保护域通信与功能访问机制                                | :heavy_check_mark: |
 | 5        | 引入更轻量、高效、易于验证的RMP内核对原有操作系统进行替换与重构   | :heavy_check_mark: |
 | 6        | 完成系统级安全测试框架与失效恢复验证                          | :heavy_check_mark: |
+| 7        | 加入更多功能模块进一步扩展功能集成能力，以验证系统的兼容性与扩展性 | :heavy_check_mark: |
 
 
 
@@ -374,10 +384,9 @@ Code_Library
 
 ---
 
-目标一：扩展系统兼容性，集成更多第三方功能模块，打造飞控“应用生态”原型
+目标一：扩展系统兼容性与功能集成能力，在现有飞控基础上新增光流功能模块，将光流数据纳入飞行控制闭环，以提升无人机飞行稳定性。
 
-目标二：完善微控制器级虚拟化机制，实现可靠、可控、可部署的飞控分区调度环境
-
+目标二：移植Lua脚本引擎，验证系统对较大型项目的移植适配能力，并完善微控制器级虚拟化机制，构建可靠、可控、可部署的飞控分区调度环境。
 
 
 ## 项目开发进展
@@ -473,6 +482,57 @@ Code_Library
 > - 完成《基于微控制器虚拟化技术的高可信无人机操作系统设计》项目汇报PPT
 > - 录制虚拟化平台移植前后系统运行对比飞行演示视频，直观展现系统性能演进
 
+📦 ` 2025 年 7 月份`
+
+> ✅ 完成：
+>
+> - 移除冗余的插件检测代码，精简系统运行开销
+> - 整合激光测距模块与光流定位模块，实现多源数据融合
+> - 优化光流模块的数据传输逻辑，提升数据更新效率与实时性
+> - 精简光流通信Flow_Data结构体，降低内存占用与解析复杂度
+> - 测试移植后虚拟化平台us级延迟，实现Delay_Us()接口替换
+> - 修改与光流传感器通信的SPI协议通信方式，DMA通信方式为轮询
+> - 完成激光与光流模块在虚拟化平台下的移植与功能适配
+> - 完成技术文档编写与开发过程的工程化归档
+> - 初步优化项目技术文档结构与内容组织
+> - 初步优化项目展示PPT的排版与技术亮点呈现方式
+>
+> 📌 计划： 
+>
+> - 调整光流与激光模块的线程逻辑，确保数据融合的实时性与稳定性
+> - 在rvmdk-stm32f411ceu6fc.rvp中注册光流与激光虚拟机，分配合适大小的内存空间
+> - 编写共享缓冲区访问接口，支持光流与激光模块间的高效数据交换
+> - 优化融合算法的参数更新逻辑，确保运行过程中参数稳定不被意外修改
+> - 在技术文档中新增光流与激光模块的系统集成设计说明
+> - 在PPT中增加光流与激光模块的功能演示与数据性能对比内容
+
+📦 ` 2025 年 8 月份`
+
+> ✅ 完成：
+>
+> - 优化无人机飞行控制参数，提升飞行姿态稳定性与轨迹精度
+> - 修复运行中飞行参数被非预期修改的问题，增强系统安全性
+> - 新增激光与光流数据缓存变量，提升多任务访问时的数据一致性
+> - 优化系统内存分配，缩减空闲已分配内存，为Lua虚拟机提供充足空间
+> - 引入Lua虚拟机，实现无人机对第三方插件的动态加载与运行支持
+> - 使用RMP动态内存分配系统调用实现Lua动态分配器
+> - 实现Lua输出重定向配置
+> - 编写Lua脚本测试进行移植测试
+> - 进一步完善项目技术文档，补充性能测试与应用场景分析
+> - 深化展示PPT的技术亮点与成果呈现逻辑
+> - 录制集成光流模块后的飞行演示视频，直观展示改进效果
+>
+> 📌 计划： 
+>
+> - 编写Lua虚拟机的插件加载接口，支持第三方算法在飞控系统中的快速部署
+> - 在Lua环境中调用光流与激光模块数据接口，验证跨语言调用的稳定性与实时性
+> - 优化光流模块的异常检测机制，提升对低光照与高频抖动场景的适应能力
+> - 飞行参数新增只读保护机制，防止运行中被非法修改
+> - 定位无人机异常崩溃bug，确定缩减空余空间、扩大Lua空间的优化方向
+> - 在项目文档中补充 Lua 虚拟机与光流模块的系统架构与交互流程图
+> - 在PPT中增加 Lua 插件支持与光流改进效果的性能对比图表
+> - 录制“光流+Lua”模式下的飞行演示视频，用于项目成果展示
+
 
 ## 项目人员分工
 
@@ -480,9 +540,9 @@ Code_Library
 
 | 人员   | 任务分工                                                     |
 | ------ | ------------------------------------------------------------ |
-| 付翔宇 | 编写STM32F411CEU6平台 RME 虚拟化启动代码;移除 USB、光流等非核心扩展模块;重构工程结构；划分 Flight 模块；编写适配 响应 Sensor 与 Remote 的事件处理例程； |
-| 冯彬   | 完成 RVM 启动入口_start()在STM32F411上部署；摒弃对 STM32 官方 FWLIB 固件库的依赖；划分 Sensor 模块；构建基于共享内存的高效数据交互区域； |
-| 赵薪宇 | 移除正点原子飞控项目中的Bootloader依赖；修改 I2C 总线的驱动策略简化资源控制;划分 Remote 模块；构建测试攻击代码的编写与注入，进行测试跟踪分析； |
+| 付翔宇 | 编写STM32F411CEU6平台RME虚拟化启动代码;移除USB、ATKP等非核心扩展模块,重构工程结构;划分Flight模块,编写适配响应Sensor、Remote与光流Opt_Flow的事件处理例程;将光流数据融合应用于姿态控制与位置估算中;通过调试飞控系统的PID参数,提升飞行的稳定性与控制精度,实现了飞控系统的高效移植与性能优化。|
+| 冯彬   | 完成RVM启动入口_start()在STM32F411CEU6平台的部署,摒弃对STM32官方FWLIB外设固件库的依赖;重构并划分Sensor模块，剔除未使用的多余传感器代码,同时将I2C硬件通信方式由DMA调整为轮询模式以增加监视器权限监管能力;构建基于共享内存的高效数据交互区域,实现跨虚拟机的传感器数据通信与交互;去除冗余的扩展模块检测代码,成功在初赛基础上移植并适配Lua运行环境,完成Lua脚本的全面测试验证。|
+| 赵薪宇 |移除正点原子飞控项目中的Bootloader依赖;简化I2C总线驱动策略以优化资源管理;划分 Remote 模块,完成测试攻击代码的编写与注入,并开展系统级测试与跟踪分析;通过透明中断机制有效解决高频UART中断问题;设计读写双缓冲方案以保障读写异步操作的稳定性;在初赛虚拟机基础上成功移植光流虚拟机,实时采集光流数据,为提升飞行稳定性提供有力支持。|
 
 
 
