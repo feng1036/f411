@@ -32,9 +32,9 @@
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
 
 ### 决赛阶段
--   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](https://pan.baidu.com/s/1S1WeS5PXJYJ54StVTIeqNA?pwd=1234 提取码: 1234)
+-   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](https://pan.baidu.com/s/1S1WeS5PXJYJ54StVTIeqNA?pwd=1234)
 -   进展汇报PPT(决赛) ：[基于微控制器虚拟化技术的高可信操作系统设计进度汇报PPT（sduer你要自信队）.pptx](https://pan.baidu.com/s/1LWISBzckcSDymNrvzHAM3A?pwd=1234)
--   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
+-   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1HLv_fYtJK7v5DyPU6-2yaQ?pwd=1234)
 -   无人机飞行测试视频(决赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1NADmcFigpwyrFCz9EBL66A?pwd=1234)
 
 
@@ -47,8 +47,8 @@
 ```
 Code_Library
 ├─ report.txt
-├─ rvmdk-stm32f411ceu6fc.rvp
-├─ Stable_Fly
+├─ **rvmdk-stm32f411ceu6fc.rvp**
+├─ **Stable_Fly**
 │  ├─ Kernel
 │  │  ├─ Source
 │  │  │  ├─ rme_boot.c
@@ -278,7 +278,7 @@ Code_Library
 │     │  └─ A7M
 │     │     ├─ rme_platform_a7m.h
 │     │     └─ Chip
-│     │        └─ STM32F411CE
+│     │        └─ **STM32F411CE**
 │     │           └─ rme_platform_stm32f411ce.h
 │     └─ Kernel
 │        └─ rme_kernel.h
@@ -306,7 +306,7 @@ Code_Library
 │     │     ├─ rvm_platform_a7m.h
 │     │     ├─ rvm_platform_a7m.rva
 │     │     └─ Chip
-│     │        └─ STM32F411CE
+│     │        └─ **STM32F411CE**
 │     │           ├─ rvm_platform_stm32f411ce.h
 │     │           └─ rvm_platform_stm32f411ce.rvc
 │     └─ Monitor
