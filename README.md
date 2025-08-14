@@ -32,7 +32,7 @@
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
 
 ### 决赛阶段
--   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](https://pan.baidu.com/s/1S1WeS5PXJYJ54StVTIeqNA?pwd=1234)
+-   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统设计.doc](https://pan.baidu.com/s/1orTyPai57t69qP6vZ0-q6g?pwd=1234)
 -   进展汇报PPT(决赛) ：[基于微控制器虚拟化技术的高可信操作系统设计进度汇报PPT（sduer你要自信队）.pptx](https://pan.baidu.com/s/1LWISBzckcSDymNrvzHAM3A?pwd=1234)
 -   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1HLv_fYtJK7v5DyPU6-2yaQ?pwd=1234)
 -   无人机飞行测试视频(决赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1NADmcFigpwyrFCz9EBL66A?pwd=1234)
@@ -43,7 +43,7 @@
 
 ## 项目文件说明
 
-### 以下重点目录为移植过程中修改相关代码
+### 自主开发并完善代码
 - **Stable_Fly**
 - **rvmdk-stm32f411ceu6fc.rvp**
 - **M7M01_Eukaron/Include/Platform/A7M/Chip/STM32F411CE**
@@ -591,9 +591,6 @@ Unlicensed
 -   [M7M02](https://github.com/EDI-Systems/M7M02_Ammonite)
 -   [M5P01](https://github.com/EDI-Systems/M5P01_Prokaron)
 -   [正点原子——`MiniFly`四轴飞行器](http://www.openedv.com/docs/fouraxis-fly/minifly.html)
-
-
-
 
 
 
