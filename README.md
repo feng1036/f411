@@ -163,8 +163,8 @@
 > - 移除USB、ATKP、扩展模块等模块及相关中断服务函数
 > - 将Sensor传感器相关代码从Flight中剥离，独立为sensor模块
 > - 移除FWLIB外设固件库中接口，改为直接寄存器读写方式
-> - 在Sensor中实现基于轮询的I2C读写函数I2C_Read_Byte_Polling与I2C_Write_Byte_Polling，
->   摒弃原本低频，存在安全隐患的DMA通信方式
+> - 在Sensor中实现基于轮询的I2C读写函数I2C_Read_Byte_Polling与I2C_Write_Byte_Polling  
+    摒弃原本低频，存在安全隐患的DMA通信方式
 >
 > ✅ 完成：
 >
