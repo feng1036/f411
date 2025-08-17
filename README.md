@@ -320,7 +320,7 @@
 - **Stable_Fly**
 
 <details>
-<summary>
+<summary> </summary>
 
 ```
 └─Stable_Fly(虚拟化飞控系统整体工程项目)
@@ -528,8 +528,7 @@
       ├─ stm32f4xx.h
       ├─ stm32f4xx_conf.h
       └─ system_stm32f4xx.h
-</details> 
-```
+</details> ```
 
 
 <br>
