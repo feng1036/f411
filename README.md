@@ -62,7 +62,7 @@
 
 ### 项目架构
 
-本项目在 **Cortex-M4** 平台下的 STM32F411CEU6 芯片上，基于 **内存保护单元 MPU** 实现了微内核操作系统[RME](https://github.com/EDI-Systems/M7M01_Eukaron) ，轻量级虚拟机监视器 [RVM](https://github.com/EDI-Systems/M7M02_Ammonite) ，超轻量实时操作系统 [RMP](https://github.com/EDI-Systems/M5P01_Prokaron) 的**一对一对多**的虚拟化架构，在此基础上下设五个虚拟机，将飞控系统核心功能精简整合为 Flight、Remote、Sensor、Optical_Flow四个模块，并增设 Lua 模块以支持插件的热更新。
+本项目在 **Cortex-M4** 平台下的 STM32F411CEU6 芯片上，基于 **内存保护单元 MPU** 实现了微内核操作系统 [RME](https://github.com/EDI-Systems/M7M01_Eukaron) ，轻量级虚拟机监视器 [RVM](https://github.com/EDI-Systems/M7M02_Ammonite) ，超轻量实时操作系统 [RMP](https://github.com/EDI-Systems/M5P01_Prokaron) 的**一对一对多**的虚拟化架构，在此基础上下设五个虚拟机，将飞控系统核心功能精简整合为 Flight、Remote、Sensor、Optical_Flow四个模块，并增设 Lua 模块以支持插件的热更新。
 <br>
 
 ### 项目优势
