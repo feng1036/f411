@@ -320,7 +320,7 @@
 - **Stable_Fly**
 
 <details>
-<summary>点击查看Stable_Fly相关文件项目树</summary>
+<summary>点击查看 Stable_Fly 相关文件项目树</summary>
 
 ```
 └─Stable_Fly(虚拟化飞控系统整体工程项目)
@@ -641,6 +641,9 @@
 
 ### 完整项目树
 
+<details>
+<summary>点击查看完整项目树</summary>
+
 ```
 Code_Library
 ├─ report.txt
@@ -934,6 +937,8 @@ Code_Library
       └─ Kernel
          └─ rmp_kernel.h
 ```
+</details>
+
 <br>
 <br>
 
