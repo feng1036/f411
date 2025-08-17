@@ -541,7 +541,7 @@
 - **M7M01_Eukaron/Include/Platform/A7M/Chip/STM32F411CE/rme_platform_stm32f411ce.h**
 
 <details>
-<summary>点击查看微内核通用操作系统文件项目树</summary>
+<summary>点击查看微内核通用操作系统RME文件项目树</summary>
 
 ```
 └─ M7M01_Eukaron(微内核通用实时操作系统)
@@ -572,7 +572,7 @@
 - **M7M02_Ammonite/Include/Platform/A7M/Chip/STM32F411CE/rvm_platform_stm32f411ce.rvc**
 
 <details>
-<summary>点击查看虚拟机监视器文件项目树</summary>
+<summary>点击查看虚拟机监视器RVM文件项目树</summary>
 
 ```
 └─ M7M02_Ammonite(虚拟机监视器)
@@ -606,13 +606,13 @@
          └─ rvm_monitor.h
 ```
 
-<details>
+</details>
 <br>
 
 - **M5P01_Prokaron/Include/Test/Chip/rmp_test_stm32f411ce_rvm.h**
 
 <details>
-<summary>点击查看轻量级实时操作系统项目树</summary>
+<summary>点击查看轻量级实时操作系统RMP项目树</summary>
 
 ```
 └─ M5P01_Prokaron(轻量级实时操作系统)
