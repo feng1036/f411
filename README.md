@@ -19,8 +19,8 @@
 | 指导教师 |                        潘润宇、颜廷坤                        |
 | 项目导师 |                            肖银皓                            |
 | 参赛学校 |                           山东大学                           |
-
-
+<br>
+<br>
 
 ## 项目说明
 
@@ -31,7 +31,7 @@
 -   进展汇报PPT(初赛) ：[基于微控制器虚拟化技术的高可信操作系统设计进度汇报PPT(初赛)](https://pan.baidu.com/s/1ccpIxvr6AX9CqtCojuIUPw?pwd=1234)
 -   项目汇报视频(初赛) ：[项目汇报视频](https://pan.baidu.com/s/1Djhv1h4sxJCPpxlVL3C_Og?pwd=1234)
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
-
+<br>
 
 ### 决赛阶段
 -   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统项目文档](https://pan.baidu.com/s/1ueA5J3Xtfoe8yWDFwDOvAQ?pwd=1234)
@@ -41,26 +41,28 @@
 -   项目相关图片：[项目图片](https://pan.baidu.com/s/1EK1rh36zy4Wvt8CYr_iCKQ?pwd=1234) 
 						
 **注意：本项目的详细说明均在项目文档中**
-
-
+<br>
+<br>
 
 ## 项目简介
 
 ---
+
 ### 项目背景
 
 **① 国家战略与产业推动：**《国家综合立体交通网规划纲要》明确，将低空经济上升为国家战略，强调了加强无人机新兴产业的重要性。安全可靠的无人机操作系统作为维护国家低空经济发展的核心抓手，直接关系到国家无人机基础设施建设能否安全稳定运行。近年来，无人机在通信、测绘、物流、安防等领域的应用规模持续扩大，飞行控制系统所需处理的功能愈发多样且复杂。
 
-**② 传统架构瓶颈与微控制器虚拟化困境：** 当前仍面临着三大核心挑战。第一，传统无人机多以裸机或单核实时操作系统为主，虽资源占用小，但缺乏硬件隔离，安全性无法得到保障；第二，一些安全可靠的操作系统，成本极高，虚拟化开销极大，无法在低成本微控制器平台上实现大规模部署；第三，现有的操作系统兼容性较差，无法进行广泛推广。
+**② 传统架构瓶颈与微控制器虚拟化困境：** 当前仍面临着三大核心挑战。第一，传统无人机多以裸机或单核实时操作系统为主，虽资源占用小，但缺乏硬件隔离，安全性无法得到保障；第二，一些安全可靠的操作系统，成本极高，虚拟化开销极大，无法在低成本微控制器平台上实现大规模部署；第三，现有的操作系统兼容性较差，无法进行广泛推广。  
 <br>
 
 ### 项目目标
-本项目旨在于**低成本**、**资源受限**的硬件平台上实现一种**低开销**、**高可靠性**的新型**虚拟化**无人机架构，并保持对原有实时操作系统的良好**兼容性**，从而在有限硬件条件下实现稳定、安全且高效的飞行控制与系统运行。
+
+本项目旨在于**低成本**、**资源受限**的硬件平台上实现一种**低开销**、**高可靠性**的新型**虚拟化**无人机架构，并保持对原有实时操作系统的良好**兼容性**，从而在有限硬件条件下实现稳定、安全且高效的飞行控制与系统运行。  
 <br>
 
 ### 项目架构
 
-本项目在 **Cortex-M4** 平台下的 STM32F411CEU6 芯片上，基于**内存保护单元(MPU)**实现了微内核操作系统[RME](https://github.com/EDI-Systems/M7M01_Eukaron) ，轻量级虚拟机监视器 [RVM](https://github.com/EDI-Systems/M7M02_Ammonite) ，超轻量实时操作系统 [RMP](https://github.com/EDI-Systems/M5P01_Prokaron) 的**一对一对多**的虚拟化架构，在此基础上下设五个虚拟机，将飞控系统核心功能精简整合为 Flight、Remote、Sensor、Optical_Flow四个模块，并增设 Lua 模块以支持插件的热更新。
+本项目在 **Cortex-M4** 平台下的 STM32F411CEU6 芯片上，基于**内存保护单元(MPU)**实现了微内核操作系统[RME](https://github.com/EDI-Systems/M7M01_Eukaron) ，轻量级虚拟机监视器 [RVM](https://github.com/EDI-Systems/M7M02_Ammonite) ，超轻量实时操作系统 [RMP](https://github.com/EDI-Systems/M5P01_Prokaron) 的**一对一对多**的虚拟化架构，在此基础上下设五个虚拟机，将飞控系统核心功能精简整合为 Flight、Remote、Sensor、Optical_Flow四个模块，并增设 Lua 模块以支持插件的热更新。  
 <br>
 
 ### 项目优势
@@ -83,9 +85,12 @@
 | -------- | ------------------------------------------------------------ |
 | 微控制器 | **`STM32F411CEU6 (Cortex-M4, 96MHz, 128KB SRAM, 512KB Flash)`** |
 <br>
+<br>
 
 ## 项目任务
+
 ---
+
 ### 项目总体实现
 
 本项目由三名**本科生**完成，主要实现了**微控制器虚拟化框架部署**、**飞控系统的模块化重构与虚拟化适配**以及**深度嵌入式实时操作系统的集成与替换**。底层部分，我们将微内核操作系统RME与虚拟机监视器RVM**移植**到 Cortex-M4 架构下的 STM32F411CEU6 芯片上，在资源受限的微控制器上成功部署了虚拟化架构；上层部分，基于开源正点原子飞控代码，我们将飞控系统**重构**为四大核心模块——主飞控模块、传感器模块、通信模块以及光流模块，并**移植**了Lua模块以支持插件的热更新，成功部署至虚拟化架构下五个独立的虚拟机中，；在此基础上，我们还对客户机操作系统进行了轻量实时操作系统RMP的**替换**。
@@ -279,300 +284,310 @@
 |  冯彬  | 完成RVM启动入口_start()在STM32F411CEU6平台的部署,摒弃对STM32官方FWLIB外设固件库的依赖;重构并划分Sensor模块，剔除未使用的多余传感器代码,同时将I2C硬件通信方式由DMA调整为轮询模式以增加监视器权限监管能力;构建基于共享内存的高效数据交互区域,实现跨虚拟机的传感器数据通信与交互;去除冗余的扩展模块检测代码,成功在初赛基础上移植并适配Lua运行环境,完成Lua脚本的全面测试验证。 |
 | 赵薪宇 | 移除正点原子飞控项目中的Bootloader依赖;简化I2C总线驱动策略以优化资源管理;划分 Remote 模块,完成测试攻击代码的编写与注入,并开展系统级测试与跟踪分析;通过透明中断机制有效解决高频UART中断问题;设计读写双缓冲方案以保障读写异步操作的稳定性;在初赛虚拟机基础上成功移植光流虚拟机,实时采集光流数据,为提升飞行稳定性提供有力支持。 |
 <br>
+<br>
 
 ##  项目测试
+
 ---
 
--   虚拟化平台在STM32F1CEU6芯片基本性能测试
+-   虚拟化平台在STM32F411CEU6芯片基本性能测试
 
 ![项目基础性能测试](Document/test.png)
 
+- 虚拟化飞控系统内存消耗统计
+|             | Flash（512KB） | SRAM（128KB） |
+| ----------- | -------------- | ------------- |
+| Kernel      | 48KB           | 16KB          |
+| Monitor     | 18KB           | 10KB          |
+| Flight      | 28KB           | 9KB           |
+| Sensor      | 16KB           | 14KB          |
+| Remote      | 12KB           | 8KB           |
+| OpticalFlow | 32KB           | 8KB           |
+| Lua         | 172KB          | 48KB          |
+| Total       | 326KB          | 113KB         |
+
 -   其他关于无人机飞行测试，遭受攻击快速恢复测试，光流模块定点飞行测试，虚拟机间通信测试以及Lua脚本运行测试可查看 **[飞行测试视频](https://pan.baidu.com/s/1NADmcFigpwyrFCz9EBL66A?pwd=1234)** 与 **[项目文档](https://pan.baidu.com/s/1ueA5J3Xtfoe8yWDFwDOvAQ?pwd=1234)** 有关测试内容
+<br>
 <br>
 
 ## 项目文件说明
+
 ---
 
 ### 开发及完善代码概要
 
 - **Stable_Fly**
-
-<pre style="max-height:100px;overflow:auto;">
-<code>
-``` 
-├─ Stable_Fly(虚拟化飞控系统整体工程项目)
-│  ├─ Kernel(微内核操作系统内核)
-│  │  ├─ Source(内核启动与与虚拟化适配)
-│  │  │  ├─ rme_boot.c
-│  │  │  └─ rme_hook.c
-│  │  └─ Include(内核头文件与芯片平台配置)
-│  │     ├─ rme_boot.h
-│  │     ├─ rme_platform.h
-│  │     ├─ rme_platform_a7m_conf.h
-│  │     └─ rme_platform_stm32f411ce.h
-│  ├─ Monitor(虚拟机监视器,管理各个虚拟机)
-│  │  ├─ Source(虚拟机启动与虚拟化接口)
-│  │  │  ├─ rvm_boot.c
-│  │  │  └─ rvm_hook.c
-│  │  └─ Include(监视器头文件与平台配置)
-│  │     ├─ rvm_boot.h
-│  │     ├─ rvm_platform.h
-│  │     ├─ rvm_platform_a7m_conf.h
-│  │     └─ rvm_platform_stm32f411ce.h
-│  ├─ Flight(飞行控制虚拟机,负责无人机姿态与控制逻辑)
-│  │  ├─ Source(飞行控制核心代码与进程描述文件)
-│  │  │  ├─ flight.c
-│  │  │  ├─ prc_flight.c
-│  │  │  ├─ prc_flight_desc.c
-│  │  │  └─ rmp_hook.c
-│  │  └─ Include(飞行控制头文件与平台配置)
-│  │     ├─ flight.h
-│  │     ├─ prc_flight.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     └─ rvm_platform_a7m_conf.h
-│  ├─ Sensor(传感器虚拟机,负责处理加速度等传感器数据)
-│  │  ├─ Source(传感器采集核心代码与进程描述文件)
-│  │  │  ├─ i2c.c
-│  │  │  ├─ prc_sensor.c
-│  │  │  ├─ prc_sensor_desc.c
-│  │  │  ├─ rmp_hook.c
-│  │  │  └─ sensor.c
-│  │  └─ Include(传感器头文件与平台配置)
-│  │     ├─ i2c.h
-│  │     ├─ prc_sensor.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     ├─ rvm_platform_a7m_conf.h
-│  │     └─ sensor.h
-│  ├─ Remote(遥控通信虚拟机,负责遥控数据接受与解析)
-│  │  ├─ Source(遥控通信与进程描述)
-│  │  │  ├─ prc_remote.c
-│  │  │  ├─ prc_remote_desc.c
-│  │  │  ├─ remote.c
-│  │  │  └─ rmp_hook.c
-│  │  └─ Include(遥控通信头文件与平台配置)
-│  │     ├─ prc_remote.h
-│  │     ├─ remote.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     └─ rvm_platform_a7m_conf.h
-│  ├─ Opflow(光流虚拟机,负责光流传感器通信)
-│  │  ├─ Source(光流与VL53L1x传感器驱动)
-│  │  │  ├─ optical_flow.c
-│  │  │  ├─ prc_opflow.c
-│  │  │  ├─ prc_opflow_desc.c
-│  │  │  ├─ rmp_hook.c
-│  │  │  ├─ vl53l1x.c
-│  │  │  ├─ vl53l1_api.c
-│  │  │  ├─ vl53l1_api_calibration.c
-│  │  │  ├─ vl53l1_api_core.c
-│  │  │  ├─ vl53l1_api_debug.c
-│  │  │  ├─ vl53l1_api_preset_modes.c
-│  │  │  ├─ vl53l1_api_strings.c
-│  │  │  ├─ vl53l1_core.c
-│  │  │  ├─ vl53l1_core_support.c
-│  │  │  ├─ vl53l1_error_strings.c
-│  │  │  ├─ vl53l1_register_funcs.c
-│  │  │  ├─ vl53l1_silicon_core.c
-│  │  │  ├─ vl53l1_wait.c
-│  │  │  └─ vl53lxx_i2c.c
-│  │  └─ Include(光流传感器与VL53L1 API头文件)
-│  │     ├─ optical_flow.h
-│  │     ├─ prc_opflow.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     ├─ rvm_platform_a7m_conf.h
-│  │     ├─ vl53l1x.h
-│  │     ├─ vl53l1_api.h
-│  │     ├─ vl53l1_api_calibration.h
-│  │     ├─ vl53l1_api_core.h
-│  │     ├─ vl53l1_api_debug.h
-│  │     ├─ vl53l1_api_preset_modes.h
-│  │     ├─ vl53l1_api_strings.h
-│  │     ├─ vl53l1_core.h
-│  │     ├─ vl53l1_core_support.h
-│  │     ├─ vl53l1_def.h
-│  │     ├─ vl53l1_error_codes.h
-│  │     ├─ vl53l1_error_exceptions.h
-│  │     ├─ vl53l1_error_strings.h
-│  │     ├─ vl53l1_ll_def.h
-│  │     ├─ vl53l1_ll_device.h
-│  │     ├─ vl53l1_nvm_map.h
-│  │     ├─ vl53l1_platform.h
-│  │     ├─ vl53l1_platform_log.h
-│  │     ├─ vl53l1_platform_user_config.h
-│  │     ├─ vl53l1_platform_user_data.h
-│  │     ├─ vl53l1_platform_user_defines.h
-│  │     ├─ vl53l1_preset_setup.h
-│  │     ├─ vl53l1_register_funcs.h
-│  │     ├─ vl53l1_register_map.h
-│  │     ├─ vl53l1_register_settings.h
-│  │     ├─ vl53l1_register_structs.h
-│  │     ├─ vl53l1_silicon_core.h
-│  │     ├─ vl53l1_tuning_parm_defaults.h
-│  │     ├─ vl53l1_types.h
-│  │     ├─ vl53l1_wait.h
-│  │     └─ vl53lxx_i2c.h
-│  ├─ Lua(Lua引擎移植虚拟机)
-│  │  ├─ Source(Lua核心源码及适配扩展)
-│  │  │  ├─ lapi.c
-│  │  │  ├─ lauxlib.c
-│  │  │  ├─ lbaselib.c
-│  │  │  ├─ lcode.c
-│  │  │  ├─ lcorolib.c
-│  │  │  ├─ lctype.c
-│  │  │  ├─ ldblib.c
-│  │  │  ├─ ldebug.c
-│  │  │  ├─ ldo.c
-│  │  │  ├─ ldump.c
-│  │  │  ├─ lfunc.c
-│  │  │  ├─ lgc.c
-│  │  │  ├─ linit.c
-│  │  │  ├─ liolib.c
-│  │  │  ├─ llex.c
-│  │  │  ├─ lmathlib.c
-│  │  │  ├─ lmem.c
-│  │  │  ├─ loadlib.c
-│  │  │  ├─ lobject.c
-│  │  │  ├─ lopcodes.c
-│  │  │  ├─ loslib.c
-│  │  │  ├─ lparser.c
-│  │  │  ├─ lstate.c
-│  │  │  ├─ lstring.c
-│  │  │  ├─ lstrlib.c
-│  │  │  ├─ ltable.c
-│  │  │  ├─ ltablib.c
-│  │  │  ├─ ltm.c
-│  │  │  ├─ lua.c
-│  │  │  ├─ lundump.c
-│  │  │  ├─ lutf8lib.c
-│  │  │  ├─ lvm.c
-│  │  │  ├─ lzio.c
-│  │  │  ├─ prc_lua.c
-│  │  │  ├─ prc_lua_desc.c
-│  │  │  └─ rmp_hook.c
-│  │  └─ Include(Lua引擎的完整头文件集合)
-│  │     ├─ lapi.h
-│  │     ├─ lauxlib.h
-│  │     ├─ lcode.h
-│  │     ├─ lctype.h
-│  │     ├─ ldebug.h
-│  │     ├─ ldo.h
-│  │     ├─ lfunc.h
-│  │     ├─ lgc.h
-│  │     ├─ ljumptab.h
-│  │     ├─ llex.h
-│  │     ├─ llimits.h
-│  │     ├─ lmem.h
-│  │     ├─ lobject.h
-│  │     ├─ lopcodes.h
-│  │     ├─ lopnames.h
-│  │     ├─ lparser.h
-│  │     ├─ lprefix.h
-│  │     ├─ lstate.h
-│  │     ├─ lstring.h
-│  │     ├─ ltable.h
-│  │     ├─ ltm.h
-│  │     ├─ lua.h
-│  │     ├─ lua.hpp
-│  │     ├─ luaconf.h
-│  │     ├─ lualib.h
-│  │     ├─ lundump.h
-│  │     ├─ lvm.h
-│  │     ├─ lzio.h
-│  │     ├─ prc_lua.h
-│  │     ├─ rmp_platform.h
-│  │     ├─ rmp_platform_a7m_rvm_conf.h(虚拟化平台适配层配置文件)
-│  │     ├─ rmp_platform_stm32f411ce_rvm.h
-│  │     ├─ rvm_platform.h
-│  │     └─ rvm_platform_a7m_conf.h
-│  └─ Common(STM32f4xx芯片相关头文件)
-│     ├─ arm_common_tables.h
-│     ├─ arm_const_structs.h
-│     ├─ arm_math.h
-│     ├─ core_cm4.h
-│     ├─ core_cm4_simd.h
-│     ├─ core_cmFunc.h
-│     ├─ core_cmInstr.h
-│     ├─ stm32f4xx.h
-│     ├─ stm32f4xx_conf.h
-│     └─ system_stm32f4xx.h
-``` 
-</code>
-</pre>
+```
+└─Stable_Fly(虚拟化飞控系统整体工程项目)
+   ├─ Kernel(微内核操作系统内核)
+   │  ├─ Source(内核启动与与虚拟化适配)
+   │  │  ├─ rme_boot.c
+   │  │  └─ rme_hook.c
+   │  └─ Include(内核头文件与芯片平台配置)
+   │     ├─ rme_boot.h
+   │     ├─ rme_platform.h
+   │     ├─ rme_platform_a7m_conf.h
+   │     └─ rme_platform_stm32f411ce.h
+   ├─ Monitor(虚拟机监视器,管理各个虚拟机)
+   │  ├─ Source(虚拟机启动与虚拟化接口)
+   │  │  ├─ rvm_boot.c
+   │  │  └─ rvm_hook.c
+   │  └─ Include(监视器头文件与平台配置)
+   │     ├─ rvm_boot.h
+   │     ├─ rvm_platform.h
+   │     ├─ rvm_platform_a7m_conf.h
+   │     └─ rvm_platform_stm32f411ce.h
+   ├─ Flight(飞行控制虚拟机,负责无人机姿态与控制逻辑)
+   │  ├─ Source(飞行控制核心代码与进程描述文件)
+   │  │  ├─ flight.c
+   │  │  ├─ prc_flight.c
+   │  │  ├─ prc_flight_desc.c
+   │  │  └─ rmp_hook.c
+   │  └─ Include(飞行控制头文件与平台配置)
+   │     ├─ flight.h
+   │     ├─ prc_flight.h
+   │     ├─ rmp_platform.h
+   │     ├─ rmp_platform_a7m_rvm_conf.h
+   │     ├─ rmp_platform_stm32f411ce_rvm.h
+   │     ├─ rvm_platform.h
+   │     └─ rvm_platform_a7m_conf.h
+   ├─ Sensor(传感器虚拟机,负责处理加速度等传感器数据)
+   │  ├─ Source(传感器采集核心代码与进程描述文件)
+   │  │  ├─ i2c.c
+   │  │  ├─ prc_sensor.c
+   │  │  ├─ prc_sensor_desc.c
+   │  │  ├─ rmp_hook.c
+   │  │  └─ sensor.c
+   │  └─ Include(传感器头文件与平台配置)
+   │     ├─ i2c.h
+   │     ├─ prc_sensor.h
+   │     ├─ rmp_platform.h
+   │     ├─ rmp_platform_a7m_rvm_conf.h
+   │     ├─ rmp_platform_stm32f411ce_rvm.h
+   │     ├─ rvm_platform.h
+   │     ├─ rvm_platform_a7m_conf.h
+   │     └─ sensor.h
+   ├─ Remote(遥控通信虚拟机,负责遥控数据接受与解析)
+   │  ├─ Source(遥控通信与进程描述)
+   │  │  ├─ prc_remote.c
+   │  │  ├─ prc_remote_desc.c
+   │  │  ├─ remote.c
+   │  │  └─ rmp_hook.c
+   │  └─ Include(遥控通信头文件与平台配置)
+   │     ├─ prc_remote.h
+   │     ├─ remote.h
+   │     ├─ rmp_platform.h
+   │     ├─ rmp_platform_a7m_rvm_conf.h
+   │     ├─ rmp_platform_stm32f411ce_rvm.h
+   │     ├─ rvm_platform.h
+   │     └─ rvm_platform_a7m_conf.h
+   ├─ Opflow(光流虚拟机,负责光流传感器通信)
+   │  ├─ Source(光流与VL53L1x传感器驱动)
+   │  │  ├─ optical_flow.c
+   │  │  ├─ prc_opflow.c
+   │  │  ├─ prc_opflow_desc.c
+   │  │  ├─ rmp_hook.c
+   │  │  ├─ vl53l1x.c
+   │  │  ├─ vl53l1_api.c
+   │  │  ├─ vl53l1_api_calibration.c
+   │  │  ├─ vl53l1_api_core.c
+   │  │  ├─ vl53l1_api_debug.c
+   │  │  ├─ vl53l1_api_preset_modes.c
+   │  │  ├─ vl53l1_api_strings.c
+   │  │  ├─ vl53l1_core.c
+   │  │  ├─ vl53l1_core_support.c
+   │  │  ├─ vl53l1_error_strings.c
+   │  │  ├─ vl53l1_register_funcs.c
+   │  │  ├─ vl53l1_silicon_core.c
+   │  │  ├─ vl53l1_wait.c
+   │  │  └─ vl53lxx_i2c.c
+   │  └─ Include(光流传感器与VL53L1 API头文件)
+   │     ├─ optical_flow.h
+   │     ├─ prc_opflow.h
+   │     ├─ rmp_platform.h
+   │     ├─ rmp_platform_a7m_rvm_conf.h
+   │     ├─ rmp_platform_stm32f411ce_rvm.h
+   │     ├─ rvm_platform.h
+   │     ├─ rvm_platform_a7m_conf.h
+   │     ├─ vl53l1x.h
+   │     ├─ vl53l1_api.h
+   │     ├─ vl53l1_api_calibration.h
+   │     ├─ vl53l1_api_core.h
+   │     ├─ vl53l1_api_debug.h
+   │     ├─ vl53l1_api_preset_modes.h
+   │     ├─ vl53l1_api_strings.h
+   │     ├─ vl53l1_core.h
+   │     ├─ vl53l1_core_support.h
+   │     ├─ vl53l1_def.h
+   │     ├─ vl53l1_error_codes.h
+   │     ├─ vl53l1_error_exceptions.h
+   │     ├─ vl53l1_error_strings.h
+   │     ├─ vl53l1_ll_def.h
+   │     ├─ vl53l1_ll_device.h
+   │     ├─ vl53l1_nvm_map.h
+   │     ├─ vl53l1_platform.h
+   │     ├─ vl53l1_platform_log.h
+   │     ├─ vl53l1_platform_user_config.h
+   │     ├─ vl53l1_platform_user_data.h
+   │     ├─ vl53l1_platform_user_defines.h
+   │     ├─ vl53l1_preset_setup.h
+   │     ├─ vl53l1_register_funcs.h
+   │     ├─ vl53l1_register_map.h
+   │     ├─ vl53l1_register_settings.h
+   │     ├─ vl53l1_register_structs.h
+   │     ├─ vl53l1_silicon_core.h
+   │     ├─ vl53l1_tuning_parm_defaults.h
+   │     ├─ vl53l1_types.h
+   │     ├─ vl53l1_wait.h
+   │     └─ vl53lxx_i2c.h
+   ├─ Lua(Lua引擎移植虚拟机)
+   │  ├─ Source(Lua核心源码及适配扩展)
+   │  │  ├─ lapi.c
+   │  │  ├─ lauxlib.c
+   │  │  ├─ lbaselib.c
+   │  │  ├─ lcode.c
+   │  │  ├─ lcorolib.c
+   │  │  ├─ lctype.c
+   │  │  ├─ ldblib.c
+   │  │  ├─ ldebug.c
+   │  │  ├─ ldo.c
+   │  │  ├─ ldump.c
+   │  │  ├─ lfunc.c
+   │  │  ├─ lgc.c
+   │  │  ├─ linit.c
+   │  │  ├─ liolib.c
+   │  │  ├─ llex.c
+   │  │  ├─ lmathlib.c
+   │  │  ├─ lmem.c
+   │  │  ├─ loadlib.c
+   │  │  ├─ lobject.c
+   │  │  ├─ lopcodes.c
+   │  │  ├─ loslib.c
+   │  │  ├─ lparser.c
+   │  │  ├─ lstate.c
+   │  │  ├─ lstring.c
+   │  │  ├─ lstrlib.c
+   │  │  ├─ ltable.c
+   │  │  ├─ ltablib.c
+   │  │  ├─ ltm.c
+   │  │  ├─ lua.c
+   │  │  ├─ lundump.c
+   │  │  ├─ lutf8lib.c
+   │  │  ├─ lvm.c
+   │  │  ├─ lzio.c
+   │  │  ├─ prc_lua.c
+   │  │  ├─ prc_lua_desc.c
+   │  │  └─ rmp_hook.c
+   │  └─ Include(Lua引擎的完整头文件集合)
+   │     ├─ lapi.h
+   │     ├─ lauxlib.h
+   │     ├─ lcode.h
+   │     ├─ lctype.h
+   │     ├─ ldebug.h
+   │     ├─ ldo.h
+   │     ├─ lfunc.h
+   │     ├─ lgc.h
+   │     ├─ ljumptab.h
+   │     ├─ llex.h
+   │     ├─ llimits.h
+   │     ├─ lmem.h
+   │     ├─ lobject.h
+   │     ├─ lopcodes.h
+   │     ├─ lopnames.h
+   │     ├─ lparser.h
+   │     ├─ lprefix.h
+   │     ├─ lstate.h
+   │     ├─ lstring.h
+   │     ├─ ltable.h
+   │     ├─ ltm.h
+   │     ├─ lua.h
+   │     ├─ lua.hpp
+   │     ├─ luaconf.h
+   │     ├─ lualib.h
+   │     ├─ lundump.h
+   │     ├─ lvm.h
+   │     ├─ lzio.h
+   │     ├─ prc_lua.h
+   │     ├─ rmp_platform.h
+   │     ├─ rmp_platform_a7m_rvm_conf.h(虚拟化平台适配层配置文件)
+   │     ├─ rmp_platform_stm32f411ce_rvm.h
+   │     ├─ rvm_platform.h
+   │     └─ rvm_platform_a7m_conf.h
+   └─ Common(STM32f4xx芯片相关头文件)
+      ├─ arm_common_tables.h
+      ├─ arm_math.h
+      ├─ core_cm4.h
+      ├─ core_cm4_simd.h
+      ├─ core_cmFunc.h
+      ├─ core_cmInstr.h
+      ├─ stm32f4xx.h
+      ├─ stm32f4xx_conf.h
+      └─ system_stm32f4xx.h
+```
 <br>
 
 - **rvmdk-stm32f411ceu6fc.rvp**
 ```
-├─ rvmdk-stm32f411ceu6fc.rvp(飞控项目生成文件)
+ └─rvmdk-stm32f411ceu6fc.rvp(飞控项目内核，虚拟机监视器及各虚拟机描述文件)
 ```
 <br>
 
 - **M7M01_Eukaron/Include/Platform/A7M/Chip/STM32F411CE/rme_platform_stm32f411ce.h**
 ```
-├─ M7M01_Eukaron(微内核通用实时操作系统)
-│  ├─ Source
-│  │  ├─ Platform
-│  │  │  └─ A7M
-│  │  │     ├─ rme_platform_a7m.c
-│  │  │     ├─ rme_platform_a7m_armcc.s
-│  │  │     └─ rme_platform_a7m_gcc.s
-│  │  └─ Kernel
-│  │     └─ rme_kernel.c
-│  └─ Include
-│     ├─ rme.h
-│     ├─ Platform
-│     │  └─ A7M
-│     │     ├─ rme_platform_a7m.h
-│     │     └─ Chip
-│     │        └─ STM32F411CE(移植到目标芯片平台配置文件)
-│     │           └─ rme_platform_stm32f411ce.h
-│     └─ Kernel
-│        └─ rme_kernel.h
+└─ M7M01_Eukaron(微内核通用实时操作系统)
+   ├─ Source
+   │  ├─ Platform
+   │  │  └─ A7M
+   │  │     ├─ rme_platform_a7m.c
+   │  │     ├─ rme_platform_a7m_armcc.s
+   │  │     └─ rme_platform_a7m_gcc.s
+   │  └─ Kernel
+   │     └─ rme_kernel.c
+   └─ Include
+      ├─ rme.h
+      ├─ Platform
+      │  └─ A7M
+      │     ├─ rme_platform_a7m.h
+      │     └─ Chip
+      │        └─ STM32F411CE(移植到目标芯片平台配置文件)
+      │           └─ rme_platform_stm32f411ce.h
+      └─ Kernel
+         └─ rme_kernel.h
 ```
 <br>
 
 - **M7M02_Ammonite/Include/Platform/A7M/Chip/STM32F411CE/rvm_platform_stm32f411ce.h**
 - **M7M02_Ammonite/Include/Platform/A7M/Chip/STM32F411CE/rvm_platform_stm32f411ce.rvc**
 ```
-├─ M7M02_Ammonite(虚拟机监视器)
-│  ├─ Source()
-│  │  ├─ Virtlib
-│  │  │  └─ rvm_virtlib.c
-│  │  ├─ Syslib
-│  │  │  └─ rvm_syslib.c
-│  │  ├─ Platform
-│  │  │  └─ A7M
-│  │  │     ├─ rvm_platform_a7m.c
-│  │  │     ├─ rvm_platform_a7m_armcc.s
-│  │  │     └─ rvm_platform_a7m_gcc.s
-│  │  └─ Monitor
-│  │     └─ rvm_monitor.c
-│  └─ Include()
-│     ├─ rvm.h
-│     ├─ Virtlib
-│     │  └─ rvm_virtlib.h
-│     ├─ Syslib
-│     │  └─ rvm_syslib.h
-│     ├─ Platform
-│     │  └─ A7M
-│     │     ├─ rvm_platform_a7m.h
-│     │     ├─ rvm_platform_a7m.rva
-│     │     └─ Chip
-│     │        └─ STM32F411CE(适配移植目标芯片平台编写设置文件)
-│     │           ├─ rvm_platform_stm32f411ce.h
-│     │           └─ rvm_platform_stm32f411ce.rvc
-│     └─ Monitor
-│        └─ rvm_monitor.h
+└─ M7M02_Ammonite(虚拟机监视器)
+   ├─ Source()
+   │  ├─ Virtlib
+   │  │  └─ rvm_virtlib.c
+   │  ├─ Syslib
+   │  │  └─ rvm_syslib.c
+   │  ├─ Platform
+   │  │  └─ A7M
+   │  │     ├─ rvm_platform_a7m.c
+   │  │     ├─ rvm_platform_a7m_armcc.s
+   │  │     └─ rvm_platform_a7m_gcc.s
+   │  └─ Monitor
+   │     └─ rvm_monitor.c
+   └─ Include()
+      ├─ rvm.h
+      ├─ Virtlib
+      │  └─ rvm_virtlib.h
+      ├─ Syslib
+      │  └─ rvm_syslib.h
+      ├─ Platform
+      │  └─ A7M
+      │     ├─ rvm_platform_a7m.h
+      │     ├─ rvm_platform_a7m.rva
+      │     └─ Chip
+      │        └─ STM32F411CE(适配移植目标芯片平台编写设置文件)
+      │           ├─ rvm_platform_stm32f411ce.h
+      │           └─ rvm_platform_stm32f411ce.rvc
+      └─ Monitor
+         └─ rvm_monitor.h
 ```
 <br>
 
@@ -911,15 +926,22 @@ Code_Library
          └─ rmp_kernel.h
 ```
 <br>
+<br>
 
 ## 比赛收获
+
 ---
 
-通过参加此次比赛，我们组深度聚焦于**嵌入式虚拟化与高可信操作系统构建**的系统性项目，在理论与实践的结合中全面提升了系统软件研发能力与工程素养。项目以STM32F411CEU6微控制器为平台，成功完成了**RMP轻量级实时操作系统与RVM虚拟机监控器的移植部署**，并针对正点原子飞控系统进行模块分析与功能划分，构建了多保护域并行运行的高可靠性飞控环境。
+本项目聚焦于在资源受限的嵌入式平台上构建虚拟化操作系统栈，并完成了飞控系统的模块化迁移。在目标平台上，我们成功实现了RME微内核、RVM虚拟机监控器与RMP轻量实时操作系统三层协同架构的移植与部署，完成了从传统宏内核环境到多虚拟机强隔离、模块松耦合架构的转变，构建出了一个兼具可信性、安全性与高可靠性的轻量化虚拟化平台。
 
-在项目实施过程中，我系统掌握了嵌入式操作系统、内存保护机制、任务调度、系统调用接口设计等核心技术，积累了虚拟化架构设计与安全隔离机制工程实现的宝贵经验。同时，项目中对飞控系统进行功能最小化重构与模块化封装，使我更加理解“可信执行环境”在实际场景中的必要性与挑战性，培养了面向实际问题进行系统抽象与安全设计的综合能力。
+在总体实现方面，本项目由三名本科生完成，涵盖了从底层虚拟化框架部署到上层飞控系统模块化适配的完整过程。在硬件层面，我们成功将RME和RVM移植到基于 Cortex‑M4架构的STM32F411CEU6芯片上，实现了在有限资源条件下的自举与运行。在飞控软件层面，我们对开源正点原子飞控代码进行了重构，将原本紧耦合的系统拆分为飞控、传感器、通信和光流四个核心模块，并移植了Lua模块以支持脚本化热更新。最终，这些模块运行在五个独立的虚拟机内，由RMP实时操作系统调度管理，构建出了一个隔离性强、稳定可靠，鲁棒性强的飞控体系。
 
-本次比赛不仅加深了我们对操作系统底层原理与嵌入式系统安全机制的理解，也让我体会到将学术研究成果转化为实际系统方案所需的工程协同与思维严谨性。未来，我将继续在系统软件与嵌入式安全方向深入钻研，力求在可信计算、智能终端系统架构等前沿领域探索更多的可能性。
+在技术实现过程中，我们遇到并解决了多个关键问题。虚拟机之间的通信是核心难点之一。为实现强隔离的同时保持实时性，我们设计并实现了基于虚拟中断、共享内存和消息队列缓冲的通信机制，使数据交互既安全又高效。高频UART中断同样成为影响系统性能的挑战，对此我们采用透明中断机制，将物理中断与调度过程解耦，降低了对CPU的负担。针对飞控中低频DMA带来的潜在风险，我们在保证数据不丢失和负载可控的前提下，将DMA方式改造为轮询方式，从而避免了外设越权访问的问题。同时，我们还修复了RVM监控器中的指针错误，调整了快慢路径切换逻辑，解决了长指令执行过程中的不稳定现象，保证了虚拟化栈的稳定运行。
+
+在比赛过程中，团队不仅掌握了微内核设计、嵌入式虚拟化调度和硬件抽象等基础原理，还在解决通信延迟、内存隔离、全局变量依赖和多模块同步等实际问题时积累了调试和改进的经验。在应对MPU配置冲突、指针错误等具体挑战时，我们提升了系统架构理解与跨模块协作的能力；在不断调试和修改的过程中，我们也锻炼了团队沟通、分工协作和压力应对能力。这些实践能力与经验的提升，是本次比赛给予我们的最大收获。
+
+本次比赛不仅加深了我们对操作系统底层原理与嵌入式系统安全机制的理解，也让我们体会到将学术研究成果转化为实际系统方案时，所需要的工程协同精神与严谨思维方式。未来，我们将继续在系统软件与嵌入式安全方向不断钻研，力求在可信计算与智能终端系统架构等前沿领域探索更多可能性。
+<br>
 <br>
 
 ## 项目开源说明
@@ -928,8 +950,10 @@ Code_Library
 
 Unlicensed
 <br>
+<br>
 
 ## 参考资料
+
 ---
 
 -   [M7M01](https://github.com/EDI-Systems/M7M01_Eukaron)
