@@ -33,11 +33,11 @@
 -   无人机飞行测试视频(初赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1k3KI1naTStXgV1jWZ5nHWg?pwd=1234)
 
 ### 决赛阶段
--   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统项目文档](https://pan.baidu.com/s/1ha-8qT-dunuo0-GSEwr2OQ?pwd=1234)
--   进展汇报PPT(决赛) ：[基于微控制器虚拟化技术的高可信操作系统进度汇报PPT](https://pan.baidu.com/s/1reNKg0NNYVLwifpwLowaAA?pwd=1234)
--   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1HLv_fYtJK7v5DyPU6-2yaQ?pwd=1234)
+-   项目文档(决赛) ：[基于微控制器虚拟化技术的高可信无人机操作系统项目文档](https://pan.baidu.com/s/1ueA5J3Xtfoe8yWDFwDOvAQ?pwd=1234)
+-   进展汇报PPT(决赛) ：[基于微控制器虚拟化技术的高可信操作系统进度汇报PPT](https://pan.baidu.com/s/1cyff1Jh3IChCl44N__3DOA?pwd=1234)
+-   项目汇报视频(决赛) ：[项目汇报视频](https://pan.baidu.com/s/1RmIfkAdsPLsRvYbej3W8oA?pwd=1234)
 -   无人机飞行测试视频(决赛) ：[无人机飞行测试视频](https://pan.baidu.com/s/1NADmcFigpwyrFCz9EBL66A?pwd=1234)
--   项目相关图片：[项目图片](https://pan.baidu.com/s/1-FCMzqOF1Ym54UIoIKhKmQ?pwd=1234) 
+-   项目相关图片：[项目图片](https://pan.baidu.com/s/1RDPxSZ0ZsXqqBLK5sKpUYQ?pwd=1234) 
 
 **注意：本项目的详细说明均在项目文档中**
 
