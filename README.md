@@ -319,7 +319,8 @@
 
 - **Stable_Fly**
 
-<div style="max-height:400px; overflow-y:auto;">
+<details>
+<summary>
 
 ```
 └─Stable_Fly(虚拟化飞控系统整体工程项目)
@@ -528,8 +529,8 @@
       ├─ stm32f4xx_conf.h
       └─ system_stm32f4xx.h
 ```
+</details> 
 
-</div>
 <br>
 
 - **rvmdk-stm32f411ceu6fc.rvp**
